@@ -1,0 +1,165 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hult Prize | IIT Kharagpur</title>
+    <meta name="description" content="Responsive HTML5 Template" />
+    <meta name="keywords" content="Onepage, creative, modern, bootstrap 5, multipurpose, clean" />
+    <meta name="author" content="Shreethemes" />
+    <meta name="website" content="https://shreethemes.in" />
+    <meta name="email" content="support@shreethemes.in" />
+    <meta name="version" content="1.0.0" />
+    <!-- favicon -->
+    <link href="{% static 'ftp/images/logo.png' %}" rel="shortcut icon">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'home/css/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'home/css/css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'home/css/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+    <!-- Custom  Css -->
+    <link href="{% static 'home/css/css/style.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+    <style>
+        .text-muted {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 56px;
+        }
+
+        .container {
+            margin-top: 20px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- START NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-lg nav-light fixed-top sticky">
+        <div class="container">
+            <a class="navbar-brand" href="">
+                <span class="logo-light-mode">
+                    <img src="{% static 'hult.png' %}" class="l-light" alt="" style="width: 50px; height: 50px;">
+                    <img src="{% static 'hult.png' %}" class="l-dark" alt="" style="width: 50px; height: 50px;">
+                </span>
+                <img src="{% static 'hult.png' %}" class="logo-dark-mode" alt="">
+                <!-- <h3 style="display: inline-block; align-items:center !important;">Hult</h3> -->
+            </a>
+            <h3 style="display: inline-block; align-items:center !important;margin:auto !important;">Hult Prize OnCampus
+                2023</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i data-feather="menu"></i>
+            </button>
+
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navlist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" style="color: black !important;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#idea" style="color: black !important;">Idea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#problem_solution" style="color: black !important;">Problem & Solution</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team" style="color: black !important;">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pitch" style="color: black !important;">Pitch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#impact" style="color: black !important;">Impact</a>
+                    </li>
+                </ul>
+            </div> -->
+            <!--end collapse-->
+        </div>
+        <!--end container-->
+    </nav>
+    <!-- END NAVBAR -->
+
+    <section style="margin-top: 100px;">
+        <div class="container">
+            {% for each in info %}
+                <h1>{{each.subtitle}}</h1>
+                <h6>{{each.desc}}</h6><br><br>
+                {% if each.links %}
+                    {% for link in links %}
+                        {% if link.subtitle == "Youtube" %}
+                            <iframe src="{{link.link}}" width="560" height="315" frameborder="0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+                        {% else %}
+                            <a href="{{link.link}}">{{link.title}}</a><br>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <!-- <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        </div>
+        <!-- <div class="container">
+            {% for link in links %}
+            <iframe src="{{link.link}}" frameborder="0"></iframe>
+            {% endfor %}
+        </div> -->
+    </section>
+
+    <!-- Start Footer -->
+    <footer class="bg-footer footer-bar" style="position: fixed;left: 0;bottom: 0;width: 100%;">
+        <div class="footer-py-30">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-sm-3">
+                        <div class="text-sm-start">
+                            <div class="logo-footer">
+                                <img src="{% static 'hult.png' %}" alt="" style="height: 50px; width: 50px;">
+                                <!-- <div class="line" style="width:3px; height: 50px; background-color:white;display:inline-block; align-items:center; margin:auto"></div> -->
+                                <img src="{% static 'ftp/images/logo.png' %}" alt="" style="height: 50px; width: 50px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <div class="text-center">
+                            <p class="mb-0">©
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Hult Prize | International Relations Cell, IIT Kharagpur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <ul class="list-unstyled social-icon foot-social-icon text-sm-end mb-0">
+                            <li class="list-inline-item mb-0"><a href="https://www.facebook.com/IRCIITKGP/"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item mb-0"><a href="https://www.instagram.com/hultprizeiitkgp/"><i class="fab fa-instagram"></i></a></li>
+                            <!-- <li class="list-inline-item mb-0"><a href=""><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li> -->
+                            <li class="list-inline-item mb-0"><a
+                                    href="https://www.linkedin.com/company/hult-prize-iit-kharagpur/"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                        <!--end icon-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <!--end row-->
+            </div>
+            <!--end container-->
+        </div>
+    </footer>
+    <script src="{% static 'home/js/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'home/js/js/gumshoe.js' %}"></script>
+    <script src="{% static 'home/js/js/tobii.min.js' %}"></script>
+    <script src="{% static 'home/js/js/contact.js' %}"></script>
+    <script src="{% static 'home/js/js/feather.min.js' %}"></script>
+    <!-- Custom -->
+    <script src="{% static 'home/js/js/plugins.init.js' %}"></script>
+    <script src="{% static 'home/js/js/app.js' %}"></script>
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+</body>
+</html>

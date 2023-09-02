@@ -1,0 +1,1457 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/author/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 May 2022 11:06:35 GMT -->
+
+<head>
+    <title>International Relations Cell</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="{% static 'home/css/gallery.css' %}" /> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'home/css/reqCSS.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/slick/slick.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/slick/slick-theme.min.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'home/css/lg/lightgallery.min.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'home/css/lg/lg-thumbnail.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'home/css/lg/lg-video.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
+
+    <script nonce="e6ccdcff-7830-4910-aee4-6b997f9f6cec">(function (w, d) { !function (a, e, t, r) { a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = { deferred: [] }, a.zaraz.q = [], a.zaraz._f = function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } }; for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.addEventListener("DOMContentLoaded", (() => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; for (n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.x = Math.random(), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.zarazData.q = []; a.zaraz.q.length;) { const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0; for (const e of [localStorage, sessionStorage]) Object.keys(e).filter((a => a.startsWith("_zaraz_"))).forEach((t => { try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) } catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) } })); z.referrerPolicy = "origin", z.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t) })) }(w, d, 0, "script"); })(window, document);
+    </script>
+    <style>
+        .page {
+            background-color: transparent !important;
+        }
+        .icon-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+        }
+        .icon-button > i{
+            font-size: 20px;
+        }
+        .icon-button:hover {
+            cursor: pointer;
+        }
+        .icon-button__badge {
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 15px;
+            height: 15px;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        .navbar-brand > img{
+            transform: scale(1) !important;
+        }
+        .slider-text{
+            height: fit-content !important;
+        }
+        .r5{
+            border-radius: 5px;
+        }
+        .r10{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="pagesBG"></div>
+    <i class="fas fa-arrow-up floatingBtn scrollToTopBtn" onclick="window.scrollTo(0,0)" tabindex="0"
+        style="background: linear-gradient(135deg, #2C983C , #2C983C , #2C983C , #2C983C);"></i>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container" style="flex-direction: row;">
+            <a style="line-height: 1.2;margin-right: 0;" class="navbar-brand" href="{% url 'home' %}">
+                <img style="margin-left: 10px;margin-right: 0;" src="{% static 'ftp/images/logo.png' %}" alt="" />
+                <!-- <span>International Relations<br />Cell<span> -->
+            </a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="font-size: 40px;margin: 10px;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto" style="display: flex;align-items: center;margin-right: auto;padding-right: 20px;padding-left: 20px;">
+                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="#chapter-section" class="nav-link"><span>Events</span></a></li>
+                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Gallery</span></a></li>
+                    <li class="nav-item"><a href="#testimonial-section" class="nav-link"><span>Testimonials</span></a></li>
+                    <li class="nav-item"><a href="#author-section" class="nav-link"><span>Team</span></a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="{% url 'ftp:index' %}" class="nav-link" target="_blank"><span>FTP Portal</span></a></li>
+                    <li class="nav-item"><a href="{% url 'noticeboard' %}" class="icon-button">
+                        <i class="fas fa-bell"></i>
+                        <span class="icon-button__badge">2</span>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="intro" id="home-section">
+        <div style="width: 2em; height: 2em; background-color: transparent; z-index: 2; bottom: 25px; position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite 0.15s;cursor:pointer;"
+            onclick="document.querySelector('.hero-wrap').scrollIntoView()"></div>
+        <div style="width: 2em; height: 2em; background-color: transparent; z-index: 2; bottom: 40px; position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite;cursor:pointer;"
+            onclick="document.querySelector('.hero-wrap').scrollIntoView()"></div>
+        <video autoplay muted loop>
+            <source src="{% static 'home/vid/ftp.mp4' %}" type="video/mp4">
+        </video>
+        <!-- <style>
+            .custom-shape-divider-bottom-1669436753 {
+                position: absolute;
+                bottom: 7px;
+                left: 0;
+                width: 100%;
+                overflow: hidden;
+                line-height: 0;
+                transform: rotate(180deg);
+            }
+
+            .custom-shape-divider-bottom-1669436753 svg {
+                position: relative;
+                display: block;
+                width: calc(100% + 1.3px);
+                height: 100px;
+            }
+
+            .custom-shape-divider-bottom-1669436753 .shape-fill {
+                fill: #FFFFFF;
+            }
+        </style>
+        <div class="custom-shape-divider-bottom-1669436753">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div> -->
+    </div>
+    <section class="hero-wrap ftco-about img ftco-section" id="about-section">
+        <div class="container">
+            <div class="row d-flex no-gutters" style="flex-direction: row-reverse;">
+                <div class="col-md-6 col-lg-6 d-flex">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="overlay"></div>
+                        <div class="img r5 d-flex align-self-stretch align-items-center"
+                            style="background:url({% static 'home/images/hero_homepage4.png' %}) no-repeat center center / contain;">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-text col-md-6 col-lg-6 pl2-md-5" id="aboutus">
+                    <div class="text mt-5">
+                        <h1>International Relations Cell</h1>
+                        <p>The International Relations Cell works along the Office of International Relations,
+                            Indian Institute of Technology, Kharagpur. The Cell takes pride in organising various events
+                            like Foreign Training Program (FTP),
+                            Semester Away Program (SAP), Student Exchange Program (SEP) and many more. </p>
+                        <p><a href="https://international.iitkgp.ac.in/team/" style="color: white !important;" target="_blank"
+                                class="btn btn-primary py-3 px-4">Read
+                                More</a></p>
+                    </div>
+                    <!-- <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-4">About IRCell</h2>
+                            <p>We offer the students of Indian Institute of Kharagpur numerous opportunities regarding
+                                foreign training
+                                and spending semesters in universities across the world.
+                            </p>
+                            <div class="text-about">
+                                <h4>Award achievements</h4>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
+                                    Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right
+                                    at the coast of the Semantics, a large language ocean.</p>
+                                <h4>Read On Any Devices</h4>
+                                <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                                    language ocean.</p>
+                                <h4>Very High Resolution</h4>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
+                                    Consonantia, there live the blind texts.</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-no-pb ftco-partner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg ftco-animate">
+                    <a href="https://www.purdue.edu/" target="_blank" class="partner d-flex justify-content-center"><img
+                            src="{% static 'home/images/purdue-logo2.png' %}" class="img-fluid" style="margin-top: -15px;transform: scale(1) !important;"
+                            alt="Colorlib Template" /></a>
+                </div>
+                <div class="col-md-12 col-lg ftco-animate">
+                    <a href="https://uwaterloo.ca/" target="_blank" class="partner d-flex justify-content-center"><img
+                            src="{% static 'home/images/waterloo-logo.png' %}" class="img-fluid"
+                            style="transform: scale(1) !important;"
+                            alt="Colorlib Template" /></a>
+                </div>
+                <div class="col-md-12 col-lg ftco-animate">
+                    <a href="https://www.ucla.edu/" target="_blank" class="partner d-flex justify-content-center"><img
+                            src="{% static 'home/images/ucla-logo.png' %}" class="img-fluid"
+                            style="transform: scale(1) !important;"
+                            alt="Colorlib Template" /></a>
+                </div>
+                <div class="col-md-12 col-lg ftco-animate">
+                    <a href="https://www.stanford.edu/" target="_blank"
+                        class="partner d-flex justify-content-center"><img
+                            src="{% static 'home/images/stanford-logo.png' %}" class="img-fluid"
+                            style="transform: scale(1) !important;"
+                            alt="Colorlib Template" /></a>
+                </div>
+                <div class="col-md-12 col-lg ftco-animate">
+                    <a href="https://www.tum.de/en/" target="_blank" class="partner d-flex justify-content-center"><img
+                            src="{% static 'home/images/tum-logo.png' %}" class="img-fluid"
+                            style="transform: scale(1) !important;"
+                            alt="Colorlib Template" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-about img ftco-section" id="about-section">
+        <div class="container">
+            <div class="row d-flex no-gutters">
+                <div class="col-md-6 col-lg-6 d-flex">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="overlay"></div>
+                        <div class="img r5 d-flex align-self-stretch align-items-center"
+                            style="background:url({% static 'home/images/hero_homepage2.jpg' %}) no-repeat center left / cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 pl-md-5" id="aboutus">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-4">About IRCell</h2>
+                            <p>We offer the students of Indian Institute of Kharagpur numerous opportunities regarding
+                                foreign training
+                                and spending semesters in universities across the world.
+                            </p>
+                            <div class="text-about">
+                                <h4>Achievements</h4>
+                                <p>We are working towards innovation. We feed on ideas and turn them into reality at the Institute level. Taking new initiatives and working on every individual’s idea is something that makes us unique.</p>
+                                <h4>International Semester Exchange Program</h4>
+                                <p>Exchange of students between IIT Kharagpur and foreign institutes for a semester or two to have an enriching experience of studying in a foreign university while paying the fees of their respective host institutes.</p>
+                                <h4>Foreign Training Portal</h4>
+                                <p>Launch of a unique portal facilitating the process of getting foreign internships.</p>
+                                <h4>Newsletter</h4>
+                                <p>The International Relations Cell Newsletter is an initiative to summarize all the open International Scholarships and competitions along with Indo-X Grants that are available for professors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+        <div class="container">
+            <div class="row d-md-flex align-items-center align-items-stretch">
+                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 r10 bg-light">
+                        <div class="text">
+                            <strong class="number" data-number="1100">0</strong>
+                            <span>Foreign Projects</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 r10 bg-light">
+                        <div class="text">
+                            <strong class="number" data-number="1200">0</strong>
+                            <span>Newsletters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 r10 bg-light">
+                        <div class="text">
+                            <strong class="number" data-number="340">0</strong>
+                            <span>Seminars</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 r10 bg-light">
+                        <div class="text">
+                            <strong class="number" data-number="12000">0</strong>
+                            <span>Applicants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="ftco-section ftco-no-pb ftco-no-pt" id="notice-section">
+        <div class="row justify-content-center py-5 mt-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Noticeboard</h2>
+            </div>
+        </div>
+        <div class="container notice">
+        {% for notice in notices %}
+        <div id="outer">
+            <div id="inner">
+                <figure class="image-block" style="height:80vh;width:100%">
+                    <h1 style="font-size:35px;font-weight:600;background:black;opacity:0.7">{{notice.topic}}</h1>
+                    <img src={{notice.image.url}} style="width:100%" alt=""/>
+                    <figcaption style="background:black;opacity:0.8">
+                        <h3 style="color:#fff;font-size:20px;font-weight:500">
+                            More Info
+                        </h3>
+                        <h4 style="color:#ffffff;font-size:18px;font-weight:350">{{notice.description}}</h4>
+                        <button>
+                            More Info
+                        </button>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </section> -->
+    <section class="ftco-section ftco-no-pt">
+        <div class="container">
+            <div class="row justify-content-center py-5 mt-5" style="margin-top:0px !important;">
+                <div class="col-md-5 heading-section text-center ftco-animate">
+                    <h2 style="margin-bottom: 0px !important;">Goals</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <div class="services-1 r10 bg-light">
+                        <span class="icon">
+                            <i class="flaticon-user-experience"></i>
+                        </span>
+                        <div class="desc">
+                            <h3 class="mb-5">QS Ranking</h3>
+                            <p>One of the main goals of IR Cell is to improve the QS Ranking of IIT Kharagpur and make our
+                                institute standout in the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <div class="services-1 r10 bg-light">
+                        <span class="icon">
+                            <i class="flaticon-innovation"></i>
+                        </span>
+                        <div class="desc">
+                            <h3 class="mb-5">Foreign Training</h3>
+                            <p>IR Cell provides a gateway for KGPians to apply for foreign training in their dream
+                                universities abroad thus providing them foreign exposure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <div class="services-1 r10 bg-light">
+                        <span class="icon">
+                            <i class="flaticon-network"></i>
+                        </span>
+                        <div class="desc">
+                            <h3 class="mb-5">International Students</h3>
+                            <p>IR Cell coordinates with the international students, guides them and be their point of
+                                contact throughout their stay in IIT Kharagpur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-no-pb ftco-no-pt" id="chapter-section">
+        <div class="container">
+            <div class="row justify-content-center py-5 mt-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Events</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <nav id="navi">
+                        <ul>
+                            <li><a href="#page-1">Events</a></li>
+                            <li><a href="#page-2">Foreign Training</a></li>
+                            <li><a href="#page-3">FTPD</a></li>
+                            <li><a href="#page-4">Hult Prize</a></li>
+                            <li><a href="#page-5">Dyuti</a></li>
+                            <li><a href="#page-6">SAP/SEP</a></li>
+                            <li><a href="#page-7">MSPhD Panel Discussion</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-9">
+                    <div id="page-1" class="page bg-light one">
+                        <h2 class="heading">Events</h2>
+                        <p style="color:initial;"></p>
+                    </div>
+                    <div id="page-2" class="page bg-light two">
+                        <h2 class="heading">Foreign Training Portal</h2>
+                        <div class="row">
+                            <!-- <div class="col-md-7"> -->
+                            <p style="color:initial;">As an Institute of Eminence, IIT Kharagpur contributes to global
+                                development through
+                                its mission
+                                of producing industry ready, academically strong and intellectually competent
+                                graduates,
+                                capable of leading and adapting to the ever-changing needs of society. Another step
+                                in this
+                                direction is the unique opportunity to spend research-extensive summers, working
+                                under eminent
+                                professors and universities abroad, that Foreign Training Program brings to
+                                undergraduates.
+                                Through this program we have started formalisation of the foreign training
+                                application procedure,
+                                with the aim of streamlining and increasing the efficiency of the procedure. Thus,
+                                bringing more
+                                cross-cultural work exposure and opportunities to students.
+                            </p>
+                            <!-- </div> -->
+                            <!-- <div class="col-md-5">
+                                <div class="img d-flex align-self-stretch align-items-center">
+                                    <img src="{% static 'home/images/hero_homepage5.jpg' %}" class="img-fluid"
+                                        style="margin-top:-15px" alt="Colorlib Template"></a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="page-3" class="page bg-light three">
+                        <h2 class="heading">Foreign Training Panel Discussion</h2>
+                        <p style="color:initial;">IIT Kharagpur being a land of opportunities has something for every
+                            soul.
+                            Among the plethora of opportunities that an IIT provides is a Foreign Internship.
+                            Foreign Internship is something which undoubtedly sounds out of reach and the cloud of
+                            uncertainty
+                            blinds us from seeking innumerable opportunities. Foreign Training Panel Discussion(FTPD)
+                            provides
+                            a path to clear all your doubts and misconceptions related to it by the opportunity of
+                            interacting
+                            with the KGPians who have interned at prestigious universities abroad.
+                            This not only provides insightful views on FTP but also helps you in creating an actionable
+                            plan for the year ahead.</p>
+                    </div>
+                    <div id="page-4" class="page bg-light four">
+                        <h2 class="heading">Hult Prize</h2>
+                        <p style="color:initial;">IIT Kharagpur provides a lot of grounds of opportunities for students
+                            to grow and develop as
+                            per
+                            the need of time.
+                            Hult Prize is the most prestigious group of driven, like-minded students, offering
+                            unparalleled
+                            opportunities and resources. Meet the team of passionate leaders bringing this global
+                            program
+                            to our university. As we have participation on a large scale it helps in bringing more
+                            cross-cultural
+                            work exposure and opportunities to students.
+                        </p>
+                        <a href="/hult" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Hult Prize</a>
+                    </div>
+                    <div id="page-5" class="page bg-light five">
+                        <h2 class="heading">Dyuti</h2>
+                        <p style="color:initial;">India has a lot of different cultures within itself. Through Dyuti we
+                            promote the culture
+                            of India which is unity in diversity. The centre of attraction of this event being the
+                            Illumination fest which is more popularly known as Illu. This event is organised in the
+                            period of Diwali. You will learn how you can empower the disadvantaged population in your
+                            country by developing indegeneous rural technology, how you can make healthcare technologies
+                            more affordable for larger masses in your country, thus adding value to others’ lives.</p>
+                    </div>
+                    <div id="page-6" class="page bg-light six">
+                        <h2 class="heading">SAP/SEP</h2>
+                        <p style="color:initial;">Office of International Relations, IIT Kharagpur gives various
+                            opportunities to students to
+                            pursue their
+                            dream of education abroad. SAP is a program in which students are given the opportunity to
+                            pursue one
+                            semester in a university abroad. This allows them to get exposure to new universities and
+                            make global
+                            connections which helps them grow both personally and professionally.
+                            SEP is another program offered for the same. This is an exchange program between two
+                            universities in
+                            which a student covers a funded short-term visit to another university and vice versa.
+                        </p>
+                    </div>
+                    <div id="page-7" class="page bg-light seven">
+                        <h2 class="heading">MS/PhD Panel Discussion</h2>
+                        <p style="color:initial;">IIT KGP provides students with impeccable avenues to explore and lets
+                            you identify your
+                            passion
+                            by getting exposure to innumerable fields. The research groups, academic curriculum,
+                            internships,
+                            and projects help you to identify your research aptitude and discover research areas.
+                            This programme gives you an help in your way to clear all your doubts relating to seeking
+                            higher education through the opportunity of interacting with the KGPians by knowing their
+                            involvement and experience in getting chosen for their ambitious foreign university. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-project" id="projects-section">
+        <div class="container">
+            <div class="row no-gutters justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <!-- <span class="subheading">Projects</span> -->
+                    <h2 style="margin-bottom: 0px !important;">Gallery</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for event in events %}
+                    <div class="col-md-3" onclick="window.open('{% url 'event' id=event.id %}','_self')">
+                        <div class="project r5 img ftco-animate d-flex justify-content-center align-items-end"
+                            style="background-image:url({{ event.img.url }});">
+                            <div class="overlay"></div>
+                            <div class="text p-4">
+                                <h3><a href="{% url 'event' id=event.id %}">{{ event.title }}</a></h3>
+                                <span>{{ event.date }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 
+        <div class="container">
+            <div class="row flex-column-reverse flex-md-row"> -->
+
+        <!-- THUMBNAIL CONTAINER -->
+        <!-- <div class="col-md-3">
+                    <div class="awesome__thumbnails">
+                        <div class="thumb active" data-rel="0">
+                            <img src="https://images.unsplash.com/photo-1622910076411-b126ff7e469b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100"
+                                alt="Image 1">
+                        </div>
+                        <div class="thumb" data-rel="1">
+                            <img src="https://images.unsplash.com/photo-1611080541599-8c6dbde6ed28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80"
+                                alt="image 2">
+                        </div>
+                        <div class="thumb" data-rel="2">
+                            <img src="https://images.unsplash.com/photo-1613637069737-2cce919a4ab7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100"
+                                alt="image 3">
+                        </div>
+                        <div class="thumb" data-rel="3">
+                            <img src="https://images.unsplash.com/photo-1615217482859-6b0c8a50129d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100"
+                                alt="image 4">
+                        </div>
+                        <div class="thumb" data-rel="4">
+                            <img src="https://images.unsplash.com/photo-1553691158-91a7f9183156?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100"
+                                alt="image 4">
+                        </div>
+                        <div class="thumb" data-rel="5">
+                            <img src="https://images.unsplash.com/photo-1592967833769-60d8693bbf91?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100"
+                                alt="image 4">
+                        </div>
+                    </div>
+                    <div class="popup__btns">
+                        <div class="bord"></div>
+                        <div class="awesome__ba" id="ba_gallery">
+                            Before &amp; Afters
+                            <small>(popup gallery)</small>
+                        </div>
+                        <div class="bord"></div>
+                        <div class="awesome__videos" id="vid_gallery">
+                            Video Gallery
+                            <small>(youtube &amp; vimeo)</small>
+                        </div>
+                    </div>
+                </div> -->
+
+        <!-- SLIDER CONTAINER -->
+        <!-- <div class="col-md-9">
+                    <div class="awesome__slider">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1622910076411-b126ff7e469b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700"
+                                alt="Image 1">
+                        </div>
+                        <div>
+                            <img data-lazy="https://images.unsplash.com/photo-1611080541599-8c6dbde6ed28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                                alt="image 2">
+                        </div>
+                        <div>
+                            <img data-lazy="https://images.unsplash.com/photo-1613637069737-2cce919a4ab7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700"
+                                alt="image 3">
+                        </div>
+                        <div>
+                            <img data-lazy="https://images.unsplash.com/photo-1615217482859-6b0c8a50129d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700"
+                                alt="image 4">
+                        </div>
+                        <div>
+                            <img data-lazy="https://images.unsplash.com/photo-1553691158-91a7f9183156?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700"
+                                alt="image 4">
+                        </div>
+                        <div>
+                            <img data-lazy="https://images.unsplash.com/photo-1592967833769-60d8693bbf91?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700"
+                                alt="image 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+
+
+    </section>
+    <section class="ftco-section testimony-section ftco-no-pb" id="testimonial-section">
+        <div class="img img-bg border"
+            style="background-image:url({% static 'home/images/hero_bg16.jpeg' %})"></div>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-12 text-center heading-section heading-section-white ftco-animate">
+                    <span class="subheading">Testimonials</span>
+                    <h2 class="mb-3">What the students have to say!</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        {% for test_irc in testimonials_irc %}
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">{{test_irc.content}}</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url({{test_irc.image.url}})">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">{{test_irc.title}}</p>
+                                            <span class="position">{{test_irc.subTitle}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} 
+                        <!--Hard coded testimonials are below-->
+
+                        <!-- <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">My FT experience was excellent and very smooth from the beginning
+                                        till the end. IR cell made the application and
+                                        shortlisting steps seem like a cakewalk as I was really confused at that time on
+                                        how to apply for an FT. The internship
+                                        was regarding grouping different segments of the human genome using unsupervised
+                                        learning. I really enjoyed working with
+                                        the professor and the whole team at Simon Fraser University as everyone was very
+                                        friendly and understanding. This goes
+                                        without saying that I learned a lot there and it was once in a lifetime
+                                        experience to work with such amazing people.</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url('{% static 'ftp/home/img/testimonials/Ishan.jpg' %}')">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">Ishan Goel</p>
+                                            <span class="position">Simon Fraser University</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">First of all, it was an enriching experience to have an FT. In my
+                                        internship, we had a team consisting of interns,
+                                        Research Scholars and profs of the University Of Strathclyde and Democritus
+                                        University of Thrace, Greece. It was a sort
+                                        of joint project between the universities. I personally got to learn a lot from
+                                        other people coming from different
+                                        backgrounds. More importantly, I actually understood how to apply the theory we
+                                        learn in a regular classroom to
+                                        different problems at hand pertaining to the relevant domain. Loved the
+                                        brainstorming sessions that were there. My only
+                                        regret is due to COVID it was a remote internship else we would have been able
+                                        to work in the fantastic lab.</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url('{% static 'ftp/home/img/testimonials/Hrituraj.jpg' %}')">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">Hrituraj Dutta</p>
+                                            <span class="position">University of Strathclyde, Scotland</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">A great learning experience while doing an FT at LSBU. The professor
+                                        was extremely friendly, approachable and helpful.
+                                        We used to have weekly meetings with all the interns under the professor where
+                                        we used to present our progress for the
+                                        week. This helped streamline and organise our projects better. We also had one
+                                        on one meetings with the professor
+                                        weekly. The professor expected a certain degree of initiative and ability to
+                                        work independently from the student, but he
+                                        was always ready to help us whenever we were stuck. I ended up writing a
+                                        research paper on my project, which is
+                                        currently under review by Applied Intelligence Springer. The FT helped me build
+                                        a really nice relationship with him, and
+                                        he has been incredibly helpful in guiding my research career further.</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url('{% static 'ftp/home/img/testimonials/Koushiki.jpg' %}')">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">Koushiki Dasgupta Chaudhuri</p>
+                                            <span class="position">London South Bank University</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">My FT experience was excellent and very smooth from the beginning
+                                        till the end. IR cell made the application and
+                                        shortlisting steps seem like a cakewalk as I was really confused at that time on
+                                        how to apply for an FT. The internship
+                                        was regarding grouping different segments of the human genome using unsupervised
+                                        learning. I really enjoyed working with
+                                        the professor and the whole team at Simon Fraser University as everyone was very
+                                        friendly and understanding. This goes
+                                        without saying that I learned a lot there and it was once in a lifetime
+                                        experience to work with such amazing people.</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url('{% static 'ftp/home/img/testimonials/Ishan.jpg' %}')">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">Ishan Goel</p>
+                                            <span class="position">Simon Fraser University</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-quote-left"></div>
+                                <div class="text">
+                                    <p class="mb-4">First of all, it was an enriching experience to have an FT. In my
+                                        internship, we had a team consisting of interns,
+                                        Research Scholars and profs of the University Of Strathclyde and Democritus
+                                        University of Thrace, Greece. It was a sort
+                                        of joint project between the universities. I personally got to learn a lot from
+                                        other people coming from different
+                                        backgrounds. More importantly, I actually understood how to apply the theory we
+                                        learn in a regular classroom to
+                                        different problems at hand pertaining to the relevant domain. Loved the
+                                        brainstorming sessions that were there. My only
+                                        regret is due to COVID it was a remote internship else we would have been able
+                                        to work in the fantastic lab.</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img"
+                                            style="background-image:url('{% static 'ftp/home/img/testimonials/Hrituraj.jpg' %}')">
+                                        </div>
+                                        <div class="pl-3">
+                                            <p class="name">Hrituraj Dutta</p>
+                                            <span class="position">University of Strathclyde, Scotland</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="author-section">
+        <div class="container">
+            <div class="row d-flex no-gutters">
+                <div class="col-md-6 col-lg-6 d-flex">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="overlay"></div>
+                        <div class="img d-flex align-self-stretch align-items-center"
+                            style="background-image:url({% static 'home/images/xabout.jpg.pagespeed.ic.Vai-uW21Kd.jpg' %})">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 d-flex">
+                    <div class="py-md-5 w-100 bg-light px-md-5">
+                        <div class="py-md-5">
+                            <div class="row justify-content-start pb-3">
+                                <div class="col-md-12 heading-section ftco-animate">
+                                    <span class="subheading">Know More About The Author</span>
+                                    <h2 class="mb-4">Franklin Henderson</h2>
+                                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                                        regelialia.</p>
+                                    <ul class="about-info mt-4 px-md-0 px-2">
+                                        <li class="d-flex"><span>Name:</span> <span>Franklin Henderson</span></li>
+                                        <li class="d-flex"><span>Date of birth:</span> <span>November 28, 1980</span>
+                                        </li>
+                                        <li class="d-flex"><span>Address:</span> <span>San Francisco CA 97987 USA</span>
+                                        </li>
+                                        <li class="d-flex"><span>Zip code:</span> <span>1000</span></li>
+                                        <li class="d-flex"><span>Email:</span> <span><a
+                                                    href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
+                                                    class="__cf_email__"
+                                                    data-cfemail="8fe9fdeee1e4e3e6e1fceee2ffe3eacfe8e2eee6e3a1ece0e2">[email&#160;protected]</a></span>
+                                        </li>
+                                        <li class="d-flex"><span>Phone: </span> <span>+1-2234-5678-9-0</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                                <div class="text">
+                                    <p class="mb-4 btn-custom">
+                                        <span class="number" data-number="120">0</span>
+                                        <span>View All Books</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- TEAM SECTION -->
+    <section class="ftco-section ftco-no-pb ftco-no-pt" id="author-section" style="margin-top: 7em;">
+        <div class="row no-gutters justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <!-- <span class="subheading">Projects</span> -->
+                <h2 class="mb-4" style="margin-bottom: 0px !important;">Our Team</h2>
+            </div>
+        </div>
+        <div class="container p-5 irc-team">
+            <div style="display: grid; grid-template-columns:repeat(3, 1fr); row-gap:100px; column-gap: 15px;">
+                {% for member in team22 %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="text-center">
+
+
+                            <div class="img-hover-zoom img-hover-zoom--colorize">
+                                <img class="shadow" src={{member.image.url}}
+                                    alt="Another Image zoom-on-hover effect">
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>{{member.title}}</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">{{member.sub_title}}</h2>
+                            </div>
+                            <div class="box">
+                                <div>
+                                    <ul class="list-inline" style="margin-right:1rem">
+                                        <!-- <li class="list-inline-item"><i class="fab fa-github"></i></li> -->
+                                        <a href="{{member.linkedin_link}}" target="_blank">
+                                            <li class="list-inline-item"><i class="fab fa-linkedin-in"
+                                                    style="color: #1E83BB;"></i></li>
+                                        </a>
+                                        <!-- <li class="list-inline-item"><i class="fab fa-instagram"></i></li> -->
+                                        <a href="{{member.facebook_link}}" target="_blank">
+                                            <li class="list-inline-item"><i class="fab fa-facebook"
+                                                    style="color: #1977F3;"></i></li>
+                                        </a>
+                                        <a href="mailto:{{member.email_link}}">
+                                            <li class="list-inline-item"><i class="fa fa-envelope" id="mail"
+                                                    style="color: #EA4335;"></i></li>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row no-gutters justify-content-center pb-5" style="margin-top: 7em;">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <!-- <span class="subheading">Projects</span> -->
+                <h2 class="mb-4" style="margin-bottom: 0px !important;">Our Previous Executive Team</h2>
+            </div>
+        </div>
+        <div class="container p-5 irc-team">
+            <div style="display: grid; grid-template-columns:repeat(3, 1fr); row-gap:100px; column-gap: 15px;">
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2021</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Kamal Kyal</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Mansi Uniyal</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">S.S.S Vardhan</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Nishita Tripathy</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Snehal Swadhin</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Shreya Khare</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Ranabir Basu</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Tushan Kumar Singh</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2020</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Rishabh Srivastava</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Sankalp Srivastava</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Krushnasis Pradhan</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Suman Kumari</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Shubhraja Gauraha</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Akshay Chordia</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Kirtan Mali</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2019</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Annanya Singh</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Parth Gupta</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Divyam Sharma</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Digvijay Anand</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Hariharan Ravichandran</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Meher Changlani</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Anshul Choudhary</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Vishvesh Pandya</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Bhalchandra Patil</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2018</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Manthan Doshi</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Ritik Chachan</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Ayush Sinha</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Prachi Agrawal</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Sudhir Singh Bhadouria</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Raj Kishor</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Tarun Kumar</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Rohan Dodrajka</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Manmohan Sandhu</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Pushpendra Singh Champawat</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2017</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Raj Kolamuri</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Shubham Srivastava</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Shubham Arora</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Siddharth Saharan</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Navya Mokmod</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Tyss Santosh</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Vivek Yadav</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Aditya Bhandari</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm" style="height: 440px">
+                        <div class="card-body">
+                            <div class="clearfix mb-3">
+                            </div>
+                            <div class="my-2 text-center">
+                                <h1>2016</h1>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Asish Koruprolu</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Bhanu Gupta</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Harshit Chahal</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Devanand Kedia</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Anshul Kharb</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Shubham Singh</h2>
+                            </div>
+                            <div class="mb-3">
+                                <h2 class="text-uppercase text-center role">Umang Kumar</h2>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        </div>
+    </section>
+
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section" style="margin-top: 100px;margin-bottom: 100px;">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Contact Us</h2>
+                    <p>If you have any queries, feel free to fill the form below so that we
+                        can reach you out.</p>
+                </div>
+            </div>
+            <div class="row d-flex contact-info mb-5">
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box text-center p-4 bg-light">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-map-marker"></span>
+                        </div>
+                        <div>
+                            <h3 class="mb-4">Address</h3>
+                            <p>International Relations Cell<br />
+                                IIT Kharagpur<br />
+                                Kharagpur, West Bengal<br />
+                                India - 721302</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box text-center p-4 bg-light">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-phone"></span>
+                        </div>
+                        <div>
+                            <h3 class="mb-4">Contact Number</h3>
+                            <p><a href="tel://+91 86397 89316">+91 86397 89316</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box text-center p-4 bg-light">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-paper-plane"></span>
+                        </div>
+                        <div>
+                            <h3 class="mb-4">Email Address</h3>
+                            <p><a href="mailto:irc@iitkgp.ac.in"><span class="__cf_email__"
+                                        data-cfemail="cba2a5ada48bb2a4beb9b8a2bfaee5a8a4a6">irc@iitkgp.ac.in</span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box text-center p-4 bg-light">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-globe"></span>
+                        </div>
+                        <div>
+                            <h3 class="mb-4">Website</h3>
+                            <p><a href="https://ircell.iitkgp.ac.in/">https://ircell.iitkgp.ac.in/</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters block-9">
+                <div class="col-md-6 order-md-last d-flex">
+                    <form method="post" id="contactForm" name="contactForm" class="bg-light p-4 p-md-5 contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Name" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="Email" placeholder="Your Email" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Subject" placeholder="Subject" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" id="" cols="30" rows="7" class="form-control" placeholder="Message"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" style="color: white !important;" value="Send Message" class="btn btn-primary py-3 px-5" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <div id="map" class="map"><iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14764.096494212994!2d87.29405160781248!3d22.31492739999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d440255555547%3A0x6f2f20dd0c0d6793!2sIndian%20Institute%20of%20Technology%20Kharagpur!5e0!3m2!1sen!2sin!4v1654740362110!5m2!1sen!2sin"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="ftco-footer ftco-section">
+        <div class="custom-shape-divider-top-1669620186">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        {% comment %} <<<<<<< Updated upstream {% endcomment %} <h2 class="ftco-heading-2">International
+                            Relations Cell</h2>
+                            <p>The International Relations Cell (IRC) is a student body working along with the Office of
+                                International Relations (OIR). It works to promote the exchange of students, faculties,
+                                and ideas between IIT Kharagpur and her international partners and establishing the
+                                globalization of IIT Kharagpur.</p>
+                            {% comment %} <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                =======
+                                <h2 class="ftco-heading-2">About</h2>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
+                                    Consonantia,
+                                    there live the blind texts.</p>
+                                <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                    <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    >>>>>>> Stashed changes
+                                    <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                </ul> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#aboutus">About Us</a></li>
+                            <li><a href="#chapter-section">Events</a></li>
+                            <li><a href="#testimonial-section">Reviews</a></li>
+                            <li><a href="#contact-section">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Contact Us</h2>
+                        {% comment %} <ul class="list-unstyled">
+                            <li><a href="#">Experience</a></li>
+                            <li><a href="#">Marketing Goals</a></li>
+                            <li><a href="#">Targetting Vission</a></li>
+                        </ul> {% endcomment %}
+                        <p><a href="mailto:irc@iitkgp.ac.in"><span class="__cf_email__"
+                                    data-cfemail="cba2a5ada48bb2a4beb9b8a2bfaee5a8a4a6">irc@iitkgp.ac.in</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Subscribe to our NewsLetter</h2>
+                        <form name="newsletter">
+                            <i class="fa fa-envelope" style="color:#fff"></i>
+                            <input class="whitePlaceholder" type="email" placeholder="Enter your email"
+                                style="opacity:0.8;color:#fff" name="Email"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeFse6f2KETaO7_YGUJvHnlHnqY7IkQZCgLFnkp0zhIPMcoHg/viewform"
+                                target="_blank"><i class="fas fa-arrow-right" style="color:#fff"></i></a>
+                        </form>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA"
+                                    target="_blank"><span class="fa fa-youtube"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><span
+                                        class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/irc.iitkgp"
+                                    target="_blank"><span class="fa fa-instagram"></span></a></li>
+                            <li class="ftco-animate"><a
+                                    href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                                    target="_blank"><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% comment %} <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain
+                                        View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
+                                            210</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text"><span
+                                                class="__cf_email__"
+                                                data-cfemail="d3babdb5bc93aabca6a1b7bcbeb2babdfdb0bcbe">[email&#160;protected]</span></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        Copyright &copy;
+                        <script data-cfasync="false"
+                            src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | International
+                        Relations Cell
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00" />
+        </svg></div>
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzbmt_GHVPKC20UUE65RI4HWdf5PYWQx77Kn39fP_IB4wO7palGTpqRrsxkaE0DYomngQ/exec'
+        const form = document.forms['contactForm']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Submitted the form successfully!" ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    <script
+        src="{% static 'home/js/jquery-migrate-3.0.1.min.js+popper.min.js+bootstrap.min.js.pagespeed.jc.JHZ20Zp0_b.js' %}"></script>
+    <script>eval(mod_pagespeed_RnMiAhKU_u);</script>
+    <script>eval(mod_pagespeed_SCQZmRqKN3);</script>
+    <script>eval(mod_pagespeed_aKlB_DizzG);</script>
+    <script
+        src="{% static 'home/js/jquery.easing.1.3.js+jquery.waypoints.min.js+jquery.stellar.min.js+owl.carousel.min.js.pagespeed.jc.jxBPC5Ttgn.js' %}"></script>
+    <script>eval(mod_pagespeed_YJ1csdlNvN);</script>
+    <script>eval(mod_pagespeed_uAXIVM3doh);</script>
+    <script>eval(mod_pagespeed_FacjMT51xN);</script>
+    <script>eval(mod_pagespeed_hpLGaKMiFY);</script>
+    <script
+        src="{% static 'home/js/jquery.magnific-popup.min.js+jquery.animateNumber.min.js+scrollax.min.js+google-map.js+main.js.pagespeed.jc.zPAUCnbQR0.js' %}"></script>
+    <script>eval(mod_pagespeed_$3ThuVbXLI);</script>
+    <script>eval(mod_pagespeed_2u2Asl2zn7);</script>
+    <script>eval(mod_pagespeed_qDb$UbWhVM);</script>
+    <script>eval(mod_pagespeed_dc0tkUCn8x);</script>
+    <script>eval(mod_pagespeed_tXiAeDiJpM);</script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+        data-cf-beacon='{"rayId":"71268590bf329398","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{% static 'home/js/slick/slick.min.js' %}"></script>
+    <script src="{% static 'home/js/lg/lightgallery.min.js' %}"> </script>
+    <script src="{% static 'home/js/lg/lg-thumbnail.umd.js' %}"> </script>
+    <script src="{% static 'home/js/lg/lg-video.umd.js' %}"> </script>
+</body>
+
+<script src="{% static 'home/js/contact.js' %}"></script>
+<script src="{% static 'home/js/gallery.js' %}"></script>
+
+<script>
+    const images = [
+        "{% static 'home/images/events.jpg' %}",
+        "{% static 'home/images/ftp.jpg' %}",
+        "{% static 'home/images/ftpd.jpg' %}",
+        "{% static 'home/images/hult.jpg' %}",
+        "{% static 'home/images/dyuti.jpg' %}",
+        "{% static 'home/images/sap_sep.jpg' %}",
+        "{% static 'home/images/msphd.jpg' %}",
+    ];
+    const pagesBG = document.querySelector(".pagesBG");
+    const pages = Array.from(document.querySelectorAll(".page"));
+
+    window.addEventListener("scroll", () => {
+        let isInView = false;
+        for (let i = 0; i < pages.length; i++) {
+            var position = pages[i].getBoundingClientRect();
+            if (position.top <= window.innerHeight && position.bottom >= 0) {
+                pagesBG.style.opacity = `0.2`;
+                pagesBG.style.backgroundImage = `url(${images[i]})`;
+                isInView = true;
+                break;
+            }
+        }
+        if (!isInView){
+            pagesBG.style.backgroundImage = `url("{% static 'home/images/white.jpg' %}")`;
+            pagesBG.style.opacity = `0`;
+        }
+    });
+</script>
+
+<script>
+    const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY >= 2)
+            scrollToTopBtn.style.transform = "scale(1)";
+        else
+            scrollToTopBtn.style.transform = "scale(0)";
+    });
+</script>
+
+</html>

@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <title>International Relations Cell | IIT Kharagpur</title>
+    <script>
+function loadURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#photo')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+    <style>
+        body {
+            background-image: url("{% static 'bckg.jpg' %}");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+        label {
+            margin-bottom: 20px;
+            padding-left: 1vw;
+            font-size: 1.2rem !important;
+        }
+        .row {
+            padding-left: 2vw;
+            padding-right: 2vw;
+        }
+        .formc {
+            width: 60%;
+            background-color: white;
+        }
+        @media (max-width: 1200px) {
+            .formc {
+                width: 70%;
+            }
+        }
+        @media (max-width: 960px) {
+            .formc {
+                width: 80%;
+            }
+        }
+        @media (max-width: 835px) {
+            .formc {
+                width: 90%;
+            }
+        }
+        @media (max-width: 576px) {
+            .formc {
+                width: 99%;
+            }
+        }
+    </style>
+
+    <div class="container formc" style="margin-top: 120px; border: lightgrey solid 1px; margin-bottom: 50px; box-shadow: 1px 2px 15px #888888;">
+        <div class="row" style="margin-bottom: 30px; margin-top: 40px;">
+            <div class="col-lg-12" style="text-align: center">
+                <h2 style="font-family: FontinBold, sans-serif">Application</h2>
+            </div>
+        </div>
+        <form method="post"  enctype="multipart/form-data" action="{% url 'ftp:apply_finish_scholarships' scholarship_id=project.id %}">
+            {% csrf_token %}
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Funding Agency:</label>
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control inputstl" id="Name" value="{{ project.funding_agency }}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Scholarship Name:</label>
+                        <div class="col-lg-12">
+                             <input type="text" class="form-control inputstl" id="Email1" value="{{ project.scholarship_name }}" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label" for="desc">Scholarship Description:</label>
+                        <div class="col-lg-12">
+                            <textarea class="form-control" rows="10" name="desc" width="100%" readonly>
+                                {{ project.scholarship_detail }}
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label" for="sop">Statment of Purpose (SOP)<br>(Minimum 200 words)</label>
+                        <div class="col-lg-12">
+                            <textarea  class="form-control inputstl" id="Email1"  rows="6" name="sop" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="ncv">Upload Files (in .zip/.rar)</label>
+                        <div class="col-lg-12" >
+                            <input type="file" accept=".zip,.rar" class="form-control" name="ncv" style="padding: 3px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 40px; text-align: center">
+                <div class="col-lg-12">
+                      <input type="submit" class="btn btn-primary" value="Apply Now">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+<script>
+    $("#cid").click(function() {
+  $("#bid").attr("disabled", !this.checked);
+});
+
+function aler() {
+    confirm("Please ensure all the details provided are correct,\nOnce submitted, The details cannot be changed. Please review and click on confirm");
+    $("#bid").css("display","none");
+    $("#bid2").css("display","block");
+}
+
+</script>
+
+{% endblock %}

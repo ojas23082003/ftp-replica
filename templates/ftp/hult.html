@@ -1,0 +1,1402 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Hult | International Relations Cell</title>
+
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+    crossorigin="anonymous"></script>
+  <style>
+    .accordion-body {
+      background-color: #f8f8f8;
+      margin-right: 2.6em;
+      border-bottom: 2px solid #cacaca99;
+    }
+  </style>
+  <link href="{% static 'home/css/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+  <link href="{% static 'home/css/css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
+  <link href="{% static 'home/css/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+  <!-- CSS here -->
+  <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/bootstrap.min.css' %}"> -->
+  <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}" />
+  <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/slicknav.css' %}"> -->
+  <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/fontawesome-all.min.css' %}"> -->
+  <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style.css' %}"> -->
+  <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style2.css' %}">
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'> -->
+  <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&amp;display=swap"
+        rel="stylesheet"> -->
+  <!-- <style type="text/css">
+        @import url("{% static 'ftp/ProjectsPage/css/tabbed.css' %}");
+    </style> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'ftp/ProjectsPage/css/colors.css' %}" media="screen"> -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body style="overflow-x:hidden;">
+  <!-- ? Preloader Start -->
+  <!-- <div id="preloader-active">
+        <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text" style="padding-left: 4px; padding-bottom: 4px;"><img
+                        src="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}">
+                </div>
+            </div>
+        </div>
+    </div> -->
+  <!-- Preloader Start-->
+  <header>
+    <nav style="background:linear-gradient(45deg, #5a1c8f,#c7269b);">
+      <div class="nav__left">
+        <a href="/"><img class="nav__logo" src="{% static 'hult.png' %}" alt="" /></a>
+        <p class="nav__title">Hult Prize at IIT Kharagpur</p>
+
+      </div>
+      <div class="nav__right">
+        <img class="nav__logo" style="float:right;" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo.png' %}"
+          alt="" />
+
+      </div>
+
+    </nav>
+
+    <nav class="nav__onScroll">
+      <div class="nav__left">
+        <a href="/"><img class="nav__logo" src="{% static 'hult.png' %}" alt="" /></a>
+        <p class="nav__title">Hult Prize at IIT Kharagpur</p>
+      </div>
+      <div class="nav__right">
+        <a href="/"><img class="nav__logo" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo2.png' %}" alt="" /></a>
+
+      </div>
+    </nav>
+
+
+  </header>
+
+  <style>
+    #one {
+      color: red;
+    }
+
+    #two {
+      color: red;
+    }
+
+    #three {
+      color: red;
+    }
+
+    section {
+      padding-top: 0 !important;
+    }
+
+    #accordionExample {
+      margin-bottom: 50px;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .accordion-header>input {
+      margin: 0;
+      margin-left: 10px;
+    }
+
+    .accordion-item {
+      border: 0;
+    }
+
+    .accordion-body {
+      margin-right: 2.45em;
+      border: 2px solid #cacaca99;
+    }
+
+    .priority {
+      margin-left: 5px;
+      margin-bottom: auto;
+    }
+
+    @media only screen and (max-width: 750px) {
+      #application {
+        padding: 60px 0 !important;
+      }
+    }
+
+    @media only screen and (max-width: 370px) {
+      section {
+        margin-bottom: 100vh;
+      }
+    }
+
+    @import url("https://fonts.googleapis.com/css?family=Mukta:700");
+
+    * {
+      box-sizing: border-box;
+    }
+
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Mukta", sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      min-height: 100vh;
+      background: #f3f8fa;
+    }
+
+    button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      border: 0;
+      vertical-align: middle;
+      text-decoration: none;
+      background: transparent;
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+    button.learn-more {
+      width: 12rem;
+      height: auto;
+    }
+
+    button.learn-more .circle {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: linear-gradient(45deg, rgb(90, 28, 143), rgb(199, 38, 155)) !important;
+      background: #282936;
+      border-radius: 1.625rem;
+    }
+
+    button.learn-more .circle .icon {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: #fff;
+    }
+
+    button.learn-more .circle .icon.arrow {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      left: 0.625rem;
+      width: 1.125rem;
+      height: 0.125rem;
+      background: none;
+    }
+
+    button.learn-more .circle .icon.arrow::before {
+      position: absolute;
+      content: "";
+      top: -0.25rem;
+      right: 0.0625rem;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-top: 0.125rem solid #fff;
+      border-right: 0.125rem solid #fff;
+      transform: rotate(45deg);
+    }
+
+    button.learn-more .button-text {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: #282936;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    button:hover .circle {
+      width: 100%;
+    }
+
+    button:hover .circle .icon.arrow {
+      background: #fff;
+      transform: translate(1rem, 0);
+    }
+
+    button:hover .button-text {
+      color: #fff;
+    }
+
+    @supports (display: grid) {
+      body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.625rem;
+        grid-template-areas: ". main main ." ". main main .";
+      }
+
+      #container {
+        grid-area: main;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+  </style>
+
+  <style>
+    .our-tech-container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      @media (max-width: 815px) {
+        width: 100%;
+      }
+
+      h3 {
+        @media (max-width:640px) {
+          font-size: 30px;
+        }
+      }
+
+      p {
+        font-size: 25px;
+        margin-top: 20px;
+        color: $textDarkColor;
+
+        @media (max-width:640px) {
+          font-size: 20px;
+        }
+      }
+  </style>
+  <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/application.css' %}">
+
+  <div class="content">
+    <h2>Hult Prize</h2>
+    <h2>Hult Prize</h2>
+  </div>
+
+  <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner vh-100">
+
+      <div class="carousel-item h-100 active">
+        <img src="../../static/assets/images/gallery/gallery_04.jpg" alt="img1" class="carousel-img" />
+      </div>
+      <div class="carousel-item h-100">
+        <img src="../../static/assets/images/gallery/gallery_06.jpg" alt="img2" class="carousel-img" />
+      </div>
+      <div class="carousel-item h-100">
+        <img src="../../static/assets/images/gallery/gallery_12.jpg" alt="img3" class="carousel-img" />
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <main style="background: #fff; margin-top: 80vh; margin-right: -10px !important">
+    <section>
+
+      <div id="application" class="services-section section-padding30 fix" style="padding:0px;">
+        <div style="background: transparent ; width: 94%; margin-left: 3% ; margin-top: 50px;">
+          <div class="our-tech-container">
+            <h3 class="heading text-center">
+              About Hult Prize
+            </h3>
+            <p class="hult_content">
+              Hult Prize is an international competition that collates ideas from students by challenging them to solve
+              a pressing social issue revolving around topics such as food security, water access, energy, environment,
+              and education. Hult Prize inspires student entrepreneurs to solve the world’s biggest challenges through
+              innovative social enterprises with positive global impact. Joining Hult Prize will allow you to learn the
+              necessary fundamentals to become a successful startup founder, Join a diverse global network of
+              entrepreneurs, staff and experts and most importantly help you achieve both, personal and professional
+              growth.
+            </p>
+
+            <style>
+              .heading {
+                font-size: 50px;
+                margin-top: 10px;
+                color: #c7269b;
+                font-weight: 600;
+
+                @media (max-width:640px) {
+                  font-size: 32px;
+                }
+              }
+
+              .hult_content {
+                font-size: 18px;
+                font-weight: 400;
+                margin-top: 35px;
+                color: $textDarkColor;
+
+                @media (max-width:640px) {
+                  font-size: 16px;
+                }
+              }
+            </style>
+
+            {% comment %} <form style="background: transparent ;" name="myForm" id="myform" method="post"
+              enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <div class="row">
+                <!-- Content Column -->
+                <div class="col-xl-12 my-4" style="text-align: center">
+
+
+                  <div class="row">
+                    {% if messages %}
+                    <div class="messages">
+                      {% for message in messages %}
+                      <div {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                        style="font-size: 20px;font-weight: 700; text-align: center;color: #2A4BA5">
+                        {{ message }}</div>
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" style="margin-top: 1rem; margin-left:30px">
+                <div class="row">
+                  <div class="cell w-100">
+                    <!-- Large title -->
+                    <h1 class="form-heading" style="font-size:4rem; text-align: center">Hult Prize OnCampus Round
+                      2022<br><br></i></h1>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="width:94% ;">
+                {% if prof.fullname %}
+                <input name="fullname" value="{{ prof.fullname }}" style="display: none;" />
+                <input name="rollno" value="{{ prof.rollno }}" style="display: none;" />
+                <input name="email" value="{{ prof.alt_email }}" style="display: none;" />
+                <input name="year" value="{{ prof.year }}" style="display: none;" />
+                <input name="contact" value="{{ prof.contact }}" style="display: none;" />
+                {% else %}
+                <div class="row" style="margin-bottom: 50px;">
+                  <div class="col-md-6">
+                    <label class="col-form-label" for="team_name"
+                      style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">
+                      Team Name<span style="color:red;"> *</span></label>
+                    <Input name="team_name" class="form-control"
+                      style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                      placeholder="Team Name" required></Input>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="col-form-label" for="leader_name"
+                      style=" color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">
+                      Name of the Team's Leader<span style="color:red;"> *</span></label>
+                    <Input name="leader_name" class="form-control"
+                      style="height:25px; outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4;"
+                      Placeholder="Leader Name" required></Input>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 50px;">
+                  <div class="col-md-6">
+                    <label class="col-form-label" for="email_leader"
+                      style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">
+                      Email ID of Team Leader<span style="color:red;"> *</span></label>
+                    <Input name="email_leader" class="form-control"
+                      style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                      placeholder="Email Address" required></Input>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="col-form-label" for="contact_leader"
+                      style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">Contact
+                      Number<span style="color:red;"> *</span></label>
+                    <Input name="contact_leader" class="form-control"
+                      style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                      placeholder="Contact Number of the Leader" type="number" required></Input>
+                  </div>
+                </div>
+                <div class="row" style="margin-bottom: 50px;">
+                  <div class="col-md-12">
+                    <label class="col-form-label" for="report"
+                      style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;font-family: 'Open Sans', sans-serif !important;">
+                      Team Report (in .pdf format) <span style="color:red;"> *</span></label>
+                  </div>
+                  <div class="col-md-12">
+                    <input type="file" class="form-control-file" name="report" accept=".pdf" required>
+                  </div>
+                </div>
+                {% endif %} {% endcomment %}
+
+                <!-- <div class="row" style="margin-bottom: 50px;">
+                            
+                            <div class="col-md-12">
+                                <input type="checkbox" name="former_anu" data-toggle="toggle">
+
+                                <input type="checkbox" class="toggle" id="toggle" />
+                                <label for="toggle">
+                                    <span class="on">Yes</span>
+                                    <span class="off">No</span>
+                                </label>
+                            </div>
+                        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <style>
+                  @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+                  .content {
+                    z-index: 1;
+                    position: absolute;
+                    left: 50%;
+                    top: 40vh;
+                    width: 100%;
+                    height: 20vh;
+                  }
+
+                  .content h2 {
+                    color: white;
+                    font-size: 8rem;
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                  }
+
+                  .content h2:nth-child(1) {
+                    color: transparent;
+                    -webkit-text-stroke: 2px rgb(183, 49, 206);
+                  }
+
+                  .content h2:nth-child(2) {
+                    color: rgb(183, 49, 206);
+                    animation: animate 4s ease-in-out infinite;
+                  }
+
+                  @keyframes animate {
+
+                    0%,
+                    100% {
+                      clip-path: polygon(0% 45%,
+                          16% 44%,
+                          33% 50%,
+                          54% 60%,
+                          70% 61%,
+                          84% 59%,
+                          100% 52%,
+                          100% 100%,
+                          0% 100%);
+                    }
+
+                    50% {
+                      clip-path: polygon(0% 60%,
+                          15% 65%,
+                          34% 66%,
+                          51% 62%,
+                          67% 50%,
+                          84% 45%,
+                          100% 46%,
+                          100% 100%,
+                          0% 100%);
+                    }
+                  }
+
+                  #carouselExampleControls {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 80vh;
+                    width: 100%;
+                  }
+
+                  .carousel-inner>.carousel-item {
+                    opacity: 0;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                  }
+
+                  .carousel-inner>.active {
+                    opacity: 1 !important;
+                  }
+
+                  .carousel-inner>.carousel-item {
+                    transform: translate3d(0, 0, 0) !important;
+                    transition: opacity 1s ease-in-out;
+                  }
+
+                  .carousel-img {
+                    width: 100%;
+                    height: auto;
+                    opacity: 0.7;
+                  }
+
+
+                  @media (max-width: 1200px) {
+                    main {
+                      margin-top: 60vh !important;
+                    }
+
+                    .content h2 {
+                      font-size: 6rem;
+                    }
+
+                    .content {
+                      top: 30vh;
+                    }
+                  }
+
+                  @media (max-width: 750px) {
+                    main {
+                      margin-top: 70vh !important;
+                    }
+
+                    .form-heading {
+                      font-size: 2.5rem !important;
+                    }
+                  }
+
+                  @media (max-width: 630px) {
+                    main {
+                      margin-top: 50vh !important;
+                    }
+
+                    .content h2 {
+                      font-size: 5rem;
+                    }
+
+                    .content {
+                      top: 25vh;
+                    }
+                  }
+
+                  @media (max-width: 460px) {
+                    main {
+                      margin-top: 40vh !important;
+                    }
+
+                    .content h2 {
+                      font-size: 4rem;
+                    }
+
+                    .content {
+                      top: 20vh;
+                    }
+
+                    .form-heading {
+                      font-size: 2.3rem !important;
+                    }
+                  }
+
+                  .button {
+                    display: inline-block;
+                    background: #4285f4;
+                    color: #fff;
+                    margin-right: 50px;
+                    text-transform: uppercase;
+                    padding: 10px 12px;
+                    border-radius: 5px;
+                    box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+                    cursor: pointer;
+                    -webkit-transition: all ease-in-out 300ms;
+                    transition: all ease-in-out 300ms;
+                  }
+
+                  .button:hover {
+                    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+                    -webkit-transform: translate(0px, -10px) scale(1.1);
+                    transform: translate(0px, -10px) scale(1.1);
+                  }
+
+                  .button1 {
+                    display: inline-block;
+                    background: #dc3545;
+                    color: #fff;
+                    margin-right: 50px;
+                    text-transform: uppercase;
+                    padding: 10px 12px;
+                    border-radius: 5px;
+                    box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+                    cursor: pointer;
+                    -webkit-transition: all ease-in-out 300ms;
+                    transition: all ease-in-out 300ms;
+                  }
+
+                  .button1:hover {
+                    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+                    -webkit-transform: translate(0px, -10px) scale(1.05);
+                    transform: translate(0px, -10px) scale(1.05);
+                  }
+
+                  .marquee {
+                    width: 100%;
+                    margin-left: -100px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    position: absolute;
+                    margin-top: 30px;
+                  }
+
+                  .marquee span {
+                    display: inline-block;
+                    padding-left: 100%;
+                    animation: marquee 10s linear infinite;
+                  }
+
+                  .marquee span:hover {
+                    animation-play-state: paused;
+                  }
+
+                  @keyframes marquee {
+                    0% {
+                      transform: translate(0, 0);
+                    }
+
+                    100% {
+                      transform: translate(-100%, 0);
+                    }
+                  }
+
+                  @media (max-width: 460px) {
+                    .marquee {
+                      margin-left: -40px;
+                      margin-top: 50px;
+                    }
+                  }
+
+                  ::placeholder {
+                    color: white;
+                  }
+
+                    {
+                    % comment %
+                  }
+
+                  C:\Users\kunal\Projects\Test repository\FTP_server\templates\ftp\hult_success.html {
+                    % endcomment %
+                  }
+                </style>
+
+                <!-- Modal footer -->
+                <!-- <div id="container" style="margin-top:50px;">
+                                <button class="learn-more" type="submit" >
+                                  <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                  </span>
+                                  <span class="button-text">Apply</span>
+                                </button>
+                            </div> -->
+                {% comment %} <button type="submit" class="btn-liquid">
+                  <span class="inner">APPLY</span>
+                </button>
+                <div class="row" style="margin-top: 50px;">
+                  <div class="col-md-12">
+                    <div class="form-check form-switch" style="padding:0;">
+                      <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                      <div class="row">
+                        <div class="col-md-4"><label class="col-form-label" for="mode_of_saip"
+                            style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important; padding-top:10px;padding-top:0px;">
+                            For more details contact : <br> Satyam Verma <br> 8877703408 <br>
+                            irc.iitkgp@gmail.com</label></div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="marquee">
+                  <span>Submit your presentation by 11:59 p.m. on 20th January, 2023 at <a
+                      href="mailto:irc.hultprize@gmail.com" target="_blank">irc.hultprize@gmail.com</a></span>
+                </p>
+
+                <input style="display:none;" id="pref1" name="pref1">
+                <input style="display:none;" id="pref2" name="pref2">
+                <input style="display:none;" id="pref3" name="pref3">
+
+                <input style="display:none;" id="col1" name="col1">
+            </form> {% endcomment %}
+          </div>
+        </div>
+
+    </section>
+    <div class="container" style="margin-bottom: 20px !important;">
+      <h1 style="text-align: center;">Check out our<br>Events</h1>
+      <div class="row">
+        {% for poster in posters %}
+        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+          <div class="blog blog-primary">
+            <img src="{{poster.image.url}}" class="img-fluid rounded-md shadow" alt="" style="border-radius: 10px;">
+            <div class="p-4 pb-0">
+              <a href="{{poster.link}}" class="title text-dark h5"
+                style="text-decoration: none !important;" target="_blank">{{poster.title}}</a>
+
+              <!-- <p class="text-muted mt-3 mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+
+              <div class="mt-3">
+                <a href="{{poster.link}}" class="btn btn-link primary"
+                  style="text-decoration: none !important;" target="_blank">Recording <i class="uil uil-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <footer style="background: linear-gradient(45deg, rgb(90, 28, 143), rgb(199, 38, 155));" class="name" id="bottom">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h3>International Relations Cell</h3>
+          <p>The International Relations Cell (IRC) is a student body working along with the Office of International
+            Relations (OIR). It works to promote the exchange of students, faculties, and ideas between IIT Kharagpur
+            and her international partners and establishing the globalization of IIT Kharagpur.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#ircfaq">FAQ</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="/notice">Notice Board</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <p class="footer-email-id"><a href="mailto:ftp.ircell@gmail.com"
+              class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">ftp.ircell@gmail.com</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Subscribe to our NewsLetter</h3>
+          <form>
+            <i class="far fa-envelope"></i>
+            <input class="whitePlaceholder" type="email" placeholder="Enter your email" style="opacity:0.8;color:#fff">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFse6f2KETaO7_YGUJvHnlHnqY7IkQZCgLFnkp0zhIPMcoHg/viewform"
+              target="_blank"><i class="fas fa-arrow-right" style="color:#fff"></i></a>
+          </form>
+          <div class="footer-social-icons">
+            <a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA" target="_blank"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/irc.iitkgp" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+              target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <style>
+      .btn-liquid {
+        display: inline-block;
+        position: relative;
+        width: 150px;
+        height: 60px;
+
+        border-radius: 27px;
+
+        color: #fff;
+        font: 700 14px/60px "Droid Sans", sans-serif;
+        letter-spacing: 0.1em;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .btn-liquid .inner {
+        position: relative;
+        z-index: 2;
+        color: white;
+      }
+
+      .btn-liquid canvas {
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        bottom: -50px;
+        left: -50px;
+
+        z-index: 1;
+      }
+
+      footer {
+        width: 100%;
+        /* position: absolute; */
+        bottom: 0;
+        background: linear-gradient(135deg, #001A3B, #00506B, #007C96, #00809B);
+        color: #fff;
+        padding: 100px 0 30px;
+        border-top-left-radius: 125px;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: -10px;
+      }
+
+      .footer-row {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .footer-col {
+        flex-basis: 25%;
+        padding: 10px;
+      }
+
+      .footer-col:nth-child(2),
+      .footer-col:nth-child(3) {
+        flex-basis: 15%;
+      }
+
+      .footer-col h3 {
+        width: fit-content;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .footer-col a {
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .footer-email-id {
+        width: fit-content;
+        margin: 20px 0;
+        font-size: 16px;
+      }
+
+      footer ul li {
+        list-style: none;
+        margin-bottom: 12px;
+        transition: all 0.5s;
+      }
+
+      footer ul li:hover,
+      .footer-email-id:hover {
+        text-decoration: underline;
+        transform: translateX(5px);
+      }
+
+      .footer-email-id:hover {
+        transition: all 0.5s;
+      }
+
+      footer ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+      }
+
+      footer form {
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 50px;
+      }
+
+      footer form .far {
+        font-size: 18px;
+        margin-right: 10px;
+      }
+
+      footer form input {
+        width: 100%;
+        background: transparent;
+        color: #ccc;
+        border: 0;
+        outline: none;
+      }
+
+      footer form button {
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+      }
+
+      footer form button .fas {
+        font-size: 16px;
+        color: #ccc;
+      }
+
+      .footer-social-icons .fab {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        color: #000;
+        background-color: #fff;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: all 0.5s;
+      }
+
+      .footer-social-icons .fab:hover {
+        transform: translateY(5px);
+        filter: brightness(70%);
+      }
+
+      .footer-underline {
+        width: 100%;
+        height: 5px;
+        background: #767676;
+        border-radius: 3px;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .footer-underline span {
+        width: 15px;
+        height: 100%;
+        background: #fff;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        animation: moving 2s linear infinite;
+      }
+
+      @media (max-width: 700px) {
+        footer {
+          bottom: unset;
+        }
+
+        .footer-col {
+          flex-basis: 100%;
+        }
+
+        .footer-col:nth-child(2),
+        .footer-col:nth-child(3) {
+          flex-basis: 100%;
+        }
+      }
+    </style>
+  </main>
+  <div class="footer__parallax"></div>
+
+  <!-- Scroll Up Btn -->
+  <i class="fas fa-arrow-up floatingBtn scrollToTopBtn" onclick="scrollToTop()" tabindex="0"></i>
+
+  <!-- Themes Switch Btn -->
+  <!-- <i class="fas fa-moon floatingBtn themeBtn" id="random" onclick="themeHandler()" tabindex="0"></i> -->
+
+  <!-- Profile Btn (conditional: for smaller viewport width) -->
+  </div>
+  <i class="fas fa-user-tie floatingBtn profileBtn" onclick="profileMenuHandler()" onblur="closeProfileMenu()"
+    tabindex="0"></i>
+  <div class="profileMenu">
+    <a href="{% url 'ftp:view_profile' %}">
+      <i class="fas fa-user-tie"></i>
+      <span>Profile</span>
+    </a>
+    <a href="{% url 'ftp:logout_user' %}">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Sign out</span>
+    </a>
+  </div>
+
+
+
+  <!-- active link handling -->
+  <script>
+    const dropdownLinks = Array.from(document.getElementsByClassName("nav__menuItem"));
+    dropdownLinks.map(dropdownLink => {
+      if (dropdownLink.href === window.location.href)
+        dropdownLink.classList.add("nav__activeMenuItem");
+      else
+        dropdownLink.classList.remove("nav__activeMenuItem");
+    });
+    const navLinks = Array.from(document.getElementsByClassName("nav__link"));
+    navLinks.map(navLink => {
+      if (navLink.href === window.location.href)
+        navLink.classList.add("nav__activeLink");
+      else
+        navLink.classList.remove("nav__activeLink");
+    });
+  </script>
+
+  <script>
+    $(function () {
+      // Vars
+      var pointsA = [],
+        pointsB = [],
+        $canvas = null,
+        canvas = null,
+        context = null,
+        vars = null,
+        points = 8,
+        viscosity = 20,
+        mouseDist = 70,
+        damping = 0.05,
+        showIndicators = false;
+      mouseX = 0,
+        mouseY = 0,
+        relMouseX = 0,
+        relMouseY = 0,
+        mouseLastX = 0,
+        mouseLastY = 0,
+        mouseDirectionX = 0,
+        mouseDirectionY = 0,
+        mouseSpeedX = 0,
+        mouseSpeedY = 0;
+
+      /**
+       * Get mouse direction
+       */
+      function mouseDirection(e) {
+        if (mouseX < e.pageX)
+          mouseDirectionX = 1;
+        else if (mouseX > e.pageX)
+          mouseDirectionX = -1;
+        else
+          mouseDirectionX = 0;
+
+        if (mouseY < e.pageY)
+          mouseDirectionY = 1;
+        else if (mouseY > e.pageY)
+          mouseDirectionY = -1;
+        else
+          mouseDirectionY = 0;
+
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+
+        relMouseX = (mouseX - $canvas.offset().left);
+        relMouseY = (mouseY - $canvas.offset().top);
+      }
+      $(document).on('mousemove', mouseDirection);
+
+      /**
+       * Get mouse speed
+       */
+      function mouseSpeed() {
+        mouseSpeedX = mouseX - mouseLastX;
+        mouseSpeedY = mouseY - mouseLastY;
+
+        mouseLastX = mouseX;
+        mouseLastY = mouseY;
+
+        setTimeout(mouseSpeed, 50);
+      }
+      mouseSpeed();
+
+      /**
+       * Init button
+       */
+      function initButton() {
+        // Get button
+        var button = $('.btn-liquid');
+        var buttonWidth = button.width();
+        var buttonHeight = button.height();
+
+        // Create canvas
+        $canvas = $('<canvas></canvas>');
+        button.append($canvas);
+
+        canvas = $canvas.get(0);
+        canvas.width = buttonWidth + 100;
+        canvas.height = buttonHeight + 100;
+        context = canvas.getContext('2d');
+
+        // Add points
+
+        var x = buttonHeight / 2;
+        for (var j = 1; j < points; j++) {
+          addPoints((x + ((buttonWidth - buttonHeight) / points) * j), 0);
+        }
+        addPoints(buttonWidth - buttonHeight / 5, 0);
+        addPoints(buttonWidth + buttonHeight / 10, buttonHeight / 2);
+        addPoints(buttonWidth - buttonHeight / 5, buttonHeight);
+        for (var j = points - 1; j > 0; j--) {
+          addPoints((x + ((buttonWidth - buttonHeight) / points) * j), buttonHeight);
+        }
+        addPoints(buttonHeight / 5, buttonHeight);
+
+        addPoints(-buttonHeight / 10, buttonHeight / 2);
+        addPoints(buttonHeight / 5, 0);
+        // addPoints(x, 0);
+        // addPoints(0, buttonHeight/2);
+
+        // addPoints(0, buttonHeight/2);
+        // addPoints(buttonHeight/4, 0);
+
+        // Start render
+        renderCanvas();
+      }
+
+      /**
+       * Add points
+       */
+      function addPoints(x, y) {
+        pointsA.push(new Point(x, y, 1));
+        pointsB.push(new Point(x, y, 2));
+      }
+
+      /**
+       * Point
+       */
+      function Point(x, y, level) {
+        this.x = this.ix = 50 + x;
+        this.y = this.iy = 50 + y;
+        this.vx = 0;
+        this.vy = 0;
+        this.cx1 = 0;
+        this.cy1 = 0;
+        this.cx2 = 0;
+        this.cy2 = 0;
+        this.level = level;
+      }
+
+      Point.prototype.move = function () {
+        this.vx += (this.ix - this.x) / (viscosity * this.level);
+        this.vy += (this.iy - this.y) / (viscosity * this.level);
+
+        var dx = this.ix - relMouseX,
+          dy = this.iy - relMouseY;
+        var relDist = (1 - Math.sqrt((dx * dx) + (dy * dy)) / mouseDist);
+
+        // Move x
+        if ((mouseDirectionX > 0 && relMouseX > this.x) || (mouseDirectionX < 0 && relMouseX < this.x)) {
+          if (relDist > 0 && relDist < 1) {
+            this.vx = (mouseSpeedX / 4) * relDist;
+          }
+        }
+        this.vx *= (1 - damping);
+        this.x += this.vx;
+
+        // Move y
+        if ((mouseDirectionY > 0 && relMouseY > this.y) || (mouseDirectionY < 0 && relMouseY < this.y)) {
+          if (relDist > 0 && relDist < 1) {
+            this.vy = (mouseSpeedY / 4) * relDist;
+          }
+        }
+        this.vy *= (1 - damping);
+        this.y += this.vy;
+      };
+
+
+      /**
+       * Render canvas
+       */
+      function renderCanvas() {
+        // rAF
+        rafID = requestAnimationFrame(renderCanvas);
+
+        // Clear scene
+        context.clearRect(0, 0, $canvas.width(), $canvas.height());
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, $canvas.width(), $canvas.height());
+
+        // Move points
+        for (var i = 0; i <= pointsA.length - 1; i++) {
+          pointsA[i].move();
+          pointsB[i].move();
+        }
+
+        // Create dynamic gradient
+        var gradientX = Math.min(Math.max(mouseX - $canvas.offset().left, 0), $canvas.width());
+        var gradientY = Math.min(Math.max(mouseY - $canvas.offset().top, 0), $canvas.height());
+        var distance = Math.sqrt(Math.pow(gradientX - $canvas.width() / 2, 2) + Math.pow(gradientY - $canvas.height() / 2, 2)) / Math.sqrt(Math.pow($canvas.width() / 2, 2) + Math.pow($canvas.height() / 2, 2));
+
+        var gradient = context.createRadialGradient(gradientX, gradientY, 300 + (300 * distance), gradientX, gradientY, 0);
+        gradient.addColorStop(0, '#102ce5');
+        gradient.addColorStop(1, '#E406D6');
+
+        // Draw shapes
+        var groups = [pointsA, pointsB]
+
+        for (var j = 0; j <= 1; j++) {
+          var points = groups[j];
+
+          if (j == 0) {
+            // Background style
+            context.fillStyle = '#1CE2D8';
+          } else {
+            // Foreground style
+            context.fillStyle = gradient;
+          }
+
+          context.beginPath();
+          context.moveTo(points[0].x, points[0].y);
+
+          for (var i = 0; i < points.length; i++) {
+            var p = points[i];
+            var nextP = points[i + 1];
+            var val = 30 * 0.552284749831;
+
+            if (nextP != undefined) {
+              // if (nextP.ix > p.ix && nextP.iy < p.iy) {
+              //  p.cx1 = p.x;
+              //  p.cy1 = p.y-val;
+              //  p.cx2 = nextP.x-val;
+              //  p.cy2 = nextP.y;
+              // } else if (nextP.ix > p.ix && nextP.iy > p.iy) {
+              //  p.cx1 = p.x+val;
+              //  p.cy1 = p.y;
+              //  p.cx2 = nextP.x;
+              //  p.cy2 = nextP.y-val;
+              // }  else if (nextP.ix < p.ix && nextP.iy > p.iy) {
+              //  p.cx1 = p.x;
+              //  p.cy1 = p.y+val;
+              //  p.cx2 = nextP.x+val;
+              //  p.cy2 = nextP.y;
+              // } else if (nextP.ix < p.ix && nextP.iy < p.iy) {
+              //  p.cx1 = p.x-val;
+              //  p.cy1 = p.y;
+              //  p.cx2 = nextP.x;
+              //  p.cy2 = nextP.y+val;
+              // } else {
+
+              p.cx1 = (p.x + nextP.x) / 2;
+              p.cy1 = (p.y + nextP.y) / 2;
+              p.cx2 = (p.x + nextP.x) / 2;
+              p.cy2 = (p.y + nextP.y) / 2;
+
+              context.bezierCurveTo(p.x, p.y, p.cx1, p.cy1, p.cx1, p.cy1);
+              //  continue;
+              // }
+
+              // context.bezierCurveTo(p.cx1, p.cy1, p.cx2, p.cy2, nextP.x, nextP.y);
+            } else {
+              nextP = points[0];
+              p.cx1 = (p.x + nextP.x) / 2;
+              p.cy1 = (p.y + nextP.y) / 2;
+
+              context.bezierCurveTo(p.x, p.y, p.cx1, p.cy1, p.cx1, p.cy1);
+            }
+          }
+
+          // context.closePath();
+          context.fill();
+        }
+
+        if (showIndicators) {
+          // Draw points
+          context.fillStyle = '#000';
+          context.beginPath();
+          for (var i = 0; i < pointsA.length; i++) {
+            var p = pointsA[i];
+
+            context.rect(p.x - 1, p.y - 1, 2, 2);
+          }
+          context.fill();
+
+          // Draw controls
+          context.fillStyle = '#f00';
+          context.beginPath();
+          for (var i = 0; i < pointsA.length; i++) {
+            var p = pointsA[i];
+
+            context.rect(p.cx1 - 1, p.cy1 - 1, 2, 2);
+            context.rect(p.cx2 - 1, p.cy2 - 1, 2, 2);
+          }
+          context.fill();
+        }
+      }
+
+      // Init
+      initButton();
+    });
+  </script>
+  <!-- Popper, Bootstrap -->
+  <!-- <script src="{% static 'ftp/ProjectsPage/js/popper.min.js' %}"></script> -->
+  <!-- <script src="{% static 'ftp/ProjectsPage/js/bootstrap.min.js' %}"></script> -->
+  <!-- Jquery Mobile Menu -->
+  <!-- <script src="{% static 'ftp/ProjectsPage/js/jquery.slicknav.min.js' %}"></script> -->
+
+  <!-- <script src="{% static 'ftp/ProjectsPage/js/main.js' %}"></script> -->
+  <script src="{% static 'ftp/ProjectsPage/js/main2.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

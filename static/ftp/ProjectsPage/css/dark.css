@@ -1,0 +1,171 @@
+body{
+  background: #202124 !important;
+}
+
+/* Nav */
+.nav__onScroll {
+  background: url("../img/bg_map.png") fixed no-repeat center center / cover,
+    rgba(0, 0, 0, 0) linear-gradient(45deg, black, #2a4ba5) repeat scroll 0 0;
+}
+
+.nav__dropdown,
+.profileMenu {
+  background-color: #172a48;
+}
+
+.nav__dropdown > a,
+.nav__dropdown > a > i,
+.profileMenu > a {
+  color: white;
+}
+
+.nav__dropdown > a:hover,
+.profileMenu > a:hover {
+  color: white;
+}
+
+/* Section */
+section {
+  background-color: #202124;
+}
+
+section > h1,
+section > h2 {
+  color: white;
+}
+
+/* Cards */
+.section__projectCardInner .custom-shape-divider-bottom-1665510826 .shape-fill{
+  fill: #282A2D;
+}
+
+.section__projectCardInner {
+  color: white;
+  background-color: #282a2d;
+}
+
+.bookmark {
+  color: white;
+}
+
+.disabledBookmark {
+  color: grey;
+}
+
+.section__projectCardInner > hr {
+  background-color: white;
+}
+
+.section__tag {
+  color: white;
+  background-color: #314ba1;
+}
+
+.section__projectDetails {
+  border-width: 1px;
+  background: url("../img/bg_map.png") fixed no-repeat center center / cover,
+    rgba(0, 0, 0, 0) linear-gradient(45deg, black, #262a34) repeat scroll 0 0;
+}
+
+/* Modal */
+.projectFormContainer {
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: background-color 0.5s;
+}
+
+.projectForm {
+  background-color: #222222;
+}
+
+.projectForm > h1,
+.projectForm > h2 {
+  font-weight: 500;
+}
+
+.projectForm > i,
+.projectForm > h1,
+.projectForm > h2,
+.projectForm__domain,
+.projectForm__editables > p {
+  color: white;
+}
+
+.projectForm__ftpSOP,
+.projectForm__ftpLOI {
+  color: white;
+  background-color: #2a2d30;
+}
+
+/* Profile */
+.container {
+  background-color: #172a48;
+}
+
+.container .panel {
+  color: white;
+  background-color: #172a48;
+}
+
+.container .panel #one,
+.container .panel #two,
+.container .panel #three {
+  color: #3ba5b4;
+}
+
+.container .panel .collapsed {
+  color: white !important;
+}
+
+.form-radio input:checked + label {
+  color: #033fb9;
+  background-color: #d2e3ff !important;
+}
+.form-radio input + label {
+  color: #929292;
+}
+.form-group input {
+  color: black;
+}
+input:focus {
+  background-color: #cfcfcf;
+}
+
+/* personal notice board */
+#notice .container{
+  background-color: #202124 !important;
+}
+.notice_title{
+  color: white !important;
+}
+.noticecards{
+  color: white;
+}
+.notice_card, .notice_cardInfo{
+  background-color: #282a2d !important;
+}
+.notice_cardText{
+  color: white !important;
+}
+
+/* Scholarship application form */
+#application label{
+  color: white !important;
+}
+#application  h1{
+  color: white !important;
+}
+#application  div{
+  background-color: #172A48 !important;
+}
+#application form{
+  background-color: #172A48 !important;
+}
+#application input,
+#application textarea{
+  color: white !important;
+  background-color: #282a2d;
+}
+#application input::placeholder,
+#application textarea::placeholder{
+  color: white !important;
+}

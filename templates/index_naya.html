@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>massmail</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic&subset=latin,latin-ext);
+* {
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  transition: color 200ms ease-in-out;
+  text-decoration: none;
+  color: #2196f3;
+  font-weight: 600;
+}
+a:hover {
+  color: #0c7cd5;
+}
+a:active {
+  color: #0a6ebd;
+}
+
+img {
+  max-width: 100%;
+}
+
+.modal-button button, .search-button, .compose {
+  border: none;
+  outline: none;
+  background: #f0f0f0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  color: #333333;
+  background-color: #D4DBE2;
+  font-family: "Open Sans", sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: #696969;
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+  width: 1170px;
+  background-color: white;
+  box-shadow: 0px 8px 20px rgba(42, 47, 57, 0.4);
+}
+
+.toolbar {
+  display: flex;
+  width: 1170px;
+  min-width: 1170px;
+  height: 50px;
+  padding: 0 20px;
+  background-color: #f6f7f8;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar {
+  display: flex;
+  padding-top: 20px;
+  background-color: #2a2f39;
+  flex: 1 0 100px;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column wrap;
+}
+
+.categories {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+.categories li {
+  position: relative;
+}
+.categories i {
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+  color: white;
+  font-size: 20px;
+}
+.categories i:hover {
+  opacity: 1;
+}
+
+.notification {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  color: white;
+  border: 3px solid #2a2f39;
+  border-radius: 50%;
+  background-color: #ea2e49;
+  font-size: 12px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-active {
+  opacity: 1 !important;
+}
+
+.compose {
+  padding: 10px 15px;
+  transition: background-color 200ms ease-in-out;
+  color: white;
+  border-radius: 3px;
+  background-color: #2196f3;
+  font-size: 20px;
+}
+.compose:hover {
+  background-color: #0c7cd5;
+}
+.compose:active {
+  background-color: #0a6ebd;
+}
+
+.user-profile {
+  display: flex;
+  padding-bottom: 20px;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.user-profile i {
+  margin-top: 20px;
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+  color: white;
+  font-size: 20px;
+}
+.user-profile i:hover {
+  opacity: 1;
+}
+
+.inbox {
+  display: flex;
+  width: 400px;
+  min-width: 400px;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #d9e0e2;
+  border-right: 1px solid #d9e0e2;
+  background: #f6f7f8;
+  flex-flow: column;
+}
+
+.inbox-item {
+  height: 200px;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  border-bottom: 1px solid #d9e0e2;
+  flex: 1;
+}
+.inbox-item:hover {
+  background-color: #edf5fd;
+}
+.inbox-item:last-child {
+  border-bottom: 0;
+}
+
+.inbox-sender {
+  display: flex;
+  font-size: 12px;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.inbox-title {
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
+}
+.inbox-title h4 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.sender-name {
+  font-weight: 600;
+}
+
+.sender-date {
+  font-weight: 600;
+}
+.sender-date span {
+  opacity: 0.5;
+}
+
+.sender-label {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+}
+
+.message {
+  width: 100%;
+  padding: 30px;
+  border-top: 1px solid #d9e0e2;
+  background-color: white;
+}
+
+.message-info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.message-from {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.message-from img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+
+.message-sender h5 {
+  margin: 0;
+}
+
+.message-sender span {
+  font-size: 12px;
+  /*margin-top: 5px;*/
+  margin-top:2px;
+  margin-left: 0.5rem;
+  
+}
+.message-sender {
+  display: flex;
+  margin-left: 10px;
+  flex-flow: column wrap;
+  /**/
+  flex-direction:row;
+}
+
+.message-is-active {
+  background: #edf5fd;
+}
+
+.message-tools i {
+  margin-left: 20px;
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out;
+  color: #2a2f39;
+}
+.message-tools i:hover {
+  opacity: 0.6;
+}
+
+.window-actions {
+  display: flex;
+}
+
+.actions-item {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #dddddd;
+}
+.actions-item:nth-child(1) {
+  background-color: #f44336;
+}
+.actions-item:nth-child(2) {
+  background-color: #ffeb3b;
+}
+.actions-item:nth-child(3) {
+  background-color: #4caf50;
+}
+
+input[type=search] {
+  width: 300px;
+  height: 25px;
+  padding: 0 10px;
+  border: none;
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+  background-color: white;
+  font-size: 12px;
+}
+input[type=search]:focus {
+  border: 1px solid #2196f3;
+  outline: none;
+}
+
+.search-button {
+  height: 27px;
+  max-height: 27px;
+  margin-left: -8px;
+  padding: 0 15px;
+  color: white;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ea2e49;
+  font-size: 12px;
+  font-weight: 600;
+}
+.search-button:hover {
+  background-color: #d01530;
+}
+.search-button:active {
+  background-color: #b9132a;
+}
+
+.message-labels .message-labels-item {
+  margin: 20px 0;
+}
+
+.red {
+  border: 2px solid #ea2e49;
+  background-color: rgba(234, 46, 73, 0.5);
+}
+
+.blue {
+  border: 2px solid #2196f3;
+  background-color: rgba(33, 150, 243, 0.5);
+}
+
+.yellow {
+  border: 2px solid #ffeb3b;
+  background-color: rgba(255, 235, 59, 0.5);
+}
+
+.green {
+  border: 2px solid #4caf50;
+  background-color: rgba(76, 175, 80, 0.5);}
+
+ .modal-form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+  outline: none;
+}
+.modal-form input:focus,
+.modal-form textarea:focus {
+  border: 1px solid #2196f3;
+}
+.modal-form textarea {
+  resize: vertical;
+}
+
+.modal-body {
+  padding: 20px;
+  border-top: 1px solid #d9e0e2;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #f6f7f8;
+}
+
+.modal-button {
+  padding-top: 10px;
+  text-align: right;
+}
+.modal-button button {
+  padding: 5px 20px;
+  color: white;
+  border-radius: 3px;
+  background-color: #2196f3;
+}
+.modal-button button:hover {
+  background-color: #0c7cd5;
+}
+.modal-button button:active {
+  background-color: #0a6ebd;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+}
+.modal-close:hover {
+  opacity: 0.5;
+}
+.modal-close:after {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 15px;
+  height: 2px;
+  content: "";
+  transform: rotate(45deg);
+  background-color: #333333;
+}
+.modal-close:before {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 15px;
+  height: 2px;
+  content: "";
+  transform: rotate(-45deg);
+  background-color: #333333;
+}
+
+</style>
+</head>
+<body>
+<div class="window">
+    <div class="toolbar">
+      <ul class="window-actions">
+        <li class="actions-item"></li>
+        <li class="actions-item"></li>
+        <li class="actions-item"></li>
+      </ul>
+      <div class="search-box">
+        <input type="search" name="q" value="#Swedish" placeholder="Type to search"/>
+        <button class="search-button"> <i class="fa fa-search"></i></button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="overlay">
+        <div class="modal">
+          <div class="modal-title">New message<span class="modal-close"></span></div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <input type="text" placeholder="To"/>
+              <input type="text" placeholder="Subject"/>
+              <textarea name="message" rows="5" placeholder="Your text"></textarea>
+              <div class="modal-button">
+                <button class="send">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <nav>
+          <a href="{% url 'composemail' %}" target="_blank"><button class="compose"> <i class="fa fa-pencil"></i></button></a>
+          <ul class="categories">
+            <li>
+              <!-- <div class="notification">
+                  <span>5</span>
+            </div> -->
+            <i class="fa fa-inbox is-active"></i>
+            </li>
+            <li><a href="{% url 'spam' %}"><i class="fa fa-warning"></i></a></li>
+            <li><i class="fa fa-trash"></i></li>
+          </ul>
+        </nav>
+        <!-- <ul class="message-labels">
+          <li class="message-labels-item yellow"></li>
+          <li class="message-labels-item blue"></li>
+          <li class="message-labels-item red"></li>
+          <li class="message-labels-item green"></li>
+        </ul> -->
+        <!-- <div class="user-profile"><i class="fa fa-cog"></i><i class="fa fa-sign-out-alt"></i></div> -->
+      </aside>
+      <ul class="inbox">
+        {% for a,b,c,time,x,emailid,ccall,refid,ind in myL %}
+        <li class="inbox-item" style="padding-bottom: 50px; max-height:33vh" onclick="display( {{x}} )">
+          <input type="hidden"  id="appfrom{{ x }}" value="{{b}}">
+          <input type="hidden" id="apptime{{ x }}" value="{{time}}">
+          <input type="hidden" id="appsub{{ x }}" value="{{a}}">
+          <input type="hidden" id="appbody{{ x }}" value="{{c}}">
+          <input type="hidden" id="appemailid{{ x }}" value="{{emailid}}">
+          <input type="hidden" id="appcc{{ x }}" value="{{ccall}}">
+          <input type="hidden" id="appid{{ x }}" value="{{refid}}">
+          <input type="hidden" id="appind{{ x }}" value="{{ind}}">
+
+          
+          <div class="inbox-sender">
+            <div class="sender-name"> <a href="#">{{b}}</a></div>
+            <div class="sender-date">
+              {% if ind == 1 %}
+              <i class="sender-label fa fa-paperclip"></i>
+              {% endif %}
+              <span>{{time}}</span></div>
+          </div>
+          <div class="inbox-title">
+            <div class="message-labels-item blue"></div>
+            <h4>{{a}}</h4>
+          </div> 
+          <div style="  white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; min-height:100px; max-height:150px;"><p class="inbox-short" >{% autoescape off %}{{c}}{% endautoescape %}</p>
+        </div>
+        </li>
+        {% endfor %}
+          {% if stop != 1 %}
+          <button type="button" class="btn btn-primary"><a href="{% url 'massmailrepeat' itr %}">Next</a></button> 
+          {% endif %}
+          {% if itr != 4 %}
+          <button type="button" class="btn btn-primary"><a href="{% url 'massmailrepeat' itr2 %}">Previous</a></button> 
+          {% endif %}
+      </ul>
+     
+  
+      <!-- <div class="message">
+        <div class="message-info">
+          <div class="message-from"><img src="http://blog.sportafolio.com/wp-content/uploads/2015/08/zlatan.jpg" alt="img"/>
+            <div class="message-sender">
+              <h5></h5><span>From: <a href="#">{{from.0}}</a></span>
+            </div>
+          </div>
+          <div class="message-tools"><i class="fa fa-reply"></i><i class="fa fa-star-o"></i><i class="fa fa-trash-o"></i></div>
+        </div>
+        <div class="sender-date"><i class="sender-label fa fa-paperclip"></i><span>{{time.0}}</span></div>
+        <h2 class="message-title">{{subject.0}}</h2>
+        <p class="message-body" id="mainbody">{% autoescape off %}{{content.0}}{% endautoescape %}</p> </div>
+    </div> -->
+    <div class="message">
+      <div class="message-info">
+        <div class="message-from">
+          <!-- <img src="http://blog.sportafolio.com/wp-content/uploads/2015/08/zlatan.jpg" alt="img"/> -->
+          <div class="message-sender">
+            From: <span id="mainfrom"> <a href="#"></a></span>
+          </div>
+          <div class="message-sender">
+            To: <span id="maincc"> <a href="#"></a></span>
+          </div>
+        </div>
+        <div class="message-tools" style="
+        float: right;
+        right: 0;
+        /* top: 50vh; */
+        position: absolute;
+    ">
+            <form action="{% url 'replymail' %}" method="POST" >
+            {% csrf_token %}
+       <button type="submit" style="border:none; background-color:white"><i class="fa fa-reply"></i></button>
+        <input type="hidden" name="mainemailid" id="mainemailid">
+        <input type="hidden" name="mainsubject" id="mainsubject">
+        </form>
+        <form action="{% url 'replymailall' %}" method="POST" >
+          {% csrf_token %}
+     <button type="submit" style="border:none; background-color:white"><i class="fa fa-reply-all"></i></button>
+      <input type="hidden" name="mainemailids" id="mainemailids">
+      <input type="hidden" name="mainsubject2" id="mainsubject2">
+      </form>
+      <input type="hidden" name="mainind" id="mainind">
+      <form action="{% url 'attachment_open' %}" method="POST" >
+        {% csrf_token %}
+        <input type="hidden" name="mainid" id="mainid">
+     <button type="submit" style="border:none; background-color:white; display:none" id="att"> <i class="sender-label fa fa-paperclip"></i>
+      </button>  
+      </form>
+      <form action="{% url 'delete_mail' %}" method="POST" >
+        {% csrf_token %}
+        <input type="hidden" name="mainidcopy" id="mainidcopy">
+     <button type="submit" style="border:none; background-color:white;"> <i class="sender-label fa fa-trash"></i>
+      </button>  
+      </form>
+    </div>
+        </div>
+      <div class="sender-date"><span id="maintime"></span></div>
+      <h2 class="message-title" id="mainsub"></h2>
+      <p class="message-body" id="mainbody">
+
+        {% autoescape off %}{% endautoescape %}</p>
+      
+      </div>
+  </div>
+  </div>
+<script>
+  function display(a){
+    var b = document.getElementById("mainbody");
+    var c = document.getElementById("mainsub");
+    var d = document.getElementById("maintime");
+    var e = document.getElementById("mainfrom");
+    var f = document.getElementById("mainemailid")
+    var f2 = document.getElementById("mainemailids")
+    var g = document.getElementById("mainsubject")
+    var g2 = document.getElementById("mainsubject2")
+    var h = document.getElementById("maincc")
+    var i = document.getElementById("mainid")
+    var i2 = document.getElementById("mainidcopy")
+    var j = document.getElementById("mainind")
+    var fetchfrom = document.getElementById("appfrom"+a);
+    var fetchtime = document.getElementById("apptime"+a);
+    var fetchsub = document.getElementById("appsub"+a);
+    var fetchbody = document.getElementById("appbody"+a);
+    var fetchemailid = document.getElementById("appemailid"+a);
+    var fetchcc = document.getElementById("appcc"+a);
+    var fetchid = document.getElementById("appid"+a);
+    var fetchind = document.getElementById("appind"+a);
+    b.innerHTML= fetchbody.value;
+    c.innerHTML= fetchsub.value;
+    d.innerHTML= fetchtime.value;
+    e.innerHTML= fetchfrom.value;
+    f.value = fetchemailid.value;
+    f2.value = fetchcc.value;
+    g.value = fetchsub.value;
+    g2.value = fetchsub.value;
+    h.innerHTML= fetchcc.value;
+    i.value = fetchid.value;
+    i2.value = fetchid.value;
+    j.value = fetchind.value;
+    console.log(i.value);
+    if(j.value == "1") {
+      var at = document.getElementById("att");
+      at.style.display = "block";
+    }
+    else{
+      var at = document.getElementById("att");
+      at.style.display = "none";
+    }
+  }
+    
+
+
+
+
+    $(document).ready(function() {
+        $('.compose').click(function() {
+          $('.overlay').addClass('is-open');
+        })
+        $('.modal-close, .send').click(function() {
+          $('.overlay').removeClass('is-open');
+        })
+      })
+</script>
+</body>
+</html>

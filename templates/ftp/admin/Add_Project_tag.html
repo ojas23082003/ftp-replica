@@ -1,0 +1,161 @@
+{% extends 'ftp/admin_base.html' %}
+{% load staticfiles %}
+{% block title %}Project-Tags | FTP | International Relations Cell{% endblock %}
+
+{% block css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css" type="text/css">
+
+    <style>
+        .pdet{
+            margin-top: 25px;
+        }
+        .bookmarked{
+            color: #171b2e !important;
+        }
+        .button {
+            border-radius-right: 24px;
+
+            border: none;
+            color: rgb(0,0,0);
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+            background-color: red;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        .sort-list:hover{
+            padding:5px 20px;
+            cursor:pointer;
+            border:1px solid blue;
+            border-radius:3px;
+            margin:2px;
+        }
+
+        .btn-success {
+            color: #f89a30;
+            background-color: #f8f9fc;
+            border-color: #f8f9fc;
+        }
+        .btn-success:hover{
+            background-color: #dde2f1 !important;
+            border-color: white;
+        }
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+        @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 }
+            to { bottom:0px; opacity:1 }
+        }
+
+        @keyframes animatebottom {
+            from{ bottom:-100px; opacity:0 }
+            to{ bottom:0; opacity:1 }
+        }
+
+        .btn-lg, .btn-group-lg > .btn {
+            padding: 0.5rem 0;
+        }
+
+        .applybutton {
+            background-color: #f89a30 !important;
+            color: white !important;
+            transition: none !important;
+            -webkit-appearance: none !important;
+        }
+
+        .applybutton:hover {
+            background-color: #f89a30 !important;
+        }
+
+        .btn:active {
+            outline: none !important;
+        }
+
+        .deadl {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .deadl {
+                display: contents;
+            }
+        }
+
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+{% block content %} 
+
+
+        <div class="container-fluid">
+
+            <center style="padding-top:60px">
+            <h3 style="font-weight: bold; color: #242e5b;">ADD PROJECT TAGS</h3>
+                <div style="padding:50px">
+                <form action ="{% url 'ftp:admin_project_tag' %}" method="POST">
+
+                    {% csrf_token %}
+                    <input type = 'text' name = 'title' >
+                    <input type='submit' value='Save'>
+
+                </form>
+
+                {% if msg %}
+
+                    <h3>{{msg|upper}}</h3>
+
+                {% endif %}
+            </div>
+            </center>
+
+                <h3 style="margin-left:42%;margin-right:40%;font-weight: bold; color: #242e5b;">PROJECT TAGS</h3>
+                <div style="float: center;margin-top:20px; margin-left:40%;margin-right:40%">
+                    <ul>
+                    {% for p in p_tag %}
+                        <li style="padding:5px 20px;margin:3px;" class="sort-list"><b><a>{{p.title}}</a></b>
+                            <a href="#" onclick='window.open("{% url 'ftp:delete-tags' p.id  %}","_self")' style="float:right" class="btn btn-danger btn-sm">delete</a>
+                        </li>
+                         {% endfor%}
+
+                    </ul>
+            </div>
+        
+    </div>    
+
+{% endblock %}

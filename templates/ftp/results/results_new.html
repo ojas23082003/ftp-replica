@@ -1,0 +1,109 @@
+{% extends 'ftp/base_new.html' %}
+{% load static %}
+
+{% block title %}Results | FTP | International Relations Cell{% endblock %}
+{% block heading %}Results{% endblock %}
+
+{% block main %}
+  <body
+    class="blog theme-jobhunt kc-css-system woocommerce-js jobhunt-sticky-header-enabled blog-archive blog-grid full-width woocommerce-active wpjm-activated jobhunt"
+  >
+    <div class="off-canvas-wrapper">
+      <div id="page" class="hfeed site">
+        <div id="content" class="site-content" tabindex="-1">
+          <div class="container">
+            <div class="site-content-inner">
+              <div class="woocommerce"></div>
+              <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                {% if not result %}
+                <h2 class="projects" style="display:flex; justify-content:center; width:100vw;">No results to show!!</h2>
+                {% else %}
+                {% for foo in result %}
+                {% if foo.project %}
+                  <article
+                    class="post-448 post type-post status-publish format-standard has-post-thumbnail hentry category-education category-learn category-skill category-travel tag-adwords tag-trade"
+                  >
+                    <div class="post-inner">
+                      <div class="media-attachment">
+                        <div class="post-thumbnail">
+                          <a
+                            href="https://jobhunt.madrasthemes.com/2018/08/09/attract-more-attention-sales-and-profits/"
+                            ><img
+                              width="390"
+                              height="280"
+                              src="https://jobhunt.madrasthemes.com/wp-content/uploads/2018/08/blog-4-390x280.jpg"
+                              class="attachment-390x280-crop size-390x280-crop wp-post-image"
+                              alt=""
+                              loading="lazy"
+                          /></a>
+                        </div>
+                      </div>
+                      <div class="content-body">
+                        <header class="entry-header">
+                          <div class="entry-meta">
+                            <div class="post-author-info">
+                              <div class="media">
+                                <div class="media-left media-middle">
+                                  <a
+                                    href="https://jobhunt.madrasthemes.com/author/admin/"
+                                  >
+                                    <img
+                                      alt=""
+                                      src="https://jobhunt.madrasthemes.com/wp-content/plugins/jobhunt-demo/assets/images/andre.jpg"
+                                      class="avatar"
+                                    />
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <h2 class="entry-title">
+                            <a
+                              href="https://jobhunt.madrasthemes.com/2018/08/09/attract-more-attention-sales-and-profits/"
+                              rel="bookmark"
+                              >ABC Project</a
+                            >
+                          </h2>
+                        </header>
+                        <div class="entry-content">
+                            <p class=" section__projectCardTitle">{{foo.project.project_name}}</p>
+                            <p class="section__projectCardSecondaryText">{{foo.project.university}}</p>
+                            <p class="section__projectCardMode"><b>Project Mode:</b> {{foo.project.project_mode}}</p>
+                            <p class="section__projectCardDetail">{{foo.project.project_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                          <p class="section__projectCardSubtitle" style="margin-top: 10px;">Deadline: {{p.deadline}}</p>
+                        </div>
+                        <div class="post-readmore">
+                          <a
+                            href="https://jobhunt.madrasthemes.com/2018/08/09/attract-more-attention-sales-and-profits/"
+                            class="btn btn-primary"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                      <div class="section__projectDetails">
+                        <h1>Results</h1>
+                        <p><b><i class="fas fa-file-signature"></i>Name: </b>{{foo.project.project_name}}</p>
+                        <p><b><i class="fas fa-university"></i>University: </b>{{foo.project.university}}</p>
+                        <p><b><i class="fas fa-info-circle"></i>Details: </b><br><br> <span><b>Project Mode: </b>{{foo.project.project_mode}}</span>{{foo.project.project_detail|linebreaks}}</p>
+                        <p><b><i class="fas fa-users"></i>Selected Applicants: </b></p>
+                        {% for profile in foo.result.all %}
+                        <p><b>{{forloop.counter}}. {{profile.rollno}}</b> - {{profile.fullname}}</p>
+                        {% endfor %}
+                    </div>
+                  </article>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                </main>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

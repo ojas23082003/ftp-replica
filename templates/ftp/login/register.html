@@ -1,0 +1,208 @@
+{% extends 'ftp/login/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Register | FTP | International Relations Cell{% endblock %}
+
+
+{% block content %}
+<div class="container1 sign-up-mode">
+  <div class="form-container">
+    <div class="signin-signup">
+      <form class="sign-in-form" action="{% url 'ftp:login_user' %}" method="POST">
+        <h2 class="title"><b>Sign In</b></h2>
+
+        <!-- <div class="alert alert-danger" style="
+                            margin-bottom: 0px;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                            font-size: 0.89rem;width:0px;
+                          ">
+        <strong>FTP Portal is closed for the Academic Year 2021-22</strong>
+      </div> -->
+        {% csrf_token %}
+        {% if error %}
+        <div class="alert alert-danger" style="
+                margin-bottom: 0px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                font-size: 0.89rem;
+              ">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endif %}
+
+        <div class="input-field" style="padding-left: 0px;">
+          <i class="fas fa-envelope" aria-hidden="true" style="margin-left: 5%; margin-right: 5%;"></i>
+          <input type="text" name="email" placeholder="Email Address" style="margin-left: 0px;" required />
+          <div class="input-group-append" style="border-color: #f0f0f0;">
+            <span class="input-group-text" id="basic-addon2">
+              <select name="domain" class="form-group"
+                style="margin-bottom:0;width: 9.5rem;font-size: 0.75rem;background-color: #f0f0f0;border: none;text-align-last: right; position:relative; left:10px;top:0px;border-color: #f0f0f0;">
+                <option value="@iitkgp.ac.in">@iitkgp.ac.in</option>
+                <option value="@kgpian.iitkgp.ac.in" selected>@kgpian.iitkgp.ac.in</option>
+              </select>
+            </span>
+          </div>
+
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock" aria-hidden="true"></i>
+          <input class="pass" type="password" name="password" placeholder="Password" required />
+        </div>
+
+        <p class="social-text" style="
+      margin-bottom: 6px;
+      padding-bottom: 0px;
+      padding-top: 0px;
+  ">
+          <a href="{% url 'ftp:forgotpassword' %}" class="registerlink forget"><strong>Forgot Password?</strong></a>
+        </p>
+
+        <input type="submit" value="Login" class="btn solid" style="
+      color: white;
+      margin-top: 0px;
+      margin-bottom: 12px;
+  ">
+        <div class="social-media">
+          <a href="https://www.facebook.com/IRCIITKGP/" class="social-icon" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="mailto:ftp.ircell@gmail.com" class="social-icon" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+            class="social-icon" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <!-- <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p> -->
+      </form>
+
+      <form action="{% url 'ftp:register' %}" class="sign-up-form" method="POST" onsubmit="return confirmSubmit()"
+        name="registerForm">
+        <h2 class="title" style="font-family: 'Poppins', sans-serif;"><b>Sign Up</b></h2>
+
+        <!-- <div class="alert alert-danger" style="
+                                        margin-bottom: 0px;
+                                        padding-top: 5px;
+                                        padding-bottom: 5px;
+                                        font-size: 0.89rem;width:0;
+                                      ">
+        <strong>FTP Portal is closed!</strong>
+      </div> -->
+        {% csrf_token %}
+        <div>
+          {% if errors %}
+          {% for field in form %}
+          {% for error in field.errors %}
+          <div class="alert alert-danger" style="
+                            margin-bottom: 0px;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                            font-size: 0.89rem;
+                          ">
+            <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+          <div class="alert alert-danger" style="
+                        margin-bottom: 0px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        font-size: 0.89rem;
+                      ">
+            <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        {% if error %}
+        <div class="alert alert-danger" style="
+            margin-bottom: 0px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 0.89rem;
+          ">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endif %}
+
+
+        <div class="input-field" id="user2" style="grid-template-columns: 15% 37% 5%; padding-left:0px;">
+          <i class="fa fa-envelope" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;"></i>
+          <input class="pass" type="text" name="username" placeholder="Email Address" required />
+          <div class="input-group-append" style="border-color: #f0f0f0;">
+            <span class="input-group-text" id="basic-addon2" style="border-color: #f0f0f0;">
+              <select name="domain" class="form-group"
+                style="margin-bottom:0;width: 9.5rem;font-size: 0.75rem;background-color: #f0f0f0;border: none;text-align-last: right;">
+                <option value="@iitkgp.ac.in">@iitkgp.ac.in</option>
+                <option value="@kgpian.iitkgp.ac.in" selected>@kgpian.iitkgp.ac.in</option>
+              </select>
+            </span>
+          </div>
+        </div>
+
+
+        <div class="input-field">
+          <i class="fas fa-lock" aria-hidden="true"></i>
+          <input class="pass" type="password" name="password1" placeholder="Password" required />
+        </div>
+
+        <div class="input-field">
+          <i class="fas fa-lock" aria-hidden="true"></i>
+          <input class="pass" type="password" name="password2" placeholder="Confirm password" required />
+        </div>
+        <div>
+          <p
+            style="white-space: nowrap;color:red; padding-bottom: 0px; padding-top: 0px; margin-bottom: -1rem; font-size: 0.75rem;">
+            *
+            Password must be 8 characters long</p>
+        </div>
+
+        <p class="social-text"
+          style=" margin-bottom: 0px; padding-top: 15px; padding-bottom: 5px; font-size: 0.89rem; ">
+          <a href="{% url 'ftp:domainchange' %}" class="registerlink forget"
+            style="white-space: nowrap"><strong>Registered with Incorrect
+              Domain?</strong></a>
+        </p>
+
+        <input type="submit" value="Register" class="btn">
+        <p class="social-text">Connect with us!</p>
+        <div class="social-media">
+          <a href="https://www.facebook.com/IRCIITKGP/" class="social-icon" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="mailto:ftp.ircell@gmail.com" class="social-icon" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+            class="social-icon" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <!-- <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p> -->
+      </form>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <img src="{%static 'ftp/login/irclogo-large.png' %}" alt="" class="image" style="width: 180px; height: 180px;">
+        <div class="content">
+          <h1 style="font-family: 'Righteous', cursive; font-size: 45px;">FOREIGN TRAINING<br />PROGRAM</h1>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p> -->
+          <button class="btn" id="sign-in-btn" style="border: 2px solid white;">Login</button>
+        </div>
+      </div>
+      <div class="panel right-panel">
+        <img src="{%static 'ftp/login/irclogo-large.png' %}" alt="" class="image" style="width: 180px; height: 180px;">
+        <div class="content">
+          <h1 style="font-family: 'Righteous', cursive; font-size: 45px;">FOREIGN TRAINING<br />PROGRAM</h1>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p> -->
+          <button class="btn" id="sign-up-btn" style="border: 2px solid white;">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

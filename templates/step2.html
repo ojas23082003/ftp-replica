@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block outer-text %}
+    After uploading the excel file,
+    few variables will be displayed-below.<br/>
+    Use them in your html code using the syntax
+    {% verbatim skip %}{{variablename}}.{% endverbatim skip %}<br/>
+    Note that variables are case-sensitive.
+{% endblock %}
+{%  block inner-content %}
+  <form onsubmit="status_update();" action="{% url 'step2' %}" class="decor" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <!--<div class="circle"></div>-->
+    <div class="form-inner">
+      <h1>Email Sender</h1>
+      <div id="variables">
+          Vaid variables : {% for var in variables %}{{ var }}, {% endfor %}
+          <br>Use them as - {% verbatim skip %}{{variablename}}.{% endverbatim skip %}
+      </div>
+      <input class="main" name="subject" type="text" placeholder="Subject" required>
+      <textarea class="main" name="message" placeholder="Message..." rows="10" id="editor" required></textarea>
+      <div style="display:block;margin-left: 38%;margin-right: auto; margin-bottom:0px;">
+        <!--Two radio buttons with name="purpose", values=testing, submit-->
+        Purpose: <br/>
+        <input type="radio" name="purpose" value="testing">
+        <label for="testing">Testing</label><br>
+        <input type="radio" name="purpose" value="submit" checked>
+        <label for="submit">Submit</label><br>
+      </div>
+    </div>
+  </form>
+  <div id="status" class="invisible" style="margin-bottom:0;margin-top:10px;" ></div>
+  <button type="submit" id="submit" onclick="tinyMCE.triggerSave(true,true);">Submit</button>
+{% endblock %}
+{% block js %}
+{% endblock %}

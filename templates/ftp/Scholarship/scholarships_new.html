@@ -1,0 +1,360 @@
+{% extends 'ftp/base_new.html' %}
+{% load static %}
+
+{% block title %}Scholarships | FTP | International Relations Cell{% endblock %}
+{% block heading %}Scholarships{% endblock %}
+
+{% block main %}
+  <body
+    class="blog theme-jobhunt kc-css-system woocommerce-js jobhunt-sticky-header-enabled blog-archive blog-grid full-width woocommerce-active wpjm-activated jobhunt"
+  >
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}
+            style="font-size: 15px;font-weight: 700; text-align: center;color: #2A4BA5">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="off-canvas-wrapper">
+      <div id="page" class="hfeed site">
+        <div id="content" class="site-content" tabindex="-1">
+          <div class="container">
+            <div class="site-content-inner">
+              <div class="woocommerce"></div>
+              <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                  {% if success %}
+                  <div style="display:flex; justify-content:center; width:100vw">
+                    <h2 class="projects">We'll be back with more scholarships soon!</h2>
+                  </div>
+                  {% else %}
+                  {% for p in allprojects %}
+                  {% if p.display %}
+                  <article
+                    class="post-448 post type-post status-publish format-standard has-post-thumbnail hentry category-education category-learn category-skill category-travel tag-adwords tag-trade"
+                    
+                  >
+                    <div class="post-inner">
+                      <div class="media-attachment">
+                        <div class="post-thumbnail">
+                          <a
+                            href="https://jobhunt.madrasthemes.com/2018/08/09/attract-more-attention-sales-and-profits/"
+                            ><img
+                              width="390"
+                              height="280"
+                              src="https://jobhunt.madrasthemes.com/wp-content/uploads/2018/08/blog-4-390x280.jpg"
+                              class="attachment-390x280-crop size-390x280-crop wp-post-image"
+                              alt=""
+                              loading="lazy"
+                          /></a>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="ModalCenter{{p.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 style="padding-left: 27%; font-size: 30px; width: 100vw;">Scholarship Details</h1>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="modal-inner"> 
+                                <p><b><i class="fas fa-file-signature"></i>Name: </b><span>{{p.scholarship_name}}</span></p>
+                                <p><b><i class="fas fa-university"></i>Funding Agency: </b>{{p.funding_agency}}</span></p>
+                                <p><b><i class="fas fa-calendar-day"></i>Deadline: </b>{{p.deadline}}</span>
+                                <p><b><i class="fas fa-info-circle"></i>Details: </b>{{p.scholarship_detail|linebreaks}}</span></p>
+                                <p><b><i class="fas fa-dollar-sign"></i>Amount: </b>{{p.amount}}</span></p>
+                              </div>
+                              {% if p.link %}
+                              <div class="apply-outer">
+                                <a href="{{p.link}}" target="_blank"><button class="apply">Apply</button></a>
+                              </div>
+                              {% else %}
+                              <div class="apply-outer">
+                                <a href="{% url 'ftp:scholarship_apply' scholarship_id=p.id%}" target="_blank"><button class="apply">Apply</button></a>
+                              </div>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="section__projectDetails">
+                        <div class="section__projectInfo">
+                            <div class="section__projectInfo-sub" style="flex:1;">
+                              <h1 style="margin-top: 15px; margin-bottom: 20px; text-align: left; font-size: 28px;"></b><span>{{p.scholarship_name}}</span></h1>
+                              <p>{{p.funding_agency}}</p>
+                              <p>{{p.scholarship_detail|slice:'0:100'}}...</p>
+                              <!-- <hr /> -->
+                              <p><b><i class="fas fa-calendar-day"></i>Deadline: </b><span>{{p.deadline}}</span></p>   
+                              </p>
+                              <div class="section__tagsContainer">
+                                  {% for tag in p.tags.all %}
+                                  <p class="section__tag">{{tag}}</p>
+                                  {% endfor %}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="read">
+                          <button class="read-more" data-toggle="modal" data-target="#ModalCenter{{p.id}}">
+                            Read More
+                          </button>
+                        </div>
+                    </div>
+                  </article>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                </main>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'ftp/ProjectsPage/js/main2.js' %}"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https:\/\/schema.org\/",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "name": "Home",
+            "@id": "https:\/\/jobhunt.madrasthemes.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "name": "",
+            "@id": "https:\/\/jobhunt.madrasthemes.com\/blog-demo\/?blog_view=blog-grid&amp;blog_layout=full-width"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "name": "Page 1",
+            "@id": "https:\/\/jobhunt.madrasthemes.com\/blog-demo\/?blog_view=blog-grid&amp;blog_layout=full-width"
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="text/javascript">
+    (function () {
+      var c = document.body.className;
+      c = c.replace(/woocommerce-no-js/, "woocommerce-js");
+      document.body.className = c;
+    })();
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9"
+    id="regenerator-runtime-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"
+    id="wp-polyfill-js"
+  ></script>
+  <script type="text/javascript" id="contact-form-7-js-extra">
+    /* <![CDATA[ */
+    var wpcf7 = {
+      api: {
+        root: "https:\/\/jobhunt.madrasthemes.com\/wp-json\/",
+        namespace: "contact-form-7\/v1",
+      },
+      cached: "1",
+    };
+    /* ]]> */
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.6"
+    id="contact-form-7-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.5.0"
+    id="jquery-blockui-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.5.0"
+    id="wc-add-to-cart-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.5.0"
+    id="js-cookie-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.5.0"
+    id="woocommerce-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.5.0"
+    id="wc-cart-fragments-js"
+  ></script>
+  <script type="text/javascript" id="wc-cart-fragments-js-after">
+    jQuery("body").bind("wc_fragments_refreshed", function () {
+      var jetpackLazyImagesLoadEvent;
+      try {
+        jetpackLazyImagesLoadEvent = new Event("jetpack-lazy-images-load", {
+          bubbles: true,
+          cancelable: true,
+        });
+      } catch (e) {
+        jetpackLazyImagesLoadEvent = document.createEvent("Event");
+        jetpackLazyImagesLoadEvent.initEvent(
+          "jetpack-lazy-images-load",
+          true,
+          true
+        );
+      }
+      jQuery("body").get(0).dispatchEvent(jetpackLazyImagesLoadEvent);
+    });
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/skip-link-focus-fix.min.js?ver=20130115"
+    id="jobhunt-skip-link-focus-fix-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/popper.min.js?ver=1.14.3"
+    id="popper-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/bootstrap.min.js?ver=4.1.1"
+    id="bootstrap-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/slick.min.js?ver=1.8.0"
+    id="slick-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/jquery.waypoints.min.js?ver=1.2.11"
+    id="jobhunt-waypoints-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/waypoints-sticky.min.js?ver=1.2.11"
+    id="waypoints-sticky-js"
+  ></script>
+  <script type="text/javascript" id="jobhunt-navigation-js-extra">
+    /* <![CDATA[ */
+    var jobhuntScreenReaderText = {
+      expand: "Expand child menu",
+      collapse: "Collapse child menu",
+    };
+    /* ]]> */
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/navigation.min.js?ver=1.2.11"
+    id="jobhunt-navigation-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/jquery.easing.min.js?ver=1.2.11"
+    id="jquery-easing-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://maps.google.com/maps/api/js?key=AIzaSyDDZJO4F0d17RnFoi1F2qtw4wn6Wcaqxao&amp;libraries=places&amp;ver=1.2.11"
+    id="jobhunt-google-maps-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/jquery.geocomplete.min.js?ver=1.2.11"
+    id="jquery-geocomplete-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1"
+    id="jquery-ui-core-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.1"
+    id="jquery-ui-menu-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/dom-ready.min.js?ver=ecda74de0221e1c2ce5c57cbb5af09d5"
+    id="wp-dom-ready-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/hooks.min.js?ver=1e58c8c5a32b2e97491080c5b10dc71c"
+    id="wp-hooks-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/i18n.min.js?ver=30fcecb428a0e8383d3776bcdd3a7834"
+    id="wp-i18n-js"
+  ></script>
+  <script type="text/javascript" id="wp-i18n-js-after">
+    wp.i18n.setLocaleData({ "text direction\u0004ltr": ["ltr"] });
+  </script>
+  <script type="text/javascript" id="wp-a11y-js-translations">
+    (function (domain, translations) {
+      var localeData =
+        translations.locale_data[domain] || translations.locale_data.messages;
+      localeData[""].domain = domain;
+      wp.i18n.setLocaleData(localeData, domain);
+    })("default", { locale_data: { messages: { "": {} } } });
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/dist/a11y.min.js?ver=68e470cf840f69530e9db3be229ad4b6"
+    id="wp-a11y-js"
+  ></script>
+  <script type="text/javascript" id="jquery-ui-autocomplete-js-extra">
+    /* <![CDATA[ */
+    var uiAutocompleteL10n = {
+      noResults: "No results found.",
+      oneResult: "1 result found. Use up and down arrow keys to navigate.",
+      manyResults:
+        "%d results found. Use up and down arrow keys to navigate.",
+      itemSelected: "Item selected.",
+    };
+    /* ]]> */
+  </script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.1"
+    id="jquery-ui-autocomplete-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/jobhunt.js?ver=1.2.11"
+    id="jobhunt-scripts-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/themes/jobhunt/assets/js/woocommerce/header-cart.min.js?ver=1.2.11"
+    id="jobhunt-header-cart-js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://jobhunt.madrasthemes.com/wp-content/plugins/kingcomposer/assets/frontend/js/kingcomposer.min.js?ver=2.9.5"
+    id="kc-front-scripts-js"
+  ></script>
+{% endblock %}

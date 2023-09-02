@@ -1,0 +1,2433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>International Relations Cell</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}"/>
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="Applic &raquo; Feed"
+        href="https://wp.quomodosoft.com/applic/feed/" />
+    <script type="text/javascript">
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/wp.quomodosoft.com\/applic\/wp-includes\/js\/wp-emoji-release.min.js" } };
+        !function (e, a, t) { var n, r, o, i = a.createElement("canvas"), p = i.getContext && i.getContext("2d"); function s(e, t) { var a = String.fromCharCode; p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0); e = i.toDataURL(); return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL() } function c(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)t.supports[o[r]] = function (e) { if (!p || !p.fillText) return !1; switch (p.textBaseline = "top", p.font = "600 32px Arial", e) { case "flag": return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]); case "emoji": return !s([55357, 56424, 8205, 55356, 57212], [55357, 56424, 8203, 55356, 57212]) }return !1 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+        .hero_index::before {
+            background: rgba(77,71,56,0.4);
+        }
+    </style>
+    <style>
+        @media screen and (max-width:450px){
+            .hero_index{
+                background: url("{% static 'ftp/home/img/hero-new.jpg' %}") no-repeat scroll center center / 100% 80% !important;
+            }
+            .hero_index::before {
+                height: 80% !important;
+            }
+            .hero_index_mobile {
+                height:auto !important;
+            }
+
+        }
+        @media screen and (max-width:800px) and (min-width:451px){
+            .hero_index{
+                background: url("{% static 'ftp/home/img/hero-new.jpg' %}") no-repeat scroll center center / 100% 90% !important;
+            }
+            .hero_index::before {
+                height: 90% !important;
+            }
+            .hero_index_mobile {
+                height:auto !important;
+            }
+
+        }
+
+        
+      
+         .notransition:hover {
+
+            -webkit-transition: none !important;
+            -moz-transition: none !important;
+            -o-transition: none !important;
+            transition: none !important;
+          }
+    </style>
+    <link rel='stylesheet' id='applic-elementor-edit-css'
+        href="{%static 'ftp/home/wp-content/plugins/applic-core/assets/css/elementor-edit.css'%}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css'
+        href="{%static 'ftp/home/wp-includes/css/dist/block-library/style.min.css'%}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='wc-block-vendors-style-css'
+        href="{% static 'ftp/home/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/vendors-style.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='wc-block-style-css'
+        href="{% static 'ftp/home/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css'
+        href="{% static 'ftp/home/wp-content/plugins/contact-form-7/includes/css/styles.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-layout-css'
+        href="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css'
+        href="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' %}"
+        type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css'
+        href="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/css/woocommerce.css' %}"
+        type='text/css' media='all' />
+    <style id='woocommerce-inline-inline-css' type='text/css'>
+        .woocommerce form .form-row .required {
+            visibility: visible;
+        }
+    </style>
+    <style>
+        .team-profile {
+            border-radius: 2rem;
+          }
+        .fa-linkedin, .fa-facebook-f, .fa-envelope{
+            zoom:1.5;
+            -moz-transform: scale(1.5); /* Firefox */
+        }
+    @media only screen and (max-width:450px){
+        #authormobile{
+            max-width:150px;
+        }
+        .about_mobile{
+            padding-top:0px !important;
+        }
+    }
+    </style>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel='stylesheet' id='applic_font-css'
+        href='https://fonts.googleapis.com/css?family=Rubik%3A400%2C500%2C700&#038;subset&#038;ver=5.7.2'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='normalize-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/normalize.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='animate-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/animate.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='odometer-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/odometer.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='modal-video-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/modal-video.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='venobox-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/venobox.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='owl-carousel-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/owl.carousel.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='stellarnav-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/stellarnav.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/bootstrap.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-icons-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/icons/font-awesome.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='themify-icons-css' href="{% static 'ftp/home/wp-content/themes/applic/assets/css/icons/themify-icons.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-flaticon-icons-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/icons/Flaticon-essential.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-webfont-icons-css' href="{% static 'ftp/home/wp-content/themes/applic/assets/css/icons/webfont.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-typography-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/typography.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-header-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/header.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-blog-and-pages-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/blog-and-pages.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-footer-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/footer.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-wpd-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/wpd-style.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-hero-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/hero.css' %}" type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='applic-main-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/style.css' %}" type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='applic-responsive-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/responsive.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='applic-root-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/style.css' %}" type='text/css'
+        media='all' />
+    <style id='applic-root-inline-css' type='text/css'>
+        .barner-area .area-bg,
+        .no_widget.footer-bottom-area {
+            background: rgba(0, 0, 0, 0) url(http://wp.quomodosoft.com/applic/wp-content/uploads/2019/04/blue_bg.png) no-repeat scroll center center / cover;
+        }
+
+        .scrolltotop,
+        .read-more::before {
+            background: #2a4ba5;
+        }
+    </style>
+    <link rel='stylesheet' id='elementor-icons-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-legacy-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/css/frontend.min.css' %}"
+        type='text/css' media='all' />
+    <style id='elementor-frontend-inline-css' type='text/css'>
+        .elementor-kit-732 {
+            --e-global-color-primary: #6EC1E4;
+            --e-global-color-secondary: #54595F;
+            --e-global-color-text: #7A7A7A;
+            --e-global-color-accent: #61CE70;
+            --e-global-color-8d90f6e: #4054B2;
+            --e-global-color-3f123be1: #23A455;
+            --e-global-color-8c6e8ba: #000;
+            --e-global-color-4374c03b: #FFF;
+            --e-global-color-f977ab7: #5368FD;
+            --e-global-color-2cf295ea: #553FBF;
+            --e-global-typography-primary-font-family: "Roboto";
+            --e-global-typography-primary-font-weight: 600;
+            --e-global-typography-secondary-font-family: "Roboto Slab";
+            --e-global-typography-secondary-font-weight: 400;
+            --e-global-typography-text-font-family: "Roboto";
+            --e-global-typography-text-font-weight: 400;
+            --e-global-typography-accent-font-family: "Roboto";
+            --e-global-typography-accent-font-weight: 500;
+        }
+
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px;
+        }
+
+        .elementor-widget:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        h1.entry-title {
+            display: var(--page-title-display);
+        }
+
+        @media(max-width:1024px) {
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 1025px;
+            }
+        }
+
+        @media(max-width:767px) {
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 768px;
+            }
+        }
+
+        .elementor-7 .elementor-element.elementor-element-991820a {
+            overflow: hidden;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .home-button a:hover i {
+            margin-left: 10px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .welcome-text h1 {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .welcome-text h4 {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .welcome-text>p {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .home-button a {
+            color: #ffffff;
+            background-color: #4d84fc;
+            background: #284288 !important;
+
+        }
+
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .home-button a:hover,
+        .elementor-7 .elementor-element.elementor-element-eeb1eb9 .home-button a:focus {
+            background: #11214d !important;
+
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .features-area .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .features-area .subtitle {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .single-features h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .single-features .box-icon i {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .single-features .box-icon {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .owl-carousel .owl-nav>div {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-69d9017 .owl-carousel .owl-nav>div:hover {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .about-area {
+            background: #f0f1ff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .about-area .area-content h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .about-area .area-content p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .details-content-box .box-icon,
+        .about-process-box .box-icon {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .about-area .read-more.active {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .read-more::before {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .about-area .read-more:hover.active {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-f25ffd0 .active:hover::before {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #45aafd 0%, #584bfb 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area {
+            background: #ffffff;
+            padding: 100px 0px 0px 0px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-two-area {
+            background: #ffffff;
+            padding: 100px 0px 0px 0px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .area-title h2,
+        .process-two-area .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .subtitle,
+        .process-two-area .subtitle {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .process-icon i {
+            background-color: transparent;
+            background-image: linear-gradient(135deg, #4a5ef7 0%, #45aafd 99%);
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .single-process-box h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .single-process-box p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .process-area .process-icon::before {
+            background: #f29c1f;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .single-process-box::after {
+            background: #e6e8fe;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab .single-process-box:hover::after {
+            background-color: transparent;
+            background-image: linear-gradient(135deg, #584bfb 0%, #45aafd 99%);
+        }
+
+        .elementor-7 .elementor-element.elementor-element-48e24ab>.elementor-widget-container {
+            padding: 0px 0px 0px 0px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area {
+            background: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .area-content h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .area-content p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .read-more {
+            color: #252525;
+            background: #f0f1ff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area a.read-more:hover {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .read-more::before {
+            background: #284288 !important;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .read-more.active {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-cc16f2d .goal-area .active:hover::before {
+            background: #11214d !important;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-promo-area .area-content h3 {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-promo-area .area-content h4 {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-promo-area .area-content p {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-button button {
+            color: #5368fd;
+            background: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-button button:hover {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-promo-area .single-fun-fact p {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-df1c37a .video-promo-area .single-fun-fact h3 {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .area-content h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .area-content h4 {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .area-content p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .owl-nav i {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .owl-carousel .owl-dots>div {
+            background: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .owl-nav i:hover {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-1420565 .screenshot-area .owl-carousel .owl-dots>div.active {
+            background: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .testmonial-area {
+            background: #f0f1ff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .area-title .subtitle {
+            color: #2a4ba5;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .testmonial-slider .author-name-and-thumb h4 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .testmonial-slider .author-name-and-thumb p {
+            color: #ff911d;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .testmonial-slider .author-content p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .owl-carousel .owl-dots>div {
+            background: #bdc0f3;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-37a8ff6 .owl-carousel .owl-dots>div.active {
+            background: #ff911d;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .pricing-area .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .pricing-area .area-title .subtitle {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-menu>li>a {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-menu>li>a:hover {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-menu li.active a {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-title {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-rate {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .price-details {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price.active .price-title {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price.active .price-rate {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price.active .price-details {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price:before {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .sale-promo {
+            color: #ffffff;
+            background: #ff911d;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price .purchase-button {
+            color: #252525;
+            background: #f0f1ff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price.active .purchase-button {
+            color: #252525;
+            background: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .single-price.active .purchase-button:hover {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3e319e1 .purchase-button:hover {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0 !important;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf  {
+            background: #f0f1ff;
+            padding: 100px 0px 0px 0px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf .faqs-area .panel-title {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf .faqs-area .active .panel-title {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf .faqs-area .active .panel-body {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf .panel-title:hover {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-3a2c2cf .panel.panel-default.active {
+            backround: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #39347a 0%, #2a4ba5 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-940aa5d {
+            padding: 0px 0px 40px 0px;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-54ee70d .blog-area .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-54ee70d .blog-area .area-title h4 {
+            color: #5368FD;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-54ee70d .blog-post-details h3 a {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-54ee70d .blog-post-details>h3>a:hover {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-54ee70d .blog-post-details p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .contact-area {
+            background: #f0f1ff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .area-title h2 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 h4.subtitle {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .single-contact h3 {
+            color: #252525;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .single-contact p {
+            color: #6e6e6e;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .contact-icon i {
+            color: #5368fd;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .contact-area input.read-more.active {
+            color: #ffffff;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .read-more::before {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat scroll 0 0;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .contact-area input.read-more:hover {
+            color: #1a540f;
+        }
+
+        .elementor-7 .elementor-element.elementor-element-96f8080 .read-more:hover::before {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #45aafd 0%, #584bfb 99%) repeat scroll 0 0;
+        }
+
+        @media(max-width:1024px) {
+            .elementor-7 .elementor-element.elementor-element-4b525f2 {
+                padding: 0px 0px 0px 0px;
+            }
+        }
+    </style>
+    <link rel='stylesheet' id='font-awesome-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css' %}" type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='google-fonts-1-css'
+        href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.7.2'
+        type='text/css' media='all' />
+  <script src="{% static 'ftp/home/vendor/jquery/jquery.min.js' %}"></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-includes/js/jquery/jquery-migrate.min.js' %}"
+        id='jquery-migrate-js'></script>
+    <script type='text/javascript' id='applic-post-likes-js-extra'>
+        /* <![CDATA[ */
+        var simpleLikes = { "ajaxurl": "https:\/\/wp.quomodosoft.com\/applic\/wp-admin\/admin-ajax.php", "unlike": "Unlike" };
+/* ]]> */
+    </script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/applic-core/inc/post-likes.js' %}"
+        id='applic-post-likes-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/vendor/modernizr-2.8.3.min.js' %}"
+        id='modernizr-js'></script>
+    <link rel="https://api.w.org/" href="https://wp.quomodosoft.com/applic/wp-json/" />
+    <link rel="alternate" type="application/json" href="https://wp.quomodosoft.com/applic/wp-json/wp/v2/pages/7" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD"
+        href="https://wp.quomodosoft.com/applic/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+        href="wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 5.7.2" />
+    <meta name="generator" content="WooCommerce 4.5.3" />
+    <link rel="canonical" href="https://wp.quomodosoft.com/applic/" />
+    <link rel='shortlink' href='https://wp.quomodosoft.com/applic/' />
+    <link rel="alternate" type="application/json+oembed"
+        href="https://wp.quomodosoft.com/applic/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwp.quomodosoft.com%2Fapplic%2F" />
+    <link rel="alternate" type="text/xml+oembed"
+        href="https://wp.quomodosoft.com/applic/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwp.quomodosoft.com%2Fapplic%2F&#038;format=xml" />
+    <meta name="framework" content="Redux 4.1.20" /> <noscript>
+        <style>
+            .woocommerce-product-gallery {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+    <style type="text/css" id="applic_opt-dynamic-css" title="dynamic-css" class="redux-options-output">
+        .navbar-header {
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+        }
+
+        .is-sticky ul#nav li>a:hover,
+        .is-sticky ul#nav li ul li>a:hover,
+        .is-sticky ul#nav li.active>a,
+        .is-sticky ul#nav li.hover>a,
+        .is-sticky ul#nav li.current-menu-parent>a,
+        .is-sticky ul#nav li.current-menu-item>a,
+        ul#nav li ul a:hover,
+        .header-call-to-action .action-button:hover,
+        .header-call-to-action .search-button:hover,
+        .scrolltotop:hover,
+        .scrolltotop:focus,
+        .post-social-share-and-like-count .like-count a,
+        .single-post-item .post-top-meta .post-author a:hover,
+        .single-post-item h2 a:hover,
+        .single-post-item .meta-comment-tag ul li a:hover,
+        .first_letter .post-details>p:first-of-type::first-letter,
+        .post-date-and-category ul li a:hover,
+        .post-video-popup:hover,
+        .quote-post-author a:hover,
+        .post-tags li a:hover,
+        .post-share ul li a:hover,
+        .next-post a:hover span,
+        .prev-post a:hover span,
+        .prev-post .arrow-link,
+        .next-post .arrow-link,
+        .single-post-navigation-center-grid:hover a,
+        .writen-by,
+        .comment-meta .comment-date,
+        .logged-in-as a:hover,
+        .comment-form input[type="submit"]:hover,
+        .widget_post_with_thumb li a:hover,
+        .widget_categories ul li a:hover,
+        .widget_archive li a:hover,
+        .recentcomments a:hover,
+        .widget_meta ul li a:hover,
+        .widget_nav_menu ul li a:hover,
+        .widget_pages ul li a:hover,
+        .wp-block-quote cite:hover,
+        .single-widgets .search-form button:hover,
+        span.product-category>a,
+        .product-price .discount-price,
+        .product-category {
+            color: #2a4ba5;
+        }
+
+        .header-call-to-action .action-button,
+        .header-call-to-action .search-button,
+        .post-social-share-and-like-count .like-count a:hover,
+        .post-social-share-and-like-count ul li a:hover,
+        .single-post-item .post-details::after,
+        .format-gallery .owl-carousel .owl-nav>div:hover,
+        .post-pagination .page-numbers:hover,
+        .post-pagination .nav-links .current,
+        .post-video-popup,
+        .post-quote,
+        .comment-reply a:hover,
+        .comment-form input[type="submit"],
+        .widget_post_share li a:hover,
+        .single-widgets .search-form button,
+        .widget_tag_cloud a:hover,
+        .product-speacification-menu>li a:hover,
+        .product-speacification-menu>li.active a,
+        .product-speacification-menu>li a:focus,
+        .quantity span:hover,
+        .quantity span:hover,
+        .products-pagination ul li a:hover,
+        .products-pagination ul li .current {
+            background: #5368fd;
+        }
+
+        .post-social-share-and-like-count .like-count a:hover,
+        .post-pagination .page-numbers:hover,
+        .post-pagination .nav-links .current,
+        .comment-reply a:hover,
+        .widget_post_share li a:hover,
+        .comment-form input:focus,
+        .comment-form textarea:focus,
+        .widget_tag_cloud a:hover,
+        .product-speacification-menu>li a:hover,
+        .product-speacification-menu>li.active a,
+        .product-speacification-menu>li a:focus {
+            border-color: #2a4ba5;
+        }
+    </style>
+
+<style>
+    .contact_button{
+        background: #284288 !important;
+    }
+    .contact_button:hover{
+        background: #11214d !important;
+    }
+    .ftphead{
+        margin-lef:30px;
+        height:80px !important;
+    }
+   
+    .ftplogo{
+        margin-left:-40px !important;
+    }
+    @media only screen and (max-width: 1000px) {
+        .ftplogo {     
+        margin-left:-55px !important;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width:50px;
+        }
+      }
+    @media only screen and (max-width: 768px) {
+        .ftplogo {     
+        margin-left:-40px !important;
+        max-height: 50px;
+        width:40px;
+        height:40px;
+        top:40px !important;
+        position: absolute;
+        }
+        .ftphead{
+            margin-left:18px;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .ftplogo {     
+        margin-left:-30px !important;
+        max-height: 50px;
+        width:40px;
+        height:40px;
+        top:40px !important;
+        position: absolute;
+        width: auto !important;
+        padding-left: 10px;
+        }
+        .ftphead{
+            margin-left:30px !important;
+            font-size:25px !important;
+        }
+      }
+      
+@keyframes jump {
+        0%   {transform: translate3d(0,0,0);}
+        40%  {transform: translate3d(0,15%,0);}
+        100% {transform: translate3d(0,30%,0);}
+      }
+      .jump {
+        transform-origin: 50% 50%;
+        animation: jump 1.5s linear alternate infinite;
+      }
+    
+
+</style>
+
+</head>
+
+<body
+    class="home page-template page-template-elementor_header_footer page page-id-7 wp-embed-responsive theme-applic woocommerce-no-js overflow-xhidden no-social woocommerce-active elementor-default elementor-template-full-width elementor-kit-732 elementor-page elementor-page-7"
+    data-spy="scroll" data-target=".mainmenu-area" data-offset="90">
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+
+    <!--SCROLL TO TOP-->
+    <a href="#scroolup" class="scrolltotop jump" style="border: 2px solid white"><i class="fa fa-arrow-up" style=" font-family:Font Awesome 5 Free;font-weight: 900;" ></i></a>
+
+    <!--START TOP AREA-->
+    <header class="top-area single-page" id="home">
+        <div class="header-top-area" id="scroolup">
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+        
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 flex-v-center">
+                                <div class="navbar-header">
+                                    <a href="#">
+                                        <img class="ftplogo" src="{% static 'ftp/login/logo.png' %}" style="  margin: 0;
+                                        position: absolute;
+                                        top: 50%;
+                                        -ms-transform: translateY(-50%);
+                                        transform: translateY(-50%);
+                                        width:50px;">
+                                        <h3 class="ftphead"> International Relations Cell</h3>
+                                    </a>
+                                </div>
+                                <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="50">
+                                    <path class="line top"
+                                        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+                                    <path class="line middle" d="m 30,50 h 40" />
+                                    <path class="line bottom"
+                                        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+                                </svg>
+                                <div id="main-nav" class="stellarnav">
+                                    <ul id="nav" class="nav navbar-nav pull-right">
+                                        <li id="menu-item-52"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
+                                            <a href="#irchome">Home<span class="sub"></span></a>
+                                        </li>
+                                        <li id="menu-item-416"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                                href="#aboutus">About Us<span class="sub"></span></a></li>
+                                        <li id="menu-item-419"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                                href="#irctestimonials">Testimonials<span class="sub"></span></a></li>
+                                        <li id="menu-item-420"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                                href="#ircteam">Team<span class="sub"></span></a></li>
+                                        <li id="menu-item-681"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                                href="#ircfaq">F.A.Q<span class="sub"></span></a></li>
+                                        <li id="menu-item-678"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                                href="#contact">Contact Us<span class="sub"></span></a></li>
+                                        <li id="menu-item-679"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub">
+                                                <a><i class="fa fa-bell-o fa-lg"></i><span class="badge badge-pill  badge-danger">{% if success %}{{ notices.count }}{% endif %}</span><span class="sub"></span></a>
+                                                <ul class="sub-menu" style="padding:5px;min-width:220px;" >
+                                                    <li class="dropdown-menu-header">
+                                                        <h6 class="dropdown-header m-0" style="text-align:center;">Notice Board</h6>
+                                                        {% if success %}<span class="notification-tag badge badge-default badge-danger float-right m-0">{{ notices.count }} New</span>{% endif %}
+                                                    </li>
+                                                    <li class="scrollable-container media-list w-100 ps-container ps-theme-dark ps-active-y" data-ps-id="538462eb-aa8b-f3de-00dc-94a87888b71f">
+                                                        {% if success %}
+                                                            {% for notice in notices %}
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                <h5 class="media-heading" style="padding-left: 10px;">{{ notice.title }} </h5>
+                                                                <!--<p class="notification-text font-small-3 text-muted">{{ notice.description }}</p>-->
+                                                                    <small><time class="media-meta text-muted" style="padding-left: 10px;">{{ notice.date }}</time></small>
+                                                                </div>
+                                                            </div>
+                                                            {% endfor %}
+                                                        {% else %}
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                <h6 class="media-heading" style="text-align: center">No new notice</h6>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </li>
+                                                    <li class="dropdown-menu-footer">
+                                                        <a id="menu-item-344"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page" href="/notice">  
+                                                        Show all notices</a>
+                                                    </li>
+                                                </ul>
+                                        </li>
+                                    </ul>
+                                </div>     
+                            </div>
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--Style Update-->
+    <style>
+    .fa-bell:before
+     {
+    content: "\f0f3";
+    color: bisque;
+    }
+    @media only screen and (min-width: 800px) 
+    {
+        ul.sub-menu
+        {
+                position: absolute;
+                left: -100px;
+                display: none;
+        }
+    }
+    .dropdown-header{
+        font-size: 20px;
+    }
+    </style>
+    <div data-elementor-type="wp-post" data-elementor-id="7" class="elementor elementor-7" data-elementor-settings="[]" id="irchome">
+        <div class="elementor-inner">
+            <div class="elementor-section-wrap">
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-991820a elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                    data-id="991820a" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b9fb493"
+                                data-id="b9fb493" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-eeb1eb9 elementor-widget elementor-widget-applic-hero"
+                                            data-id="eeb1eb9" data-element_type="widget"
+                                            data-widget_type="applic-hero.default">
+                                            <div class="elementor-widget-container">
+                                                <!--WELCOME TEXT AREA-->
+                                                <div class="welcome-text-area font16 white hero_index_mobile">
+                                                    <div style="background: url('{% static 'ftp/home/img/hero-new.jpg' %}') no-repeat scroll center center;background-size: cover; background-position: top;"  class="area-bg hero_index"></div>
+                                                    <div class="welcome-area  section-padding">
+                                                        <div class="container">
+                                                            <div class="row flex-v-center">
+                                                                <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+                                                                    <div class="welcome-text">
+                                                                        <h4 class="wow fadeInUp" data-wow-delay="0.3s" style="font-size: 25px;">
+                                                                            Welcome</h4>
+                                                                        <h1 class="wow fadeInUp" data-wow-delay="0.6s">
+                                                                            Foreign Training Program
+                                                                            <!-- <span>With Our
+                                                                            FTP</span> -->
+                                                                        </h1>
+                                                                        <p class="wow fadeInUp" data-wow-delay="0.9s" style="font-size: 20px;">
+                                                                            Are extensive research projects and a dream
+                                                                            summer at a prestigious university abroad
+                                                                            your goals this year? If yes, we are here to
+                                                                            assist you to accomplish those with our FTP
+                                                                            Portal.</p>
+                                                                        <div class="home-button mt40 xs-mt40 wow fadeInUp"
+                                                                            data-wow-delay="1.2s">
+                                                                            {% if user.is_authenticated %}
+                                                                                <a href="{% url 'ftp:login_user' %}" class="btn-get-started scrollto">Apply</a>
+                                                                            {% endif %}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!--WELCOME TEXT AREA END-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+       
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-ac814d7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                    data-id="ac814d7" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" id="aboutus">
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0d916b2"
+                                data-id="0d916b2" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-cc16f2d elementor-widget elementor-widget-applic-goal-area"
+                                            data-id="cc16f2d" data-element_type="widget"
+                                            data-widget_type="applic-goal-area.default">
+                                            <div class="elementor-widget-container">
+                                                <!--GOAL AREA-->
+                                                <section class="goal-area section-padding about_mobile" id="ircGoalArea" >
+                                                    <div class="container">
+                                                        <div class="row flex-v-center"><div class="col-md-1 col-lg-1 col-sm-0 col-xs-0"></div>
+                                                            <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
+                                                                <div class="area-content sm-center xs-center wow fadeInLeft"
+                                                                    data-wow-delay="0.3s" >
+                                                                    <h3 style="text-align:center;">About Foreign Training Program</h3>
+                                                                    <p style="text-align:center;">IIT Kharagpur, as an Institute of Eminence, has
+                                                                        realized that producing industry competitive and
+                                                                        academically strong graduates alone cannot be
+                                                                        it’s ultimate objective. It needs to craft
+                                                                        students who possess leadership qualities and
+                                                                        will eventually become entities who will change
+                                                                        the world. For this to happen, it is necessary
+                                                                        that the students showcase themselves on world
+                                                                        platforms and in-turn gain the much-cherished
+                                                                        exposure towards new work-cultures by living and working abroad. Foreign Training Program
+                                                                        provides a unique opportunity to undergraduate
+                                                                        students from IIT Kharagpur to conduct research
+                                                                        under the supervision of professors of eminent
+                                                                        universities abroad. Through this program we
+                                                                        have started formalization of the foreign
+                                                                        training application procedure and we aim to
+                                                                        streamline and increase the efficiency of the
+                                                                        foreign training application procedure in IIT
+                                                                        Kharagpur. FTP serves to provide students with
+                                                                        cross-cultural exposure and opportunities to
+                                                                        expand their horizons through research extensive
+                                                                        summers.</p>    
+                                                                        <div style="text-align:center;"><a class="read-more active p-2" href="{% url 'ftp:login_user' %}" style="height: auto;  ">Apply for Foreign Training Program</a>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <div
+                                                                class="col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                                                                <div class="area-image-content hidden-sm hidden-xs wow fadeIn"
+                                                                    data-wow-delay="0.1s">
+                                                                    <div class="goal-layers" style="margin-top:190px;">
+
+                                                                        <div class="goal-layer-3"
+                                                                            data-parallax='{"y": 70}'><img
+                                                                                src="{% static 'ftp/home/img/kgp2.png' %}"
+                                                                                alt="layer image">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!--GOAL AREA END-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-6599898 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                    data-id="6599898" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d1feb62"
+                                data-id="d1feb62" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-df1c37a elementor-widget elementor-widget-applic-video-area"
+                                            data-id="df1c37a" data-element_type="widget" id="video"
+                                            data-widget_type="applic-video-area.default">
+                                            <div class="elementor-widget-container">
+                                                <!--VIDEO PROMO AREA-->
+                                                <section class="video-promo-area section-padding white">
+                                                    <div style="background-image: linear-gradient(
+                                                        45deg
+                                                        , black, #2a4ba5);"
+                                                        
+                                                        class="area-bg"></div>
+                                                    <div class="container">
+
+
+                                                        <div class="row" style="display: flex; justify-content: space-evenly;">
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <div class="single-fun-fact mt50 wow fadeInRight"
+                                                                    data-wow-delay="0.3s">
+                                                                    <h3><span class="odometer"
+                                                                            data-count="35">00</span>+ </h3>
+                                                                    <p>Universities</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <div class="single-fun-fact mt50 wow fadeInRight"
+                                                                    data-wow-delay="0.6s">
+                                                                    <h3><span class="odometer"
+                                                                            data-count="50">00</span>+ </h3>
+                                                                    <p>Projects</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <div class="single-fun-fact mt50 wow fadeInRight"
+                                                                    data-wow-delay="0.9s">
+                                                                    <h3><span class="odometer"
+                                                                            data-count="100">00</span>+ </h3>
+                                                                    <p>Offers</p>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!--VIDEO PROMO AREA END-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+      
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-b3f38d7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                    data-id="b3f38d7" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" id="irctestimonials">
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-34fae8b"
+                                data-id="34fae8b" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-37a8ff6 elementor-widget elementor-widget-applic-testimonials"
+                                            data-id="37a8ff6" data-element_type="widget" id="testmonial"
+                                            data-widget_type="applic-testimonials.default">
+                                            <div class="elementor-widget-container">
+                                                <style>
+                                                    .single-testmonial::after {
+                                                        content: url(  {% static "ftp/home/wp-content/plugins/applic-core/widgets/images/quote.png" %} ); }
+                                                    
+                                                    
+
+
+                                                    
+                                                </style>
+                                                <!--TESTMONIAL AREA-->
+                                                <section class="testmonial-area section-padding fix" id="process">
+                                                    <div class="testmonial-layers">
+                                                        <div class="testmonial-layer-1"
+                                                            data-parallax='{"y": 200, "smoothness": 100}'><img
+                                                                src="{% static 'ftp/home/wp-content/plugins/applic-core/widgets/images/layers-1.png'%}"
+                                                                alt="layer_bg_01">
+                                                        </div>
+                                                        <div class="testmonial-layer-2" data-parallax='{"x": 80}'><img
+                                                                src="{% static 'ftp/home/wp-content/plugins/applic-core/widgets/images/layers-2.png'%}"
+                                                                alt="layer_bg_02">
+                                                        </div>
+                                                        <div class="testmonial-layer-3"
+                                                            data-parallax='{"x": -200, "smoothness": 100}'><img
+                                                                src="{% static 'ftp/home/wp-content/plugins/applic-core/widgets/images/layers-3.png'%}"
+                                                                alt="layer_bg_03">
+                                                        </div>
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+                                                                <div class="area-title center">
+                                                                    <h4 class="subtitle" style="font-size:30px">Testimonials</h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-13">
+                                                                <div class="testmonial-slider" id="irc1">
+                                                                    <div class="single-testmonial" id="test1">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb"><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Koushiki.jpg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile" id="authormobile">Koushiki Dasgupta Chaudhuri</h4>
+                                                                            <p style="line-height: 1.8rem;">London South Bank <br>University</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p> 
+              I had a great learning experience while doing an FT at LSBU. The professor was extremely friendly, approachable and helpful. We used to have weekly meetings with all the interns under the professor where we used to present our progress for the week. This helped streamline and organise our projects better. We also had one on one meetings with the professor weekly. The professor expected a certain degree of initiative and ability to work independently from the student, but he was always ready to help us whenever we were stuck. I ended up writing a research paper on my project, which is currently under review by Applied Intelligence Springer. The FT helped me build a really nice relationship with him, and he has been incredibly helpful in guiding my research career further.
+                                                                            </p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="single-testmonial" id="test2">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb"><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Ishan.jpg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile">Ishan Goel</h4>
+                                                                            <p style="line-height: 1.8rem;">Simon Fraser <br>University</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p>
+              My FT experience was excellent and very smooth from the beginning till the end. IR cell made the application and shortlisting steps seem like a cakewalk as I was really confused at that time on how to apply for an FT. The internship was regarding grouping different segments of the human genome using unsupervised learning. I really enjoyed working with the professor and the whole team at Simon Fraser University as everyone was very friendly and understanding. This goes without saying that I learned a lot there and it was once in a lifetime experience to work with such amazing people.
+
+                                                                            </p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="single-testmonial" id="test3">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb "><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Hrituraj.jpg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile">Hrituraj Dutta</h4>
+                                                                            <p style="line-height: 1.8rem;">University of <br>Strathclyde, Scotland</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p>
+              First of all, it was an enriching experience to have an FT. In my internship, we had a team consisting of interns, Research Scholars and profs of the University Of Strathclyde and Democritus University of Thrace, Greece. It was a sort of joint project between the universities. I personally got to learn a lot from other people coming from different backgrounds. More importantly, I actually understood how to apply the theory we learn in a regular classroom to different problems at hand pertaining to the relevant domain. Loved the brainstorming sessions that were there. My only regret is due to COVID it was a remote internship else we would have been able to work in the fantastic lab.
+</p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="single-testmonial" id="test4">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb"><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Hardik.jpg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile">Hardhik Mohanty</h4>
+                                                                            <p style="line-height: 1.8rem;">University of New <br>Brunswick, Canada</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p> 
+Foreign Training Program, IR cell did an excellent job of floating high-quality projects from top-ranked foreign universities. Having exhausted my chances at Mitacs GRI and Summer@EPFL, I was left with really few other options. At this point in time, FTP, IR cell helped me to apply for a project offered by the University of New Brunswick. The foreign professor who supervised our project is a leading researcher in the field of cybersecurity. Under his supervision, we were introduced to the cutting-edge methodology involving ML and DL techniques being applied in darknet traffic classification. We had weekly meetings and presentations. The research experience was really enriching and I would like to convey my heartfelt thanks to the entire IR cell.
+
+
+                                                                            </p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                    
+                                                                    <div class="single-testmonial" id="test5">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb"><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Aditya.jpg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile">Aditya Girish Pawate</h4>
+                                                                            <p>Stanford University</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p>
+
+It was an enriching and great learning experience for me. I applied deep learning concepts to regulatory genomics and found it very interesting to work at the department of genomics, Stanford University. International exposure is very essential for the holistic development of an individual and I think IR Cell has done a good job in providing such experience to the KGP community.
+
+
+                                                                            </p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="single-testmonial" id="test5">
+                                                                        <div class="author-name-and-thumb">
+                                                                            <div class="author-tumb"><img
+                                                                                    src="{% static 'ftp/home/img/testimonials/Abhikhya.jpeg' %}"
+                                                                                    alt="Author image"></div>
+                                                                            <h4 id="authormobile">Abhikhya Tripathy</h4>
+                                                                            <p style="line-height: 1.8rem;">Brown University,<br> Rhode Island, USA</p>
+                                                                        </div>
+                                                                        <div class="author-content">
+                                                                            <p>
+
+My FT experience was definitely a major learning point for me. Through working on a field of my interest that was challenging yet exciting, I was pushed to develop new and diverse skills.
+My research supervisor was kind and helpful throughout the entire internship. She's also a really interesting person, and I learnt a lot from her and her Research Group. Through attending meetings and talks, I was exposed to the research domains of each member of the Research Group. I believe that this kind of exposure provides clarity in planning about the future of one's career.
+Applying through the FT Portal made the process very systematic and streamlined, and it made sure that we got timely updates and notifications.
+
+
+                                                                            </p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!--TESTMONIAL AREA END-->
+
+                                                <style>
+                                                .single-testmonial
+                                                {
+                                                    height:920px !important;
+                                                    min-width: 230px;
+                                                }
+                                                .author-tumb {
+                                                    height:90px !important;
+                                                    width:90px !important;
+                                                }
+                                                .author-tumb img
+                                                {
+                                                    height:90px !important;
+                                                    width:90px !important;
+                                                    object-fit:cover !important;
+                                                }
+                                                .author-name-and-thumb
+                                                {
+                                                    height:150px !important;
+                                                }
+                                                .author-name-and-thumb h4,.author-name-and-thumb p
+                                                {
+                                                    position:relative;
+                                                    left:50px;
+                                                }
+                                                </style>
+
+                                                <script>
+                                                    let irc1=document.querySelector('#irc1');
+                                                </script>
+                                                <style>
+                                                
+                                                </style>
+                                                <script>
+                                                    /*---------------------------
+                                                        TESTMONIAL SLIDER
+                                                    -----------------------------*/
+                                                    jQuery(document).ready(function () {
+                                                        var testmonialCarousel = jQuery('.testmonial-slider');
+                                                        if (testmonialCarousel.length > 0) {
+                                                            testmonialCarousel.owlCarousel({
+                                                                merge: true,
+                                                                smartSpeed: 1000,
+                                                                loop: true,
+                                                                nav: false,
+                                                                center: false,
+                                                                dots: true,
+                                                                navText: ['<i class="dripicons-arrow-thin-left"></i>', '<i class="dripicons-arrow-thin-right"></i>'],
+                                                                autoplay: true,
+                                                                autoplayTimeout: 3000,
+                                                                margin: 0,
+                                                                responsiveClass: true,
+                                                                responsive: {
+                                                                    0: {
+                                                                        items: 1
+                                                                    },
+                                                                    600: {
+                                                                        items: 2
+                                                                    },
+                                                                    1000: {
+                                                                        items: 3
+                                                                    },
+                                                                    1200: {
+                                                                        items: 3
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                </script> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+  <!-- TEAM AREA -->
+  <section class="elementor-section elementor-top-section elementor-element elementor-element-4b525f2 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+  data-id="4b525f2" data-element_type="section"
+  data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" id="ircteam">
+  <div class="elementor-container elementor-column-gap-no">
+      <div class="elementor-row">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0f8c94f"
+              data-id="0f8c94f" data-element_type="column">
+              <div class="elementor-column-wrap elementor-element-populated">
+                  <div class="elementor-widget-wrap">
+                      <div class="elementor-element elementor-element-3a2c2cf elementor-widget elementor-widget-applic-faq"
+                          data-id="3a2c2cf" data-element_type="widget"
+                          data-widget_type="applic-faq.default">
+                          <div class="elementor-widget-container">
+                              
+
+<div class="team-1 py-4 md:py-12 bg-white-100">
+<div class="container mx-auto px-4">
+
+<div class="md:flex md:-mx-4">
+<div class="md:w-10/12 xl:w-8/12 md:px-4 text-center md:mx-auto">
+<!-- <h1 class="text-3xl md:text-4xl font-medium mb-4">Our Team</h1> -->
+<div class="area-title center">
+<h2>Our Team</h2>
+
+</div>
+
+</div>
+</div>
+
+
+<div class="team-1 py-4 md:py-12 bg-white-100">
+<div class="container mx-auto px-4">
+<div class="md:flex md:-mx-4 md:mt-12 md:mb-6 team-list">
+
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/yash.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Yash Saraswat</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">GENERAL SECRETARY</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/yash-saraswat-b93a95179/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/yash.saraswat.549/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:yashsaraswat3701@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div> <div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/purva.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Purva Agrawal</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">GENERAL SECRETARY</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/purva-agrawal023/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/purva.agrawal.7393" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:purvaa023@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div> 
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/samarth.jpeg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Samarth Singh</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/samarth-singh-2003/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/samarth2003" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:samarthsingh2003@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div>
+</div></div></div>
+<!-- 2nd layer -->
+<div class="team-1 py-4 md:py-12 bg-white-100">
+<div class="container mx-auto px-4">
+<div class="md:flex md:-mx-4 md:mt-12 md:mb-6 team-list">
+
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/nishakar.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Nishakar Kumar</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/nishakar-kumar-7016451ba/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/nishakar.kumar.984/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:nishakarkumar0@outlook.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div> <div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/nabhya.jpeg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Nabhya Khoria</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/nabhya-khoria-30a601218/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/nkhoria/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:nabhyakhoria@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div> 
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/satyam.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Satyam Verma</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/satyam-verma-b48b2921b" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/vsatyam777" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:satyam.verma@kgpian.iitkgp.ac.in" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div>
+</div></div></div>
+<!-- 3rd layer -->
+<div class="team-1 py-4 md:py-12 bg-white-100">
+  <div class="container mx-auto px-4">
+<div class="md:flex md:-mx-4 md:mt-12 md:mb-6 team-list">
+
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/nikitha.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Nikitha Bobbary</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/nikbobbary/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/nikbobbary/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:nikithabobbary178@gmail.com " class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div> <div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+  <div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+    <img src="{% static 'ftp/home/img/team22/arsalan.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+  </div>
+  <h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Mohd Arsalan</h5>
+  <span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+  <a href="https://www.linkedin.com/in/mohd-arsalan-293793204/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+    <span class="fa fa-linkedin"></span>
+  </a>
+  <a href="https://www.facebook.com/md.arsalan.10888" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+    <span class="fa fa-facebook-f"></span>
+  </a>
+  <a href="mailto:arsalan@kgpian.iitkgp.ac.in" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+    <span class="fa fa-envelope"></span>
+  </a>
+</div>
+</div>
+</div>
+<div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
+<div class="bg-white border border-solid max-w-lg mx-auto team-profile">
+<div class="px-5 py-12 text-center">
+<div class="w-64 h-64 rounded-full mx-auto overflow-hidden">
+  <img src="{% static 'ftp/home/img/team22/rishan.jpg' %}" alt="profile image" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+</div>
+<h5 class="mt-4 mb-1 text-xl font-medium" style="font-size:2.2rem !important">Rishan Joshua DSilva</h5>
+<span class="text-xl text-gray-500 font-medium uppercase">COORDINATOR</span>
+</div>
+<div class="flex border-t border-solid divide-x">
+<a href="https://www.linkedin.com/in/rishan-dsilva-3715ab20b" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-blue-700 transition-colors duration-300">
+  <span class="fa fa-linkedin"></span>
+</a>
+<a href="https://www.facebook.com/rishan.dsilva.1/" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-indigo-600 transition-colors duration-300">
+  <span class="fa fa-facebook-f"></span>
+</a>
+<a href="mailto:joshuadslv24@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">
+  <span class="fa fa-envelope"></span>
+</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+  
+  
+  
+
+
+
+
+
+<!-- TEAM END FAQ START-->
+
+<section
+class="elementor-section elementor-top-section elementor-element elementor-element-4b525f2 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+data-id="4b525f2" data-element_type="section"
+data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" id="ircfaq">
+<div class="elementor-container elementor-column-gap-no">
+    <div class="elementor-row">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0f8c94f"
+            data-id="0f8c94f" data-element_type="column">
+            <div class="elementor-column-wrap elementor-element-populated">
+                <div class="elementor-widget-wrap">
+                    <div class="elementor-element elementor-element-3a2c2cf elementor-widget elementor-widget-applic-faq"
+                        data-id="3a2c2cf" data-element_type="widget"
+                        data-widget_type="applic-faq.default">
+                        <div class="elementor-widget-container">
+                            <!--FAQS AREA-->
+                            <section class="faqs-area">
+                                <div class="container">
+                                    <div class="row">
+
+                                        <div class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="area-content">
+                                                <h4 class="subtitle font500 alt-font uppercase text-center" style="font-size:30px">ASK
+                                                    QUESTIONS</h4>
+                                                <h2 class="text-center">Frequently Asked Questions</h2>
+                                                <div class="panel-group sm-mt50 xs-mt50"
+                                                    id="accordion-main">
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default active">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse1">
+                                                                <div class="panel-title">
+                                                                    <span>1</span>
+                                                                    <span>How is it different
+                                                                        applying through a portal as
+                                                                        compared to applying through
+                                                                        personal mailing?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse1"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body">When one applies
+                                                                through personal mailing, it is on
+                                                                him/her to track, mail and apply to
+                                                                various professors from different
+                                                                universities/colleges, whereas in a
+                                                                portal the student can select from
+                                                                the projects that have already been
+                                                                allocated to the portal and the
+                                                                student doesn't have to get involved
+                                                                in most of the internal work.</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse2">
+                                                                <div class="panel-title">
+                                                                    <span>2</span>
+                                                                    <span>Does CG matter while
+                                                                        applying in these
+                                                                        projects?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse2"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> As CG is an integral part of your CV, it will have an impact on your selection. Rest depends on if the professor considers it an important factor while selection.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse3">
+                                                                <div class="panel-title">
+                                                                    <span>3</span>
+                                                                    <span>If I have been selected
+                                                                        for a project through FTP,
+                                                                        am I eligible to apply for
+                                                                        the upcoming projects in the
+                                                                        portal?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse3"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> Once you have been selected for a project through FTP, you are not eligible to apply for the upcoming projects. Your account will be deleted for that particular year.
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse4">
+                                                                <div class="panel-title">
+                                                                    <span>4</span>
+                                                                    <span>After getting finalized
+                                                                        for a project, can I back
+                                                                        out from the same?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse4"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body">After your final selection, you will be provided with an undertaking form which you need to fill if you want to continue. Backing off afterward will result in the blacklisting of the candidate and he/she will not be considered for any further through FTP Portal. Further, disciplinary actions may be taken by the Office of International Relations.
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse5">
+                                                                <div class="panel-title">
+                                                                    <span>5</span>
+                                                                    <span>Does IR Cell provide any
+                                                                        help while applying for a
+                                                                        visa?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse5"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body">No, you have to arrange it for yourself.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse6">
+                                                                <div class="panel-title">
+                                                                    <span>6</span>
+                                                                    <span>Will I be able to edit my profile if at all I commit some mistakes while making my account?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse6"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> You can only change your profile photo, passport status, contact number and alternate email. Other details cannot be edited till the end of that particular semester. We will release a deadline after every semester so that people can update their CGPA, CV and transcript also.
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse7">
+                                                                <div class="panel-title">
+                                                                    <span>7</span>
+                                                                    <span>Is Foreign Training under FTP funded? </span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse7"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> Stipend varies with different projects, professors and universities. Most of the projects are funded and are sufficient to cover travel, accommodation and living expenses.
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse8">
+                                                                <div class="panel-title">
+                                                                    <span>8</span>
+                                                                    <span>Where can I find the ERP generated transcript?</span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse8"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> Login to <a href="erp.iitkgp.ac.in">erp.iitkgp.ac.in</a> and go to Academic > Students > Your academic information    > Performance. Download the transcript which contains CGPA for all the semesters completed till date.
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse9">
+                                                                <div class="panel-title">
+                                                                    <span>9</span>
+                                                                    <span>Can I get the activation link again in my mail in case I lost the previous one?  </span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse9"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> You can register your account again and if it is not activated then you will be redirected to a page with an option to resend the link. 
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->                                                                                                                                                <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse10">
+                                                                <div class="panel-title">
+                                                                    <span>10</span>
+                                                                    <span>Can I apply with different CVs in different projects?  </span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse10"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body"> Yes, while applying for projects, you will get an option to upload a different CV other than the default one. 
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->                                                                                                                                                <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse12">
+                                                                <div class="panel-title">
+                                                                    <span>11</span>
+                                                                    <span>How will I be informed if I get selected for a project? </span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse12"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body">You will receive a mail from International Relations Cell if you get shortlisted for an interview or selected for a project. 
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                    <!-- start tab content -->                                                                                                                                                <!-- start tab content -->
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading">
+                                                            <a class="accordion-toggle collapsed"
+                                                                data-toggle="collapse"
+                                                                data-parent="#accordion-main"
+                                                                href="#collapse13">
+                                                                <div class="panel-title">
+                                                                    <span>12</span>
+                                                                    <span>I have forgotten my Zimbra mail password and thus, cannot activate my account. How can I reset it? </span>
+                                                                    <i
+                                                                        class="pull-right fa fa-angle-down"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div id="collapse13"
+                                                            class="panel-collapse collapse ">
+                                                            <div class="panel-body">To reset your Zimbra password, please mail helpdesk@cc.iitkgp.ac.in
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end tab content -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--FAQS AREA END-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-7e23e6c elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                    data-id="7e23e6c" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ef38d8e"
+                                data-id="ef38d8e" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated">
+                                    <div class="elementor-widget-wrap">
+                                        <div class="elementor-element elementor-element-96f8080 elementor-widget elementor-widget-applic-contact"
+                                            data-id="96f8080" data-element_type="widget" id="contact"
+                                            data-widget_type="applic-contact.default">
+                                            <div class="elementor-widget-container">
+                                                <!--CONTACT AREA-->
+                                                <section class="contact-area padding-100-50">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+                                                                <div class="area-title center">
+                                                                    <h3 class="subtitle" style="font-size:30px">CONTACT US</h3>
+                                                                    <span>If you have any queries, please go through the FAQ's. For any other query feel free to fill the form below so that we can reach you out.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                                                                <div class="contact-content padding50 mb50">
+                                                                    <div class="single-contact">
+                                                                        <div class="contact-icon"><i
+                                                                                class="fa fa-location-arrow"></i></div>
+                                                                        <h3>Location</h3>
+                                                                        <p>International Relations Cell
+                                                                            <br>
+                                                                            Indian Institute of Technology Kharagpur
+                                                                            <br>
+                                                                            Kharagpur, West Bengal
+                                                                            <br>
+                                                                            India - 721302
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="single-contact">
+                                                                        <div class="contact-icon"><i
+                                                                                class="fa fa-envelope-o"></i></div>
+                                                                        <h3>Contact</h3>
+                                                                        <p>ftp.ircell@gmail.com
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="single-contact">
+                                                                        <div class="contact-icon"><i
+                                                                                class="fa fa-phone"></i></div>
+                                                                        <h3>Contact</h3>
+                                                                        <p>+91 94831 25024
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                                                                <div class="col-lg-10">
+                                                                    <form id="form" class="php-email-form" autocomplete="off" style="box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);">
+                                                                    <div class="form-row">
+                                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
+                                                                        <input type="text" name="Name" class="form-control" size="50" id="name" placeholder="Full Name" data-rule="minlen: 4" data-msg="Please enter at least 4 chars" style="min-height:60px;"/>
+                                                                        <div class="validate"></div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
+                                                                        <input type="text" class="form-control" size="50" name="Email" id="email" placeholder="Email" data-rule="email" data-msg="This field cannot be blank" onkeyup="Validate_email(this);" onkeydown="Validate_email(this);"  style="min-height:60px;"/>
+                                                                        <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
+                                                                        <input type="text" class="form-control" size="50" name="Subject" id="subject" placeholder="Subject" data-rule="minlen:8" data-msg="Please enter at least 8 chars of subject"  style="min-height:60px;" />
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
+                                                                        <textarea cols="50" rows="11" class="form-control" name="Message" id="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <!--<div class="loading">Loading</div>-->
+                                                                        <div id="success" style="padding-left: 15px;"></div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center"><br><button class="contact_button" type="submit" style="padding: 15px 40px;font-size: 22px; color: white; border-radius: 50px; font-weight: 500;">Send Message</button><br><br></div>
+                                                                    </form>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!--CONTACT AREA END-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA-->
+    <footer class="footer-area white relative has_footer_widget" style="background: #2a4ba5 ;">
+        <div class="area-bg" style="    background: rgba(0, 0, 0, 0) linear-gradient(135deg, black, transparent);"></div>
+        <div class="footer-top-area" style="padding-bottom: 50px !important">
+            <div class="container">
+                <div class="row" style="
+                display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+">
+                    <div class="col-md-6 col-sm-12 col-xs-12 sm-center xs-center sm-mb50 xs-mb50">
+                        <div id="text-2" class="widget single-widgets widget_text">
+                            <div class="textwidget">
+                                <h1 style="color:ffffff; font-size: 30px;">INTERNATIONAL RELATIONS CELL</h1>
+                                <p><span style="color:ffffff;">The International Relations Cell (IRC) is a student body
+                                        working along with the Office of International Relations (OIR). It works to promote
+                                        the exchange of students, faculties, and ideas between IIT Kharagpur and her
+                                        international partners and establishing the globalization of IIT
+                                        Kharagpur.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-1 col-md-2 col-sm-4 col-xs-12 notransition">
+                        <div id="nav_menu-2" class="single-widgets xs-mb50 notransition">
+                            <h3>Quick Links</h3>
+                            <div class="menu-footer-menu-container notransition">
+                                <ul id="menu-footer-menu" class="menu notransition">
+                                    <li id="menu-item-283" class="notransition menu-item menu-item-type-custom menu-item-object-custom menu-item-283"><a href="#ircfaq">FAQ</a></li>
+                                    <li id="menu-item-284" class="notransition menu-item menu-item-type-custom menu-item-object-custom menu-item-284"><a href="#contact">Contact Us</a></li>
+                                    <li id="menu-item-285" class="notransition menu-item menu-item-type-custom menu-item-object-custom menu-item-285"><a href="#aboutus">About Us</a></li>
+                                    <li id="menu-item-286" class="notransition menu-item menu-item-type-custom menu-item-object-custom menu-item-286"><a href="/notice">Notice board</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div id="themenewsletter_widget-2" class="single-widgets">
+                            <h3>Contact Us</h3>
+                            <p><a href="mailto:ftp.ircell@gmail.com" title="Mail ID IR Cell" class="mail-footer">ftp.ircell@gmail.com</a></p><br>
+                            <div class="footer-subscriber-form">
+                            <ul class="social-footer2" style="display:flex; text-align:center;">
+                                
+                                <li class=""><a href="https://www.youtube.com/channel/UCQCLWAILNrEVemERg4ybAYQ" target="_blank" title="Youtube"><i class="fa fa-youtube fa-2x"></i></a></li>
+                                <li class="ircfb"><a href="https://www.facebook.com/IRCIITKGP/" target="_blank" title="Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
+                                <li class="ircin"><a title="instagram" target="_blank" href="https://www.instagram.com/irc.iitkgp/"><i class="fa fa-instagram fa-2x"></i></a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </footer>
+    <style>
+    .ircfb,.ircin{
+        margin-left:20px;
+
+    }
+    @media only screen and (max-width: 800px)
+    {
+    #themenewsletter_widget-2 .social-footer2
+    {    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    margin-top: 15px;}
+    }
+    </style>
+    <!--FOOER AREA END-->
+
+    <script type='text/javascript'>
+        jQuery(function ($) {
+            if (!String.prototype.getDecimals) {
+                String.prototype.getDecimals = function () {
+                    var num = this,
+                        match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+                    if (!match) {
+                        return 0;
+                    }
+                    return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+                }
+            }
+            // Quantity "plus" and "minus" buttons
+            $(document.body).on('click', '.plus, .minus', function () {
+                var $qty = $(this).closest('.quantity').find('.qty'),
+                    currentVal = parseFloat($qty.val()),
+                    max = parseFloat($qty.attr('max')),
+                    min = parseFloat($qty.attr('min')),
+                    step = $qty.attr('step');
+
+                // Format values
+                if (!currentVal || currentVal === '' || currentVal === 'NaN') currentVal = 0;
+                if (max === '' || max === 'NaN') max = '';
+                if (min === '' || min === 'NaN') min = 0;
+                if (step === 'any' || step === '' || step === undefined || parseFloat(step) === 'NaN') step = 1;
+
+                // Change the value
+                if ($(this).is('.plus')) {
+                    if (max && (currentVal >= max)) {
+                        $qty.val(max);
+                    } else {
+                        $qty.val((currentVal + parseFloat(step)).toFixed(step.getDecimals()));
+                    }
+                } else {
+                    if (min && (currentVal <= min)) {
+                        $qty.val(min);
+                    } else if (currentVal > 0) {
+                        $qty.val((currentVal - parseFloat(step)).toFixed(step.getDecimals()));
+                    }
+                }
+
+                // Trigger change event
+                $qty.trigger('change');
+
+                return false;
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        var c = document.body.className;
+        c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+        document.body.className = c;
+    </script>
+
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js' %}"
+        id='jquery-blockui-js'></script>
+    <script type='text/javascript' id='wc-add-to-cart-js-extra'>
+        /* <![CDATA[ */
+        var wc_add_to_cart_params = { "ajax_url": "\/applic\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/applic\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/wp.quomodosoft.com\/applic\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+/* ]]> */
+    </script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js' %}"
+        id='wc-add-to-cart-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js' %}"
+        id='js-cookie-js'></script>
+    <script type='text/javascript' id='woocommerce-js-extra'>
+        /* <![CDATA[ */
+        var woocommerce_params = { "ajax_url": "\/applic\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/applic\/?wc-ajax=%%endpoint%%" };
+/* ]]> */
+    </script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js' %}"
+        id='woocommerce-js'></script>
+    <script type='text/javascript' id='wc-cart-fragments-js-extra'>
+        /* <![CDATA[ */
+        var wc_cart_fragments_params = { "ajax_url": "\/applic\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/applic\/?wc-ajax=%%endpoint%%", "cart_hash_key": "wc_cart_hash_397d0b7cddf82b2077a0900b25792558", "fragment_name": "wc_fragments_397d0b7cddf82b2077a0900b25792558", "request_timeout": "5000" };
+/* ]]> */
+    </script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js' %}"
+        id='wc-cart-fragments-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/vendor/bootstrap.min.js' %}"
+        id='bootstrap-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/vendor/jquery.easing.1.3.js' %}"
+        id='jquery-easing-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/vendor/jquery.appear.js' %}"
+        id='jquery-appear-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/owl.carousel.min.js' %}"
+        id='owl-carousel-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/isotope.pkgd.min.js' %}"
+        id='isotope-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/stellar.js' %}"
+        id='stellar-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/jquery.parallax-layer-scroll.js' %}"
+        id='parallax-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/chaffle.min.js' %}"
+        id='chaffle-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/anime.min.js' %}"
+        id='anime-js-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/jquery-modal-video.min.js' %}"
+        id='jquery-modal-video-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/venobox.min.js' %}"
+        id='venobox-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/stellarnav.min.js' %}"
+        id='stellarnav-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/jquery.sticky.js' %}"
+        id='sticky-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/wow.min.js' %}"
+        id='wow-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/placeholdem.min.js' %}"
+        id='placeholdem-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/odometer.min.js' %}"
+        id='odometer-js'></script>
+
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/ResizeSensor.min.js' %}"
+        id='resizesensor-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/theia-sticky-sidebar.min.js' %}"
+        id='theia-sticky-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/main.js' %}"
+        id='applic-main-js'></script>
+    <script type='text/javascript' src="{% static 'ftp/home/wp-includes/js/wp-embed.min.js' %}"
+        id='wp-embed-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}"
+        id='elementor-frontend-modules-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-includes/js/jquery/ui/core.min.js' %}"
+        id='jquery-ui-core-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}"
+        id='elementor-dialog-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}"
+        id='elementor-waypoints-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}"
+        id='swiper-js'></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}"
+        id='share-link-js'></script>
+    <script type='text/javascript' id='elementor-frontend-js-before'>
+        var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "version": "3.0.5", "is_static": false, "legacyMode": { "elementWrappers": true }, "urls": { "assets": "https:\/\/wp.quomodosoft.com\/applic\/wp-content\/plugins\/elementor\/assets\/" }, "settings": { "page": [], "editorPreferences": [] }, "kit": { "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 7, "title": "Applic%20%E2%80%93%20Just%20another%20WordPress%20site", "excerpt": "", "featuredImage": false } };
+    </script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/js/frontend.min.js' %}"
+        id='elementor-frontend-js'></script>
+        <script src="{% static 'ftp/home/vendor/php-email-form/validate.js' %}"></script> 
+      {% comment %} <!--Contact form-->
+    <script src="{% static 'ftp/home/js/contact-gs.js' %}"></script> {% endcomment %}
+    
+  <!--Contact form-->
+  <script src="{% static 'ftp/home/js/contact-gs.js' %}"></script>
+<script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+
+<!-- push notifications -->
+<p id="pendingNotifications" style="display: none;">
+    [{% for pNotif in pendingNotifications %}
+    {"title":"{{ pNotif.title }}","description":"{{ pNotif.description }}"}{% if not forloop.last %},{% endif %}
+    {% endfor %}]
+</p>
+<p id="pendingNotifications" style="display: none;">{{ pendingNotifications }}</p>
+<script>
+    const pendingNotifications= JSON.parse(document.getElementById("pendingNotifications").textContent);
+    
+    const showNotification = (title, body) => {
+        const notification = new Notification(title, {body, icon: "/static/ftp/home/img/irclogo.png"});
+        notification.onclick = () => window.location.replace("/notice");
+    };
+
+    if(Notification.permission === "default")
+        Notification.requestPermission()
+        .then(res => pendingNotifications.map(pNotif => showNotification(pNotif.title, pNotif.description)))
+        .catch(err => console.log(err));
+    else if(Notification.permission === "granted")
+        pendingNotifications.map(pNotif => showNotification(pNotif.title, pNotif.description))
+</script>
+
+</body>
+
+</html>

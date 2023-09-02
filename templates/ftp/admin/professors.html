@@ -1,0 +1,319 @@
+{% extends 'ftp/admin_base.html' %}
+{% load staticfiles %}
+{% block title %}Admin | Professors | FTP | International Relations Cell{% endblock %}
+{% block css %}
+    <style>
+        .pdet{
+            margin-top: 25px;
+        }
+        .bookmarked{
+            color: #171b2e !important;
+        }
+        .button {
+            border-radius-right: 24px;
+
+            border: none;
+            color: rgb(0,0,0);
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+
+        }
+
+        .sort-list:hover{
+            padding:5px 20px;
+            cursor:pointer;
+            border:1px solid blue;
+            border-radius:3px;
+            margin:2px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+            background-color: red;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .btn-success {
+            color: #f89a30;
+            background-color: #f8f9fc;
+            border-color: #f8f9fc;
+        }
+        .btn-success:hover{
+            background-color: #dde2f1 !important;
+            border-color: white;
+        }
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+        @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 }
+            to { bottom:0px; opacity:1 }
+        }
+
+        @keyframes animatebottom {
+            from{ bottom:-100px; opacity:0 }
+            to{ bottom:0; opacity:1 }
+        }
+
+        .btn-lg, .btn-group-lg > .btn {
+            padding: 0.5rem 0;
+        }
+
+        .applybutton {
+            background-color: #f89a30 !important;
+            color: white !important;
+            transition: none !important;
+            -webkit-appearance: none !important;
+        }
+
+        .applybutton:hover {
+            background-color: #f89a30 !important;
+        }
+
+        .btn:active {
+            outline: none !important;
+        }
+
+        .deadl {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .deadl {
+                display: contents;
+            }
+        }
+
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="myDiv">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column -->
+                <div class="col-xl-12 my-4" style="text-align: center">
+
+                        <h3 style="font-weight: bold; color: #242e5b;">PROFESSORS</h3>
+                    {% for message in messages %}
+                      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                <div class="row justify-content-center">
+
+                    <!--<button class="btn btn-success m-2"><a href="">Add new professor</a></button>-->
+                    <!--<button class="btn btn-success m-2"><a href="">Export</a></button>-->
+
+<!--{#                      <form class="form-control" method="post" enctype="multipart/form-data">#}-->
+<!--{#                        {% csrf_token %}#}-->
+<!--{#                        <input type="file" name="myfile">#}-->
+<!--{#                        <button class="btn btn-success" type="submit">Import</button>#}-->
+<!--{#                      </form>#}-->
+
+                    <div class="search-bar" style="display: flex;width: fit-content;margin: 20px auto;">
+                        <input id="search" class="form-control" type="text" name="search" placeholder="Search" style="width: unset;margin:0 10px;" />
+                        <button class="form-control btn-primary m-1 " type="submit" style="width: unset;margin: 0 10px !important;" onclick="search()">Search</button>
+                        <button class="btn form-control btn-success" style="width: unset;margin:0 10px;"><a href="/ftp/dashboard_professors/">Clear search</a></button>
+                        <script>
+                            function search(){
+                                search = document.getElementById("search");
+                                document.location.href = "?search="+search.value;
+                            }
+                        </script>
+                    </div>
+
+
+                    <div class="dropdown" style="float: right;margin-right:30px">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li style="padding:5px 20px;margin:3px;" onclick="sort('professor_name')" class="sort-list"><a>Professor Name</a></li>
+                            <li style="padding:5px 20px;margin:3px;" onclick="sort('created_at')" class="sort-list"><a>Time of Creation</a></li>
+                            <li style="padding:5px 20px;margin:3px;" onclick="sort('univ')" class="sort-list"><a>University</a></li>
+                            <li style="padding:5px 20px;margin:3px;" onclick="sort('project_name')" class="sort-list"><a>Project Name</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        function sort(value){
+                                document.location.href = '?sort='+value;
+                        }
+                    </script>
+                </div>
+
+
+                        {% for p in allprofessors %}
+                            
+                                <div class="row" style="width: 95%; margin-left: 2.5%;">
+                                    <div class="col-xl-12 my-4">
+                                        <div class="card bg-primary text-black shadow">
+                                            <div class="btn-group ">
+                                                <!--<button class="btn btn-success bookmark" id="book{{ p.id }}"><i class="-->
+                                                <!--{% if p.display %}-->
+                                                    <!--fas-->
+                                                <!--{% else %}-->
+                                                    <!--far-->
+                                                <!--{% endif %}-->
+                                                 <!--fa-bookmark" aria-hidden="true" id="i{{ p.id }}" style="color: #f89a30"></i></button>-->
+                                                <button type="button" class="btn btn-light btn-lg btn-block" data-toggle="collapse" data-target="#c{{ p.id }}">
+                                                    <div class="card-body">
+                                                        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+                                                            <div class="row">
+                                                                <div class="col-md-4">{{p.name}}</div>
+                                                                <div class="col-md-4" style="font-style: italic;">{{p.university_name}}</div>
+                                                                <div class="col-md-2"><span class="deadl">Project: </span>{{p.project_name}}</div>
+                                                                <div class="col-md-2 ">{{p.created_at.date}}</div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div id="c{{ p.id }}" class="collapse">
+                                                            <hr>
+                                                            <h5 style="margin: 20px auto;">Professor Details </h5>
+                                                            <p><strong>Duration: </strong>{{p.duration}}</p>
+                                                            <p><strong>Stipend: </strong>{{p.stipend}}</p>
+                                                            <p><strong>No of Students: </strong>{{p.no_of_students}}</p>
+                                                            <p><strong>Prerequisite: </strong>{{p.prerequisites}}</p>
+                                                            <hr>
+                                                            <p><strong>Project Details</strong></p>
+                                                            <p>{{p.project_details}}</p>
+                                                            <br><br>
+
+                                                            <hr>
+                                                            <a href="{% url 'ftp:admin_professors_edit' pk=p.id %}" class="btn btn-primary m-1">Edit Professor</a>
+
+                                                            <!--<div type="button" class="btn btn-success applybutton" data-toggle="modal" data-target="#myModal{{p.id}}">View</div>-->
+                                                            <!--<a  href="" class="btn btn-danger m-1" onclick="deleteproject()">delete</a>-->
+                                                            <!--<a  href="" class="btn btn-primary m-1">edit</a>-->
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                         {% endfor %}
+                </div>
+                <hr style="width:100%">
+                <div class="col-xl-12 my-4" style="text-align: center">
+                        <h3 style="font-weight: bold; color: #242e5b;">IMPORTED PROFESSORS</h3>
+                        {% for p in importedprofs %}
+
+                                <div class="row" style="width: 95%; margin-left: 2.5%;">
+                                    <div class="col-xl-12 my-4">
+                                        <div class="card bg-primary text-black shadow">
+                                            <div class="btn-group ">
+                                                <!--<button class="btn btn-success bookmark" id="book{{ p.id }}"><i class="-->
+                                                <!--{% if p.display %}-->
+                                                    <!--fas-->
+                                                <!--{% else %}-->
+                                                    <!--far-->
+                                                <!--{% endif %}-->
+                                                 <!--fa-bookmark" aria-hidden="true" id="i{{ p.id }}" style="color: #f89a30"></i></button>-->
+                                                <button type="button" class="btn btn-light btn-lg btn-block" data-toggle="collapse" data-target="#c{{ p.id }}">
+                                                    <div class="card-body">
+                                                        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+                                                            <div class="row">
+                                                                <div class="col-md-4">{{p.name}}</div>
+                                                                <div class="col-md-4" style="font-style: italic;">{{p.university_name}}</div>
+                                                                <div class="col-md-2"><span class="deadl">Project: </span>{{p.project_name}}</div>
+                                                                <div class="col-md-2 ">{{p.created_at.date}}</div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div id="c{{ p.id }}" class="collapse">
+                                                            <hr>
+                                                            <h5 style="margin: 20px auto;">Professor Details </h5>
+                                                            <p><strong>Duration: </strong>{{p.duration}}</p>
+                                                            <p><strong>Stipend: </strong>{{p.stipend}}</p>
+                                                            <p><strong>No of Students: </strong>{{p.no_of_students}}</p>
+                                                            <p><strong>Prerequisite: </strong>{{p.prerequisites}}</p>
+                                                            <hr>
+                                                            <p><strong>Project Details</strong></p>
+                                                            <p>{{p.project_details}}</p>
+                                                            <br><br>
+
+                                                            <hr>
+                                                            <a href="{% url 'ftp:admin_professors_edit' pk=p.id %}" class="btn btn-primary m-1">Edit Professor</a>
+
+                                                            <!--<div type="button" class="btn btn-success applybutton" data-toggle="modal" data-target="#myModal{{p.id}}">View</div>-->
+                                                            <!--<a  href="" class="btn btn-danger m-1" onclick="deleteproject()">delete</a>-->
+                                                            <!--<a  href="" class="btn btn-primary m-1">edit</a>-->
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                         {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+
+        
+        
+        function copylink() {
+          var copyText = document.getElementById("myInput");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999);
+          document.execCommand("copy");
+          alert("Copied the text: " + copyText.value);
+        }
+
+        function deleteproject() {
+            alert("Project deleted");
+            console.log('Deleted')
+        }
+    </script>
+{% endblock %}

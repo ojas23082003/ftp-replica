@@ -1,0 +1,152 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Applied Scholarships | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    {% for p in allprojects %}
+    <div class="projectFormContainer">
+        <form class="projectForm" id="project-{{p.id}}">
+            <i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+            <h1>{{p.scholarship.scholarship_name}}</h1>
+            <h2>{{p.scholarship.funding_agency}}</h2>
+            <div class="projectForm__editables">
+                <div class="projectForm__dataItems">
+                    <div class="projectForm__dataItem">
+                        <p style="font-weight: bold;">Faculty Advisor:</p>
+                        <p>{{p.NameofFacultyAdvisor}}</p>
+                    </div>
+                    <div class="projectForm__dataItem">
+                        <p style="font-weight: bold;">Host Institution:</p>
+                        <p>{{p.Nameofhostinstitution}}</p>
+                    </div>
+                    <div class="projectForm__dataItem">
+                        <p style="font-weight: bold;">HOD:</p>
+                        <p>{{p.NameofHOD}}</p>
+                    </div>
+                </div>
+                <p>Details of the proposed research:</p>
+                <textarea class="projectForm__ftpSOP" type="text"
+                    disabled>{{p.DetailsOfTheProposedResearch_or_professionalInternship}}</textarea>
+                <p>Statement Of Purpose:</p>
+                <textarea class="projectForm__ftpSOP" type="text" disabled>{{p.sop}}</textarea>
+                {% if p.HistoryOfCollobration|length > 0 %}
+                <p>History of collaboration:</p>
+                <textarea class="projectForm__ftpSOP" type="text" disabled>{{p.HistoryOfCollobration}}</textarea>
+                {% endif %}
+                <p>Justification of applying through IITKGF Of USA_Award Program:</p>
+                <textarea class="projectForm__ftpSOP" type="text"
+                    disabled>{{p.Justification_of_applying_through_the_IITKGF_Of_USA_AwardProgram}}</textarea>
+                <p>Possible outcomes of your proposed research:</p>
+                <textarea class="projectForm__ftpSOP" type="text"
+                    disabled>{{p.PossibleOutcomeOfYourProposedResearch}}</textarea>
+                <p>How your engagement with the Host Institute/company will be beneficial to IIT KGP?</p>
+                <textarea class="projectForm__ftpSOP" type="text"
+                    disabled>{{p.Explain_in_about_250_words_how_your_engagement_with_the_Host_Institute}}</textarea>
+                <div class="projectForm__dataItems">
+                    <div class="projectForm__dataItem">
+                        <p style="font-weight: bold;">Duration of visit from:</p>
+                        <p>{{p.DurationOfVisit_from}}</p>
+                    </div>
+                    <div class="projectForm__dataItem">
+                        <p style="font-weight: bold;">Duration of visit to:</p>
+                        <p>{{p.DurationOfVisit_to}}</p>
+                    </div>
+                </div>
+                <p>Files:</p>
+                <div class="projectForm__files">
+                    {% if p.cv %} <a href="{{ p.cv.url }}" target="_blank">CV</a> {% endif %}
+                    {% if p.Awards %} <a href="{{ MEDIA_URL }}{{ p.Awards }}" target="_blank">Awards</a> {% endif %}
+                    {% if p.Transcript %} <a href="{{ MEDIA_URL }}{{ p.Transcript }}" target="_blank">Transcript</a>
+                    {% endif %}
+                    {% if p.offer_letter %} <a href="{{ MEDIA_URL }}{{ p.offer_letter }}" target="_blank">Offer Letter</a>
+                    {% endif %}
+                    {% if p.letter_of_endorsement %} <a href="{{ MEDIA_URL }}{{ p.letter_of_endorsement }}" target="_blank">Letter of Endorsement</a>
+                    {% endif %}
+                    {% if p.NOC %} <a href="{{ MEDIA_URL }}{{ p.NOC }}" target="_blank">NOC</a>
+                    {% endif %}
+                    {% if p.fuding_proof %} <a href="{{ MEDIA_URL }}{{ p.fuding_proof }}" target="_blank">Funding Proof</a>
+                    {% endif %}
+                    {% if p.work_publication %} <a href="{{ MEDIA_URL }}{{ p.work_publication }}" target="_blank">Work Publications</a>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+
+    <section>
+        <h1>Applied Scholarships</h1>
+        <hr
+            style="border: none;outline: none;height: 2px;max-width: 1000px; width: calc(100vw - 20px);background-color: #d5d5d5; margin-top: 10px;margin-bottom: 20px" />
+        {% if success and not appliedGKF%}
+        <h2>No Scholarships Applied</h2>
+        {% else %}
+        {% endif %}
+        <div class="section__projects">
+            {% for p in allprojects %}
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <p class=" section__projectCardTitle">{{p.scholarship.scholarship_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{p.Nameofhostinstitution}}</p>
+                    <p class="section__projectCardDetail">
+                        {{p.DetailsOfTheProposedResearch_or_professionalInternship|truncatewords:'10'|slice:'-1'}}...
+                    </p>
+                    <!-- <hr /> -->
+                    <p class="section__projectCardSubtitle" style="margin-top: 10px;">Faculty Advisor:
+                        {{p.NameofFacultyAdvisor}}</p>
+                    <p class="section__projectCardSubtitle" style="margin-top: 10px;font-size: 13px;">Deadline:
+                        {{p.scholarship.deadline}}</p>
+                    <div class="section__tagsContainer">
+                        {% for tag in p.tags.all %}
+                        <p class="section__tag">{{tag}}</p>
+                        {% endfor %}
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Scholarship Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i>Name: </b>{{p.scholarship.scholarship_name}}</p>
+                    <p><b><i class="fas fa-university"></i>University: </b>{{p.Nameofhostinstitution}}</p>
+                    <p><b><i class="fas fa-chalkboard-teacher"></i>Faculty Advisor: </b>{{p.NameofFacultyAdvisor}}</p>
+                    <p><b><i class="fas fa-user-tie"></i>HOD: </b>{{p.NameofHOD}}</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details:
+                        </b>{{p.DetailsOfTheProposedResearch_or_professionalInternship|linebreaks}}</p>
+                    <button onclick="openForm('{{p.id}}')">View Application</button>
+                </div>
+            </div>
+            {% endfor %}
+            {% if appliedGKF %}
+            <div class="section__projectCard is-collapsed">
+                <div class="section__projectCardInner" style="height: 325px !important;">
+                    <p class=" section__projectCardTitle">Guru Krupa IITKGP Foundation Scholarship</p>
+                    <p class="section__projectCardSecondaryText">IIT Kharagpur Foundation (IITKGF)</p>
+                    <p class="section__projectCardDetail">Guru Kripa Foundation offers financial support to enable five
+                        of the top students from IITKGP, of which at least one...</p>
+                    <!-- <hr /> -->
+                    <p class="section__projectCardSubtitle" style="margin-top: 10px;">20th April 2022, 11:59 PM</p>
+                    <p class="section__projectCardAction js-expander">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close js-collapser"></i>
+                    <h1>Scholarship Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i>Scholarship: </b>Guru Krupa IITKGP Foundation Scholarship</p>
+                    <p><b><i class="fas fa-university"></i>Funding Agency: </b>IIT Kharagpur Foundation (IITKGF)</p>
+                    <p><b><i class="fas fa-calendar-day"></i>Deadline: </b>20th April 2022, 11:59 PM</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b> </p>
+                    <p>Guru Kripa Foundation offers financial support to enable five of the top students from IITKGP, of which at least one is from ECE department and four from any other department, school or center to avail high quality international research and professional internships (expected to last 8-12 weeks, most likely during the summer holidays). The foundation has also offered to provide financial support to five incoming international students from top universities across the world for short term research or academic stays for a period of 2 months upto a semester.
+                      <br> <br>This program aims at creating summer student fellowships in IITKGP that will fund international summer internships for students at well recognised universities outside India.
+                    </p>
+                   <button>View Application</button>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+{% block js %}
+{% endblock %}

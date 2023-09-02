@@ -1,0 +1,976 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+
+    <style type="text/css">
+        i {
+            color: white;
+        }
+        body {
+            overflow-x: hidden;
+        }
+        @font-face {
+            font-family: FontinRegular;
+            src: url("{% static 'fonts/Fontin-Regular.ttf' %}");
+        }
+        @font-face {
+            font-family: FontinItalic;
+            src: url("{% static 'fonts/Fontin-Italic.ttf' %}");
+        }
+        @font-face {
+            font-family: FontinBold;
+            src: url("{% static 'fonts/Fontin-Bold.ttf' %}");
+        }
+        @font-face {
+            font-family: FontinHead;
+            src: url("{% static 'fonts/Fontin-SmallCaps.ttf' %}");
+        }
+        body {
+            background-color: #f7fbff;
+            font-family: FontinRegular, sans-serif; !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: FontinHead, sans-serif; !important;
+        }
+        .customnav {
+            background-color: #202b3b;
+
+        }
+        footer {
+            background-color: #202b3b;
+            color: white;
+        }
+        footer h3 {
+            color: #faa428;
+        }
+
+        @media (max-width: 992px) {
+            .foot {
+                left: 0;
+            }
+        }
+        @media (max-width: 991px) {
+            .foothead {
+                text-align: center;
+            }
+        }
+
+        .da {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+            backdrop-filter: brightness(0.3);
+            filter: brightness(0.3);
+        }
+
+        @media (max-width: 1170px) {
+            .da {
+                height: 100vh;
+                width: auto;
+            }
+        }
+
+        #logo {
+            max-height: 60px;
+            max-width: 90vw;
+        }
+
+        .card {
+            height: 250px !important;
+            margin: 15px 0;
+        }
+
+        .fulldetails {
+            color: #007bff !important;
+            cursor: pointer;
+        }
+
+        .fulldetails:hover {
+            text-decoration: none;
+        }
+
+    </style>
+    <style>
+    .team-member, .team-member .team-img {
+        position: relative;
+    }
+    .team-member {
+        overflow: hidden;
+    }
+    .team-member, .team-member .team-img {
+        position: relative;
+    }
+
+    .team-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        background-color: rgba(0,0,0, 0.60);
+        opacity: 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    .team-member:hover .team-hover .desk {
+        top: 35%;
+    }
+    .team-member:hover .team-hover, .team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link {
+        opacity: 1;
+    }
+    .team-hover .desk {
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        opacity: 0;
+        -webkit-transform: translateY(-55%);
+        -ms-transform: translateY(-55%);
+        transform: translateY(-55%);
+        -webkit-transition: all 0.3s 0.2s;
+        transition: all 0.3s 0.2s;
+        padding: 0 20px;
+    }
+    .desk, .desk h4, .team-hover .s-link a {
+        text-align: center;
+        color: #222;
+    }
+    .team-member:hover .team-hover .s-link {
+        bottom: 10%;
+    }
+    .team-member:hover .team-hover, .team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link {
+        opacity: 1;
+    }
+    .team-hover .s-link {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        text-align: center;
+        -webkit-transform: translateY(45%);
+        -ms-transform: translateY(45%);
+        transform: translateY(45%);
+        -webkit-transition: all 0.3s 0.2s;
+        transition: all 0.3s 0.2s;
+        font-size: 35px;
+    }
+    .desk, .desk h4, .team-hover .s-link a {
+        text-align: center;
+        color: #222;
+    }
+    .team-member .s-link a {
+        margin: 0 10px;
+        color: #333;
+        font-size: 16px;
+    }
+    .team-title {
+        position: static;
+        padding: 20px 0;
+        display: inline-block;
+        letter-spacing: 2px;
+        width: 100%;
+    }
+    .team-title h5 {
+        margin-bottom: 0px;
+        display: block;
+        text-transform: uppercase;
+    }
+    .team-title span {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #a5a5a5;
+        letter-spacing: 1px;
+    }
+    .fa {
+        color: white;
+    }
+
+    .panel-group .panel {
+        border-radius: 0;
+        border: none;
+    }
+
+    .panel-default {
+        border-color: transparent;
+        margin-bottom: 10px;
+    }
+
+    .panel-default>.panel-heading {
+        background-color: rgb(51,51,51);
+        box-shadow:2px 2px 10px 1px grey;
+        transform: scale(1);
+        transition-duration: 0.5s;
+        color: white;
+    }
+
+    .panel-default>.panel-heading:hover {
+        background-color: rgb(120, 173, 200);
+        color: rgb(49,59,61);
+        transform: scale(1.01);
+        transition-duration: 0.5s;
+    }
+
+    .panel-heading {
+        border-radius: 3px;
+        cursor: pointer;
+        height: 40px;
+    }
+
+    .panel-title {
+        position: relative;
+        top: 6px;
+    }
+
+    .panel-body {
+        border-radius: 3px;
+        box-shadow:2px 2px 10px 1px grey;
+        margin: 10px auto;
+    }
+
+    .headyear {
+        display: block;
+    }
+
+    .headyear:hover {
+        text-decoration: none;
+    }
+
+    .secondyears:hover {
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #2f2f2f;
+    }
+
+        img {
+            max-width: 100%;
+        }
+
+        .team-img {
+            text-align: center;
+        }
+
+        .team-title {
+            text-align: center;
+        }
+    </style>
+
+    <title>International Relations Cell | IIT Kharagpur</title>
+
+</head>
+<body>
+
+<!--=========== BEGIN HEADER SECTION ================-->
+<nav class="navbar navbar-expand-md navbar-dark customnav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'ftp:view_projects' %}"><img src="{% static 'irciitlogo.png' %}" id="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:view_projects' %}">Apply Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:view_scholarships' %}">Scholarships</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:already_applied' %}">Your Applications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:edit_profile' %}">Edit Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:results' %}">Results</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'irc' %}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ftp:logout_user'%}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--=========== END HEADER SECTION ================-->
+
+<br>
+
+<div class="container">
+
+<h3 style="text-align: center; font-family: 'Cinzel', serif; font-weight: bold;">The International Relations Cell (IRC) is a student body, working under the Office of International Relations.
+We are a team of 35 students working to promote internationalisation at IIT Kharagpur.</h3>
+<br>
+{#<h2><center>#}
+{#Leadership</center>#}
+{#</h2>#}
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        <h4 class="panel-title" style="text-align: center">
+          <a id="clicker" class="headyear">Team of 2018-2019</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body" style="padding-top: 20px">
+            <h3 style="text-align: center;">Leadership</h3>
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/manthan.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/manthan.doshi.980" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/manthan-doshi-675999128/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://plus.google.com/112073548985498793658"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>MANTHAN DOSHI</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+
+                                 <img src="{% static 'team/ritik.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/ritik.chachan1?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/ritik-chachan-34a897148/"><i class="fa fa-linkedin"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>RITIK CHACHAN</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                               <img src="{% static 'team/tarun.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/tarun.kr3?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/tarun-kumar-339a03ab/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://plus.google.com/100402350883068998600"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>TARUN KUMAR</h5>
+                            <span>Web Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/raj1.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/rajkr1998?fref=mentions" target = "_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/raj-kishor-b77730147/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>RAJ KISHOR</h5>
+                            <span>Design Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/rohan1.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/rohan1269?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/rohan-dodrajka-211aa2126/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>ROHAN DODRAJKA</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/manmohan.JPG' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/manmohan.sandhu.71?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/manmohanpreet-singh-080a72137/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>MANMOHAN SANDHU</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/ayush.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/ayush.sinha.3551?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/ayush-sinha-205ba599/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>AYUSH SINHA</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                               <img src="{% static 'team/prachi.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/profile.php?id=100012465999417&fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/prachiagrawal31/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>PRACHI AGRAWAL</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/sudhir.JPG' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/sudhir.singhbhadouria?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/sudhir-singh-bhadauria-a72006129/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>SUDHIR SINGH BHADOURIA</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/pushpendra.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/pushpender18?fref=mentions" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/pushpendraschampawat/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>PUSHPENDRA SINGH CHAMPAWAT</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        <h4 class="panel-title" style="text-align: center">
+          <a class="headyear">Team of 2017-2018</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body" style="padding-top: 20px">
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/srivastava.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/shubhamsrivastava.iitkgp" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Shubham Srivastava</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+
+                                 <img src="{% static 'team/raj.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/profile.php?id=100009302309863" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/raj-kolamuri-b03b26106/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Raj Kolamuri</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                               <img src="{% static 'team/vivek.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/vivek.iitkgpian" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Vivek Yadav</h5>
+                            <span>Web Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/bhandari.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/aditya.bhandari.9488" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/raj-kolamuri-b03b26106/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Aditya Bhandari</h5>
+                            <span>Design Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/arora.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/shubhamarorakgp" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Shubham Arora</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/santosh.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/tyss.santosh" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/raj-kolamuri-b03b26106/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Tyss Santosh</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                               <img src="{% static 'team/saharan.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/siddharth.saharan.31" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Siddharth Saharan</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/navya.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/navya.mokmod" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Navya Mokmod</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        <h4 class="panel-title" style="text-align: center">
+          <a class="headyear">Team of 2016-2017</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body" style="padding-top: 20px">
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/asish.jpeg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/asish.koruprolu" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/asishkoruprolu/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Asish Koruprolu</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+
+                                 <img src="{% static 'team/bhanu.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/bhanu.gupta.3304" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/bhanu-gupta-366271a1/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Bhanu Gupta</h5>
+                            <span>General Secretary</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                               <img src="{% static 'team/kharb.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/kharb.anshul" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/anshulkharb/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Anshul Kharb</h5>
+                            <span>Web Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/umang.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/kumarumang2611" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/kumarumang2611/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Umang Kumar</h5>
+                            <span>Design Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/kedia.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/devanandkedia" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/devanandkedia/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Devanand Kedia</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/shubhamsingh.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/profile.php?id=100006770024243" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/singhshubham1708/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Shubham Singh</h5>
+                            <span>Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+        <h4 class="panel-title" style="text-align: center">
+          <a class="headyear">Team of 2015-2016</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body" style="padding-top: 20px">
+            <h3 style="text-align: center;">Founders</h3>
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4"></div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/atal.jfif' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/atalashu" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/atalashutosh/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Atal Ashutosh Agarwal</h5>
+                            <span>Vice President<br>Technology Students' Gymkhana 2015-16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/pooja.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/pooja.lunia" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/poojalunia/"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Pooja Lunia</h5>
+                            <span>Founder</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                <img src="{% static 'team/gajendra.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/profile.php?id=100003007809894" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/gajendraiitkgp/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Gajendra Singh Rajpurohit</h5>
+                            <span>Founder</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-member">
+                            <div class="team-img">
+                                 <img src="{% static 'team/swapnil.jpg' %}" alt="team member" class="img-responsive">
+                            </div>
+                            <div class="team-hover">
+                                <div class="s-link">
+                                    <a href="https://www.facebook.com/swapnil.bishnu" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a ><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-title">
+                            <h5>Swapnil Bishnu</h5>
+                            <span>Founder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--=========== BEGIN FOOTER SECTION ================-->
+<footer style="margin-top: 25px;">
+<div class="container" style="padding-top: 30px; padding-bottom: 20px;">
+    <div class="row foot">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 foothead">
+            <h3>ABOUT US</h3>
+            <p>
+                International Relations Cell is a Student Body which works closely with Office of International Relations, Indian Institute of Technology Kharagpur.
+            </p>
+        </div>
+        <div class="col-lg-4 foothead">
+            <h3>REACH OUT TO US</h3>
+            <p>
+                International Relations Cell<br>
+                Indian Institute of Technology Kharagpur<br>
+                Kharagpur, West Bengal<br>
+                India - 721 302<br>
+                Phone: +91 70231 07020<br>
+                Email: irc@iitkgp.ac.in
+            </p>
+        </div>
+        <div class="col-lg-3 foothead">
+            <h3>SOCIAL LINKS</h3>
+            <a href="https://www.facebook.com/IRCIITKGP/?fb_dtsg_ag=Adz8WNZc1QoPw9HjTvTmwan5ySmuaNaVlBauDgpY1ukyHw%3AAdyUMp0BX7nk0MH6uPb-0-KGPhyGK6p7DZip_8l0IDafIA"><i class="fa fa-facebook" style="font-size:24px; margin-right: 20px; margin-top: 10px;"></i></a>
+            <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/"><i class="fa fa-linkedin" style="font-size:24px; margin-right: 20px; margin-top: 10px;"></i></a>
+            <a href="mailto:irc@iitkgp.ac.in"><i class="fa fa-envelope-o" style="font-size:24px; margin-right: 20px; margin-top: 10px;"></i></a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-bottom: 0;height: 0;">
+    <div class="row" style="background-color: white; color: black; height: 60px;">
+        <div class="col-md-12" style="text-align: center; padding-top: 17px;">
+            <p>Copyright © All Rights Reserved</p>
+        </div>
+    </div>
+</div>
+</footer>
+<!--=========== END FOOTER SECTION ================-->
+
+<!-- Start footer bottom area -->
+<!--  <div class="footer_bottom" style="padding-top: 10px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="footer_bootomLeft">
+            <p style="color: white;"> Copyright &copy; All Rights Reserved</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="footer_bootomRight">
+<!--               	<p> To put on right side <p>
+-->              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- End footer     bottom area -->
+</footer>
+
+</body>
+</html>

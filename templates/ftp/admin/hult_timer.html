@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hult Timer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Abel");
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #2f2f31;
+  background-image: radial-gradient(farthest-side at 50% 85%, #1f2338, #1a1c2a);
+  height: 100vh;
+  overflow: hidden;
+  color: #f5f5f5;
+  line-height: 1.34;
+}
+#timer {
+  position: absolute;
+  left: 98%;
+  top: 4%;
+  transform: translate(-98%, -4%);
+  font-family: Abel;
+  font-size: 2rem;
+  opacity: 0.25;
+  text-align: right;
+  width: 25%;
+}
+#timer small {
+  font-size: 1rem;
+  display: block;
+}
+#countdown {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+#countdown .counter {
+  width: 192px;
+  position: relative;
+  font-family: Abel;
+  font-size: 108px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+}
+#countdown .counter span::before {
+  content: attr(b);
+}
+#countdown .counter span.ping::before {
+  -webkit-animation: pingEffect 0.25s 1 forwards;
+          animation: pingEffect 0.25s 1 forwards;
+}
+#countdown .counter b {
+  font-size: 14px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+@-webkit-keyframes pingEffect {
+  to {
+    text-shadow: 0 0 12px rgba(238,238,238,0.5), 0 0 32px rgba(238,238,238,0.3), 0 24px 48px rgba(238,238,238,0.1), 0 -24px 48px rgba(238,238,238,0.1);
+  }
+}
+@keyframes pingEffect {
+  to {
+    text-shadow: 0 0 12px rgba(238,238,238,0.5), 0 0 32px rgba(238,238,238,0.3), 0 24px 48px rgba(238,238,238,0.1), 0 -24px 48px rgba(238,238,238,0.1);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <span id="timer"></span>
+    <div id="countdown" style="zoom:4">
+    <div class="counter" count="days" style="display:none"><span b="--"></span><b>Days</b></div>
+    <div class="counter" count="hours" style="display:none"><span b="--"></span><b>Hrs</b></div>
+    <div class="counter" count="minutes"><span b="--"></span><b>Min</b></div>
+    <div class="counter" count="seconds"><span b="--"></span><b>Sec</b></div>
+    </div>
+<script>
+    const gc = s => document.querySelector('#countdown [count="' + s + '"] span');
+
+let d = new Date('2022-03-07T00:10:00') - new Date('2022-03-07T00:00:00'); 
+let d2 = new Date() - new Date();
+
+
+const mainCalc = (s, t, c) => {
+  gc(s).classList.remove('ping');
+  const m = t % c;
+  const e = a => gc(s)[a + 'Attribute'].bind(gc(s));
+  e('set')('b', m < 10 ? '0' + m : m);
+  setTimeout(() => gc(s).classList.add('ping'), 10);
+  return m;
+};
+
+const count = (b = 0) => {
+  const d_var = d;
+  if(d_var <= 0) return false;
+  return (d -= 1000) && count.seconds(d, b)
+};
+const opti = (v, n) => (v - v % n) / n;
+
+count.seconds = (t, i = !1) => {
+  t = opti(t, 1000);
+  i && count.minutes(t, i);
+  if (mainCalc('seconds', t, 60) == 59) count.minutes(t, i);
+};
+count.minutes = (t, i = !1) => {
+  t = opti(t, 60);
+  i && count.hours(t, i);
+  if (mainCalc('minutes', t, 60) == 59) count.hours(t, i);
+};
+count.hours = (t, i = !1) => {
+  t = opti(t, 60) - 1;
+  i && count.days(t);
+  if (mainCalc('hours', t, 24) == 23) count.days(t);
+};
+count.days = t => {
+  t = opti(t, 24);
+  gc('days').setAttribute('b', t < 10 ? '0' + t : t);
+  setTimeout(() => gc('days').classList.add('ping'), 10);
+};
+setTimeout(() => {
+  count(true);
+  setInterval(count, 1000);
+}, d % 1000);
+
+
+
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,66 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Notice Board | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+    .notice_title{
+        transition: all 0.5s;
+    }
+    .noticecards{
+        transition: all 0.5s;
+    }
+</style>
+
+<main><center>
+    <!-- ======= Noitce Section ======= -->
+    <section id="notice" class="notice" style="margin-top: -100px;">
+        <div class="container" style="margin-bottom: -100px;">
+  
+          <div class="section-title flex justify-center" style="margin-top:200px">
+            <h2 class="notice_title" style="font-size:3rem;color:grey;">Notice Board</h2>
+          </div><br><br>
+              
+              <ul>
+                  <div class="min-h-screen">
+
+                      <div class="flex  justify-center mb-2" style="margin-bottom: 100px !important;">
+                          <div class="max-w-md md:max-w-5xl px-2 py-2 noticecards" id="ircnotice" >
+                     {% for s in status %}
+                              <div class="bg-white shadow-xl rounded-lg overflow-hidden md:flex notice_card" id="irccol" style=" --tw-shadow: 0 2px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;">
+                                  {% if s.1 != 'pending' %}
+                                  <div style="width:100%; min-height:150px;">
+                                      <div class="p-24 md:p-5 flex justify-center" style=" word-wrap: break-word;padding:30px">
+                                          <p class="font-bold text-sm md:text-2xl notice_cardText" style="font-size:30px; line-height:1.2; word-wrap: break-word !important; color: #585858" >{{s.0.project_name}}</p>
+                                        </div>
+                                        <div class="p-4 md:p-5 bg-gray-100 notice_cardInfo"  style="min-height:85px;  word-wrap: break-word !important;">
+                                            <div class="sm:flex sm:justify-between sm:items-center" >
+                                                <div>
+                                                    <div class="text-lg text-gray-700 notice_cardText" style="font-size:15px; margin-left:10px; line-height:1.2;width:50%;justify-content: center">This status of your applied project is {{s.1}}</div>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <br><br><br><br>
+                                    {% endfor %}
+                            </div>
+                        </div>
+                       
+                    </div>
+  
+                     
+              </ul>
+              
+        </div>
+      </section>
+</center></main>
+
+{% endblock %}

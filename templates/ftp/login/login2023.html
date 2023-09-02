@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'ftp/login/login.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'ftp/login2023/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form class="signUp" action="{% url 'ftp:register' %}" method="POST">
+            <h3>Sign Up</h3>
+            {% csrf_token %}
+            <!-- <p>Just enter your email address</br>
+            and your password for join.
+            </p> -->
+            <!-- <div class="input" style="grid-template-columns: 15% 37% 5%; padding-left:0px; padding-right:0px !important;">
+                <i class="fa fa-envelope" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;"></i>
+                <input class="w100" type="email" placeholder="Email Address" required />
+                <div class="input-group-append" style="border-color: #F0F0F0; height: 100% !important;">
+                    <span class="input-group-text" id="basic-addon2"
+                      style="border-radius: 0px 50px 50px 0px; background-color:#F0F0F0;border: none;">
+                      <select name="domain" class="form-group"
+                        style="margin-bottom:0;width: 9.5rem;font-size: 0.8rem;background-color: #F0F0F0;border-color: #F0F0F0;outline: none !important;font-weight: bold;">
+                        <option style="font-weight: bold;" value="@iitkgp.ac.in">@iitkgp.ac.in</option>
+                        <option style="font-weight: bold;" value="@kgpian.iitkgp.ac.in" selected>@kgpian.iitkgp.ac.in</option>
+                      </select>
+                    </span>
+                </div>
+            </div>
+            <div class="input" style="grid-template-columns: 15% 37% 5%; padding-left:0px; padding-right:0px !important;">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                <input type="password" placeholder="Password" required />
+            </div>
+            <div class="input" style="grid-template-columns: 15% 37% 5%; padding-left:0px; padding-right:0px !important;">
+                <input type="password" placeholder="Verify Password" reqired />
+
+
+                <button class="form-btn sx log-in" type="button">Log In</button>
+                <button class="form-btn dx" type="submit">Sign Up</button>
+            </div> -->
+            <div class="input-field">
+                <i class="fa fa-envelope" style="font-size:18px"></i>
+                <input class="email" type="text" placeholder="Email Address" required />
+                <select id="domain" name="domain">
+                    <option value="@iitkgp.ac.in">@iitkgp.ac.in</option>
+                    <option value="@kgpian.iitkgp.ac.in" selected>@kgpian.iitkgp.ac.in</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-lock" style="font-size:24px"></i>
+                <input class="password" type="password" placeholder="Password" required />
+            </div>
+            <div class="input-field">
+                <i class="fa fa-lock" style="font-size:24px"></i>
+                <input class="conf password" type="password" placeholder="Confirm Password" required />
+            </div>
+            <p class="warn"
+                style="white-space: nowrap;color:red; padding-bottom: 0px; padding-top: 0px; margin-bottom: -1rem; font-size: 0.75rem;">
+                *Password must be 8 characters long</p>
+            <p class="social-text">Connect with us!</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/IRCIITKGP/" class="social-icon" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:ftp.ircell@gmail.com" class="social-icon" target="_blank">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                    class="social-icon" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+            <button class="form-btn sx log-in" type="button">Log In</button>
+            <button class="form-btn dx" type="submit">Sign Up</button>
+        </form>
+
+        <form class="signIn">
+            <h3>Welcome Back !</h3>
+            <!-- <button class="fb" type="button">Log In With Facebook</button>
+                <p>- or -</p> -->
+            <div class="input-field">
+                <i class="fa fa-envelope" style="font-size:18px"></i>
+                <input class="email mb-5px mt-10px" type="text" placeholder="Email Address" required />
+                <select id="domain" name="domain">
+                    <option value="@iitkgp.ac.in">@iitkgp.ac.in</option>
+                    <option value="@kgpian.iitkgp.ac.in" selected>@kgpian.iitkgp.ac.in</option>
+                </select>
+            </div>
+            <div class="input-field mt-5px">
+                <i class="fa fa-lock" style="font-size:24px"></i>
+                <input class="password" type="password" placeholder="Password" required />
+            </div>
+            <p class="social-text mt--5px" >
+                <a href="{% url 'ftp:forgotpassword' %}" class="registerlink forget"
+                    style="color:#9300ff"><strong>Forgot Password ?</strong></a>
+            </p>
+            <!-- <div class="social-media-2">
+                <a href="https://www.facebook.com/IRCIITKGP/" class="social-icon" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:ftp.ircell@gmail.com" class="social-icon" target="_blank">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                    class="social-icon" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div> -->
+            <p class="social-text">Connect with us!</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/IRCIITKGP/" class="social-icon" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:ftp.ircell@gmail.com" class="social-icon" target="_blank">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                    class="social-icon" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+            <button class="form-btn sx back" type="button">Back</button>
+            <button class="form-btn dx" type="submit">Log In</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(".log-in").click(function () {
+            $(".signIn").addClass("active-dx");
+            $(".signUp").addClass("inactive-sx");
+            $(".signUp").removeClass("active-sx");
+            $(".signIn").removeClass("inactive-dx");
+        });
+
+        $(".back").click(function () {
+            $(".signUp").addClass("active-sx");
+            $(".signIn").addClass("inactive-dx");
+            $(".signIn").removeClass("active-dx");
+            $(".signUp").removeClass("inactive-sx");
+        });
+    </script>
+</body>
+
+</html>

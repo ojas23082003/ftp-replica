@@ -1,0 +1,332 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+
+    <title>{% if user.is_authenticated %}Home{% else %}Login{% endif %} - Knowledge Transfer Portal</title>
+
+    <!--===============================================================================================-->
+    <link href="{% static 'ktp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/vendor/daterangepicker/daterangepicker.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/css/main.css' %}">
+    <!--===============================================================================================-->
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/css/fontawesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ktp/css/owl.css' %}">
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- User authentication-->
+    {% if not user.is_authenticated %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" method="POST" action="{% url 'ktp:index' %}">
+                    {% csrf_token %}
+                    <span class="login100-form-title p-b-34" style="font-weight: bold";>
+                        KTP - Login<br/><span style="font-size: 12px;font-weight: bold">International Relations Cell, IIT Kharagpur</span>
+                    </span>
+    
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type your Email">
+                        <input id="first-name" class="input100" type="text" name="email" placeholder="Email">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type your password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                    </div>
+    
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+    
+                <div class="login100-more" style="position: relative;background-image: url('{% static 'ktp/images/ktp-bg.jpg' %}');">
+                <img style="position: absolute;top: 20px; left: 20px; object-fit: contain; width: 350px;" src="{% static 'ftp/home/img/ircelllogo.png' %}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- User authentication ends-->
+    {% else %}
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'ktp:index' %}">
+                    <div class="navbar-logo">
+                        <img src="{% static 'website/img/logo.gif' %}" alt="" />
+                        <h2>Knowledge Transfer Portal<br /><span
+                                style="font-size: 20px;color: rgb(81, 81, 81);">International Relations Cell, IIT
+                                Kharagpur</span></h2>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto" style="display: flex;align-items: center;">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'ktp:index' %}">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'ktp:about' %}">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'ktp:blog' %}">Blog Entries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-btn" href="{% url 'ktp:logout_user' %}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text">
+        <div class="container-fluid">
+            <div class="owl-banner owl-carousel">
+                {% for post in posts|slice:":8" %}
+                <div class="item">
+                    <img src="{% if post.photo %}{{ post.photo.url }}{% else %}{% static 'ktp/images/default.jpg' %}{% endif %}" alt="">
+                    <div class="item-content">
+                        <div class="main-content">
+                            <div class="meta-category">
+                                <span>{{ post.category }}</span>
+                            </div>
+                            <a href="{% url 'ktp:post' post_id=post.id %}">
+                                <h4>{{ post.subject }}</h4>
+                            </a>
+                            <ul class="post-info">
+                                <li><a href="#">{{ post.by }}</a></li>
+                                <li><a href="#">{{ post.date }}</a></li>
+                                <li><a href="#">{{ post.comments.length }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <div class="container py-5">
+
+        <form action="{% url 'ktp:add_post' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h1 style="margin: 30px 0;font-size: 35px;font-style: italic;color: #515151;">What's on your mind?</h1>
+
+            <div style="display: flex;align-items: center;">
+                <div class="form-group" style="flex: 1;margin-right: 2.5px;">
+                    <label for="fname">By</label>
+                    <input type="name" class="form-control" id="fname" required placeholder="Enter your name"
+                        name="fname">
+                </div>
+                <div class="form-group" style="flex: 1;margin-left: 2.5px;">
+                    <label for="category">Category</label>
+                    <select name="category" class="form-control">
+                        {% for p in categ %}
+                            <option value={{p}}>{{p}}</option>
+                        {% endfor %}
+                        </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" required id="subject" placeholder="Enter the Subject"
+                    name="subject">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" style="min-height: 200px;" required
+                    placeholder="Enter the post content" name="content"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlFile1"> Upload image (if any)</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                    name="exampleFormControlFile1">
+            </div>
+            <div class="form-group">
+                <label for="file"> Upload file (if any) </label>
+                <input type="file" class="form-control-file" id="file"
+                    name="file">
+            </div>
+
+            <button type="submit" class="btn btn-primary"
+                style="display: block;width: fit-content;padding: 5px 20px;">Post</button>
+        </form>
+    </div>
+
+    <!-- <section class="blog-posts" style="margin-top: 0;">
+        <div class="container">
+            <h1 style="margin: 30px 0;font-size: 35px;font-style: italic;color: #515151;">Most Recent...</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            {% for post in posts|slice:":4" %}
+                            <div class="col-lg-12">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="{% if post.photo %}{{ post.photo.url }}{% else %}{% static 'ktp/images/default.jpg' %}{% endif %}" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="{% url 'ktp:post' post_id=post.id %}">
+                                            <h4>{{ post.subject }}</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">{{ post.by }}</a></li>
+                                            <li><a href="#">{{ post.date }}</a></li>
+                                        </ul>
+                                        <p>{{ post.content }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="col-lg-12">
+                                <div class="main-button">
+                                    <a href="{% url 'ktp:blog' %}">View All Posts</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sidebar-item recent-posts">
+                                    <div class="sidebar-heading">
+                                        <h2>Recent Posts</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            {% for post in posts %}
+                                            <li><a href="{% url 'ktp:post' post_id=post.id %}">
+                                                    <h5>{{ post.subject }}</h5>
+                                                    <span>{{ post.date }}</span>
+                                                </a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="social-icons">
+                        <li><a target="_blank" href="https://www.facebook.com/IRCIITKGP/">Facebook</a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/irc.iitkgp/">Instagram</a></li>
+                        <li><a target="_blank"
+                                href="https://linkedin.com/company/international-relations-cell-iit-kharagpur/">Linkedin</a>
+                        </li>
+                        <li><a target="_blank" href="https://ircell.iitkgp.ac.in/">Website - IRCell</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p>Copyright 2022 International Relations Cell, IIT Kharagpur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% endif %}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'ktp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'ktp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'ktp/js/custom.js' %}"></script>
+    <script src="{% static 'ktp/js/owl.js' %}"></script>
+    <script src="{% static 'ktp/js/slick.js' %}"></script>
+    <script src="{% static 'ktp/js/isotope.js' %}"></script>
+    <script src="{% static 'ktp/js/accordions.js' %}"></script>
+    <script src="{% static 'ktp/js/main.js' %}"></script>
+
+    <script language="text/Javascript">
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#modalLoginForm').modal({ backdrop: 'static', keyboard: false })
+            $('#modalLoginForm').modal('show');
+        });
+    </script>
+
+</body>
+
+</html>

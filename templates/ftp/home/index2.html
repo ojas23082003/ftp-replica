@@ -1,0 +1,672 @@
+
+
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146917460-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-146917460-1');
+    </script>
+
+    <script src="https://kit.fontawesome.com/3155213618.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.js" integrity="sha256-9+F6QJDINcErIuU5VVbMxo+cfbDBKoXwwgHslcsQznQ=" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="icon" type="image/png" href="{% static 'ftp/profil/assets/img/favicon.png' %}" />
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>FTP | International Relations Cell</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'ftp/home/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/home/css/owl.carousel.css' %}">
+    {#		<link rel="stylesheet" href="{% static 'ftp/home/css/font-awesome.min.css' %}">#}
+    <link rel="stylesheet" href="{% static 'ftp/home/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/home/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/home/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/home/css/main.css' %}">
+    <script src="https://kit.fontawesome.com/3155213618.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+    <style>
+
+        {#COUNTER#}
+        @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+        .sectionClass {
+            padding: 20px 0px 50px 0px;
+            position: relative;
+            display: block;
+        }
+
+        .fullWidth {
+            width: 100% !important;
+            display: table;
+            float: none;
+            padding: 0;
+            min-height: 1px;
+            height: 100%;
+            position: relative;
+        }
+
+
+        .sectiontitle {
+            background-position: center;
+            margin: 30px 0 0px;
+            text-align: center;
+            min-height: 20px;
+        }
+
+        .sectiontitle h2 {
+            font-size: 30px;
+            color: #ffffff;
+            margin-bottom: 0px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+
+        .headerLine {
+            width: 160px;
+            height: 2px;
+            display: inline-block;
+            background: #ffffff;
+        }
+
+
+        .projectFactsWrap{
+            display: flex;
+            margin-top: 30px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+
+        #projectFacts .fullWidth{
+            padding: 0;
+        }
+
+        .projectFactsWrap .item{
+            width: 33.3333333%;
+            height: 100%;
+            padding: 50px 0px;
+            text-align: center;
+        }
+
+        .projectFactsWrap .item:nth-child(1){
+            background: rgb(24,24,24);
+        }
+
+        .projectFactsWrap .item:nth-child(2){
+            background: rgb(24,24,24);
+        }
+
+        .projectFactsWrap .item:nth-child(3){
+            background: rgb(24,24,24);
+        }
+
+        .projectFactsWrap .item:nth-child(4){
+            background: rgb(23, 44, 66);
+        }
+
+        .projectFactsWrap .item p.number{
+            font-size: 55px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .projectFactsWrap .item p{
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 35px;
+            margin: 5px;
+            padding: 10px;
+            font-family: 'Open Sans';
+        }
+
+
+        .projectFactsWrap .item span{
+            width: 150px;
+            background: rgba(255, 255, 255, 0.8);
+            height: 2px;
+            display: block;
+            margin: 15px auto;
+        }
+
+
+        .projectFactsWrap .item i{
+            vertical-align: middle;
+            font-size: 90px;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+
+        .projectFactsWrap .item:hover i, .projectFactsWrap .item:hover p{
+            color: white;
+        }
+
+        .projectFactsWrap .item:hover span{
+            background: white;
+        }
+
+        @media (max-width: 786px){
+            .projectFactsWrap .item {
+                flex: 0 0 100%;
+            }
+        }
+        .counter{
+            height: 100vh;
+            margin-top: 20%;
+        }
+
+
+        {#END COUNTER#}
+        {#testimonial#}
+        .testimonial{
+            height: 100vh;
+            vertical-align: middle;
+            padding-top: 7%;
+        }
+
+        {#@media only screen and (max-width:550px){#}
+        {#    .testimonial#}
+        {#    {#}
+        {#        padding-top: 20%;#}
+        {#        height: 70vh;#}
+        {#        margin-bottom: 50%}#}
+        {#}#}
+        {#@media only screen and (max-width:380px){#}
+        {#    .testimonial#}
+        {#    {#}
+        {#        margin-top:90vh;#}
+        {#        height: 90vh;#}
+        {#        margin-bottom: 50%}#}
+        {#}#}
+        @media only screen and (max-width:770px){
+            .testimonial
+            {
+                margin-top: 120%;
+                height: 90vh;
+                margin-bottom: 75%;
+            }
+        }
+         @media only screen and (max-width:310px){
+            .testimonial
+            {
+
+                padding-top: 20%;
+                margin-top:90vh;
+                height: 90vh;
+                margin-bottom: 50%
+                margin-top: 165vh;
+                height: 90vh;
+                margin-bottom: 139%;
+            }
+
+        }
+        @media only screen and (max-width:1000px){
+            .testimonial
+            {
+
+                height: 100vh;
+                margin-bottom: 20%;
+            }
+        }
+        #quote-carousel {
+            padding: 0 10px 30px 10px;
+            margin-top: 60px;
+        }
+        #quote-carousel .carousel-control {
+            background: none;
+            color: #CACACA;
+            font-size: 2.3em;
+            text-shadow: none;
+            margin-top: 100px;
+        }
+        #quote-carousel .carousel-indicators {
+            position: relative;
+            right: 50%;
+            top: auto;
+            bottom: 0px;
+            margin-top: 20px;
+            margin-right: -19px;
+        }
+        #quote-carousel .carousel-indicators li {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            opacity: 0.4;
+            overflow: hidden;
+            transition: all .4s ease-in;
+            vertical-align: middle;
+        }
+        #quote-carousel .carousel-indicators .active {
+            width: 128px;
+            height: 128px;
+            opacity: 1;
+            transition: all .2s;
+        }
+        .item blockquote {
+            border-left: none;
+            margin: 0;
+        }
+        .item blockquote p:before {
+            content: "\f10d";
+            font-family: 'Fontawesome';
+            float: left;
+            margin-right: 10px;
+        }
+
+        {#END Testimonial#}
+
+
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .lnr {
+            font-family: 'Linearicons-Free' !important;
+        }
+        .studio-content{
+            margin-left: 0px !important;
+            padding: 5% !important;
+
+
+        }
+        .studio-area .studio-content:after{
+            width: 0px !important;
+        }
+
+        @media only screen and (max-width:550px)
+        {
+
+            .logo a img {
+                width: 250px;
+            }
+            h1{
+                font-size: 40px !important;
+
+            }
+            h5{
+                font-size: 15px !important;
+            }
+            .studio-content p{
+                font-size: 0.8em;
+                line-height: 1.1em;
+            }
+            .banner-content{
+                margin-top: 0;
+            }
+        }
+
+        .dup-body-wrap {
+            margin: 0 !important;
+        }
+        .fab ,.fas{
+            color: aliceblue;
+            padding: 5px;
+        }
+
+        @media only screen and (max-width: 800px){
+            .counter{
+                margin-bottom: 50vh;
+                margin-top: 20vh;
+            }
+        }
+
+        @media only screen and (max-width: 450px){
+            .counter{
+                margin-top: 39vw;
+            }
+        }
+
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.js" integrity="sha256-sjfHYg9YT/TZ2QwWAfEWU89EIttC03/ChHe52TDwLvc=" crossorigin="anonymous"></script>
+</head>
+
+<body class="dup-body" onscroll="stats()">
+<div id="fullpage">
+    <div class="dup-body-wrap" >
+
+        <!-- Start Header Area --><div class="section">
+        <header class="default-header">
+            <div class="header-wrap">
+                <div class="header-top d-flex justify-content-between align-items-center">
+                    <div class="logo">
+                        <a href="#"><img src="{% static 'ftp/home/img/irciitlogo.png' %}" alt="IRC" style="max-width: 400px;"></a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- End Header Area -->
+        <!-- Start Banner Area -->
+        <section class="banner-area relative">
+            <div class="overlay overlay-bg" style="background: url('{% static 'ftp/home/img/ftp 2019-20.jpg' %}'); background-size: cover; background-position: center ;background-repeat: no-repeat"></div>
+            <div class="container">
+                <div class="row fullscreen align-items-center justify-content-between">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="banner-content" style="text-align:center;"><br><br>
+                            <h1 style="font-size:60px;">Foreign Training Programs</h1><br><br>
+                            <h3 style="color:white;line-height: 110%;margin: 0.82rem 0 0.656rem 0;">Are extensive research projects and a dream summer at a prestigious university abroad your goals this year? If yes, we are here to assist you to accomplish those with our FTP Portal.
+                            </h3>
+                            <br><br>
+                            {#                            <h3 style="color: white">Portal releasing soon!</h3>#}
+                            <h3 style="color: white;">Apply at <a href="{% url 'ftp:login_user' %}" style="color: orange; text-decoration: underline"><strong>Foreign Training Portal</strong></a></h3>
+                        </div>
+                    </div>
+                    <!--	<div class="col-lg-5 col-md-5 col-sm-4">
+                            <img src="img/banner.jpg" alt="" class="img-fluid">
+                        </div>-->
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+        <!-- End Banner Area -->
+        <!-- Start studio Area -->
+        <section class="section-gap studio-area">
+            <!--<div class="overlay overlay-bg"></div>-->
+            <div class="container" class="section">
+                <div class="row align-items-center">
+                    <!--<div class="col-md-2 col-sm-6 text-center">
+                          <div class="studio-thumb">
+                            <img src="img/s.jpg" class="img-fluid" alt="">
+                        </div>-->
+                    &nbsp;
+                </div>
+
+                <div class="studio-content center-align">
+                    <span style="color: #171717;font-size: 4.2rem;border-width
+                    :0 0 2px 0;border-style: solid;margin-bottom: 20px;font-weight: bold">ABOUT IR CELL</span>
+                    <p style="margin-top: 35px;">
+                        IIT Kharagpur, as an Institute of Eminence, has realized that producing industry competitive and academically strong graduates alone cannot be it’s ultimate objective. It needs to craft students who possess leadership qualities and will eventually become entities who will change the world. For this to happen,  it is necessary that the students showcase themselves on world platforms and in-turn gain the much-cherished exposure towards new work-cultures. International experience is crucial for holistic development as it opens our minds to new possibilities and alternate modulus operandi. Therefore, we believe that the experience of living and working abroad will be paramount to this endeavour.
+                    </p>
+                    <p>
+                        Foreign Training Program provides a unique opportunity to undergraduate students from IIT Kharagpur to conduct research under the supervision of professors of eminent universities abroad. Through this program we have started formalization of the foreign training application procedure and we aim to streamline and increase the efficiency of the foreign training application procedure in IIT Kharagpur. FTP serves to provide students with cross-cultural exposure and opportunities to expand their horizons through research extensive summers.
+                    </p>  {#							<a href="#" class="primary-btn" style="color:black;">View More<span class="lnr lnr-arrow-right"></span></a>#}
+                </div>
+            </div>
+
+        </section>
+        <!-- End studio Area -->
+
+
+        <div class="counter" id="counterr" style="background-color: rgb(24,24,24)">
+            <div class="sectiontitle" style="margin-top: 0px;padding-top: 3%;">
+                <h2 >FTP 2018-19</h2>
+                <span class="headerLine"></span>
+            </div>
+            <div id="projectFacts" class="sectionClass">
+                <div class="fullWidth eight ">
+                    <div class="projectFactsWrap ">
+                        <div class="item wow fadeInUpBig animated animated" data-number="57" style="visibility: visible;">
+                            <i style="font-family: FontAwesome !important;" class="fa fa-university"></i>
+                            <p id="number1" class="number">57</p><p style="font-weight: bold;margin-top: -30px;visibility: hidden">Million</p>
+                            <span></span>
+                            <p>Universities</p>
+                        </div>
+                        <div class="item wow fadeInUpBig animated animated" data-number="71" style="visibility: visible;">
+                            <i style="font-family: FontAwesome !important;" class="fas fa-flask"></i>
+                            <p id="number2" class="number">71</p><p style="font-weight: bold;margin-top: -30px;visibility: hidden">Million</p>
+                            <span></span>
+                            <p>Total projects</p>
+                        </div>
+                        <div class="item wow fadeInUpBig animated animated" data-number="10.2" style="visibility: visible;">
+                            <i style="font-family: FontAwesome !important;" class="fas fa-rupee-sign"></i>
+                            <p id="number3" class="number">10.2</p><p style="font-weight: bold;margin-top: -30px">MILLION</p>
+                            <span></span>
+                            <p>Funding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#               testimonial  #}
+
+        <div class="container testimonial">
+            <div class="sectiontitle">
+                <h2 style="color: black;font-weight: 600;">TESTIMONIAL</h2>
+                <span class="headerLine" style="color:#0b0b0b !important;background-color: black;"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                        <!-- Carousel Slides / Quotes -->
+                        <div class="carousel-inner text-center">
+                            <!-- Quote 1 -->
+                            <div class="item active">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <p>I had already went through a lot of websites of different universities for blend optics and Electronics but the result  was disappointing. At the same time I also submitted my CV in the FTP portal. Everything was arranged by IR Cell and I had to just report to their office for the Interview. IR Cell also introduced me to last year's intern at the same lab: Mr. Vraj Chauhan who guided me well. I am very thankful to IR Cell's FTP for giving such a platform to me as well as the students of IIT KGP to undergo training at the best labs and institutes with tremendous potential
+                                            </p>
+                                            <small>Soumya Shailja</small>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- Quote 2 -->
+                            <div class="item">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <p>My venture in Foreign Training experience begun when I got to know about the FT Portal of IR cell which gave me the opportunity to explore numerous projects on multiple and multidisciplinary principles.The title of my project was “Nanobeads Manipulation and immobilization using antibody for Parkinson’s disease early diagnosis” and it was really amazing experience. I am highly grateful to the IR cell for making this dream come true. FTP has successfully transformed and inculcated research interests into many young undergraduates here at IITKGP.
+                                            </p>
+                                            <small>Neelanjan Akuli</small>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- Quote 3 -->
+                            {#                            <div class="item">#}
+                            {#                                <blockquote>#}
+                            {#                                    <div class="row">#}
+                            {#                                        <div class="col-sm-8 col-sm-offset-2">#}
+                            {#                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>#}
+                            {#                                            <small>Someone famous</small>#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                </blockquote>#}
+                            {#                            </div>#}
+                        </div>
+                        <!-- Bottom Carousel Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive" src="{% static 'ftp/home/img/soumya.jpg' %}" alt="">
+                            </li>
+                            <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="{% static 'ftp/home/img/neelanjan.jpg' %}" alt="">
+                            </li>
+                            {#                            <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">#}
+                            {#                            </li>#}
+                        </ol>
+
+                        <!-- Carousel Buttons Next/Prev -->
+                        <a data-slide="prev" href="#quote-carousel" class="left carousel-control" ><i style="font-family: Font Awesome 5 Pro;" class="fa fa-chevron-left"></i></a>
+                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i style="font-family: Font Awesome 5 Pro;" class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#                testinomial_end#}
+        {#        <h1 style="text-align: center;font-family: 'Open Sans';font-size: 5rem;border: 0px;margin-bottom: 5vh"><u style="color: #171717">Events</u></h1>#}
+        {#        <div class="row">#}
+        {#            <div class="col-12 col-md-6 col-sm-12 col-xl-6">#}
+        {#                <div class="card .mx-auto" style="width:80%;margin: 0 auto; /* Added */#}
+        {#        float: none;margin-bottom: 10vh" >#}
+        {#                    <img class="card-img-top" src="https://cdn.imgbin.com/20/21/5/imgbin-illustrator-debate-panel-discussion-panel-discussion-dzLiaTs5drqrJX9qgDn99Lw0Y.jpg" alt="Card image">#}
+        {#                    <div class="card-body">#}
+        {#                        <h4 class="card-title">Foreign Training Panel Discussion</h4>#}
+        {#                        <p class="card-text">Panel discussion with those who went to FT last year</p>#}
+        {#                            <a href="#" class="btn btn-primary">See Profile</a>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <div class="col-12 col-md-6 col-sm-12">#}
+        {#                <div class="card .mx-auto" style="width:80%;margin: 0 auto; margin-bottom: 10vh;/* Added */#}
+        {#        float: none;" >#}
+        {#                    <img class="card-img-top" src="https://cdn.imgbin.com/20/21/5/imgbin-illustrator-debate-panel-discussion-panel-discussion-dzLiaTs5drqrJX9qgDn99Lw0Y.jpg" alt="Card image">#}
+        {#                    <div class="card-body">#}
+        {#                        <h4 class="card-title">Foreign Training Panel Discussion</h4>#}
+        {#                        <p class="card-text">Panel discussion with those who went to FT last year</p>#}
+        {#                            <a href="#" class="btn btn-primary">See Profile</a>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        <section id="contact" style="color: white;background-color: rgb(24,24,24);">
+            <div class="container section">
+                <div class="row">
+                    <div class="col-md-5" id="footeraboutus">
+                        <h3 style="margin-bottom: 20px; color: #fec810; font-family: 'Montserrat', sans-serif !important;">ABOUT US</h3>
+                        <p style="line-height: 1.85; font-family: 'Montserrat', sans-serif !important;">
+                            The International Relations Cell (IRC) is a student body working under the Office of International Relations (OIR). It works to promote the exchange of students, faculties, and ideas between IIT Kharagpur and her international partners and establishing the globalization of IIT Kharagpur. We have a dedicated team, motivated to guide our fellow KGPians accomplishing their dream of studying abroad. We take pride in our work and are determined to flourish beyond.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 style="margin-bottom: 20px; color: #fec810; font-family: 'Montserrat', sans-serif !important;">REACH OUT TO US</h3>
+                        <p style="font-family: 'Montserrat', sans-serif !important;">
+                            International Relations Cell<br>
+                            Indian Institute of Technology Kharagpur<br>
+                            Kharagpur, West Bengal<br>
+                            India - 721 302<br>
+                            Phone: +91 70231 07020<br>
+                            Email: irc@iitkgp.ac.in
+                        </p>
+                    </div>
+                    <!-- </div>
+                    <div class="col-md-4 col-sm-6"> -->
+                    <div class="col-md-3" id="footersocial">
+                        <h3 style="margin-bottom: 10px; color: #fec810;">SOCIAL LINKS</h3>
+                        {#                        <a href="https://www.facebook.com/IRCIITKGP/" class="sociallink" target="_blank">#}
+                        {#                            <i href="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/facebook.svg"></i>#}
+                        {#                        </a>#}
+                        <a href="https://www.facebook.com/IRCIITKGP/" class="sociallink" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/15235636/" class="sociallink" target="_blank">
+                            <i class="fab fa-linkedin-in" ></i>
+                        </a>
+                        <a href="mailto:irc@iitkgp.ac.in" class="sociallink" target="_blank">
+                            <i class="fa fa-envelope" style="color: aliceblue;padding: 5px;"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCQCLWAILNrEVemERg4ybAYQ" class="sociallink" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <ul class="footer_social">
+                            <li><a href="https://international.iitkgp.ac.in/team/"><img src="{% static 'ftp/images/logo.png' %}" alt="IRC" style="max-height: 120px; margin-top: 40px; position: relative; left: 20px;"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="copyright">Copyright © 2019, All Rights Reserved, IIT Kharagpur</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+<script src="{% static 'ftp/home/js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="{% static 'ftp/home/js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'ftp/home/js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'ftp/home/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'ftp/home/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'ftp/home/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'ftp/home/js/main.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.js" integrity="sha256-9+F6QJDINcErIuU5VVbMxo+cfbDBKoXwwgHslcsQznQ=" crossorigin="anonymous"></script>
+<script>
+    var counter=0
+    function isScrolledIntoView(elem) {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
+
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+    function stats() {
+
+        if (isScrolledIntoView($('#projectFacts')) && counter==0) {
+
+            counter=1;
+            console.log('asdf');
+            $('.number').each(function () {
+                var size = $(this).text().split(".")[1] ? $(this).text().split(".")[1].length : 0;
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 3500,
+                    step: function (func) {
+                        $(this).text(parseFloat(func).toFixed(size));
+                    }
+                });
+            });
+        }
+    }
+    $(stats)
+    $(window).one('scroll',stats());
+    {#        $(window).scroll(function() {#}
+    {#   var hT = $('.counter').offset().top,#}
+    {#       hH = $('.counter').outerHeight(),#}
+    {#       wH = $(window).height(),#}
+    {#       wS = $(this).scrollTop();#}
+    {#   if (wS > (hT+hH-wH)){#}
+    {#         $('.number').each(function () {#}
+    {#            var size = $(this).text().split(".")[1] ? $(this).text().split(".")[1].length : 0;#}
+    {#            $(this).prop('Counter', 0).animate({#}
+    {#                Counter: $(this).text()#}
+    {#            }, {#}
+    {#                duration: 3000,#}
+    {#                step: function (func) {#}
+    {#                    $(this).text(parseFloat(func).toFixed(size));#}
+    {#                }#}
+    {#            });#}
+    {#        });#}
+    {#   }#}
+
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% extends 'ftp/admin_base.html' %}
+{% load staticfiles %}
+{% block title %}Projects | FTP | International Relations Cell{% endblock %}
+{% block css %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="myDiv">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column -->
+                <div class="col-xl-12 my-4" style="text-align: center">
+                  <h3 style="font-weight: bold; color: #242e5b;">EDIT PROJECT</h3>
+                         <br><br><hr>
+                          <form method="post" action="" enctype="multipart/form-data">
+                           {% csrf_token %}
+
+                              <div class="row">
+                                    {% if errors %}
+                                        {% for field in form %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in form.non_field_errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                          <div class="form-group">
+                              <h3 style="font-weight: bold; color: #242e5b;">Pre-Requisites</h3>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="department" class="col-sm-3 col-form-label">Name :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="name" value="{{ prereq.name }}">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="pg" class="col-sm-3 col-form-label">PG :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="checkbox" name="pg" {% if prereq.pg %}checked{% endif %} style="float: left; height: 20px; width: 20px; margin-top: 5px;">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="ug" class="col-sm-3 col-form-label">UG :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="checkbox" name="ug" {% if prereq.ug %}checked{% endif %} style="float: left; height: 20px; width: 20px; margin-top: 5px;">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="year" class="col-sm-3 col-form-label">Year :</label>
+                              <div class="col-sm-1">
+                                  <input class="form-control" type="text" name="year" value="{{ prereq.year }}">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="department" class="col-sm-3 col-form-label">Departments (Dep code separated by comma) :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="department" value="{{ prereq.department }}">
+                              </div>
+                          </div>
+
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                       </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+{% endblock content %}

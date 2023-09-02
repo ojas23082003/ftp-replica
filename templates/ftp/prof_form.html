@@ -1,0 +1,637 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146917460-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-146917460-1');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'ftp/profil/assets/img/apple-icon.png' %}" />
+    <link rel="icon" type="image/png" href="{% static 'ftp/profil/assets/img/favicon.png' %}" />
+    <title>Professor | FTP | International Relations Cell</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- CSS Files -->
+    <link href="{% static 'ftp/profil/assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'ftp/profil/assets/css/paper-bootstrap-wizard.css' %}" rel="stylesheet" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="{% static 'ftp/profil/assets/css/demo.css' %}" rel="stylesheet" />
+
+    <!-- Fonts and Icons -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="{% static 'ftp/profil/assets/css/themify-icons.css' %}" rel="stylesheet">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-146962510-1');
+    </script>
+
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: "Roboto", sans-serif;
+            background-color: #fff;
+            line-height: 1.9;
+            color: #8c8c8c;
+            position: relative;
+        }
+        .small {
+            font-family: 'Open sans', sans-serif !important;
+            font-size: 2.5rem;
+            color: white;
+        }
+        label span {
+            color: red;
+        }
+        
+        .pull-left input.disabled {
+            display: none;
+        }
+        .navbar {
+            background-color: #1c293c !important;
+        }
+        .logo_irc{
+            max-width: 40px;
+            margin: 15px 10px 15px 20px;
+        }
+
+        @media (max-width: 540px){
+
+            .small{
+                font-size: 1.8rem !important;
+                position: relative;
+                top: 5px;
+            }
+            .logo_irc{
+                max-width: 20px;
+                margin-top: 25px;
+            }
+            .mr-3 ,.mx-3{
+                margin-right: 0 !important;
+            }
+        }
+        .wizard-container {
+            padding-top: 40px;
+        }
+        .logo-container{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            height: 70px;
+            width: 100vw;
+            background-color: #1c293c !important;
+        }
+
+        #logbut {
+            position: absolute;
+            right: 1.5vw;
+            top: 15px;
+        }
+
+        @media (max-width: 770px) {
+            #logbut {
+                right: 4vw;
+            }
+        }
+
+          h1, h2, h3, h4, h5, h6,
+          .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: "Roboto", sans-serif;
+            color: #000; }
+          
+          a {
+            -webkit-transition: .3s all ease;
+            -o-transition: .3s all ease;
+            transition: .3s all ease; }
+            a, a:hover {
+              text-decoration: none !important; }
+          
+          .text-black {
+            color: #000; }
+          
+          .content {
+            padding: 7rem 0;
+          background-image: url("{% static 'ftp/images/bg.jpg' %}"); }
+          
+          .heading {
+            font-size: 2.5rem;
+            font-weight: 900; }
+          
+          .form-control {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding-left: 0;
+            padding-right: 0;
+            border-radius: 0;
+            background: none; }
+            .form-control:active, .form-control:focus {
+              outline: none;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              border: none;
+            border-bottom: 1px solid black; }
+          
+          .col-form-label {
+            color: #000;
+            font-size: 13px; }
+          
+          .btn, .form-control, .custom-select {
+            height: 45px;
+            border-radius: 0; }
+          
+          .custom-select {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding-left: 0;
+            padding-right: 0;
+            border-radius: 0; }
+            .custom-select:active, .custom-select:focus {
+              outline: none;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              border-color: #000; }
+          
+          .btn {
+            border: none;
+            border-radius: 0;
+            font-size: 11px;
+            letter-spacing: .2rem;
+            text-transform: uppercase;
+            border-radius: 30px !important; }
+            .btn.btn-primary {
+              border-radius: 30px;
+              background: #ef4339;
+              color: #fff;
+              -webkit-box-shadow: 0 0px 0px 0 rgba(28, 41, 60, 0.2);
+              box-shadow: 0 15px 30px 0 rgba(28, 41, 60, 0.2); }
+            .btn:hover {
+              color: #fff; }
+            .btn:active, .btn:focus {
+              outline: none;
+              -webkit-box-shadow: none;
+              box-shadow: none; }
+          
+          .contact-wrap {
+            -webkit-box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.05);
+            border: 1px solid #efefef; }
+            .contact-wrap .col-form-label {
+              font-size: 14px;
+              color: #b3b3b3;
+              margin: 0 0 10px 0;
+              display: inline-block;
+              padding: 0; }
+            .contact-wrap .form, .contact-wrap .contact-info {
+              padding: 40px; }
+            .contact-wrap .contact-info {
+              color: rgba(255, 255, 255, 0.5); }
+              .contact-wrap .contact-info ul li {
+                margin-bottom: 15px;
+                color: rgba(255, 255, 255, 0.5); }
+                .contact-wrap .contact-info ul li .wrap-icon {
+                  font-size: 20px;
+                  color: #fff;
+                  margin-top: 5px; }
+            .contact-wrap .form {
+              background: #fff; }
+              .contact-wrap .form h3 {
+                color: #000;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 30px; }
+            .contact-wrap .contact-info {
+              height: 100vh;
+              background-size: cover;
+              background-position: center center;
+              background-repeat: no-repeat; }
+              .contact-wrap .contact-info a {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0; }
+              @media (max-width: 1199.98px) {
+                .contact-wrap .contact-info {
+                  height: 400px !important; } }
+              .contact-wrap .contact-info h3 {
+                color: #fff;
+                font-size: 20px;
+                margin-bottom: 30px; }
+          
+          label.error {
+            font-size: 12px;
+            color: red; }
+          
+          #message {
+            resize: vertical; }
+          
+          #form-message-warning, #form-message-success {
+            display: none; }
+          
+          #form-message-warning {
+            color: #B90B0B; }
+          
+          #form-message-success {
+            color: #55A44E;
+            font-size: 18px;
+            font-weight: bold; }
+          
+          .submitting {
+            float: left;
+            width: 100%;
+            padding: 10px 0;
+            display: none;
+            font-weight: bold;
+            font-size: 12px;
+            color: #000; }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body  style="font-family: 'Open Sans', sans-serif !important;">
+
+<div class="image-container set-full-height">
+    <!--   IRCell  -->
+
+    <div class="logo-container">
+        <div class="sidebar-brand d-flex" href="{% url 'ftp:projects' %}">
+            <div class="sidebar-brand-text mx-3" style="font-size: 1.45rem;">
+                <img class="logo_irc" src="{% static 'ftp/images/logo.png' %}">
+                <span id="FTP" class="small" style="font-family: 'Open Sans', sans-serif;color: white;"><strong>Foreign Training Program</strong></span>
+                <!--            <a href="{% url 'ftp:logout_user' %}" id="logbut"><button type="button" class="btn btn-warning">Logout</button></a>-->
+            </div>
+        </div>
+
+        <div class="content">
+    
+            <div class="container">
+              <div class="row align-items-stretch no-gutters contact-wrap">
+                <div class="col-md-12">
+                  <div class="form h-100">
+                    <h3 style="font-size:32px; font-family:'Roboto', sans-serif;"><strong>Foreign Training Program 2023-24</strong></h3> 
+                    <form class="mb-5" role="form" action ="{% url 'ftp:prof_details' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ field.label_tag }}</strong>
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Name <span>*</span></label>
+                            {% if form.name.value is none %}
+                                <input class="form-control" type="text" name="name" id="name" placeholder="Your name" required>
+                            {% else %}
+                                <input class="form-control" type="text" name="name" value="{{ form.name.value }}" id="name" placeholder="Your name" required>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">University Name <span>*</span></label>
+                                        {% if form.university_name.value is none %}
+                                            <input class="form-control" type="text" name="university_name" value="" id="univname"  placeholder="Your university name" required>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="university_name" value="{{ form.university_name.value }}" id="univname"  placeholder="Your university name" required>
+                                        {% endif %}
+                        </div>
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">Project Name <span>*</span></label>
+                                        {% if form.project_name.value is none %}
+                                            <input class="form-control" type="text" name="project_name" value="" id="proname" placeholder="Your project name" required>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="project_name" value="{{ form.project_name.value }}" id="proname" placeholder="Your project name" required>
+                                        {% endif %}
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">Project Duration <span>*</span></label>
+                                        {% if form.duration.value is not none %}
+                                            <input class="form-control" type="text" name="duration" value="{{ form.duration.value }}" id="produra"  placeholder="eg. 2 months" required>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="duration" value="" id="produra"  placeholder="eg. 2 months" required>
+                                        {% endif %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">No. of students you want to take <span>*</span></label>
+                                        {% if form.no_of_students.value is none %}
+                                            <input class="form-control" type="text" name="no_of_students" value="" id="number" placeholder="No. of students" required>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="no_of_students" value="{{ form.no_of_students.value }}" id="number" placeholder="No. of students" required>
+                                        {% endif %}
+                        </div>
+                        <div>
+                          <div class="col-md-3 form-group mb-3">
+                            <label for="" class="col-form-label">Stipend <span>*</span></label>
+                            {% if form.stipend.value is none %}
+                            <input class="form-control" type="text" name="stipend" value="" id="stipend" placeholder="eg. 5000" required>
+                            {% else %}
+                            <input class="form-control" type="text" name="stipend" value="{{ form.stipend.value }}" id="stipend"
+                              placeholder="eg. 5000" required>
+                            {% endif %}
+                          </div>
+                          <div class="col-md-1 form-group mb-3">
+                            <label style="white-space: nowrap" for="currency" class="col-form-label">Currency <span>*</span></label>
+                            <select style="width: 100%;" id="currency" name="currency" required>
+                              <option value="AFN">Afghan Afghani</option>
+                              <option value="ALL">Albanian Lek</option>
+                              <option value="DZD">Algerian Dinar</option>
+                              <option value="AOA">Angolan Kwanza</option>
+                              <option value="ARS">Argentine Peso</option>
+                              <option value="AMD">Armenian Dram</option>
+                              <option value="AWG">Aruban Florin</option>
+                              <option value="AUD">Australian Dollar</option>
+                              <option value="AZN">Azerbaijani Manat</option>
+                              <option value="BSD">Bahamian Dollar</option>
+                              <option value="BHD">Bahraini Dinar</option>
+                              <option value="BDT">Bangladeshi Taka</option>
+                              <option value="BBD">Barbadian Dollar</option>
+                              <option value="BYR">Belarusian Ruble</option>
+                              <option value="BEF">Belgian Franc</option>
+                              <option value="BZD">Belize Dollar</option>
+                              <option value="BMD">Bermudan Dollar</option>
+                              <option value="BTN">Bhutanese Ngultrum</option>
+                              <option value="BTC">Bitcoin</option>
+                              <option value="BOB">Bolivian Boliviano</option>
+                              <option value="BAM">Bosnia-Herzegovina Convertible Mark</option>
+                              <option value="BWP">Botswanan Pula</option>
+                              <option value="BRL">Brazilian Real</option>
+                              <option value="GBP">British Pound Sterling</option>
+                              <option value="BND">Brunei Dollar</option>
+                              <option value="BGN">Bulgarian Lev</option>
+                              <option value="BIF">Burundian Franc</option>
+                              <option value="KHR">Cambodian Riel</option>
+                              <option value="CAD">Canadian Dollar</option>
+                              <option value="CVE">Cape Verdean Escudo</option>
+                              <option value="KYD">Cayman Islands Dollar</option>
+                              <option value="XOF">CFA Franc BCEAO</option>
+                              <option value="XAF">CFA Franc BEAC</option>
+                              <option value="XPF">CFP Franc</option>
+                              <option value="CLP">Chilean Peso</option>
+                              <option value="CNY">Chinese Yuan</option>
+                              <option value="COP">Colombian Peso</option>
+                              <option value="KMF">Comorian Franc</option>
+                              <option value="CDF">Congolese Franc</option>
+                              <option value="CRC">Costa Rican ColÃ³n</option>
+                              <option value="HRK">Croatian Kuna</option>
+                              <option value="CUC">Cuban Convertible Peso</option>
+                              <option value="CZK">Czech Republic Koruna</option>
+                              <option value="DKK">Danish Krone</option>
+                              <option value="DJF">Djiboutian Franc</option>
+                              <option value="DOP">Dominican Peso</option>
+                              <option value="XCD">East Caribbean Dollar</option>
+                              <option value="EGP">Egyptian Pound</option>
+                              <option value="ERN">Eritrean Nakfa</option>
+                              <option value="EEK">Estonian Kroon</option>
+                              <option value="ETB">Ethiopian Birr</option>
+                              <option value="EUR">Euro</option>
+                              <option value="FKP">Falkland Islands Pound</option>
+                              <option value="FJD">Fijian Dollar</option>
+                              <option value="GMD">Gambian Dalasi</option>
+                              <option value="GEL">Georgian Lari</option>
+                              <option value="DEM">German Mark</option>
+                              <option value="GHS">Ghanaian Cedi</option>
+                              <option value="GIP">Gibraltar Pound</option>
+                              <option value="GRD">Greek Drachma</option>
+                              <option value="GTQ">Guatemalan Quetzal</option>
+                              <option value="GNF">Guinean Franc</option>
+                              <option value="GYD">Guyanaese Dollar</option>
+                              <option value="HTG">Haitian Gourde</option>
+                              <option value="HNL">Honduran Lempira</option>
+                              <option value="HKD">Hong Kong Dollar</option>
+                              <option value="HUF">Hungarian Forint</option>
+                              <option value="ISK">Icelandic KrÃ³na</option>
+                              <option value="INR" selected>Indian Rupee</option>
+                              <option value="IDR">Indonesian Rupiah</option>
+                              <option value="IRR">Iranian Rial</option>
+                              <option value="IQD">Iraqi Dinar</option>
+                              <option value="ILS">Israeli New Sheqel</option>
+                              <option value="ITL">Italian Lira</option>
+                              <option value="JMD">Jamaican Dollar</option>
+                              <option value="JPY">Japanese Yen</option>
+                              <option value="JOD">Jordanian Dinar</option>
+                              <option value="KZT">Kazakhstani Tenge</option>
+                              <option value="KES">Kenyan Shilling</option>
+                              <option value="KWD">Kuwaiti Dinar</option>
+                              <option value="KGS">Kyrgystani Som</option>
+                              <option value="LAK">Laotian Kip</option>
+                              <option value="LVL">Latvian Lats</option>
+                              <option value="LBP">Lebanese Pound</option>
+                              <option value="LSL">Lesotho Loti</option>
+                              <option value="LRD">Liberian Dollar</option>
+                              <option value="LYD">Libyan Dinar</option>
+                              <option value="LTL">Lithuanian Litas</option>
+                              <option value="MOP">Macanese Pataca</option>
+                              <option value="MKD">Macedonian Denar</option>
+                              <option value="MGA">Malagasy Ariary</option>
+                              <option value="MWK">Malawian Kwacha</option>
+                              <option value="MYR">Malaysian Ringgit</option>
+                              <option value="MVR">Maldivian Rufiyaa</option>
+                              <option value="MRO">Mauritanian Ouguiya</option>
+                              <option value="MUR">Mauritian Rupee</option>
+                              <option value="MXN">Mexican Peso</option>
+                              <option value="MDL">Moldovan Leu</option>
+                              <option value="MNT">Mongolian Tugrik</option>
+                              <option value="MAD">Moroccan Dirham</option>
+                              <option value="MZM">Mozambican Metical</option>
+                              <option value="MMK">Myanmar Kyat</option>
+                              <option value="NAD">Namibian Dollar</option>
+                              <option value="NPR">Nepalese Rupee</option>
+                              <option value="ANG">Netherlands Antillean Guilder</option>
+                              <option value="TWD">New Taiwan Dollar</option>
+                              <option value="NZD">New Zealand Dollar</option>
+                              <option value="NIO">Nicaraguan CÃ³rdoba</option>
+                              <option value="NGN">Nigerian Naira</option>
+                              <option value="KPW">North Korean Won</option>
+                              <option value="NOK">Norwegian Krone</option>
+                              <option value="OMR">Omani Rial</option>
+                              <option value="PKR">Pakistani Rupee</option>
+                              <option value="PAB">Panamanian Balboa</option>
+                              <option value="PGK">Papua New Guinean Kina</option>
+                              <option value="PYG">Paraguayan Guarani</option>
+                              <option value="PEN">Peruvian Nuevo Sol</option>
+                              <option value="PHP">Philippine Peso</option>
+                              <option value="PLN">Polish Zloty</option>
+                              <option value="QAR">Qatari Rial</option>
+                              <option value="RON">Romanian Leu</option>
+                              <option value="RUB">Russian Ruble</option>
+                              <option value="RWF">Rwandan Franc</option>
+                              <option value="SVC">Salvadoran ColÃ³n</option>
+                              <option value="WST">Samoan Tala</option>
+                              <option value="SAR">Saudi Riyal</option>
+                              <option value="RSD">Serbian Dinar</option>
+                              <option value="SCR">Seychellois Rupee</option>
+                              <option value="SLL">Sierra Leonean Leone</option>
+                              <option value="SGD">Singapore Dollar</option>
+                              <option value="SKK">Slovak Koruna</option>
+                              <option value="SBD">Solomon Islands Dollar</option>
+                              <option value="SOS">Somali Shilling</option>
+                              <option value="ZAR">South African Rand</option>
+                              <option value="KRW">South Korean Won</option>
+                              <option value="XDR">Special Drawing Rights</option>
+                              <option value="LKR">Sri Lankan Rupee</option>
+                              <option value="SHP">St. Helena Pound</option>
+                              <option value="SDG">Sudanese Pound</option>
+                              <option value="SRD">Surinamese Dollar</option>
+                              <option value="SZL">Swazi Lilangeni</option>
+                              <option value="SEK">Swedish Krona</option>
+                              <option value="CHF">Swiss Franc</option>
+                              <option value="SYP">Syrian Pound</option>
+                              <option value="STD">São Tomé and Príncipe Dobra</option>
+                              <option value="TJS">Tajikistani Somoni</option>
+                              <option value="TZS">Tanzanian Shilling</option>
+                              <option value="THB">Thai Baht</option>
+                              <option value="TOP">Tongan pa'anga</option>
+                              <option value="TTD">Trinidad & Tobago Dollar</option>
+                              <option value="TND">Tunisian Dinar</option>
+                              <option value="TRY">Turkish Lira</option>
+                              <option value="TMT">Turkmenistani Manat</option>
+                              <option value="UGX">Ugandan Shilling</option>
+                              <option value="UAH">Ukrainian Hryvnia</option>
+                              <option value="AED">United Arab Emirates Dirham</option>
+                              <option value="UYU">Uruguayan Peso</option>
+                              <option value="USD">US Dollar</option>
+                              <option value="UZS">Uzbekistan Som</option>
+                              <option value="VUV">Vanuatu Vatu</option>
+                              <option value="VEF">Venezuelan BolÃ­var</option>
+                              <option value="VND">Vietnamese Dong</option>
+                              <option value="YER">Yemeni Rial</option>
+                              <option value="ZMK">Zambian Kwacha</option>
+                            </select>
+                          </div>
+                          <div class="col-md-1 form-group mb-3">
+                            <label style="white-space: nowrap" for="target" class="col-form-label">For <span>*</span></label>
+                            <select style="width: 100%;" id="target" name="target" required>
+                              <option value="Individual">Individual</option>
+                              <option value="Group">Group</option>
+                            </select>
+                          </div>
+                          <div class="col-md-1 form-group mb-3">
+                            <label style="white-space: nowrap" for="per" class="col-form-label">Per <span>*</span></label>
+                            <select style="width: 100%;" id="per" name="per" required>
+                              <option value="Month">Month</option>
+                              <option value="Tenure">Tenure</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">Skype-ID <span>*</span></label>
+                                        {% if form.skype.value is not none %}
+                                            <input class="form-control" type="text" name="skype" value="{{ form.skype.value }}" id="skype" placeholder="Skype-ID" required>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="skype" value="" id="skype" placeholder="Skype-ID" required>
+                                        {% endif %}
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="" class="col-form-label">Project Mode <span>*</span></label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" value="On-Site" name="mode" id="mode1" checked>
+                            <label class="form-check-label" for="mode1">
+                              On-Site
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" value="Remote" name="mode" id="mode2">
+                            <label class="form-check-label" for="mode2">
+                              Remote
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                  
+        
+                      <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                          <label for="Project Details" class="col-form-label">Project Details <span>*</span></label>
+                                            {% if form.project_details.value is none %}
+                                                <textarea class="form-control" name="project_details" required id="Project Details" cols="30" rows="6"  placeholder="Write your Project Details"></textarea>
+                                            {% else %}
+                                                <textarea class="form-control" name="project_details" required id="Project Details" cols="30" rows="4"  placeholder="Write your Project Details">{{ form.project_details.value }}</textarea>
+                                            {% endif %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                          <label for="Project Prerequisites" class="col-form-label">Project Prerequisites <span>*</span></label>
+                                            {% if form.prerequisites.value is none %}
+                                                <textarea class="form-control" name="prerequisites" required id="Project Prerequisites" cols="30" rows="6"  placeholder="Write your Project Prerequisites"></textarea>
+                                            {% else %}
+                                                <textarea class="form-control" name="prerequisites" required id="Project Prerequisites" cols="30" rows="4"  placeholder="Write your Project Prerequisites">{{ form.prerequisites.value }}</textarea>
+                                            {% endif %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <input type="submit" value="Submit" class="btn btn-primary rounded-0 py-2 px-4" style="background-color: #1c293c !important">
+                          <span class="submitting"></span>
+                        </div>
+                      </div>
+                    </form>
+                    <div id="form-message-warning mt-4"></div> 
+                    <div id="form-message-success">
+                      Your message was sent, thank you!
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+
+       
+    </div>
+    </div>
+</div>
+</body>
+
+<!--   Core JS Files   -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
+<script src=""{% static 'ftp/profil/assets/js/bootstrap.min.js' %} type="text/javascript"></script>
+<script src="{% static 'ftp/profil/assets/js/jquery.bootstrap.wizard.js' %}" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="{% static 'ftp/profil/assets/js/demo.js' %}" type="text/javascript"></script>
+<script src="{% static 'ftp/profil/assets/js/paper-bootstrap-wizard.js' %}" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: https://jqueryvalidation.org/     -->
+<script src="{% static 'ftp/profil/assets/js/jquery.validate.min.js' %}" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        if($(window).width() < 370){
+            $('.small').html('FTP v7.0')
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,486 @@
+{% load staticfiles %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=BenchNine' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Asap Condensed' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/748afcfddd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>International Relations | IIT Kharagpur</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+            width:0px;
+            height:0px;
+        }
+        .imgbg {
+            width:16vw;
+            height: 16vw;
+            position: absolute;
+            top:43vh;
+            left: 13vw;
+            border-radius: 250px;
+            background: #00526b;
+        }
+        .imgbg1 {
+            width:50vw;
+            position: absolute;
+            top:0vh;
+            left: 30vw;
+            height:100vh;
+        }
+        .conte {
+            background-color: #ffebd3;
+            top: 0vh;
+            left: 0vw;
+            width: 100vw;
+            height: 100vh;
+        }
+        .list {
+            background-color: transparent;
+            position:fixed;
+            top: 0vh;
+            left: 81vw;
+            width: 19vw;
+            height: 100vh;
+        }
+        .propic {
+            width:10vw;
+            height: 10vw;
+            background-color: white;
+            
+            top: 44vh;
+            left: 13.5vw;
+            border-radius:250px;
+            border: 0px solid white;
+        }
+        .name {
+
+            font-family: 'Asap';
+            font-size: 3.1vw;
+            font-weight: 100;
+            background: url( "{% static 'ftp/home/img/profbg7.png' %}" );
+            color: rgb(4, 51, 29);
+            background-size: 6.25vw 6.25vh;
+            -webkit-background-clip: text;
+        }
+        .otherdet {
+            font-family: 'NTR';
+            font-size: 22px;
+            background: url( "{% static 'ftp/home/img/profbg7.png' %}" );
+            color:green;
+            background-size: 100px 50px;
+            -webkit-background-clip: text;
+        }
+        .contacts li {
+            width: 100% !important;
+            padding: 5px;
+            margin-bottom: 15px !important;
+        }
+        .contacts{
+            padding: 0;
+            height: 100vh;
+            overflow: scroll;
+            margin: 0;
+        }
+        .img_cont {
+            height: 70px;
+            width: 70px;
+            float:left;
+        }
+        .user_img {
+            height: 70px;
+
+            width: 70px;
+            border: 1.5px solid #f5f6fa;
+        }
+        .user_info {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 30px;
+            font-weight: bold;
+        }
+        .rounded-circle {
+            border-radius: 50%!important;
+        }
+        button.btn.btn-block.mybutton.pop {
+            background-color: transparent;
+            transition:0.4s all;
+        }
+        button.btn.btn-block.mybutton.pop:hover {
+            background-color: white;
+        }
+        button.btn.btn-block.mybutton.pop:focus {
+            background-color: #efece5;
+            outline:2px #abc6c7;
+        }
+        .cv {
+            position:absolute;
+            top:85vh;
+            width:11vw;
+            height:6vh;
+            border-radius: 100px;
+            border: 1px solid whitesmoke;
+            font-size: 1.15vw;
+            background: #00526b;
+            color: white;
+            font-family: "Asap";
+            background-size: 12vw 6vh;
+            opacity: 0.7;
+        }
+        .gc {
+            position:absolute;
+            opacity: 0.7;
+            top:90vh;
+            width:10.7vw;
+            height:5.4vh;
+            border-radius: 100px;
+            font-size: 1.15vw;
+            color: rgb(255, 255, 255);
+            border-color: transparent;
+            font-family: "Asap";
+            background: #00526b;
+            background-size: 12vw 6vh;
+            transition: 1s;
+        }
+        .gc1 {
+            position:absolute;
+            top:85.3vh;
+            width:10.7vw;
+            height:5.4vh;
+            border-radius: 100px;
+            border: 2px solid whitesmoke;
+            font-size: 1.15vw;
+            color: rgb(224, 223, 223);
+            font-family: "Asap";
+            background-color: transparent;
+            transition: 0.5s;
+            box-shadow: 0px 0px 0px gold;
+        }
+        .gc:hover {
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 1);
+            background: #00526b;
+            background-size: 12vw 6vh;
+        }
+        .listitem {
+            position: absolute;
+            width:17.20vw;
+            border: 1px solid white;
+            background-color: white;
+            left:0.2vw;
+            color:#504125;
+            opacity:0.95;
+        }
+        .listitem1 {
+            position: absolute;
+            width:17.20vw;
+            box-shadow: 0px 0px 0px white;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.9);
+            left:0.2vw;
+            color:#504125;
+            transition: 0.4s;
+            border-radius:5px;
+            cursor: pointer;
+        }
+        .listitem1:hover {
+            background-color: white;
+            border: 1px solid white;
+            box-shadow: 0px 0px 10px white;
+        }
+        .minipic {
+            position: absolute;
+            top: 0vh;
+            left: 0vh;
+            height: 7vh;
+            width: 7vh;
+            opacity: 1;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .listtext {
+            position: absolute;
+            top:-0.5vh;
+            left:10vh;
+            font-size: 3vh;
+        }
+        .sublist::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        .sublist::-webkit-scrollbar-thumb {
+            background: white;
+            width:0px;
+            height:0px;
+        }
+        .listitem2 {
+            position: absolute;
+            width:17.20vw;
+            box-shadow: 0px 0px 0px white;
+            background-color: white;
+            border: 1px solid white;
+            left:0.2vw;
+            color:#504125;
+            transition: 0.4s;
+            border-bottom-left-radius:20px;
+            border-bottom-right-radius:20px;
+            height:3.8vh;
+            color:white;
+            cursor: pointer;
+        }
+        .col5 {
+            transition: 0.5s;
+            padding-bottom:30px;
+            overflow:hidden;
+            z-index:11;
+            top:3vh;
+            height:100vh;
+            background:url("{% static 'ftp/ProjectsPage/img/profbg10.jpg' %}") right;
+            background-size: 118.5vw 105vh;
+            text-align: center;
+            align-content: center;
+        }
+        .about_img {
+            width:100%;
+            overflow: hidden;
+            transition:0.5s;
+            align-content:center;
+            text-align:center;
+            padding:30px;
+            position:absolute;
+            overflow:hidden;
+            box-shadow: 0px 0px 20px black;
+            z-index:1;
+            height:100vh;
+            background: transparent;
+        }
+        .list1 {
+            background-color: transparent;
+            position:fixed;
+            top: 0vh;
+            left: 0vw;
+            width:4.33vw;
+            height: 100vh;
+            transition: 0.95s;
+        }
+        .soptext::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        .soptext::-webkit-scrollbar-thumb {
+            background: transparent;
+            width:0px;
+            height:0px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .col51 {
+            padding-bottom:30px;
+            overflow:hidden;
+            z-index:11;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            height:100vh;
+            background-color: rgba(43, 129, 145, 0.341);
+            background-size: 118.5vw 105vh;
+            background-position-x:right;
+            text-align: center;
+            align-content: center;
+            transition: 0.5s;
+        }
+        .list1 {
+            overflow:hidden;
+            position:absolute;
+            top:0vh;
+            opacity:1;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: #0d4d66;
+            background-size: 250% 110%;
+            box-shadow: 5px 0px 20px black;
+            z-index:10;
+            height: 94vh;
+        }
+        .soptext {
+            padding-left:30px;
+            padding-right:30px;
+            color:rgb(4, 48, 51);
+            text-align: justify;
+            font-family: 'NTR';
+            font-size: 2.5vh;
+            background-color: rgba(255, 255, 255, 0s);
+        }
+    </style>
+    <script src="https://cdn.tiny.cloud/1/uuupxvo9zcj9yxned8ukh1pvks7y7qjb3b7sctt4obdqyy6d/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '.main',
+            plugins: ['link','lists'],
+            forced_root_block : "",
+            menubar: true,
+            toolbar: ['numlist bullist'],
+            default_link_target: '_blank'
+          });
+        </script>
+   </head>
+    <body>
+        <!-- plugins: [
+        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "save table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker"
+    ], -->
+     <!-- The Modal -->
+     <div id="modal_mail">
+        <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <!-- <h4 class="modal-title">Modal Heading</h4> -->
+            <form>
+                <input type="radio" name="mail_type" id="r1" onclick="mail1()">Shortlisted for interview &nbsp;&nbsp;&nbsp;&emsp;
+                <input type="radio" name="mail_type" id="r2" onclick="mail2()">Shortlisted for project &nbsp;&nbsp;&nbsp;&emsp;
+                <input type="radio" name="mail_type" id="r3" onclick="mail3()">Sending Professor Details &nbsp;&nbsp;&nbsp;&emsp;
+                <input type="radio" name="mail_type" id="r4" onclick="mail4()">Custom Mail
+                
+            </form>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+        <div class="mail1 dash_mail" id="mail_type1" style="display:none;">
+            <form action="{% url 'ftp:dashboard_mail' %}" method="POST" >
+                {% csrf_token %}
+            <!-- <p id="dashmail"> -->
+            <!-- Hi {{profile.fullname}} , Congratulations you have been shortlisted for the interview for {{project.project_name}} project on </p> <input type="date" id="dashmaildate"> at <input type="time" id="dashmailtime">.  -->
+      <textarea class="main" name="message1" rows="10" id="editor" required>Hi {{profile.fullname}} , Congratulations you have been shortlisted for the interview for {{project.project_name}} project on 01/12/2021 at 16:00.</textarea>
+        
+        </div>    
+        <div class="mail2 dash_mail" id="mail_type2" style="display:none;">
+            <!-- <p id="dashmail"> -->
+            <!-- Hi {{profile.fullname}} , Congratulations you have been shortlisted for the project for {{project.project_name}} project.  </p> -->
+      <textarea class="main" name="message2" rows="10" id="editor" required>Hi {{profile.fullname}} , Congratulations you have been shortlisted for the project for {{project.project_name}} project.</textarea>
+        
+        </div>    
+        <div class="mail3 dash_mail" id="mail_type3" style="display:none;">
+            <!-- <p id="dashmail"> -->
+            <!-- Hi {{profile.fullname}} , Here are the prof details. </p> -->
+      <textarea class="main" name="message3" rows="10" id="editor" required>Hi {{profile.fullname}} , Here are the prof details.</textarea>
+       
+        </div>    
+        <div class="mail4 dash_mail" id="mail_type4" style="display:none;">
+           <!-- <input type="textbox" id="dashmail">  -->
+      <textarea class="main" name="message4" rows="10" id="editor" required>Hi {{profile.fullname}} , {{project.project_name}} project.</textarea>
+
+
+        </div>    
+        </div>
+            <script>
+                function mail1(){
+                    var x = document.getElementById("mail_type1");
+                    var y = document.getElementById("mail_type2");
+                    var z = document.getElementById("mail_type3");
+                    var xy = document.getElementById("mail_type4");
+                    //tinyMCE.get('message').setContent('<span>Hello sup</span');
+                    y.style.display = "none";
+                    z.style.display = "none";
+                    xy.style.display = "none";
+                    x.style.display = "block";
+                    //console.log(x);
+                }
+                function mail2(){
+                    var x = document.getElementById("mail_type2");
+                    var y = document.getElementById("mail_type1");
+                    var z = document.getElementById("mail_type3");
+                    var xy = document.getElementById("mail_type4");
+                    y.style.display = "none";
+                    z.style.display = "none";
+                    xy.style.display = "none";
+                    x.style.display = "block";
+                }
+                function mail3(){
+                    var x = document.getElementById("mail_type3");
+                    var y = document.getElementById("mail_type2");
+                    var z = document.getElementById("mail_type1");
+                    var xy = document.getElementById("mail_type4");
+                    y.style.display = "none";
+                    z.style.display = "none";
+                    xy.style.display = "none";
+                    x.style.display = "block";
+                }
+                function mail4(){
+                    var x = document.getElementById("mail_type4");
+                    var y = document.getElementById("mail_type2");
+                    var z = document.getElementById("mail_type3");
+                    var xy = document.getElementById("mail_type1");
+                    y.style.display = "none";
+                    z.style.display = "none";
+                    xy.style.display = "none";
+                    x.style.display = "block";
+                }
+
+                    function send(){
+                        //var a = document.getElementById("editor").value;
+                        //var b = document.getElementById("dashmaildate").value;
+                        //var c = document.getElementById("dashmailtime").value;
+                        //var d = a + b + " at " + c;
+                        var z = document.getElementById("finaltype");
+                        var c;
+                        if (document.getElementById('r1').checked) {
+                            c="1";
+                          }
+                        if (document.getElementById('r2').checked) {
+                            c="2";
+                          }
+                        if (document.getElementById('r3').checked) {
+                            c="3";
+                          }
+                        if (document.getElementById('r4').checked) {
+                            c="4";
+                          }
+                        //console.log(a);
+                        z.value = c;
+                        console.log(z.value);}
+            
+                
+            </script>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+       
+            <input type="hidden" class="finalemail" name="finalemail" id="finalemail" value="{{ profile.username.email }}">
+            <input type="hidden" class="finalaltemail" name="finalaltemail" id="finalaltemail" value="{{ profile.alt_email }}">
+            <input type="hidden" class="finaltype" name="finaltype" id="finaltype" >
+            <input type="submit" value="Send" name="submit" class="btn btn-danger"  onclick="send();tinyMCE.triggerSave(true,true);"></form>
+            <!-- <a type="button" class="btn btn-danger" data-dismiss="modal" href="?pnameformail={{project}}" >Send</a></form> -->
+            </div>
+            
+        </div>
+        </div>
+    </div>
+
+
+    </body>
+</html>
+
+{% endblock %}

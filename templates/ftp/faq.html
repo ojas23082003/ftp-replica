@@ -1,0 +1,397 @@
+
+{% load staticfiles %}
+{% block title %}Profiles | FTP | International Relations Cell{% endblock %}
+{% block css %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'ftp/profil/assets/img/apple-icon.png' %}" />
+        <link rel="icon" type="image/png" href="{% static 'ftp/profil/assets/img/favicon.png' %}" />
+        <title>Edit Profile | FTP | International Relations Cell</title>
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+        <!-- CSS Files -->
+        <link href="{% static 'ftp/profil/assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'ftp/profil/assets/css/paper-bootstrap-wizard.css' %}" rel="stylesheet" />
+
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="{% static 'ftp/profil/assets/css/demo.css' %}" rel="stylesheet" />
+
+        <!-- Fonts and Icons -->
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+        <link href="{% static 'ftp/profil/assets/css/themify-icons.css' %}" rel="stylesheet">
+    <style>
+        body {
+            overflow-x: hidden;
+            background:rgb(255,255,204);
+        }
+        .small{
+            font-family: 'Open Sans', sans-serif !important;
+            font-size: 2.2rem;
+            color: white;
+        }
+        .pull-left input.disabled {
+            display: none;
+        }
+
+        .navbar {
+            background-color: #1c293c !important;
+            background-image: linear-gradient(45deg, #1c1b2f 2%, #232742 100%);
+        }
+        .logo_irc{
+            max-width: 40px;
+            margin: 15px 10px 20px 20px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .fade {
+                transition: none;
+            }
+        }
+        @media (max-width: 540px){
+          .part{
+
+            padding: 10px;
+            max-width:90%;
+            margin:20px;
+            border-radius:10px;
+            border-left:3px solid;
+            border-right:3px solid;
+          }
+          .part:hover{
+            background:rgb(255,255,230);
+            box-shadow:20px 20px 50px  grey;
+            border:none;
+          }
+
+
+            .small{
+                font-size: 1.8rem !important;
+                position: relative;
+                top: 5px;
+            }
+            .logo_irc{
+                max-width: 30px;
+                margin-top: 25px;
+            }
+            .mr-3 ,.mx-3{
+                margin-right: 0 !important;
+            }
+        }
+        .wizard-container {
+            padding-top: 40px;
+        }
+        .logo-container{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            height: 100px;
+            width: 100vw;
+            background-color: #1c293c !important;
+        }
+
+        .wizard-card {
+            -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+            border: 2px solid rgba(58, 59, 69, 0.15);
+        }
+
+        #logbut {
+            position: absolute;
+            right: 1.5vw;
+            top: 15px;
+        }
+        @media screen and (max-width: 837px) {
+          .logo-container{
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 999;
+              height: 150px;
+              width: 100vw;
+              background-color: #1c293c !important;
+          }
+          .part{
+
+            padding: 10px;
+            max-width:90%;
+            margin:20px;
+            border-radius:10px;
+            border-left:3px solid;
+            border-right:3px solid;
+          }
+          .part:hover{
+            background:rgb(255,255,230);
+            box-shadow:20px 20px 50px  grey;
+            border:none;
+          }
+
+}
+
+        @media (max-width: 770px) {
+            #logbut {
+                right: 4vw;
+            }
+            .part{
+
+              padding: 10px;
+              max-width:90%;
+              margin:20px;
+              border-radius:10px;
+              border-left:3px solid;
+              border-right:3px solid;
+            }
+            .part:hover{
+              background:rgb(255,255,230);
+              box-shadow:20px 20px 50px  grey;
+              border:none;
+            }
+        }
+
+        .modal-backdrop{
+            display: none !important;
+            z-index: 2;
+            background-color: white;
+
+        }
+
+        .modal-content {
+            color: black;
+        }
+
+        .modal-content a{
+            color: black;
+        }
+
+        .modal-header .close {
+            margin-top: -25px !important;
+        }
+        .terms:hover{
+            cursor: pointer;
+        }
+        .modal-body{
+          left:5%;
+          right:5%;
+
+        }
+        .answer{
+          padding-left:50px;
+          display:none;
+        }
+        .fa {
+          padding:10px;
+          cursor: pointer;
+          user-select: none;
+        }
+        .fa:hover{
+          color:black;
+        }
+        .question{
+          padding:20px;;
+        }
+        img {
+    image-orientation: from-image;
+  }
+  #accordionSidebar {
+      background-color: #171b2e !important;
+      background-image: url("{% static 'ftp/ProjectsPage/img/background.jpg' %}");
+      padding-top: 20px;
+  }
+
+
+@media (min-width: 837px) {
+
+
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    font-size: 1rem;
+}
+
+.sidebar-divider {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+@media (min-width: 837px) {
+    .sidebar {
+        width: 21rem !important;
+    }
+
+
+}
+
+@media (max-width: 837px) {
+    .sidebar .nav-item .nav-link {
+        width: 6.5rem;
+        margin-left: 0;
+    }
+
+}
+
+@media (min-width: 837px) {
+    .sidebar .nav-item .nav-link {
+        width: 15rem;
+        margin-left: 15px;
+    }
+
+}
+#accordionSidebar {
+    background-color: #171b2e !important;
+    background-image: url("{% static 'ftp/ProjectsPage/img/background.jpg' %}");
+
+}
+.part{
+
+  padding: 10px;
+  max-width:90%;
+  margin:20px;
+  border-radius:10px;
+  border-left:3px solid;
+  border-right:3px solid;
+}
+.part:hover{
+  background:rgb(255,255,230);
+  box-shadow:20px 20px 50px  grey;
+  border:none;
+}
+.form{
+  padding-top:20px;
+  padding-bottom:20px;
+background: linear-gradient(to right,rgb(255,255,204), rgb(255, 255, 102) , rgb(255,255,204));
+
+}
+hr.style-four {
+padding: 0;
+border: none;
+border-top: medium double #333;
+color: #333;
+text-align: center;
+}
+hr.style-four:after {
+content: "Feedback Form";
+display: inline-block;
+position: relative;
+top: -0.7em;
+font-size: 1.5em;
+padding: 0 0.25em;
+background: rgb(255,255,204);
+}
+
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="logo-container" >
+<div class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'ftp:projects' %}">
+    <div class="sidebar-brand-text mx-3" style="font-family: sans-serif; font-size: 2.45rem;">
+        <img class="logo_irc" src="{% static 'ftp/images/logo.png' %}">
+        <span id="FTP" class="small" style="">Foreign Training Program</span>
+
+        <span style="padding-left:25%;white-space:nowrap;  color: #f5a428;"class="small faq_header" >Frequently Asked Questions</span>
+
+    </div>
+  </div>
+
+
+<br>
+<br>
+<div class="modal-body">
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,0)"aria-hidden="true"></i></span> Q1)How is it different applying through a portal as compared to applying through personal mailing?
+</p>
+  <p class="answer">A1)When one applies through personal mailing, it is on him/her to track, mail and apply to various professors from different universities/colleges, whereas in a portal the student can select from the projects that have already been allocated to the portal and the student doesn't have to get involved in most of the internal work.</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,1)"aria-hidden="true"></i></span> Q2)Is funding a problem when you go for an FT through FTP?
+</p>
+  <p class="answer">A2)The stipend varies with different projects, professors and universities. Most of the projects are funded and are sufficient to cover travel, accommodation and living expenses.
+</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,2)"aria-hidden="true"></i></span>
+  Q3)Does CG matter while applying in these projects?
+</p>
+  <p class="answer">A3)As CG is an integral part of your CV, it will have an impact on your selection. Rest depends on if the professor considers it an important factor while selection.
+</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,3)"aria-hidden="true"></i></span>
+  Q4) If I have been selected for a project through FTP, am I eligible to apply for the upcoming projects in the portal?
+</p>
+  <p class="answer">A4)One, you have been selected for a project through FTP, you are not eligible to apply for the upcoming projects. Your account will be deleted for that particular year. </p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,4)"aria-hidden="true"></i></span>
+  Q5)After getting finalized for a project, can I back out from the same?
+</p>
+  <p class="answer">A4)After your final selection, you will be provided with an undertaking form which you need to fill if you want to continue. Backing off afterward will result in the blacklisting of the candidate and he/she will not be considered for any further through FTP Portal. Further, disciplinary actions may be taken by the Office of International Relations.</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,5)"aria-hidden="true"></i></span>
+  Q6)Does IR Cell provide any help while applying for a visa?
+No, you have to arrange it for yourself.
+</p>
+  <p class="answer">A4)No, you have to arrange it for yourself.
+</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,6)"aria-hidden="true"></i></span>
+  Q7)Will I be able to edit my profile if at all I commit some mistakes while making my account?
+</p>
+  <p class="answer">A4)Once you have made your profile you won’t be able to edit your profile till the end of that particular semester. We will release a deadline after every semester so that people can update their profile.
+
+</p>
+</div>
+<div class="part">
+  <p class="question"><span><i class=" fa fa-plus" onclick="my(this,7)"aria-hidden="true"></i></span>
+  Q8)Is Foreign Training under FTP funded?</p>
+  <p class="answer">A4)Stipend varies with different projects, professors and universities. Most of the projects are funded and are sufficient to cover travel, accommodation and living expenses.
+
+</p>
+</div>
+</div>
+<br>
+<hr class="style-four">
+
+<div class="form col-sm-5 col-sm-offset-3">
+  {%block messages%}
+  {% if message %}
+  <p align="center"style="padding-bottom:10%px;">{{message}}</p>
+  {%else%}
+  <form action="{% url 'ftp:faq' %}" method="post">
+    {% csrf_token %}
+      <div><label for="feedback" >If you have any suggestion or feedback please leave a message here: </label></div>
+      <br>
+    <div>  <textarea name="feedback" rows="6" style="width:100%;margin10%;"></textarea></div>
+      <div style="text-align:center;">
+      <input type="submit"   style="position:absolute;margin:10px;"value="Submit">
+      </div>
+
+  </form>
+{%endif%}
+  </div>
+  </div>
+
+
+
+<script type="text/javascript">
+  function my(x,i){
+  x.classList.toggle("fa-minus");
+  var y= document.getElementsByClassName("answer")[i];
+  if(y.style.display=="block")
+  	{y.style.display="none";console.log("yes");}
+  else
+  	{y.style.display="block";console.log("no");}
+  }
+
+</script>
+{%endblock%}
+{% endblock content %}

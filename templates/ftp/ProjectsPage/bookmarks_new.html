@@ -1,0 +1,246 @@
+{% extends 'ftp/base_new.html' %}
+{% load static %}
+
+{% block title %}Bookmarks | FTP | International Relations Cell{% endblock %}
+{% block heading %}Bookmarks{% endblock %}
+
+{% block main %}
+<script type="text/javascript" src="{% static 'ftp/ProjectsPage/js/modal.js' %}"></script>
+  <body
+    class="blog theme-jobhunt kc-css-system woocommerce-js jobhunt-sticky-header-enabled blog-archive blog-grid full-width woocommerce-active wpjm-activated jobhunt"
+  >
+    <div class="off-canvas-wrapper">
+      <div id="page" class="hfeed site">
+        <div id="content" class="site-content" tabindex="-1">
+          <div class="container">
+            <div class="site-content-inner">
+              <div class="woocommerce"></div>
+              <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    {% for p in allprojects %}
+                    {% if p.display %}
+                    <div class="projectFormContainer">
+                        {% if p in applieds %}
+                        {% for i in app %}
+                        {% if i.project.id == p.id %}
+                        <form class="projectForm" id="project-{{p.id}}">
+                            <i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+                            <h1>{{p.project_name}}</h1>
+                            <h2>{{p.university}}</h2>
+                            <div class="projectForm__editables">
+                                {% if p.special %}
+                                <p>Letter Of Interest:</p>
+                                <textarea class="projectForm__ftpLOI" type="text" disabled>{{i.Loi}}</textarea>
+                                {% endif %}
+                                <p>Statement Of Purpose:</p>
+                                <textarea class="projectForm__ftpSOP" type="text" disabled>{{i.sop}}</textarea>
+                                {% if p.multi_domain %}
+                                <div class="projectForm__domain">
+                                    Project Domain Pref. 1:&nbsp;<b>{{ i.project_domain1 }}</b>
+                                </div>
+                                <div class="projectForm__domain">
+                                    Project Domain Pref. 2:&nbsp;<b>{{ i.project_domain2 }}</b>
+                                    </select>
+                                </div>
+                                <div class="projectForm__domain">
+                                    Project Domain Pref. 3:&nbsp;<b>{{ i.project_domain3 }}</b>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% if i.ncv %}
+                            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                                onclick="window.open('{{ MEDIA_URL }}{{ i.ncv }}', '_blank')">Your CV for this project:
+                                Different</button>
+                            {% else %}
+                            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                                onclick="window.open('{{ MEDIA_URL }}{{ prof.cv }}', '_blank')">Your CV for this
+                                project: Default</button>
+                            {% endif %}
+                        </form>
+                        {% endif %}
+                        {% endfor %}
+                        {% else %}
+                        <form class="projectForm" id="project-{{p.id}}" action="{% url 'ftp:apply_project' project_id=p.id %}"
+                            method="POST" enctype="multipart/form-data"
+                            onsubmit="if(!confirm('Are you sure you want to submit? You cannot change the details later.')){return false;}">
+                            {% csrf_token %}
+                            <i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+                            <h1>{{p.project_name}}</h1>
+                            <h2>{{p.university}}</h2>
+                            <div class="projectForm__editables">
+                                {% if p.special %}
+                                <p>Letter Of Interest:</p>
+                                <textarea name="Loi" class="projectForm__ftpLOI"
+                                    placeholder="A brief essay indicating your interest in the research project and your relevant background (500 words)"
+                                    onkeyup="wordCountCheck(event)"></textarea>
+                                {% endif %}
+                                <p>Statement Of Purpose:</p>
+                                <textarea class="projectForm__ftpSOP" type="text"
+                                    placeholder="Write a statement of importance of the proposed research to your future in 250 words."
+                                    onkeyup="wordCountCheck(event)" name="sop"></textarea>
+                                {% if p.multi_domain %}
+                                <div class="projectForm__domain">
+                                    Select Project Domain Pref. 1
+                                    <select name="proj_domain1" class="form-group">
+                                        {% for domain in proj_domains %}
+                                        {% if domain.project == p %}
+                                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                                        </option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="projectForm__domain">
+                                    Select Project Domain Pref. 2
+                                    <select name="proj_domain2" class="form-group">
+                                        {% for domain in proj_domains %}
+                                        {% if domain.project == p %}
+                                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                                        </option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="projectForm__domain">
+                                    Select Project Domain Pref. 3
+                                    <select name="proj_domain3" class="form-group">
+                                        {% for domain in proj_domains %}
+                                        {% if domain.project == p %}
+                                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                                        </option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% endif %}
+                                <input type="file" class="section__uploadFileInput" accept="application/pdf"
+                                    onchange="changedFile(event)" name="ncv" />
+                                <button class=" project__uploadFileBtn" style="background-color: #00506B;" onclick="uploadFile(event)">
+                                    Apply with a different CV
+                                </button>
+                                <p>(optional)</p>
+                            </div>
+                            <div class=" projectForm__wordCountAlert">
+                                <p style="margin-bottom: 10px;">SOP word count: 0<br />LOI word count: 0</p>
+                                <p>SOP limit: 150-1250 words<br />{% if p.special %}LOI limit: 500 words{% endif %}</p>
+                            </div>
+                            <button class="projectForm__submitBtn projectForm__disabledBtn" onmouseenter="openWordCountAlert(event)"
+                                onclick="submitProjectForm(event, '')" onmouseleave="closeWordCountAlert(event)"
+                                onblur="closeWordCountAlert(event)">Submit</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </main>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                        }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if success %}
+                <h2 style="padding-left:6vw">No Bookmarked Projects</h2>
+                {% else %}
+                <div class="section__projects">
+                    {% for p in allprojects %}
+                    {% if p.display %}
+                    <div class="section__projectCard is-collapsed">
+                        <div class="section__projectCardInner" style="height: 325px !important;">
+                            <i class="fas fa-bookmark bookmark" id="book{{ p.id }}"></i>
+                            <p class=" section__projectCardTitle">{{p.project_name}}</p>
+                            <p class="section__projectCardSecondaryText">{{p.university}}</p>
+                            <p class="section__projectCardMode"><b>Project Mode:</b> {{p.project_mode}}</p>
+                            <p class="section__projectCardDetail">{{p.project_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                            <!-- <hr /> -->
+                            <p class="section__projectCardSubtitle" style="margin-top: 10px;">Deadline: {{p.deadline}}</p>
+                            <div class="section__tagsContainer">
+                                {% for tag in p.tags.all %}
+                                <p class="section__tag">{{tag}}</p>
+                                {% endfor %}
+                            </div>
+                            <p class="section__projectCardAction js-expander">Read more</p>
+                        </div>
+                        <div class="section__projectDetails">
+                            <i class="fa fa-close js-collapser"></i>
+                            <h1 style="margin-bottom: 20px;">Project Details</h1>
+                            <div class="section__projectInfo">
+                                <div class="section__projectInfo-sub" style="flex:1;">
+                                    <p><b><i class=" fas fa-file-signature"></i></i>Name: </b><span>{{p.project_name}}</span>
+                                    </p>
+                                    <p><b><i class="fas fa-university"></i></i>University: </b><span>{{p.university}}</span></p>
+                                    <p><b><i class="fas fa-calendar-day"></i></i>Deadline: </b><span>{{p.deadline}}</span></p>
+                                </div>
+                                <div class="section__projectInfo-sub">
+                                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b><span>{{p.project_time}}</span>
+                                    </p>
+                                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b><span>{{p.stipend}}</span></p>
+                                </div>
+                            </div>
+                            <p class="section__projectDetails2" style="flex-direction: column;"><b><i
+                                        class="fas fa-info-circle"></i>Details:
+                                </b><br><br> <span><b>Project Mode: </b>{{p.project_mode}}</span><span>{{p.project_detail|linebreaks}}</span></p>
+                            <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite:
+                                </b><span>{{p.prerequisite.detail|linebreaks}}</span></p>
+                            {% if p in applieds %}
+                            {% if p.reason is None %}
+                            <button onclick="openForm('{{p.id}}')">View Application</button>
+                            {% else %}
+                            <p style="text-align: center; color: red">{{p.reason}}</p>
+                            {% endif %}
+                            {% else %}
+                            {% if p.deadline < date %} <p style="align-self: center; color: lightgreen">Application Closed.</p>
+                            {% else %}
+                            {% if not selected %}
+                            {% if p.reason is None %}
+                            <button onclick="openForm('{{p.id}}')">Apply</button>
+                            {% else %}
+                            <p style="text-align: center; color: red">{{p.reason}}</p>
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </body>
+{% endblock %}
+
+{% block js %}
+<script>
+    $('.bookmark').click(function () {
+        var id = this.id;
+        var pid = id.slice(4,);
+        $.ajax({
+            type: "GET",
+            url: "{% url 'ftp:add_favorite' %}",
+            data: {
+                'pid': pid,
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.fb) {
+                    var ele = document.getElementById("book" + pid);
+                    if (ele.classList.contains("fas")) {
+                        $("#book" + pid).removeClass("fas").addClass("far");
+                    } else {
+                        $("#book" + pid).addClass("fas").removeClass("far");
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

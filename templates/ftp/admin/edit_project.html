@@ -1,0 +1,127 @@
+{% extends 'ftp/admin_base.html' %}
+{% load staticfiles %}
+{% block title %}Projects | FTP | International Relations Cell{% endblock %}
+{% block css %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="myDiv">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column -->
+                <div class="col-xl-12 my-4" style="text-align: center">
+                  <h3 style="font-weight: bold; color: #242e5b;">EDIT PROJECT</h3>
+                         <br><br><hr>
+                          <form method="post" action="" enctype="multipart/form-data">
+                           {% csrf_token %}
+
+                              <div class="row">
+                                    {% if errors %}
+                                        {% for field in form %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in form.non_field_errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                           <div class="form-group row">
+                              <label for="profname" class="col-sm-3 col-form-label">Professor Name :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="professor_name" value="{{form.professor_name.value}}">
+                              </div>
+                          </div>
+                          
+                          <div class="form-group row">
+                              <label for="profname" class="col-sm-3 col-form-label">University :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="university" value="{{form.university.value}}">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="profname" class="col-sm-3 col-form-label">Project Name :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="project_name" value="{{form.project_name.value}}">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="profname" class="col-sm-3 col-form-label">Project Detail :</label>
+                              <div class="col-sm-8">
+                                  <textarea name="project_detail" style="width: 100%; height: 200px;">{{form.project_detail.value}}</textarea>
+                              </div>
+                          </div>
+			  <div class="form-group row">
+                              <label for="profname" class="col-sm-3 col-form-label">Project Tag :</label>
+                              <div class="col-sm-8">
+
+                                  <select name="tags" multiple>
+                                  {% for p in form.tags %}
+                                  <option>{{p}}</option>
+                                  {% endfor %}
+			          </select>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="proftime" class="col-sm-3 col-form-label">Project Time :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="project_time" value="{{form.project_time.value}}">
+                              </div>
+                          </div>
+			  
+			  <div class="form-group row">
+                              <label for="proftime" class="col-sm-3 col-form-label">Stipend :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="text" name="stipend" value="{{form.stipend.value}}">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="display" class="col-sm-3 col-form-label">Display :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="checkbox" name="display" style="float: left; height: 20px; width: 20px; margin-top: 5px;" {% if form.display.value %}checked{% endif %}>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="special" class="col-sm-3 col-form-label">Special :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="checkbox" name="special" style="float: left; height: 20px; width: 20px; margin-top: 5px;" {% if form.special.value %}checked{% endif %}>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="deadline" class="col-sm-3 col-form-label">Deadline :</label>
+                              <div class="col-sm-8">
+                                  <input class="form-control" type="date" name="deadline" value="{% if form.deadline.value|date:'Y-m-d' %}{{form.deadline.value|date:'Y-m-d'}}{% else %}{{form.deadline.value}}{% endif %}">
+                              </div>
+                          </div>
+
+                            <a class="btn btn-primary" type="button" href="{% url 'ftp:admin_prereqs_edit' name=form.project_name.value %}">Edit Pre-Requisites</a>
+
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                       </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block outer-text %}
+    After uploading the excel file,
+    few variables will be displayed-below.<br/>
+    Use them in your html code using the syntax
+    {% verbatim skip %}{{variablename}}.{% endverbatim skip %}<br/>
+    Note that variables are case-sensitive.
+{% endblock %}
+{%  block inner-content %}
+<style >
+	form {
+    position: relative;
+    width: auto !important;
+    border-radius: 30px;
+    background: #fff;
+    display: block!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+input[type="text"]
+{
+	margin: 5px;
+	border-radius: 0px;
+}
+</style>
+<div class="container">
+  <form onsubmit="status_update();" action="{% url 'mailing_app:mail' %}" class="decor" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+    <!-- <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div> -->
+    <!--<div class="circle"></div>-->
+    <div class="form-inner">
+      <h1 style="text-align: center;">Email Sender</h1>
+      <div style="display: flex;
+  justify-content: center;">
+      <input class="main" name="sheet" id="sheet" type="file" onchange="toggle_variables();">
+      
+      <div id="variables" class="invisible" ></div>
+      <input class="main" name="subject" type="text" placeholder="Subject" required>
+  </div>
+      <textarea class="main" name="message" placeholder="Message..." rows="10" id="editor" required></textarea>
+      <div style="display:block;margin-left: 38%;margin-right: auto; margin-bottom:0px;">
+        <!--Two radio buttons with name="purpose", values=testing, submit-->
+        Purpose: <br/>
+        <input type="radio" name="purpose" value="testing">
+        <label for="testing">Testing</label><br>
+        <input type="radio" name="purpose" value="submit" checked>
+        <label for="submit">Submit</label><br>
+      </div>
+      <div id="status" class="invisible" style="margin-bottom:0;margin-top:10px;" ></div>
+      <button type="submit" id="submit" onclick="tinyMCE.triggerSave(true,true);">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+      function toggle_variables(){
+        var sheet = document.getElementById("sheet");
+        var variables = document.getElementById("variables");
+        if (sheet.files.length){
+          variables.innerHTML = "Valid variables should be displayed here using ajax <br/> Ex: 'Name', 'email'";
+          variables.style.display = "block";
+        }
+        else{
+          variables.style.display = "none";
+        }
+      }
+      function status_update(){
+        var status = document.getElementById("status");
+        status.innerHTML = "Sending...";
+        status.style.display = "block";
+      }
+    </script>
+{% endblock %}

@@ -1,0 +1,524 @@
+body
+{
+	overflow-x: hidden;
+}
+
+#tabbed {
+	width: 100%;
+	min-height: 500px;
+	position: relative;
+	text-align: left;
+	-webkit-backface-visibility: hidden;
+	padding: 125px 80px 100px 80px;
+}
+
+@media screen and (max-width:650px) {
+	#tabbed {
+		padding: 130px 40px 100px 40px;
+	}
+}
+
+#tabbed .row {
+	margin: 0;
+	display: block;
+	float: left;
+	width: 100%;
+	clear: both
+}
+
+#tabbed .cell {
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin: 1% 2% 1% 0
+}
+
+#tabbed .cell:last-child {
+	margin-right: 0
+}
+
+#tabbed .cell.w-100 {
+	width: 100%
+}
+
+#tabbed .cell.w-83 {
+	width: 83%
+}
+
+#tabbed .cell.w-66 {
+	width: 66%
+}
+
+#tabbed .cell.w-49 {
+	width: 49%
+}
+
+#tabbed .cell.w-32 {
+	width: 32%
+}
+
+#tabbed .cell.w-15 {
+	width: 15%
+}
+#tabbed .title.large {
+	font-family: Lato;
+	font-size: 28px;
+	text-transform: uppercase;
+	padding-bottom: 16px;
+	text-align: center;
+}
+
+#tabbed .title.normal {
+	font-size: 24px;
+	color: #333;
+	text-transform: uppercase;
+	font-weight: 400;
+	text-align: center;
+}
+
+#tabbed .title.small {
+	font-size: 23px;
+	color: #333;
+	font-weight: 700;
+}
+
+#tabbed .title.mini {
+	font-size: 16px;
+	color: #666;
+	font-weight: 400
+}
+
+#tabbed .title.inline {
+	font-size: 16px;
+	text-transform: uppercase;
+	display: block;
+	padding-bottom: 6px
+}
+#tabbed p {
+	display: block;
+	text-align: center;
+}
+
+#tabbed p.large {
+	font-size: 18px;
+	line-height: 24px;
+	color: #555
+}
+
+#tabbed p.normal {
+	font-size: 14px;
+	line-height: 22px;
+	color: #999
+}
+
+#tabbed p.small {
+	font-size: 10px;
+	line-height: 16px;
+	color: #bbb
+}
+
+#tabbed p b {
+	color: #555;
+	font-weight: inherit
+}
+
+#tabbed p.small span.icon {
+	padding-right: 8px
+}
+
+#tabbed p.normal span.icon {
+	padding-right: 10px
+}
+
+#tabbed p.large span.icon {
+	padding-right: 12px
+}
+#tabbed a {
+	color: #6e98e3
+}
+
+#tabbed a:hover {
+	color: inherit
+}
+
+#tabbed .button {
+	color: #fff;
+	font-size: 16px;
+	padding: 14px;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	cursor: pointer
+}
+
+#tabbed .button:hover {
+	color: #fff
+}
+
+#tabbed .button:before {
+	float: right
+}
+
+#tabbed .button.black {
+	background: #333
+}
+
+#tabbed .button.apply {
+	background: #A2D94B
+}
+
+#tabbed .button.grey.light {
+	background: #bbb
+}
+
+#tabbed .button.grey.dark {
+	background: #777
+}
+
+#tabbed .button.black:hover {
+	background: #6e98e3
+}
+
+#tabbed .button.apply:hover {
+	background: #8DCA2B;
+}
+
+#tabbed .button.grey:hover {
+	background: #555
+}
+#tabbed .mt-5 {
+	margin-top: 5px
+}
+
+#tabbed .mt-10 {
+	margin-top: 10px
+}
+
+#tabbed .mt-15 {
+	margin-top: 15px
+}
+
+#tabbed .mt-20 {
+	margin-top: 20px
+}
+
+#tabbed .mt-30 {
+	margin-top: 30px
+}
+#tabbed input,
+#tabbed input:checked~.wrapper>div,
+#tabbed label.tabs,
+#tabbed select,
+#tabbed textarea {
+	border: 0;
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .3s;
+	-ms-transition: all ease .3s;
+	-o-transition: all ease .3s;
+	transition: all ease .2s
+}
+
+#tabbed .wrapper.shadow,
+#tabbed input:checked+label.tabs.shadow {
+	-webkit-box-shadow: 6px 6px 0 0 rgba(0, 0, 0, .3);
+	-moz-box-shadow: 6px 6px 0 0 rgba(0, 0, 0, .3);
+	box-shadow: 6px 6px 0 0 rgba(0, 0, 0, .3)
+}
+
+@media screen and (max-width:1024px) {
+	#tabbed .cell.w-15,
+	#tabbed .cell.w-32,
+	#tabbed .cell.w-49,
+	#tabbed .cell.w-66,
+	#tabbed .cell.w-83 {
+		width: 100%
+	}
+	#tabbed .cell {
+		margin: 2% 0
+	}
+}
+#demo .m-title {
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	color: #6E98E3;
+	text-transform: uppercase;
+	font-weight: 300
+}
+
+#demo h1 {
+	font-size: 14px;
+	font-weight: 400;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	color: #999;
+	margin: 4px 0 0
+}
+
+#demo .colors {
+	float: left;
+	margin: 30px 0 40px;
+	display: block;
+	width: 100%
+}
+
+@media screen and (max-width:1024px) {
+	#demo {
+		width: 100%
+	}
+	#demo .colors,
+	#demo .demo-head {
+		padding-left: 40px
+	}
+}
+.collapsible {
+  font-family: "Raleway";
+  background-color: #ebebeb;
+  color: black;
+  border-radius: 1rem;
+  cursor: pointer;
+  width: 100% !important;
+  outline: none;
+  display: flex;
+  font-size: 17px;
+  transition: all 0.5s ease-out;
+}
+.collapsible:hover{
+  background-color: #0291a9;
+  color: white;
+}
+
+.collapsible.active {
+	transition: all 0.2s ease-out;
+	border-radius: 1rem 1rem 0 0;
+	background-color: #0291a9;
+}
+.drop-tile {
+	color: black;
+	flex: 0 0 95%;
+	position: relative;
+	display: flex;
+	background-color: transparent;
+	border: none;
+	border-right: 1px;
+	border-radius: 1rem;
+	padding: 20px;
+	text-align: left;
+	transition: all 0.5s ease-out;
+}
+@media screen and (max-width:930px) {
+	.drop-tile {
+		flex: 0 0 90%;
+		padding-right: 5px;
+	}
+}
+@media screen and (max-width:650px) {
+	.drop-tile {
+		display: inline-grid;
+		padding-right: 0;
+	}
+	.bookmark {
+		width: 10%;
+		padding-left: 0;
+	}
+	span.lft, span.mid, span.rgt {
+		padding: 0 !important;
+		width: 100% !important;
+		text-align: center !important
+	}
+}
+
+.collapsible:hover .drop-tile,
+.collapsible.active .drop-tile,
+.collapsible:hover .bookmark,
+.collapsible.active .bookmark{
+	color: white;
+}
+
+.collapsible span {
+	font-weight: 500;
+}
+span.lft {
+	flex: 0 0 34%;
+}
+span.mid {
+	flex: 0 0 33%;
+	text-align: center;
+}
+span.rgt {
+	flex: 0 0 33%;
+	text-align: right;
+}
+.bookmark {
+	float: right;
+	width: 5%;
+	color: black;
+	position: relative;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background-color: transparent;
+	transition: all 0.5s ease-out;
+}
+.bookmark::before {
+	content: "\f02e";
+	font-family: "Font Awesome 5 Free" !important;
+	font-weight: 400;
+}
+.bookmark.active:before {
+	content: "\f02e";
+	font-family: "Font Awesome 5 Free" !important;
+	font-weight: 800;
+	color: #3E505B;
+	background-color: transparent !important;
+}
+
+@media screen and (max-width:850px) {
+	.drop-tile {
+		width: 90%;
+	}
+	.bookmark {
+		width: 10%;
+		padding-right: 10px;
+	}
+}
+
+.content {
+  padding: 0 40px;
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.content div::-webkit-scrollbar {
+  height: 5px;
+}
+
+#tabbed .apply-cell {
+	width: 12% !important;
+	margin: 0 44% 10px 44%;
+}
+
+@media screen and (max-width:700px) {
+	#tabbed .apply-cell {
+		width: 70px !important;
+		margin: 0 calc(50% - 5px) 10px calc(50% - 5px);
+	}
+}
+
+.modal-title {
+	margin: 0 auto;
+	text-align: center;
+}
+.modal-dialog {
+	max-width: 1600px;
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+.btn-primary {
+	padding: 15px 40px;
+	border-radius: 1rem;
+}
+.modal-title {
+	display: grid;
+}
+.modal-title h2 {
+	font-size: 2.5rem;
+}
+.modal-title h3 {
+	font-size: 1.5rem;
+}
+@media screen and (max-width:650px) {
+	.modal-title h2 {
+		font-size: 2rem;
+	}
+	.modal-title h3 {
+		font-size: 1.25rem;
+	}
+}
+.modal-header .close {
+	padding: 1rem 1rem 1rem 0;
+	margin-left: -1px;
+}
+.modal-body, .modal-footer {
+	margin: 15px 0;
+	padding: 10px 30px;
+}
+.modal-body {
+	font-weight: 500;
+	margin-bottom: 50px;
+}
+.modal-split {
+	text-align: center;
+}
+input[type=file] {
+	margin: 0;
+  	position: absolute;
+  	left: 40%;
+}
+@media screen and (max-width:500px) {
+	.btn-primary {
+		padding: 10px 20px;
+	}
+	input[type=file] {
+	  	left: unset;
+	}
+}
+.slider-area {
+	width: 100%;
+}
+.main-header {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main-header {
+	background-image: linear-gradient(213deg,#3ba5b4 0,#38ba8a 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+@media screen and (min-width:1045px) and (max-width:1400px) {
+	.header-area {
+		height: 30px;
+	}
+	#tabbed {
+		padding-top:80px;
+	}
+}
+@media screen and (min-width:991px) and (max-width:1044px) {
+	.header-area {
+		height: 30px;
+	}
+	#tabbed {
+		padding-top:80px;
+	}
+}
+@media screen and (max-width:990px) {
+	.header-area {
+		height: 0;
+	}
+}
+#site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all .3s ease;
+  box-shadow: 0 1px 25px rgba(0,0,0, .1);
+}
+#site-header.hide {
+  top: -32%;
+}
+textarea {
+	border: 1px solid #d1d3e2;
+}
+
+@media screen and (min-width:700px) {
+	.yes-no {
+		left: 10%;
+	}
+}

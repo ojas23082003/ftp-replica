@@ -1,0 +1,88 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Applied Projects | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    {% for p in allprojects %}
+    <div class="projectFormContainer">
+        <form class="projectForm" id="project-{{p.0.id}}">
+            <i class="fa fa-close" onclick="closeForm('{{p.0.id}}')"></i>
+            <h1>{{p.0.project_name}}</h1>
+            <h2>{{p.0.university}}</h2>
+            <div class="projectForm__editables">
+                {% if p.0.special %}
+                <p>Letter Of Interest:</p>
+                <textarea class="projectForm__ftpLOI" type="text" disabled>{{p.6}}</textarea>
+                {% endif %}
+                <p>Statement Of Purpose:</p>
+                <textarea class="projectForm__ftpSOP" type="text" disabled>{{p.1}}</textarea>
+                {% if p.0.multi_domain %}
+                <div class="projectForm__domain">
+                    Project Domain Pref. 1:&nbsp;<b>{{ p.3 }}</b>
+                </div>
+                <div class="projectForm__domain">
+                    Project Domain Pref. 2:&nbsp;<b>{{ p.4 }}</b>
+                    </select>
+                </div>
+                <div class="projectForm__domain">
+                    Project Domain Pref. 3:&nbsp;<b>{{ p.5 }}</b>
+                </div>
+                {% endif %}
+            </div>
+            {% if p.2 %}
+            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                onclick="window.open('{{ MEDIA_URL }}{{ p.2 }}', '_blank')">Your CV for this project:
+                Different</button>
+            {% else %}
+            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                onclick="window.open('{{ MEDIA_URL }}{{ prof.cv }}', '_blank')">Your CV for this
+                project: Default</button>
+            {% endif %}
+        </form>
+    </div>
+    {% endfor %}
+
+    <section>
+        <h1>Applied Projects</i></h1>
+        <hr
+            style="border: none;outline: none;height: 2px;max-width: 1000px; width: calc(100vw - 20px);background-color: #d5d5d5; margin-top: 10px;margin-bottom: 20px" />
+        {% if success %}
+        <h2>No Projects Applied</h2>
+        {% else %}
+        <div class="section__projects">
+            <ul>
+            {% for project in allprojects %}
+            <li>
+                <div class="card">
+                    <img src="{{project.project_image.url}}" class="card__image" alt="" />
+                    <div class="card__overlay">
+                        
+                        <div class="card__header">
+                            <a href="{% url 'ftp:add_favorite' pk=project.id %}"><i class="fa-regular fa-bookmark bookmark" style="position:absolute;top:15px;right:15px" id="book{{ project.id }}"></i></a>
+                            <div class="card__header-text">
+                                <h3 class="card__title">{{project.university}}</h3>
+                                <!-- <span class="card__status">1 hour ago</span> -->
+                            </div>
+                        </div>
+                        <p class="card__description">{{project.project_detail|slice:'50'}}...</p>
+                        <div style="text-align: center;">
+                            <!-- <button style="margin-bottom:10px" onclick="openForm('{{project.id}}')">Apply now</button> -->
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </section>
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<script>
+    
+</script>
+{% endblock %}

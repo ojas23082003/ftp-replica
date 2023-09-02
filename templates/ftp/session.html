@@ -1,0 +1,16 @@
+{% extends 'ftp/login/base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <title>Session Expired | FTP | International Relations Cell</title>
+{% endblock %}
+{% block content %}
+    <div class="login-inner-form">
+        <div class="details">
+            <img src="{% static 'ftp/login/logo.png' %}" alt="logo">
+            <h1>Session Expired </h1>
+            <h4>Please <a href="{% url 'ftp:login_user' %}" style="color: #ffac28;">login</a> again</h4>
+
+
+        </div>
+    </div>
+{% endblock %}

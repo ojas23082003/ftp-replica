@@ -1,0 +1,91 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Scholarships | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                style="font-size: 15px;font-weight: 700; text-align: center;color: #2A4BA5">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Scholarships</h1>
+        <hr
+            style="border: none;outline: none;height: 2px;max-width: 1000px; width: calc(100vw - 20px);background-color: #d5d5d5; margin-top: 10px;margin-bottom: 20px" />
+        {% if success %}
+        <h2>We'll be back with more scholarships soon!</h2>
+        {% else %}
+        {% endif %}
+        <div class="section__projects">
+            {% for p in allprojects %}
+            {% if p.display %}
+            <div class="section__projectCard is-collapsed" id="{{p.id}}">
+                <div class="section__projectCardInner" style="height: 325px !important; margin-bottom: 25px;">
+                    <div style="padding-left: 15px; padding-right: 15px;">
+                        <p class=" section__projectCardTitle">{{p.scholarship_name}}</p>
+                        <p class="section__projectCardSecondaryText">{{p.funding_agency}}</p>
+                        <p class="section__projectCardDetail">{{p.scholarship_detail|slice:'0:100'}}...
+                        </p>
+                        <!-- <hr /> -->
+                        <p class="section__projectCardSubtitle" style="margin-top: 10px;">Deadline: {{p.deadline}}</p>
+                        <div class="section__tagsContainer">
+                            {% for tag in p.tags.all %}
+                            <p class="section__tag">{{tag}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="section__projectCardAction js-expander">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close js-collapser"></i>
+                    <h1>Scholarship Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i>Scholarship: </b>{{p.scholarship_name}}</p>
+                    <p><b><i class="fas fa-university"></i>Funding Agency: </b>{{p.funding_agency}}</p>
+                    <p><b><i class="fas fa-calendar-day"></i>Deadline: </b>{{p.deadline}}</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>{{p.scholarship_detail|linebreaks}}</p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Amount: </b>{{p.amount}}</p>
+                    {% if p.link %}
+                    <button onclick="window.open('{{p.link}}')">Apply</button>
+                    {% else %}
+                    <button onclick="window.location.replace('apply/{{p.id}}')">Apply</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+{#            {% if not appliedGKF %}#}
+{#            <div class="section__projectCard is-collapsed">#}
+{#                <div class="section__projectCardInner" style="height: 325px !important;">#}
+{#                    <p class=" section__projectCardTitle">Guru Krupa IITKGP Foundation Scholarship</p>#}
+{#                    <p class="section__projectCardSecondaryText">IIT Kharagpur Foundation (IITKGF)</p>#}
+{#                    <p class="section__projectCardDetail">Guru Kripa Foundation offers financial support to enable five#}
+{#                        of the top students from IITKGP, of which at least one...</p>#}
+{#                    <!-- <hr /> -->#}
+{#                    <p class="section__projectCardSubtitle" style="margin-top: 10px;">20th April 2022, 11:59 PM</p>#}
+{#                    <p class="section__projectCardAction js-expander">Read more</p>#}
+{#                </div>#}
+{#                <div class="section__projectDetails">#}
+{#                    <i class="fa fa-close js-collapser"></i>#}
+{#                    <h1>Scholarship Details</h1>#}
+{#                    <p><b><i class="fas fa-file-signature"></i>Scholarship: </b>Guru Krupa IITKGP Foundation Scholarship</p>#}
+{#                    <p><b><i class="fas fa-university"></i>Funding Agency: </b>IIT Kharagpur Foundation (IITKGF)</p>#}
+{#                    <p><b><i class="fas fa-calendar-day"></i>Deadline: </b>20th April 2022, 11:59 PM</p>#}
+{#                    <p><b><i class="fas fa-info-circle"></i>Details: </b> </p>#}
+{#                    <p>Guru Kripa Foundation offers financial support to enable five of the top students from IITKGP, of which at least one is from ECE department and four from any other department, school or center to avail high quality international research and professional internships (expected to last 8-12 weeks, most likely during the summer holidays). The foundation has also offered to provide financial support to five incoming international students from top universities across the world for short term research or academic stays for a period of 2 months upto a semester.#}
+{#                      <br> <br>This program aims at creating summer student fellowships in IITKGP that will fund international summer internships for students at well recognised universities outside India.#}
+{#                    </p>#}
+{#                    <button class="section__applyBtn" onclick="window.location.replace('gkf')">Apply</button>#}
+{#                </div>#}
+{#            </div>#}
+{#            {% endif %}#}
+        </div>
+    </section>
+</main>
+{% endblock %}
+{% block js %}
+{% endblock %}

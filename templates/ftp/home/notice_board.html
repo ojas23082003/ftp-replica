@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<!-- Mirrored from demo.artureanec.com/html/cryptoland/demo_3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2022 15:53:43 GMT -->
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Foreign Training Program</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}" />
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Template Basic Images Start -->
+    {% comment %}
+    <meta property="og:image" content="{% static 'ftp/home/path/to/image.html' %}"> {% endcomment %}
+    {% comment %}
+    <link rel="icon" href="{% static 'ftp/home/img/img/favicon/favicon.ico' %}"> {% endcomment %}
+    {% comment %}
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{% static 'ftp/home/img/img/favicon/apple-touch-icon-180x180.png' %}"> {% endcomment %}
+    <!-- Template Basic Images End -->
+
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000">
+    <!-- Custom Browsers Color End -->
+
+    {% comment %}
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css"> {% endcomment %}
+    {% comment %}
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> {% endcomment %}
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/css/frontend.min.css' %}" type='text/css'
+        media='all' />
+
+    <link rel='stylesheet' id='applic-root-css' href="{% static 'ftp/home/wp-content/themes/applic/style.css' %}"
+        type='text/css' media='all' />
+    <style id='applic-root-inline-css' type='text/css'>
+        .barner-area .area-bg,
+        .no_widget.footer-bottom-area {
+            background: rgba(0, 0, 0, 0) url(http://wp.quomodosoft.com/applic/wp-content/uploads/2019/04/blue_bg.png) no-repeat scroll center center / cover;
+        }
+
+        .scrolltotop,
+        .read-more::before {
+            background: #2a4ba5;
+        }
+    </style>
+    <link rel='stylesheet' id='elementor-icons-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' %}"
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-legacy-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}" type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href="{% static 'ftp/home/wp-content/plugins/elementor/assets/css/frontend.min.css' %}" />
+    <link rel='stylesheet' id='bootstrap-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/bootstrap.min.css' %}" type='text/css'
+        media='all' />
+    <link href="{% static 'ftp/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+    {% comment %}
+    <link rel='stylesheet' id='owl-carousel-css'
+        href="{% static 'ftp/home/wp-content/themes/applic/assets/css/plugins/owl.carousel.css' %}" type='text/css'
+        media='all' /> {% endcomment %}
+    <link rel='stylesheet' id='wp-block-library-css'
+        href="{%static 'ftp/home/wp-includes/css/dist/block-library/style.min.css'%}" type='text/css' media='all' />
+    <!-- Load google font
+			================================================== -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap"
+        rel="stylesheet">
+    {% comment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css"> {%
+    endcomment %}
+    {% comment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.default.min.css">
+    {% endcomment %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+    {% comment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> {% endcomment %}
+
+
+    <script type="text/javascript">
+        WebFontConfig = {
+            google: { families: ['Catamaran:300,400,600,700', 'Raleway:100,700', 'Roboto:700'] }
+        };
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+
+    <!-- Load other scripts
+	================================================== -->
+    <script type="text/javascript">
+        var _html = document.documentElement;
+        _html.className = _html.className.replace("no-js", "js");
+    </script>
+
+    <style>
+        .whitePlaceholder::placeholder{
+            color: white !important;
+        }
+
+        .preloader {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: #fff;
+            z-index: 9999;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 600 !important;
+        }
+
+        .panel-body {
+            line-height: 1.2;
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth !important;
+        }
+
+        .fa-bell:before {
+            content: "\f0f3";
+            color: bisque;
+        }
+
+        @media only screen and (min-width: 800px) {
+            ul.sub-menu {
+                position: absolute;
+
+                    {
+                    % comment %
+                }
+
+                left: -50px;
+
+                    {
+                    % endcomment %
+                }
+
+                display: none;
+            }
+        }
+
+        .dropdown-header {
+            font-size: 20px;
+        }
+
+        .notif-hover {
+            display: block !important;
+        }
+
+        .sub-menu .dropdown-menu-footer {
+
+            text-align: center;
+            padding: 6px 12px 6px 10px;
+            border-top: solid black 1px;
+
+
+        }
+
+        .sub-menu .dropdown-menu-footer>a {
+            color: black;
+        }
+
+        .sub-menu {
+            -webkit-box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <style>
+        @keyframes jump {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            40% {
+                transform: translate3d(0, 15%, 0);
+            }
+
+            100% {
+                transform: translate3d(0, 30%, 0);
+            }
+        }
+
+        .jump {
+            transform-origin: 50% 50%;
+            animation: jump 1.5s linear alternate infinite;
+        }
+
+        .scrolltotop {
+            background: #2a4ba5;
+        }
+
+        .scrolltotop {
+            background: rgba(0, 0, 0, 0) linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) repeat scroll 0 0;
+            border-radius: 50%;
+            bottom: 20px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+            color: #ffffff !important;
+            display: none;
+            font-size: 24px;
+            height: 60px;
+            padding-top: 17px;
+            position: fixed;
+            right: 20px;
+            text-align: center;
+            width: 60px;
+            z-index: 99;
+            transition: all 0.5s;
+        }
+
+        .header.sticky .scrolltotop {
+            display: inline-block;
+        }
+
+        .scrolltotop:hover {
+            background: #fff;
+            color: #00506B !important;
+        }
+
+        .subtitle.subtitle--tire {
+            font-size: 30px;
+            text-align: center;
+        }
+        .logo__title,
+        .menu__link{
+            color: #777 !important;
+        }
+        .btn-menu .one::after,
+        .btn-menu .two,
+        .btn-menu .three::after{
+            background-color: #777 !important;
+        }
+        footer::before{
+            height: 0 !important;
+        }
+    </style>
+    <link href="{% static 'ftp/home/css/variables.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'ftp/home/css/main.min.css' %}" media='all' />
+</head>
+
+<body>
+
+    <div class="preloader"></div>
+
+    <header class="header">
+        <a href="#" class="scrolltotop jump" style="border: 2px solid white"><i class="fa fa-arrow-up"
+                style=" font-family:Font Awesome 5 Free;font-weight: 900;"></i></a>
+        <a href="#" class="logo">
+            <div class="logo__img"></div>
+            <div class="logo__title">International Relations Cell</div>
+        </a>
+
+        <ul class="menu">
+            <li class="menu__item">
+                <a href="/#home" class="menu__link">Home</a>
+            </li>
+            <li class="menu__item">
+                <a href="/#about" class="menu__link">About us</a>
+            </li>
+            <li class="menu__item">
+                <a href="/#ircfaq" class="menu__link">F.A.Q</a>
+            </li>
+            <li class="menu__item">
+                <a href="/#team" class="menu__link">Team</a>
+            </li>
+            <li class="menu__item">
+                <a href="/#testimonial" class="menu__link">Testimonials</a>
+            </li>
+            <li class="menu__item">
+                <a href="/#contactus" class="menu__link">Contact us</a>
+            </li>
+            <li class="menu__item notif">
+                <a href="/notice" class="menu__link "><i class="fa fa-bell-o fa-lg" aria-hidden="true"><span
+                            class="badge badge-pill  badge-danger">{% if success %}{{ notices.count }}{% endif %}</span></i></a>
+                <ul class="sub-menu" style="
+    padding: 5px;
+    position: absolute;
+    text-align: left;
+    width: 220px;
+    min-width: 220px;
+    display: none;
+	top:70px;
+	right:2px;
+	border-radius:5px;
+    background: rgba(255,255,255,1);
+
+
+">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header m-0" style="text-align:center; font-weight:600;">Notice Board</h6>
+                        {% if success %}<span
+                            class="notification-tag badge badge-default badge-danger float-right m-0">{{ notices.count
+                            }} New</span>{% endif %}
+                    </li>
+                    <li class="scrollable-container media-list w-100 ps-container ps-theme-dark ps-active-y"
+                        data-ps-id="538462eb-aa8b-f3de-00dc-94a87888b71f">
+                        {% if success %}
+                        {% for notice in notices %}
+                        <div class="media">
+                            <div class="media-body">
+                                <h5 class="media-heading" style="padding-left: 10px;">{{ notice.title }} </h5>
+                                <!--<p class="notification-text font-small-3 text-muted">{{ notice.description }}</p>-->
+                                <small><time class="media-meta text-muted" style="padding-left: 10px;">{{ notice.date
+                                        }}</time></small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="media">
+                            <div class="media-body">
+                                <h6 class="media-heading" style="text-align: center">No new notice</h6>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </li>
+                    <li class="dropdown-menu-footer">
+                        <a id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page"
+                            href="/notice">
+                            Show all notices</a>
+                    </li>
+                </ul>
+
+
+
+            </li>
+
+        </ul>
+
+        {% comment %} <div class="header__right">
+
+            <div class="sign-in-wrap">
+                <a href="#" class="btn-sign-in">Sign in</a>
+            </div>
+            <div class="sign-up-wrap">
+                <a href="#" class="btn-sign-up">Sign up</a>
+            </div>
+        </div> {% endcomment %}
+
+        <div class="btn-menu">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+    </header>
+
+    <div class="fixed-menu">
+        <div class="fixed-menu__header">
+            <a href="#" class="logo logo--color">
+                <div class="logo__img"></div>
+                <div class="logo__title">International Relations Cell</div>
+            </a>
+
+            <div class="btn-close">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
+                    y="0px" viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;"
+                    xml:space="preserve" width="512px" height="512px">
+                    <path
+                        d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88   c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242   C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879   s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"
+                        fill="#006DF0" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="fixed-menu__content">
+
+            <ul class="mob-menu">
+                <li class="mob-menu__item">
+                    <a href="#about" class="mob-menu__link">About</a>
+                </li>
+                {% comment %} <li class="mob-menu__item">
+                    <a href="#services" class="mob-menu__link">Services</a>
+                </li>
+                <li class="mob-menu__item">
+                    <a href="#map" class="mob-menu__link">Road Map</a>
+                </li>
+                <li class="mob-menu__item">
+                    <a href="#statistic" class="mob-menu__link">Statistic</a>
+                </li> {% endcomment %}
+                {% comment %} <li class="mob-menu__item">
+                    <a href="#token" class="mob-menu__link">Token</a>
+                </li> {% endcomment %}
+                {% comment %} <li class="mob-menu__item">
+                    <a href="#docs" class="mob-menu__link">WhitePappers</a>
+                </li> {% endcomment %}
+                <li class="mob-menu__item">
+                    <a href="#team" class="mob-menu__link">Team</a>
+                </li>
+                <li class="mob-menu__item">
+                    <a href="#ircfaq" class="mob-menu__link">F.A.Q</a>
+                </li>
+                <li class="mob-menu__item">
+                    <a href="#testimonial" class="mob-menu__link">Testimonials</a>
+                </li>
+                <li class="mob-menu__item">
+                    <a href="#contactus" class="mob-menu__link">Contact Us</a>
+                </li>
+                <li class="mob-menu__item notif">
+                    <a href="/notice" class="mob-menu__link">
+                        <ni class="fa fa-bell-o fa-lg" aria-hidden="true"><span
+                                class="badge badge-pill  badge-danger">{% if success %}{{ notices.count }}{% endif %}</span></ni>
+                    </a>
+                    <ul class="sub-menu" style="
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    min-width: 220px;
+    display: none;
+	
+	right:2px;
+	border-radius:5px;
+    background: rgba(255,255,255,1);
+
+
+">
+                        <li class="dropdown-menu-header">
+                            <h6 class="dropdown-header m-0" style="text-align:center; font-weight:600;">Notice Board
+                            </h6>
+                            {% if success %}<span
+                                class="notification-tag badge badge-default badge-danger float-right m-0">{{
+                                notices.count }} New</span>{% endif %}
+                        </li>
+                        <li class="scrollable-container media-list w-100 ps-container ps-theme-dark ps-active-y"
+                            data-ps-id="538462eb-aa8b-f3de-00dc-94a87888b71f">
+                            {% if success %}
+                            {% for notice in notices %}
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5 class="media-heading" style="padding-left: 10px;">{{ notice.title }} </h5>
+                                    <!--<p class="notification-text font-small-3 text-muted">{{ notice.description }}</p>-->
+                                    <small><time class="media-meta text-muted" style="padding-left: 10px;">{{
+                                            notice.date }}</time></small>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="media">
+                                <div class="media-body">
+                                    <h6 class="media-heading" style="text-align: center">No new notice</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </li>
+                        <li class="dropdown-menu-footer">
+                            <a id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page"
+                                href="/notice">
+                                Show all notices</a>
+                        </li>
+                    </ul>
+
+
+
+                </li>
+
+            </ul>
+
+
+            </li>
+            </ul>
+
+            {% comment %} <select class="select">
+                <option value="ru">ru</option>
+                <option value="ua">ua</option>
+                <option value="en">en</option>
+            </select>
+
+            <div class="btn-wrap">
+                <a href="#" class="btn-sign-in">Sign in</a>
+                <a href="#" class="btn-sign-up">Sign up</a>
+            </div> {% endcomment %}
+
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <section id="notice" class="notice" style="background: #ffffff;">
+            <div class="container">
+        
+                <div class="section-title flex justify-center" style="margin-top:150px">
+                    <h2 class="notice_title" style="font-size:4.5rem; text-align:center">Notice Board</h2>
+                </div><br><br>
+                {% if success %}
+                <ul>
+                    <div class="min-h-screen">
+        
+                        {% for notice in notices %}
+                        <div class="flex  justify-center mb-2" style="margin-bottom: 100px !important;">
+                            <div class="max-w-md md:max-w-5xl px-2 py-2 noticecards" id="ircnotice">
+                                <div class="bg-white shadow-xl rounded-lg overflow-hidden md:flex notice_card" id="irccol"
+                                    style=" --tw-shadow: 0 2px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;">
+        
+                                    <div style="width:100%; min-height:150px;">
+                                        <div class="p-24 md:p-5 flex justify-center" style=" word-wrap: break-word;">
+                                            <p class="font-bold text-sm md:text-2xl"
+                                                style="font-size:30px; line-height:1.2; word-wrap: break-word !important;">{{notice.title}}</p>
+                                        </div>
+                                        <div class="p-4 md:p-5 bg-gray-100"
+                                            style="min-height:85px;  word-wrap: break-word !important;">
+                                            <div class="sm:flex sm:justify-between sm:items-center">
+                                                <div>
+                                                    <div class="text-lg text-gray-700"
+                                                        style="font-size:20px; margin-left:10px; line-height:1.2; border-left: 4px solid #4b42f5; padding-left: 10px;
+                                                        "> {{ notice.description }}</div>
+                                                    <div class="flex items-center"><br><br>
+        
+                                                        <div class="text-gray-600 ml-2 text-sm md:text-base mt-1"
+                                                            style="font-size:12px; margin-left:10px;">{{ notice.date }}</div>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                            <!-- <div class="mt-3 text-gray-600 text-sm md:text-base">*Prices may vary depending on selected date.</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- <li class="row">
+                                <div class="col-lg pt-4 pt-lg-0 text-center">
+                                  <h4>{{ notice.title }}</h4>
+                                  <p>
+                                    {{ notice.description }}
+                                  </p>
+                                  <time class="media-meta text-muted">{{ notice.date }}</time>
+                                </div>
+                              </li> -->
+        
+                </ul>
+                {% else %}
+                <h4 style="border: 0; text-align: center; font-size:20px;">No new notice</h4> <br><br><br><br><br>
+                {% endif %}
+            </div>
+        </section>
+
+        <footer style="background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B)">
+			<div class="footer-row">
+				<div class="footer-col">
+					<h3>International Relations Cell</h3>
+					<p>The International Relations Cell (IRC) is a student body working along with the Office of International Relations (OIR). It works to promote the exchange of students, faculties, and ideas between IIT Kharagpur and her international partners and establishing the globalization of IIT Kharagpur.</p>
+				</div>
+				<div class="footer-col">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="/#ircfaq">FAQ</a></li>
+						<li><a href="/#contactus">Contact Us</a></li>
+						<li><a href="/#about">About Us</a></li>
+						<li><a href="/notice">Notice Board</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h3>Contact Us</h3>
+					<p class="footer-email-id"><a href="mailto:ftp.ircell@gmail.com" class="text-xl text-gray-600 text-center py-3 flex-grow hover:text-red-500 transition-colors duration-300">ftp.ircell@gmail.com</a></p>
+				</div>
+				<div class="footer-col">
+					<h3>Subscribe to our NewsLetter</h3>
+					<form>
+						<i class="far fa-envelope"></i>
+						<input class="whitePlaceholder" type="email" placeholder="Enter your email" style="opacity:0.8;color:#fff">
+					    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFse6f2KETaO7_YGUJvHnlHnqY7IkQZCgLFnkp0zhIPMcoHg/viewform" target="_blank"><i class="fas fa-arrow-right" style="color:#fff"></i></a>
+					</form>
+					<div class="footer-social-icons">
+						<a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA" target="_blank"><i class="fab fa-youtube"></i></a>
+						<a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://www.instagram.com/irc.iitkgp" target="_blank"><i class="fab fa-instagram"></i></a>
+						<a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"
+        integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {% comment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"
+        integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> {% endcomment %}
+    {% comment %}
+    <script src="{% static 'ftp/js/jquery/2.2.4/jquery.min.js' %}"></script> {% endcomment %}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#testimonial-slider').owlCarousel({
+                items: 1,
+                responsiveClass: true,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 1
+                    },
+                    // breakpoint from 768 up
+                    991.98: {
+                        items: 2
+                    }
+                },
+
+                pagination: true,
+                navigation: true,
+                autoplay: true,
+                loop: true,
+            });
+        });
+
+
+
+
+    </script>
+
+    <script>
+        $('.panel').on('click', function () {
+            $('.panel.active').removeClass('active');
+            $(this).addClass('active');
+        });
+
+    </script>
+    <script>
+        $('.notif').on('mouseenter', function () {
+            $('.notif .sub-menu').addClass('notif-hover');
+
+        }).on('mouseleave', function () {
+            $('.notif .sub-menu').removeClass('notif-hover');
+        })
+
+    </script>
+    <script>
+        $('.mob-menu .notif').on('mouseenter', function () {
+            $('.mob-menu .notif .sub-menu').addClass('notif-hover');
+
+        }).on('mouseleave', function () {
+            $('.mob-menu .notif .sub-menu').removeClass('notif-hover');
+        })
+
+    </script>
+    <script>window.jQuery || document.write('<script src="{% static 'ftp / home / js / jquery - 2.2.4.min.html' %}"><\/script>')</script>
+
+    <script src="{% static 'ftp/home/js/scripts.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}"
+        id='elementor-frontend-modules-js'></script>
+
+    <script type='text/javascript'
+        src="{% static 'ftp/home/wp-content/themes/applic/assets/js/vendor/bootstrap.min.js' %}"
+        id='bootstrap-js'></script>
+
+    {% comment %}
+    <script src="owlcarousel/owl.carousel.min.js"></script> {% endcomment %}
+
+    <script src="{% static 'ftp/home/js/contact-gs.js' %}"></script>
+
+</body>
+
+</html>

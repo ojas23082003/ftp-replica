@@ -1,0 +1,17 @@
+#tabbed .button.blue {
+	background: #A2D94B;
+	color: #333;
+}
+#tabbed .button.blue:hover {
+	background: #333;
+	color: #fff;
+}
+#tabbed .button.black:hover {
+	background: #777;
+}
+#tabbed .title.large {
+	color: #247d7a;
+}
+#tabbed a {
+	color: #a0c549;
+}

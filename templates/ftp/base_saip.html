@@ -1,0 +1,189 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SAIP | International Relations Cell</title>
+
+    {% block header %}
+    {% endblock %}
+
+    <!-- CSS here -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/bootstrap.min.css' %}"> -->
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/slicknav.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/fontawesome-all.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style2.css' %}">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'> -->
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&amp;display=swap"
+        rel="stylesheet"> -->
+    <!-- <style type="text/css">
+        @import url("{% static 'ftp/ProjectsPage/css/tabbed.css' %}");
+    </style> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'ftp/ProjectsPage/css/colors.css' %}" media="screen"> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+<title>SAIP | International Relations Cell</title>
+</head>
+
+<body style="overflow-x:hidden;">
+    <!-- ? Preloader Start -->
+    <!-- <div id="preloader-active">
+        <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text" style="padding-left: 4px; padding-bottom: 4px;"><img
+                        src="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Preloader Start-->
+    <header>
+        <nav>
+            <div class="nav__left">
+                <a href="/"><img class="nav__logo" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo.png' %}"
+                        alt="" /></a>
+                <p class="nav__title">SAIP Open House</p>
+            </div>
+
+        </nav>
+
+        <nav class="nav__onScroll">
+            <div class="nav__left">
+                <a href="/"><img class="nav__logo" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo2.png' %}"
+                        alt="" /></a>
+                <p class="nav__title">SAIP Open House</p>
+            </div>
+        </nav>
+
+
+    </header>
+    {% block main %}
+    {% endblock %}
+
+    <div class="footer__parallax"></div>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__section">
+                <h1>International Relations Cell</h1>
+                <hr style="width: 50px;" />
+                <hr style="width: 70px;" />
+                <p>The International Relations Cell (IRC) is a student body working along with the Office of
+                    International
+                    Relations (OIR). It works to promote the exchange of students, faculties, and ideas
+                    between IIT
+                    Kharagpur and her international partners and establishing the globalization of IIT
+                    Kharagpur.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__section">
+                    <h1>Quick Links</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px !important;" />
+                    <a href="/#faq"><i class="fas fa-chevron-right"></i>FAQ</a>
+                    <a href="/#contact"><i class="fas fa-chevron-right"></i>Contact Us</a>
+                    <a href="/#about"><i class="fas fa-chevron-right"></i>About</a>
+                    <a href="/notice"><i class="fas fa-chevron-right"></i>Notice Board</a>
+                </div>
+                <div class="footer__section">
+                    <h1>Contact Us</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px !important;" />
+                    <a href="mailto:irc@iitkgp.ac.in" title="Mail ID IR Cell"><i
+                            class="fas fa-chevron-right"></i>ftp.ircell@gmail.com</a>
+                    <div class="footer__icons">
+                        <a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><i
+                                class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.instagram.com/irc.iitkgp/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Up Btn -->
+    <i class="fas fa-arrow-up floatingBtn scrollToTopBtn" onclick="scrollToTop()" tabindex="0"></i>
+
+    <!-- Themes Switch Btn -->
+    <!-- <i class="fas fa-moon floatingBtn themeBtn" id="random" onclick="themeHandler()" tabindex="0"></i> -->
+
+    <!-- Profile Btn (conditional: for smaller viewport width) -->
+    </div>
+    <i class="fas fa-user-tie floatingBtn profileBtn" onclick="profileMenuHandler()" onblur="closeProfileMenu()"
+        tabindex="0"></i>
+    <div class="profileMenu">
+        <a href="{% url 'ftp:view_profile' %}">
+            <i class="fas fa-user-tie"></i>
+            <span>Profile</span>
+        </a>
+        <a href="{% url 'ftp:logout_user' %}">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign out</span>
+        </a>
+    </div>
+
+    {% block js %}
+    {% endblock %}
+    <!-- active link handling -->
+    <script>
+        const dropdownLinks = Array.from(document.getElementsByClassName("nav__menuItem"));
+        dropdownLinks.map(dropdownLink => {
+            if (dropdownLink.href === window.location.href)
+                dropdownLink.classList.add("nav__activeMenuItem");
+            else
+                dropdownLink.classList.remove("nav__activeMenuItem");
+        });
+        const navLinks = Array.from(document.getElementsByClassName("nav__link"));
+        navLinks.map(navLink => {
+            if (navLink.href === window.location.href)
+                navLink.classList.add("nav__activeLink");
+            else
+                navLink.classList.remove("nav__activeLink");
+        });
+    </script>
+    <!-- Popper, Bootstrap -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/popper.min.js' %}"></script> -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/bootstrap.min.js' %}"></script> -->
+    <!-- Jquery Mobile Menu -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/jquery.slicknav.min.js' %}"></script> -->
+
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/main.js' %}"></script> -->
+    <script src="{% static 'ftp/ProjectsPage/js/main2.js' %}"></script>
+
+    <!-- push notifications -->
+    <p id="pendingNotifications" style="display: none;">
+        [{% for pNotif in pendingNotifications %}
+        {"projectName":"{{ pNotif.0.project_name }}","status":"{{ pNotif.1 }}"}{% if not forloop.last %},{% endif %}
+        {% endfor %}]
+    </p>
+    <script>
+        const pendingNotifications = JSON.parse(document.getElementById("pendingNotifications").textContent);
+
+        const showNotification = (title, body) => {
+            const notification = new Notification(title, { body, icon: "/static/ftp/home/img/irclogo.png" });
+            notification.onclick = () => window.location.replace("/ftp/projects/notices");
+        };
+
+        if (Notification.permission === "default")
+            Notification.requestPermission()
+                .then(res => pendingNotifications.map(pNotif => showNotification(pNotif.projectName, pNotif.status)))
+                .catch(err => console.log(err));
+        else if (Notification.permission === "granted")
+            pendingNotifications.map(pNotif => showNotification(pNotif.projectName, pNotif.status))
+    </script>
+</body>
+
+</html>

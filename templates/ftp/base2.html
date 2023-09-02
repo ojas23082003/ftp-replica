@@ -1,0 +1,333 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- CSS here -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/bootstrap.min.css' %}"> -->
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/slicknav.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/fontawesome-all.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/style2.css' %}">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'> -->
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&amp;display=swap"
+        rel="stylesheet"> -->
+    <!-- <style type="text/css">
+        @import url("{% static 'ftp/ProjectsPage/css/tabbed.css' %}");
+    </style> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'ftp/ProjectsPage/css/colors.css' %}" media="screen"> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+    <style>
+        .foot{
+            color:white !important;
+        }
+        .edit:hover, .edit:focus {
+            background-color: white !important;
+            color: #2a4ba5 !important;
+        }
+        @media screen and (max-width:450px){
+            .mobileview{
+                margin-right:-10px !important;
+                right: 5px !important;
+                top:5px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobilev{
+                margin-right:-10px !important;
+                right: 5px !important;
+                top:5px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobile{
+                margin-right:0px !important;
+                right: 75px !important;
+                top:5px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobile2{
+                margin-right:0px !important;
+                right: 75px !important;
+                top:5px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+        }
+        @media screen and (min-width: 380px) and (max-width:450px){
+            .nav__title{
+                font-size: 16px !important;
+            }
+
+        }
+        @media screen and (max-width:1000px) and (min-width:451px){
+            .mobileview{
+                margin-right:-10px !important;
+                right: 5px !important;
+                top:15px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobilev{
+                margin-right:-10px !important;
+                right: 5px !important;
+                top:15px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobile{
+                margin-right:0px !important;
+                right: 75px !important;
+                top:15px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+            .mobile2{
+                margin-right:0px !important;
+                right: 75px !important;
+                top:15px !important;
+                font-size: 13px !important;
+                zoom:0.55;
+                -moz-transform: scale(0.55); /* Firefox */
+            }
+        }
+        @media screen and (max-width:1200px) and (min-width:950px){
+        .mobileview{
+                top: 5px !important;
+                right: 5px !important;
+                margin-right: 10px !important;
+            }
+            .mobilev{
+                top: 5px !important;
+                right: 5px !important;
+                margin-right: 10px !important;
+            }
+            .mobile{
+                top: 5px !important;
+                right: 85px !important;
+                margin-right: 10px !important;
+            }
+            .mobile2{
+                top: 5px !important;
+                right: 85px !important;
+                margin-right: 10px !important;
+            }
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+
+<body style="overflow-x:hidden;">
+    <!-- ? Preloader Start -->
+    <!-- <div id="preloader-active">
+        <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text" style="padding-left: 4px; padding-bottom: 4px;"><img
+                        src="{% static 'ftp/ProjectsPage/img/logo/irclogo.png' %}">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Preloader Start-->
+    <header>
+        <nav>
+            <div class="nav__left">
+                <a href="/"><img class="nav__logo" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo.png' %}"
+                        alt="" /></a>
+                <p class="nav__title">Foreign Training Program</p>
+            </div>
+            <div class="nav__right">
+                <a href="{% url 'ftp:login_user' %}" class="mobile" id="homebut" style="margin-right: 60px;">
+                    <button type="button" class="btn btn-warning" style="border-color: white; background-color: rgba(0,0,0,0); color: white ;font-size: 17px">Home</button>
+                </a>
+              <a href="{% url 'ftp:logout_user' %}" class="mobileview" id="logbut" style="margin-right: 45px;">
+                    <button type="button" class="btn btn-warning" style="border-color: white; background-color: rgba(0,0,0,0); color: white ;font-size: 17px" >Logout</button>
+                </a>
+            </div>
+
+            {% comment %} <div class="nav__right">
+                <div class="nav__avatar" onclick="profileMenuHandler()" onblur="closeProfileMenu()" tabindex="0">
+                    <span>
+                        Profile
+                    </span>
+                </div>
+
+            </div> {% endcomment %}
+        </nav>
+
+        <nav class="nav__onScroll">
+            <div class="nav__left">
+                <img class="nav__logo" src="{% static 'ftp/ProjectsPage/img/logo/ftp_logo2.png' %}" alt="" />
+                <p class="nav__title">Foreign Training Program</p>
+            </div>
+            <div class="nav__right">
+                <a href="{% url 'ftp:login_user' %}" class="mobile2" id="homebut" style="margin-right: 60px;">
+                    <button type="button" class="btn btn-warning edit" style=" background-color: #2a4ba5; font-size: 17px">Home</button>
+                </a>
+              <a href="{% url 'ftp:logout_user' %}" class="mobilev" id="logbut" style="margin-right: 45px;">
+                    <button type="button" class="btn btn-warning edit" style=" background-color: #2a4ba5; font-size: 17px" >Logout</button>
+                </a>
+            </div>
+
+
+            {% comment %} <div class="nav__right">
+                <div class="nav__avatar" onclick="profileMenuHandler()" onblur="closeProfileMenu()" tabindex="0">
+                    <span>
+
+                        Profile
+
+                    </span>
+                </div>
+
+            </div> {% endcomment %}
+        </nav>
+
+        <div class="nav__dropdown">
+            <a href="{% url 'ftp:projects' %}" class="nav__menuItem nav__activeMenuItem">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projects</span>
+            </a>
+            <a href="{% url 'ftp:scholarships' %}" class="nav__menuItem">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Scholarships</span>
+            </a>
+            <a href="{% url 'ftp:yourapplications' %}" class="nav__menuItem">
+                <i class="fas fa-user"></i>
+                <span>Applied Projects</span>
+            </a>
+            <a href="{% url 'ftp:yourscholarships' %}" class="nav__menuItem">
+                <i class="fas fa-user-graduate"></i>
+                <span>Applied Scholarships</span>
+            </a>
+            <a href="{% url 'ftp:bookmarked' %}" class="nav__menuItem">
+                <i class="fas fa-bookmark"></i>
+                <span>Bookmarks</span>
+            </a>
+            <a href="{% url 'ftp:results' %}" class="nav__menuItem">
+                <i class="fas fa-poll"></i>
+                <span>Results</span>
+            </a>
+            <a href="/#contact" class="nav__menuItem">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </header>
+    {% block main %}
+    {% endblock %}
+
+    {% comment %} <div class="footer__parallax"></div> {% endcomment %}
+    <footer style="height:auto; position: unset;">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h1>International Relations Cell</h1>
+                <hr style="width: 50px;" />
+                <hr style="width: 70px;" />
+                <p>The International Relations Cell (IRC) is a student body working along with the Office of
+                    International
+                    Relations (OIR). It works to promote the exchange of students, faculties, and ideas
+                    between IIT
+                    Kharagpur and her international partners and establishing the globalization of IIT
+                    Kharagpur.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__section">
+                    <h1>Quick Links</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px !important;" />
+                    <a class="foot" href="/#faq "><i class="fas fa-chevron-right  foot"></i>FAQ</a>
+                    <a class="foot"href="/#contact"><i class="fas fa-chevron-right  foot"></i>Contact Us</a>
+                    <a class="foot"href="/#about"><i class="fas fa-chevron-right  foot"></i>About</a>
+                    <a class="foot"href="/notice"><i class="fas fa-chevron-right  foot"></i>Notice Board</a>
+                </div>
+                <div class="footer__section">
+                    <h1>Contact Us</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px !important;" />
+                    <a class="foot" href="mailto:irc@iitkgp.ac.in" title="Mail ID IR Cell"><i
+                            class="fas fa-chevron-right foot"></i>ftp.ircell@gmail.com</a>
+                    <div class="footer__icons">
+                        <a class="foot"href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA" target="_blank"><i
+                                class="fab fa-youtube foot"></i></a>
+                        <a class="foot"href="https://www.facebook.com/IRCIITKGP/" target="_blank"><i
+                                class="fab fa-facebook-square foot"></i></a>
+                        <a class="foot"href="https://www.instagram.com/irc.iitkgp/" target="_blank"><i
+                                class="fab fa-instagram foot"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Up Btn -->
+    <i class="fas fa-arrow-up floatingBtn scrollToTopBtn" onclick="scrollToTop()" tabindex="0"></i>
+
+    <!-- Themes Switch Btn -->
+    <!-- <i class="fas fa-moon floatingBtn themeBtn" onclick="themeHandler()" tabindex="0"></i> -->
+
+    <!-- Profile Btn (conditional: for smaller viewport width) -->
+    </div>
+    <i class="fas fa-user-tie floatingBtn profileBtn" onclick="profileMenuHandler()" onblur="profileMenuHandler()"
+        tabindex="0"></i>
+    <div class="profileMenu">
+        <a href="{% url 'ftp:view_profile' %}">
+            <i class="fas fa-user-tie"></i>
+            <span>Profile</span>
+        </a>
+        <a href="{% url 'ftp:logout_user' %}">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign out</span>
+        </a>
+    </div>
+
+    {% block js %}
+    {% endblock %}
+    <!-- active link handling -->
+    <script>
+        const dropdownLinks = Array.from(document.getElementsByClassName("nav__menuItem"));
+        dropdownLinks.map(dropdownLink => {
+            if (dropdownLink.href === window.location.href)
+                dropdownLink.classList.add("nav__activeMenuItem");
+            else
+                dropdownLink.classList.remove("nav__activeMenuItem");
+        });
+        const navLinks = Array.from(document.getElementsByClassName("nav__link"));
+        navLinks.map(navLink => {
+            if (navLink.href === window.location.href)
+                navLink.classList.add("nav__activeLink");
+            else
+                navLink.classList.remove("nav__activeLink");
+        });
+    </script>
+    <!-- Popper, Bootstrap -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/popper.min.js' %}"></script> -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/bootstrap.min.js' %}"></script> -->
+    <!-- Jquery Mobile Menu -->
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/jquery.slicknav.min.js' %}"></script> -->
+
+    <!-- <script src="{% static 'ftp/ProjectsPage/js/main.js' %}"></script> -->
+    <script src="{% static 'ftp/ProjectsPage/js/main2.js' %}"></script>
+</body>
+
+</html>

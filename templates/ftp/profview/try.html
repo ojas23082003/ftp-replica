@@ -1,0 +1,152 @@
+{% load staticfiles %}
+{% block content %}
+<link href="{% static 'ftp/profview/cascade.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        body {
+            background: none !important;
+        }
+        .profname{
+            color: white;font-size: 2.5vh;margin-right: 2vw;
+        }
+        @media only screen and (max-width: 600px) {
+            .profname{
+                font-size: 1.5em;
+            }
+        }
+
+        .chat {
+            margin-top: 0 !important;
+        }
+
+        .btn{
+            background-color: transparent;
+
+
+        }
+        img {
+            image-orientation: from-image;
+        }
+        .btn:hover{
+            box-shadow: 0 22px 16px 0 rgba(0,0,0,0.24), 0 27px 50px 0 rgba(0,0,0,0.19);}
+        .btn:focus{background-color:rgba(0,0,0,0.3) ;
+            transition: background-color 1s;
+        }
+
+        .card-body{
+            background-image: url("{% static 'ftp/ProjectsPage/img/background.jpg' %}");
+        }
+        .card{
+            border-radius: 0 !important;
+        }
+
+
+    </style>
+    <title>Foreign Training Program 2019 | International Relations Cell IIT Kharagpur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+</head>
+<!--Coded With Love By Mutiullah Samim-->
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark  customnav" style="background-color: rgb(0,0,0);">
+    <div class="container ml-auto">
+        <a class="navbar-brand" href=""><img src="{% static 'ftp/profview/ir.png' %}" style="max-height: 40px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link weblink" onmouseout="this.style.color='#e0e0e0'" onmouseover="this.style.color='white'" href="https://international.iitkgp.ac.in/" style="color: rgb(224, 224, 224);"><h1 class="muted">International
+                        Relations Website</h1></a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div class="col">
+
+    </div>
+    {#     <font class="profname">{{ project.professor_name }}</font>#}
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row justify-content-left h-10">
+        <div class="col-sm-2 col-md-4 col-xl-3">
+            <div class="card mb-sm-3 mb-md-0 contacts_card">
+                <div class="card-header">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body contacts_body" >
+                    <ui class="contacts">
+                        {% for profiles in all_applied %}
+                        <li>
+                            <button class="btn btn-block mybutton" id="{{ profiles.id }}">
+
+                                <div class="d-flex bd-highlight">
+                                    <div class="img_cont">
+                                        <img src="{% if profiles.photo %}{{ profiles.photo.url }}{% else %}{% static 'ftp/images/usericon.png' %}{% endif %}" class="rounded-circle user_img">
+                                    </div>
+                                    <div class="user_info">
+                                        <span>{{ profiles.fullname }}</span>
+                                    </div>
+
+                                </div>
+                            </button>
+                        </li>
+
+                        {% endfor %}
+                    </ui>
+                </div>
+                <div class="card-footer"></div>
+            </div></div>
+        <div class="col-sm-8  col-xl-9">
+            	<iframe class="card" style="width:100%;border-radius: 0" name="myframe" id="myframe" src="profile/"></iframe>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+{% block js %}
+<script>
+    $('.mybutton').click(function () {
+        var id = this.id;
+        self.frames['myframe'].location.href = 'profile/' + id;
+    });
+
+    $(document).ready(function() {
+        $(function() {
+            buttons = document.getElementsByClassName("btn")
+            $(buttons[0]).click();
+            console.log(clicked);
+        });
+    });
+</script>
+{% endblock %}
+
+{% endblock %}
+
+

@@ -1,0 +1,873 @@
+{% extends 'ftp/base_with_no_menu.html' %}
+{% load static %}   
+
+{% block title %}ANU | International Relations Cell{% endblock %}
+
+{% block header %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+    crossorigin="anonymous"></script>
+<style>
+    .accordion-body {
+        background-color: #f8f8f8;
+        margin-right: 2.6em;
+        border-bottom: 2px solid #cacaca99;
+    }
+</style>
+
+{% endblock %}
+
+{% block main %}
+<style>
+    
+    #one {
+        color: red;
+    }
+
+    #two {
+        color: red;
+    }
+
+    #three {
+        color: red;
+    }
+
+    section{
+        padding-top: 0 !important;
+    }
+
+    #application {
+        background-color: white;
+    }
+
+    #accordionExample {
+        margin-bottom: 50px;
+    }
+
+    .accordion-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .accordion-header>input {
+        margin: 0;
+        margin-left: 10px;
+    }
+
+    .accordion-item {
+        border: 0;
+    }
+
+    .accordion-body {
+        margin-right: 2.45em;
+        border: 2px solid #cacaca99;
+    }
+
+    .priority {
+        margin-left: 5px;
+        margin-bottom: auto;
+    }
+     @media only screen and (max-width: 750px) {
+    #application {
+        padding: 60px 0 !important;
+    }
+</style>
+<link rel="stylesheet" href="{% static 'ftp/ProjectsPage/css/application.css' %}">
+<main>
+    <section style="background: url({% static " ftp/images/bg.jpg" %})no-repeat fixed;">
+
+        <div id="application" class="services-section section-padding30 fix" style="padding:60px;">
+            <div style="background-color:#ece8e899 ; width: 94%; margin-left: 3% ; margin-top: 50px;">
+                <div class="success" style="font-size: 25px;font-weight: 700;text-align: center;color: #ed293c;">
+                    Submissions are closed.
+                </div>
+                <form style="background-color:white ; margin-left:15px; margin-right: 15px;" onsubmit="validateForm(event)" name="myForm" id="myform" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-xl-12 my-4" style="text-align: center">
+
+
+                            <div class="row">
+                                {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                                            style="font-size: 20px;font-weight: 700; text-align: center;color: #00506B">{{ message }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if errors %}
+                                {% for field in form %}
+                                {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin-top: 1rem; margin-left:30px">
+                        <div class="row">
+                            <div class="cell w-100">
+                                <!-- Large title -->
+                                <h1 style="font-size:40px"> Apply for ANU Projects<br><br></i></h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container" style="width:94% ;">
+                        {% if prof.fullname %}
+                        <input name="fullname" value="{{ prof.fullname }}" style="display: none;" />
+                        <input name="rollno" value="{{ prof.rollno }}" style="display: none;" />
+                        <input name="email" value="{{ prof.alt_email }}" style="display: none;" />
+                        <input name="year" value="{{ prof.year }}" style="display: none;" />
+                        <input name="contact" value="{{ prof.contact }}" style="display: none;" />
+                        {% else %}
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="name"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">Name
+                                    of the Student<span style="color:red;"> *</span></label>
+                                <Input name="fullname" class="form-control"
+                                    style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                                    placeholder="Name of the Student" required disabled></Input>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="roll"
+                                    style=" color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">Roll
+                                    Number<span style="color:red;"> *</span></label>
+                                <Input name="rollno" class="form-control"
+                                    style="height:25px; outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4;"
+                                    Placeholder="Roll Number" required disabled></Input>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="email"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">Email
+                                    Address<span style="color:red;"> *</span></label>
+                                <Input name="email" class="form-control"
+                                    style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                                    placeholder="Email Address" required disabled></Input>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="year"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">Year
+                                    of Study<span style="color:red;"> *</span></label>
+                                <Input name="year" class="form-control"
+                                    style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                                    placeholder="Year of Study" type="number" required disabled></Input>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="margin-bottom: 50px;">
+                                <label class="col-form-label" for="contact"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;    font-family: 'Open Sans', sans-serif !important;">Contact
+                                    Number<span style="color:red;"> *</span></label>
+                                <Input name="contact" class="form-control"
+                                    style="height:25px;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4; "
+                                    placeholder="Contact Number" type="number" required disabled></Input>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="col-form-label one"  for="SOP"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">Your
+                                    Statement of Purpose (SOP - At least 500 words)<span style="color:red;">
+                                        *</span></label>
+                                <span id="one"> </span>
+                                <textarea name="sop" class="form-control" rows="10"
+                                    name="Statement_of_Purpose" id="Statement_of_Purpose"
+                                    style="height:200px; width:100% ;outline: 0; border-width: 0 0 1px;border-radius: 0 0 0 0;border-color: black; opacity:0.4;"
+                                    placeholder="Purpose Statement" required disabled></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-12">
+                                <div class="form-check form-switch" style="padding:0;">
+                                    <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="col-form-label" for="former_anu" style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important; padding-top:10px;padding-top:0px;">
+                                            Are you a former FRT Award Recepient?<span style="color:red;"> *</span></label></div>
+                                        <div class="col-md-2"><input name="former_anu" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" style="display:inline; margin-left:auto" disabled/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row" style="margin-bottom: 50px;">
+                            
+                            <div class="col-md-12">
+                                <input type="checkbox" name="former_anu" data-toggle="toggle">
+
+                                <input type="checkbox" class="toggle" id="toggle" />
+                                <label for="toggle">
+                                    <span class="on">Yes</span>
+                                    <span class="off">No</span>
+                                </label>
+                            </div>
+                        </div> -->
+                        
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-12">
+   
+                                <label class="col-form-label" for="lor1"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;font-family: 'Open Sans', sans-serif !important;">Letter
+                                    of Recommendation (1)<span style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <p style="font-size:12.5px; margin-bottom:-40px">LOR form must be in the given format :
+                            <a href="{% static 'FRT_Template_ReferreeReport_0.docx' %}" style="color:red; font-size: 15px;display: inline-block;margin-bottom:0px; margin-top:0px ;font-family: 'Open Sans', sans-serif !important; font-size:12.5px;" download>(Referee letter)</a></p>
+                        <div class="row" style="margin-top: 50px;">
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <input type="file" class="form-control-file" name="lor1" accept=".pdf" required disabled>
+                            </div>
+                        </div>
+   
+                            <div class="col-md-12">
+                                <label class="col-form-label" for="lor2"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;font-family: 'Open Sans', sans-serif !important;">Letter
+                                    of Recommendation (2)<span style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <p style="font-size:12.5px; margin-bottom:10px;">LOR form must be in the given format :
+                            <a href="{% static 'FRT_Template_ReferreeReport_0.docx' %}" style="color:red; font-size: 15px;display: inline-block;margin-bottom:0px; margin-top:0px ;font-family: 'Open Sans', sans-serif !important; font-size:12.5px;" download>(Referee letter)</a></p>
+                    
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <input type="file" class="form-control-file" name="lor2" accept=".pdf" required disabled>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-12">
+                                <label class="col-form-label" for="cv"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">Latest
+                                    CV<span style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <input type="file" class="form-control-file" name="cv" accept=".pdf" required disabled>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-12">
+                                <label class="col-form-label" for="cv"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;font-family: 'Open Sans', sans-serif !important;">
+                                    Undertaking<span style="color:red;"> *</span></label>
+                                    <p style="font-size: 12.5px; margin-bottom:auto">Undertaking must be in the given format :
+                                    <a href="{% static 'Undertaking_FRT.pdf' %}" style="color:red; font-size: 15px;display: inline-block;margin-bottom:10px; margin-top:0px ;font-family: 'Open Sans', sans-serif !important; font-size:12.5px" download>(Undertaking)</a></p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <input type="file" class="form-control-file" name="undertaking" accept=".pdf" required disabled>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" for="Transcript"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">Transcript<span
+                                        style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <input type="file" class="form-control-file" name="transcript" accept=".pdf" required disabled>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="col-form-label" for="Transcript"
+                                        style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline-block;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">Select upto 3 preferences for your project choice<span style="color:red;"> *</span>
+                                        <br><span style="font-weight: normal">(Note that the preferences are ordered)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h6>Project 1: Star formation	</h6>
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="1" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Computational project on the role of turbulence, magnetic fields, and stellar feedback, for the formation of stars.
+                                        <pre></pre>
+                                        Supervised by Christoph Federrath
+                                    </div>
+                                </div>
+                                    {% comment %}
+                                    <a href="{% url 'ftp:admin_applied_anu_all_list_export' %}" class="btn btn-info" style="vertical-align: middle !important; flex:1.2;">Export All Applicants</a>
+                                    {% endcomment %}
+                            </div>
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                       <h6> Project 2: Unveiling substructures in groups and clusters of galaxies</h6>
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="2" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Clusters of galaxies are the most massive objects in our Universe. According to the current formation model, they form through hierarchical mergers of smaller groups of galaxies. Combining X-ray data from the eROSITA satellite and optical data from the GAMA galaxy survey, we will investigate whether the detected groups and clusters show substructures, which are crucial to understand galaxy evolution. 
+                                        <pre></pre>
+                                        <a href="https://erosita.mpe.mpg.de/edr/">https://erosita.mpe.mpg.de/edr/</a> 
+                                        <pre></pre>
+                                        <a href="http://www.gama-survey.org/">http://www.gama-survey.org/</a>
+                                        <pre></pre>
+                                        Supervised by Stefania Barsanti & Matthew Colless
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        <h6>Project 3: Spin-filament alignments of the internal orbital structures of galaxies</h6>
+
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="3" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        The study of how galaxies acquire their angular momentum in the cosmic web is a crucial tool to complete our understanding of galaxy formation. In this project we will analyze the alignments of the spin axes of  spatially-resolved SAMI galaxies, dissected into their dynamical stellar components, with respect to cosmic filaments reconstructed from the GAMA survey. 
+                                        <pre></pre>
+                                        <a href="https://erosita.mpe.mpg.de/edr/ ">https://erosita.mpe.mpg.de/edr/ </a> 
+                                        <pre></pre>
+                                        <a href="http://www.gama-survey.org/">http://www.gama-survey.org/</a>
+                                        <pre></pre>
+                                        Supervised by Stefania Barsanti & Matthew Colless
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        <h6>Project 4: How is the flip of the spin-filament alignment mantained?</h6>
+
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="4" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        The parallel alignment between the spin axis of a galaxy and its closest cosmic filament can be flipped to perpendicular by a merger, driving the galaxy's morphological transformation. Using the GAMA and SAMI galaxy surveys, we will investigate what are the key processes that contribute to maintaining the perpendicular trend, with particular focus on the activity of the galaxy's central black hole. 
+                                        <pre></pre>
+                                        <a href="https://erosita.mpe.mpg.de/edr/ ">https://erosita.mpe.mpg.de/edr/ </a> 
+                                        <pre></pre>
+                                        <a href="http://www.gama-survey.org/">http://www.gama-survey.org/</a>
+                                        <pre></pre>
+                                        Supervised by Stefania Barsanti & Matthew Colless
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                       <h6> Project 5: Galaxy Evolution modelling	</h6>
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="5" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Investigating the evolution of dust content and fundamental galaxy properties using Dusty SAGE galaxy evolution model and SAMI galaxy survey.
+                                        <pre></pre>
+                                        Supervised by Dian Triani
+                                        <pre></pre>
+                                        Dusty SAGE <a href="https://github.com/dptriani/dusty-sage">(https://github.com/dptriani/dusty-sage)</a> is a new galaxy formation model that includes a self-consistent dust treatment (Triani+ 20). Such a model can be a powerful tool to investigate the evolution of fundamental galaxy properties (star formation history, stellar mass, etc.) at high redshift, mainly because they are mostly hidden by their dust component. Results from the model will be combined with observational datasets from the SAMI galaxy survey.
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">
+                                       <h6> Project 6: SAMI 3D spectroscopy survey	</h6>
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="6" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Explore the impact of aperture size on emission-line diagnostics separating star formation and active galactic nuclei (AGN). Specifically, this project applies emission-line diagnostics to SAMI 3D spectroscopy data with various aperture sizes, studies the variations statistically, and finds evidence of star formation or an AGN that is not revealed by the aperture spectra.
+                                        <pre></pre>
+                                        Supervised by Matthew Colless and Sree Oh
+                                                </div>
+                                </div>
+                            </div>
+                            <!-- maths -->
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                       <h6> Project 7: Analysis and Partial Differential Equations</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="7" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Projects ranging from PDE theory to Differential Geometry, which would probably be best tailored to the particular experience and previous knowledge of the student.  Examples could include:  Isoperimetric inequalities, the geometry of convex bodies, Eigenvalues of domains and surfaces, Geometric flows such as curve-shortening flow and Ricci flow, variational problems such as minimal surfaces and harmonic maps, or topics in advanced differential geometry (such as comparison theorems, convergence of manifolds, vector bundles).
+                                        <pre></pre>
+                                        Supervised by <a href="https://maths.anu.edu.au/people/academics/ben-andrews">Ben Andrews</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    <h6> Project 8: Analysis and Partial Differential </h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="8" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseEight" class="accordion-collapse collapse"
+                                    aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Harmonic, stochastic, and/or functional analysis of PDE and SPDE. The specific project will be tailored to the scholar's experience and interest. 
+                                        <pre></pre>
+                                        Supervised by <a href="https://sites.google.com/view/pierre-portal/home">Pierre Portal</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingNine">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                        <h6>Project 9: Algebra and Topology</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="9" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseNine" class="accordion-collapse collapse"
+                                    aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Surface mapping class groups are interesting from both a topological and algebraic perspective. This project will examine various approaches to finding finite presentations of mapping class groups.
+                                        <pre></pre>
+                                        Supervised by <a href="https://sites.google.com/view/joanlicata/home">Joan Licata</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingTen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                       <h6> Project 10: Algebra and Topology</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="10" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseTen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Algebraic topology
+                                        <pre></pre>
+                                        Supervised by <a href="https://maths.anu.edu.au/people/academics/vigleik-angeltveit">Vigleik Angeltveit</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingEleven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                      <h6>  Project 11: Computational and Applied Mathematics</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="11" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseEleven" class="accordion-collapse collapse"
+                                    aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        A numerical study of the impact of pressure anisotropy across a broad range of ITER scenarios with external heating. The project would involve applying / developing existing remapping tools to distinguish the change in toroidal confinement magnetic geometry cause by an anisotropy modified current profile. The topical area is fusion science within computational / applied mathematics.
+                                        <pre></pre>
+                                        <a href="https://maths.anu.edu.au/research/groups/computational-mathematics/plasma-theory-and-modelling">https://maths.anu.edu.au/research/groups/computational-mathematics/plasma-theory-and-modelling</a>
+                                        <pre></pre>
+                                        <a href-="https://www.ipr.res.in/">https://www.ipr.res.in/</a>
+                                        <pre></pre>
+                                        Supervised by <a href="https://maths.anu.edu.au/people/academics/matthew-hole">Matthew Hole</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingTwelve">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                      <h6>  Project 12: Computational and Applied Mathematics</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="12" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseTwelve" class="accordion-collapse collapse"
+                                    aria-labelledby="headingTwelve" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <!-- <pre> -->
+                                        High fidelity numerical methods for multi-scale wave propagation problems. 
+                                        Multi-physics/multi-scale problems, simultaneously coupling different physical phenomena at different scales in space and time, occur in many applications. One example is simulations of coupled elastic deformation and magma flows during volcanic eruptions, and the associated waves, as well as earthquake source process, coupling frictional failure on the fault to wave propagation off the fault, in the elastic medium. To effectively simulate such problems, advanced methods and hybrid solvers coupling different numerical methods with dynamic adaptivity are essential, as well as the availability of sufficient computational resources. The specific aims of this research may include: 
+                                        1. The development of provably stable hybrid solvers that couple discontinuous Galerkin (DG) finite element methods to summation-by-parts finite difference (FD) methods for efficient numerical simulation of multi-scale and/or multi-physics wave propagation problems. 
+                                        2. Rigorous mathematical analysis of a stable and high order accurate coupling with nontrivial boundary conditions for a class of DG, finite volume and FD approximations with efficient explicit or semi-explicit time discretisation. 
+                                        3. Efficient and scalable implementation of numerical methods for waves in a scalable HPC framework for large scale numerical simulations on supercomputers                                         <pre></pre>
+                                        <!-- </pre> -->
+                                        Supervised by <a href="https://maths.anu.edu.au/people/academics/kenneth-duru">Kenneth Duru</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingThirteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                      <h6>  Project 13: Computational and Applied Mathematics</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="13" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseThirteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThirteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Applied maths project, in which the student studies perturbed dynamical systems that model thermochemical problems, computationally and analytically. The application relates to the emergence of life on Earth and possibly on other planetary bodies in the solar system, and the aim is to identify prebiotic systems that function best in a gradient-driven, fluctuating environment.
+                                        <pre></pre>
+                                        <a href="orcid.org/0000-0002-3551-3012">orcid.org/0000-0002-3551-3012</a>
+                                        <pre></pre>
+                                        Supervised by <a href="http://researchers.anu.edu.au/researchers/ball-rv">Rowena Ball</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingFourteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                       <h6> Project 14: Metasurface optical sensors for bio and gas sensing</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="14" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseFourteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFourteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        In this project, we will focus on development of dielectric metasurfaces as optical sensors for refractometric detection of bio and gas molecules for healthcare and environmental monitoring. Specific aims of the project includes design, fabrication, characterisation and optimisation of these metasurfaces for sensing. Additionally, to attain higher sensitivity and selectivity, different surface chemical and physical modification strategies will be investigated. 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingFifteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                                      <h6>  Project 15: Predicting cell-type specific combinatorial binding of neuronal transcription factor network by deep learning</h6>	
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="15" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseFifteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFifteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        The adult Drosophila peripheral nervous systems (PNS) are mechano-sensory organs built according to a strict lineage plan directed by regulatory networks, and are an excellent model system for cell specification. Decades of genetic studies revealed that cell-type specific transcription factors (TFs) collaborate to specify PNS fates. However, much remains to be understood on how high-level TFs execute their function via target networks. We generated genomic binding data for the 10 PNS TFs using ChIP-seq and ChIP-nexus assays. By combining them with single cell accessibility data (sciATAC-seq) and RNA-seq data (scRNA-seq), we are building deep learning models that predict cell-type specific chromatin accessibility from TF binding motif combination and precise gene expression patterns and identifies cell-type from the combination of genomic and epigenomic input features.
+
+                                        </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingSixteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+                                       <h6> Project 16: Discover cooperation and competition of RNA binding proteins by deep learning</h6>
+
+
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="16" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseSixteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSixteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        This project is to build a deep learning model to detect RNA binding protein (RBP) and RNA interaction and gain insights into RBP’s role in post-transcriptional regulation.  The student will learn to build a deep neural network model applied to a genomic application. (The student is expected to have programming skills in python, R, or C++). 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingSeventeen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+                                       <h6> Project 17: Determining the effect of previous exposure to P. vivax on responses to P. falciparum vaccines	</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="17" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseSeventeen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSeventeen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        We will measure immune responses to P. vivax in individuals vaccinated with the P. falciparum based Sanaria vaccine to investigate cross reactivity between key antigens
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingEighteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEighteen" aria-expanded="false" aria-controls="collapseEighteen">
+                                        <h6>Project 18: Development of the next generation of CRISPR gene editing tools	</h6>
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="18" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseEighteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingEighteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        This project will consist in generating new CRISPR variants to increase cutting activity and testing these enzymes for DNA cleavage.
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item anu_project">
+                                <h2 class="accordion-header" id="headingNineteen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseNineteen" aria-expanded="false" aria-controls="collapseNineteen">
+                                       <h6> Project 19: Identifying fluid shear factors in fibrosis and stroke</h6>
+
+
+
+	
+                                        <span style="color: #00506B;font-weight: bold;"
+                                            class="priority"></span>
+                                    </button>
+                                    <input class="form-check-input" type="checkbox" autocomplete="off" value="19" id="flexCheckDefault"
+                                        onchange="handleChoice(event)" disabled>
+                                </h2>
+                                <div id="collapseNineteen" class="accordion-collapse collapse"
+                                    aria-labelledby="headingNineteen" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        In this project, we aim to investigate the role of fluid shear in mechanotransduction pathways of mammalian cells that relates to cell differentiation, migration and proliferation. Student will use cutting edge imaging assays along with 3D microfluidics, and bioimage informatics developed at ANU.
+                                        <pre></pre>
+                                        <a href="https://jcsmr.anu.edu.au/research/groups/lee-group-optical-biofluidic-imaging-group">https://jcsmr.anu.edu.au/research/groups/lee-group-optical-biofluidic-imaging-group</a>
+                                        <pre></pre>
+                                        <a href-="https://leenewt3.wixsite.com/aomlab">https://leenewt3.wixsite.com/aomlab</a>
+                                        <pre></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="declaration" id='check1' value='2' required disabled>&nbsp;
+                                <label class="col-form-label" for="declaration1"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">
+                                    I hereby declare that the information given in this application is true and correct to the best of my knowledge and belief<span style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <input type="checkbox" id='check2' name="declaration"  value='2' required disabled>&nbsp;
+                                <label class="col-form-label" for="declaration2"
+                                    style="color:#8c8a8ae3 ; font-weight: bold; font-size: 16px;display: inline;margin-bottom:10px;font-family: 'Open Sans', sans-serif !important;">
+                                    I will not contact any professor/supervisor personally before my selection<span style="color:red;"> *</span></label>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <center style=" margin-bottom:50px">
+                        <button type="submit" class="btn btn-success applybutton formsub"
+                            style="width: 100px;height: 40px;font-size:20px" id='btn' disabled>Apply</button>
+                        <button type="button" class="btn btn-danger" style="width: 100px;height: 40px;font-size:20px"
+                            onclick="location.href='{% url 'index' %}'">Close</button>
+                    </center>
+
+                    <input style="display:none;" id="pref1" name="pref1">
+                    <input style="display:none;" id="pref2" name="pref2">
+                    <input style="display:none;" id="pref3" name="pref3">
+
+                    <input style="display:none;" id="col1" name="col1">
+                </form>
+            </div>
+
+
+    </section>
+</main>
+{% endblock %}
+
+{% block js %}
+<script>
+    var id = window.location.pathname;
+    pid = id.slice(24, -1);
+    document.getElementById('col1').value = pid;
+
+    let choices = [];
+    const projects = Array.from(document.getElementsByClassName("anu_project"));
+    const handleChoice = e => {
+        if(choices.length === 3)
+            e.target.checked = false;
+
+        if (e.target.checked)
+            choices.push(e.target.value);
+        else
+            choices = choices.filter(choice => choice !== e.target.value);
+
+        projects.map(project => project.querySelector(".priority").innerText = "");
+
+        choices.map((choice, index) => {
+            const project = projects.find(project => project.querySelector(".form-check-input").value === choice);
+            project.querySelector(".priority").innerText = "(" + (index + 1) + ")";
+            var x = document.getElementById("pref"+(index+1));
+            console.log(x);
+            console.log(project.querySelector("button").innerText.slice(0,-3));
+            x.value = project.querySelector("button").innerText.slice(0,-3);
+        });
+    }
+    function validateForm(event) {
+        event.preventDefault();
+    var textbox = document.forms["myForm"]["Statement_of_Purpose"].value;
+    console.log(textbox)
+    if(textbox.match(/(\w+)/g).length == null){
+        var textbox_count = 0;
+    }
+    else {
+        var textbox_count = textbox.match(/(\w+)/g).length
+    }
+    console.log(textbox_count);
+    if(textbox_count < 500) {
+        document.getElementById("one").innerHTML="**Words less then 500";
+        alert('Statement of Purpose is less than 500 words');
+        return false;
+    } else if(document.getElementById('check1').checked && document.getElementById('check2').checked ){
+        document.getElementById("one").innerHTML="";
+        document.getElementById('myform').submit();
+    }
+    else
+    {
+        
+        alert('Please Accept the Checkbox');
+    }
+}
+document.getElementById("random").style.display = "none";
+
+</script>
+{% endblock %}

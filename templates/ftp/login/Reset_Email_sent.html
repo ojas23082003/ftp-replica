@@ -1,0 +1,90 @@
+{% extends 'ftp/login/base.html' %}
+{% load staticfiles %}
+{% block title %}Login | FTP | International Relations Cell{% endblock %}
+
+{% block content %}
+<style>
+    @media only screen and (max-width:540) and (min-width:360){
+        #set{
+            margin-bottom: 8rem;
+        }
+
+    }
+    @media only screen and (max-width:322) and (min-width:320){
+        #set{
+            margin-bottom: 0rem;
+        }
+
+    }
+    @media only screen and (max-width:770) and (min-width:768){
+        #set{
+            margin-bottom: 10rem;
+        }
+
+    }
+    @media only screen and (max-width:282) and (min-width:280){
+        #set{
+            margin-bottom: 0rem;
+        }
+
+    }
+    .container1:before{
+      z-index:-6;
+    }
+    {% comment %} .work{
+      !important target="_blank";
+    } {% endcomment %}
+</style>
+        <div class="container1">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form class="sign-in-form" action="{% url 'ftp:login_user' %}" method="POST" id="set">
+
+
+            <h3 style="text-align: center;margin-bottom:30px;color:#5995fd;">Reset your password</h3>
+                    <div>
+                        Link for resetting your password has been sent to <strong>{{ email }}</strong>
+                        <br><br>
+                        Login and activate through <a href="#" onclick='window.open("https://iitkgpmail.iitkgp.ac.in");return false;' ><strong>iitkgpmail.iitkgp.ac.in</strong></a>
+                        <br><br>
+                        To reset your Zimbra password, please mail to <a href="mailto:helpdesk@cc.iitkgp.ac.in"><strong>helpdesk@cc.iitkgp.ac.in</strong></a>
+                    </div>
+
+                         <div class="CTA" style="align: center; justify-content: center;">
+                        <button class="btn solid" type="button" onClick="window.location.href='{% url 'ftp:login_user' %}';">Login here</button>
+                        <button class="btn solid" type="button" onClick="window.location.reload();">Resend link</button>
+                    </div>
+
+            <div class="social-media">
+              <a href="https://www.facebook.com/IRCIITKGP/" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a href="mailto:ftp.ircell@gmail.com" target="_blank" class="social-icon">
+                <i class="material-icons">email</i>
+              </a>
+              <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content" style="padding-top: 0px;">
+              <div class="imagee"><img id="imagee" src="{%static 'ftp/login/logo.png' %}"></div>
+            <h3>FOREIGN TRAINING PROGRAM</h3>
+            <p style="
+    margin-bottom: 0px;
+    font-size:1.75rem;
+">2021-2022</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

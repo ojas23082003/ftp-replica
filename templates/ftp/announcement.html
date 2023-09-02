@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+     <link href="{% static 'ftp/profil/assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="{% static 'ftp/profil/assets/css/themify-icons.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Announcement</title>
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+            background-color:whitesmoke ;
+        }
+        .logo_irc {
+                max-width: 8vh;
+
+            }
+          #logbut {
+            position: absolute;
+            right: 1.5vw;
+            top: 15px;
+        }
+
+        .small {
+            font-family: 'Open Sans', sans-serif !important;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+         .logo-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            height: 70px;
+            width: 100vw;
+            background-color: #1c293c !important;
+        }
+          .aboutt{
+        font-size: 2rem;
+    }
+           @keyframes new {
+        0%   { opacity: 0; }
+        50% { opacity: 1; }
+        100%{opacity: 0;}
+    }
+        .akshay:hover{
+            background-color: #181818;
+
+        }
+    </style>
+</head>
+<body>
+ <div class="logo-container">
+        <div class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'ftp:projects' %}">
+            <div class="sidebar-brand-text mx-3" style="font-family: sans-serif; font-size: 1.45rem;">
+                <img class="logo_irc" src="{% static 'ftp/images/logo.png' %}">
+                <span id="FTP" class="small" style="">Foreign Training Program</span>
+                <a href="{% url 'ftp:index' %}" id="logbut">
+                    <button type="button" class="btn btn-warning">Home</button>
+                </a>
+            </div>
+        </div>
+<div class="section" id="section8">
+        <div >
+{#        <a href="{% url 'ftp:index' %}"></a><button class="akshay" style="float: left;height: 5vh;border-radius: 5px;border-style: none;background-color: #dbdbdb;margin-right: 10px;text-transform: uppercase;text-decoration: underline">HOME</button>#}
+                    <span class="aboutt" style="color: #171717;;text-align: center !important;margin: auto;
+                    font-size: 4.2rem;display: block;padding: 20px;margin-bottom: 20px;">Announcement</span>
+        <div style="margin-top: 10px;">
+            {% for p in notice %}
+
+                <div style="width: 90%;height: auto;background-color: #fff;border-radius: 10px; alignment:center;text-align: center;margin: auto;    box-shadow: 0px 12px 20px 0.1px #00000045;margin-top: 10px;" >
+
+{% if p.date_till|date:"Y-m-d" > todays_date %}
+                        <p id="new" style="text-align: right;
+    color: #181818;
+    font-size: 1.1em;
+    margin-right: 15px;
+    padding: 5px;
+animation: new 0.8s infinite">NEW</p>
+{% endif %}
+                    <h3 style="color: #0b0b0b;text-transform: uppercase;margin: 2px;padding: 20px">{{p.heading}}</h3>
+                    <p>{{ p.content }}</p>
+                    <p id="date" style="text-align: left !important;color: black;margin-left: 5px;font-size: 1em;padding: 10px ;font-weight: bolder"> {{ p.date }} </p>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+ </div>
+</body>
+<script>
+   date= document.getElementById('#date');
+   new = document.getElementById('#new');
+   var someDate = new Date();
+    var numberOfDaysToAdd = 6;
+someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+</script>
+</html>

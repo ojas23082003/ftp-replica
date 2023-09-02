@@ -1,0 +1,13 @@
+**/__pycache__
+**/db.sqlite3
+**/DB backup
+**/log.txt
+**/staticfiles
+**/media
+templates/mail.html
+templates/logs*
+ftp/migrations*
+.idea*
+ircell/settings.py
+ktp/migrations*
+sm

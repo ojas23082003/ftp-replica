@@ -1,0 +1,544 @@
+{% load staticfiles %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=BenchNine' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Asap Condensed' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/748afcfddd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>International Relations | IIT Kharagpur</title>
+    <style>
+        body {
+            background:url("{% static 'ftp/ProjectsPage/img/profbg10.jpg' %}");
+            color: white;
+           
+        }
+        ::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+            width:0px;
+            height:0px;
+        }
+        .imgbg {
+            width:16vw;
+            height: 16vw;
+            position: absolute;
+            top:43vh;
+            left: 13vw;
+            border-radius: 250px;
+            background: #00526b;
+        }
+        .imgbg1 {
+            width:50vw;
+            position: absolute;
+            top:0vh;
+            left: 30vw;
+            height:100vh;
+        }
+        .conte {
+            background-color: #ffebd3;
+            top: 0vh;
+            left: 0vw;
+            width: 100vw;
+            height: 100vh;
+        }
+        .list {
+            background-color: transparent;
+            position:fixed;
+            top: 0vh;
+            left: 81vw;
+            width: 19vw;
+            height: 100vh;
+        }
+        .propic {
+            width:10vw;
+            height: 10vw;
+            background-color: white;
+            
+            top: 44vh;
+            left: 13.5vw;
+            border-radius:250px;
+            border: 0px solid white;
+        }
+        .name {
+
+            font-family: 'Asap';
+            font-size: 3.1vw;
+            font-weight: 100;
+            background: url( "{% static 'ftp/home/img/profbg7.png' %}" );
+            color: rgb(4, 51, 29);
+            background-size: 6.25vw 6.25vh;
+            -webkit-background-clip: text;
+        }
+        .otherdet {
+            font-family: 'NTR';
+            font-size: 22px;
+            background: url( "{% static 'ftp/home/img/profbg7.png' %}" );
+            color:green;
+            background-size: 100px 50px;
+            -webkit-background-clip: text;
+        }
+        .contacts li {
+            width: 100% !important;
+            padding: 5px;
+            margin-bottom: 15px !important;
+        }
+        .contacts{
+            padding: 0;
+            height: 100vh;
+            overflow: scroll;
+            margin: 0;
+        }
+        .img_cont {
+            height: 70px;
+            width: 70px;
+            float:left;
+        }
+        .user_img {
+            height: 70px;
+
+            width: 70px;
+            border: 1.5px solid #f5f6fa;
+        }
+        .user_info {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 30px;
+            font-weight: bold;
+        }
+        .rounded-circle {
+            border-radius: 50%!important;
+        }
+        button.btn.btn-block.mybutton.pop {
+            background-color: transparent;
+            transition:0.4s all;
+        }
+        button.btn.btn-block.mybutton.pop:hover {
+            background-color: white;
+        }
+        button.btn.btn-block.mybutton.pop:focus {
+            background-color: #efece5;
+            outline:2px #abc6c7;
+        }
+        .cv {
+            position:absolute;
+            top:85vh;
+            width:11vw;
+            height:6vh;
+            border-radius: 100px;
+            border: 1px solid whitesmoke;
+            font-size: 1.15vw;
+            background: #00526b;
+            color: white;
+            font-family: "Asap";
+            background-size: 12vw 6vh;
+            opacity: 0.7;
+        }
+        .gc {
+            position:absolute;
+            opacity: 0.7;
+            top:85  vh;
+            width:10.7vw;
+            height:5.4vh;
+            border-radius: 100px;
+            font-size: 1.15vw;
+            color: rgb(255, 255, 255);
+            border-color: transparent;
+            font-family: "Asap";
+            background: #00526b;
+            background-size: 12vw 6vh;
+            transition: 1s;
+        }
+        .gc1 {
+            position:absolute;
+            top:85.3vh;
+            width:10.7vw;
+            height:5.4vh;
+            border-radius: 100px;
+            border: 2px solid whitesmoke;
+            font-size: 1.15vw;
+            color: rgb(224, 223, 223);
+            font-family: "Asap";
+            background-color: transparent;
+            transition: 0.5s;
+            box-shadow: 0px 0px 0px gold;
+        }
+        .gc:hover {
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 1);
+            background: #00526b;
+            background-size: 12vw 6vh;
+        }
+        .listitem {
+            position: absolute;
+            width:17.20vw;
+            border: 1px solid white;
+            background-color: white;
+            left:0.2vw;
+            color:#504125;
+            opacity:0.95;
+        }
+        .listitem1 {
+            position: absolute;
+            width:17.20vw;
+            box-shadow: 0px 0px 0px white;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.9);
+            left:0.2vw;
+            color:#504125;
+            transition: 0.4s;
+            border-radius:5px;
+            cursor: pointer;
+        }
+        .listitem1:hover {
+            background-color: white;
+            border: 1px solid white;
+            box-shadow: 0px 0px 10px white;
+        }
+        .minipic {
+            position: absolute;
+            top: 0vh;
+            left: 0vh;
+            height: 7vh;
+            width: 7vh;
+            opacity: 1;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .listtext {
+            position: absolute;
+            top:-0.5vh;
+            left:10vh;
+            font-size: 3vh;
+        }
+        .sublist::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        .sublist::-webkit-scrollbar-thumb {
+            background: white;
+            width:0px;
+            height:0px;
+        }
+        .listitem2 {
+            position: absolute;
+            width:17.20vw;
+            box-shadow: 0px 0px 0px white;
+            background-color: white;
+            border: 1px solid white;
+            left:0.2vw;
+            color:#504125;
+            transition: 0.4s;
+            border-bottom-left-radius:20px;
+            border-bottom-right-radius:20px;
+            height:3.8vh;
+            color:white;
+            cursor: pointer;
+        }
+        .col5 {
+            transition: 0.5s;
+            padding-bottom:30px;
+            overflow:hidden;
+            z-index:11;
+            top:3vh;
+            height:100vh;
+            background:url("{% static 'ftp/ProjectsPage/img/profbg10.jpg' %}") right;
+            background-size: 118.5vw 105vh;
+            text-align: center;
+            align-content: center;
+        }
+        .about_img {
+            width:100%;
+            overflow: hidden;
+            transition:0.5s;
+            align-content:center;
+            text-align:center;
+            padding:30px;
+            position:absolute;
+            overflow:hidden;
+            box-shadow: 0px 0px 20px black;
+            z-index:1;
+            height:100vh;
+            background: transparent;
+        }
+        .list1 {
+            background-color: transparent;
+            position:fixed;
+            top: 0vh;
+            left: 0vw;
+            width:4.33vw;
+            height: 100vh;
+            transition: 0.95s;
+        }
+        .soptext::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            height: 0px;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        .soptext::-webkit-scrollbar-thumb {
+            background: transparent;
+            width:0px;
+            height:0px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .col51 {
+            padding-bottom:30px;
+            overflow:hidden;
+            z-index:11;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            height:100vh;
+            background-color: rgba(43, 129, 145, 0.341);
+            background-size: 118.5vw 105vh;
+            background-position-x:right;
+            text-align: center;
+            align-content: center;
+            transition: 0.5s;
+        }
+        .list1 {
+            overflow:hidden;
+            position:absolute;
+            top:0vh;
+            opacity:1;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: #0d4d66;
+            background-size: 250% 110%;
+            box-shadow: 5px 0px 20px black;
+            z-index:10;
+            height: 94vh;
+        }
+        .soptext {
+            padding-left:30px;
+            padding-right:30px;
+            color:rgb(4, 48, 51);
+            text-align: justify;
+            font-family: 'NTR';
+            font-size: 2.5vh;
+            background-color: rgba(255, 255, 255, 0s);
+        }
+    </style>
+    <body>
+    <div style="display: block;">
+        <div class="row" style="margin-left: 0 !important;margin-right:0 !important;">
+        <div class="col-sm-3 col-md-3 semitopbar" style="padding:0;background-color: #adc8c9;" id="hi">
+            <div class="card mb-sm-3 mb-md-0 contacts_card" style="height: 100vh;">
+                <div class="card-body  contacts_body" id="akshay">
+                    <ul class="contacts topnav" id="myLinks">
+
+                    {% for applicant in applicants %}
+                        <li id="myTopnav">
+                            <button class="btn btn-block mybutton pop" id="{{ applicant.profile.id }}" onclick="window.location.href = '?aid={{applicant.id}}'" >
+                                <div class="d-flex bd-highlight">
+                                    <div class="img_cont">
+                                        <img src="{% if applicant.profile.photo %}{{ applicant.profile.photo.url }}{% endif %}" class="rounded-circle user_img"  style="object-fit:contain;">
+                                    </div>
+                                    <div class="user_info">
+                                        <span>{{applicant.profile.fullname}}</span><br>
+                                        <span>{{applicant.profile.rollno}}</span><br>
+                                        <span>{{applicant.profile.username.email}}</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </li>
+                    {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-5" style="padding-left:0 !important;padding-right:0 !important;">
+
+        
+            <div class="about_img" id ="col4">
+             
+             <img class="propic" src="{{ profile.photo.url }}" style="object-fit:contain;">
+                <div class="col41" id="col41" style="height:75% ; overflow:hidden ; overflow-y:scroll;margin-bottom:20px;margin-top:5px">
+                
+                    <h2 class="name" style="font-weight:500; font-size:30px;" >{{ profile.fullname }}</h2>
+                    <a class="otherdet"><b style="color: #00526b; ">Scholarship : </b>{{ application.scholarship.scholarship_name }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b; ">Roll Number : </b>{{ profile.rollno }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Department : </b>{{ profile.department }}</a><br>
+                     <a class="otherdet"><b style="color: #00526b;">Contact : </b>{{ profile.contact }}</a><br>
+                      <a class="otherdet"><b style="color: #00526b;">Email : </b>{{ profile.username.email }}</a><br>
+                       <a class="otherdet"><b style="color: #00526b;">Passport : </b>{{ profile.passport }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">CGPA : </b>{{ profile.cgpa }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Name Of FacAd : </b>{{ application.NameofFacultyAdvisor }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Name Of HOD : </b>{{ application.NameofFacultyAdvisor }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Name of Host institution : </b>{{ application.Nameofhostinstitution }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Year of Graduation : </b>{{ application.yearOfGrad }}</a><br>
+                    <a class="otherdet"><b style="color: #00526b;">Duration of visit<br>
+                        from : </b>{{ application.DurationOfVisit_from }} <br><b style="color: #00526b;">to: </b>{{ application.DurationOfVisit_to }}</a><br>
+
+                        <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                            <div>
+                                <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">Details of the proposed research/professional internship</h1>
+                                <hr style="width:20vw;border-color: #00526b;">
+                                <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                    <p class="soptext">
+                                        {{application.DetailsOfTheProposedResearch_or_professionalInternship}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                        <div>
+                            <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">SOP</h1>
+                            <hr style="width:20vw;border-color: #00526b;">
+                            <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                <p class="soptext">
+                                    {{application.sop}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    {% if application.HistoryOfCollobration %}
+                    <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                        <div>
+                            <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">History of Collaboration with the host institution/company</h1>
+                            <hr style="width:20vw;border-color: #00526b;">
+                            <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                <p class="soptext">
+                                    {{application.HistoryOfCollobration}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% else %}
+                    {% endif %}
+
+                    <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                        <div>
+                            <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">Justification of applying through (IITKGP) USA Award Program</h1>
+                            <hr style="width:20vw;border-color: #00526b;">
+                            <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                <p class="soptext">
+                                    {{application.Justification_of_applying_through_the_IITKGF_Of_USA_AwardProgram}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+
+                    <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                        <div>
+                            <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">Possible outcome of your proposed research/ professional internship</h1>
+                            <hr style="width:20vw;border-color: #00526b;">
+                            <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                <p class="soptext">
+                                    {{application.PossibleOutcomeOfYourProposedResearch}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="height:fit-content;border:1px solid #00526b;border-radius:5px;">
+                        <div>
+                            <h1 style="font-family: 'Asap';font-size: 25px;font-weight: 700;color: #00526b;">How your engagement with the Host Institute/company will be beneficial to IIT KGP</h1>
+                            <hr style="width:20vw;border-color: #00526b;">
+                            <div style="overflow: scroll;height:30vh!important;padding-bottom:20px;margin-bottom:10px;">
+                                <p class="soptext">
+                                    {{application.Explain_in_about_250_words_how_your_engagement_with_the_Host_Institute}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+
+                
+
+                    {% comment %} <div class="col-sm-5" style="z-index:11;background-color: transparent;top:0vh;height:100vh;">
+                        <div class="col5" id="col5">
+                            <div id="col51" class="col51">
+                                <h1 style="font-family: 'Asap';font-size: 35px;font-weight: 900;color: #00526b;">SOP</h1>
+                                <hr style="width:20vw;border-color: #00526b;">
+                                <div style="overflow: scroll;height:77vh;padding-bottom:30px;">
+                                    <p class="soptext">
+                                        {{application.sop}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4" style="z-index:11;background-color: transparent;top:0vh;height:100vh;padding-left: 0 !important;padding-right: 0 !important;">
+            <div class="col5" id="col5">
+                <div id="col51" class="col51" style="padding-left:1vw;padding-right:1vw;">
+                    <h1 style="font-family: 'Asap';font-size: 35px;font-weight: 900;color: #00526b;">TRANSCRIPT</h1>
+                    <hr style="width:20vw;border-color: #00526b;">
+                    <div style="overflow: scroll;height:60vh;padding-bottom:30px;">
+                        <iframe src="{{application.Transcript.url}}" style="height:100%; width:100%;"></iframe>
+                    </div>
+                    <div class="row" style="padding:2px">
+                        <div class="col-sm-4" style="padding:2px">
+                            <button class="gc" style="position:relative !important;" onclick="window.open('{% if application.cv %}{{ application.cv.url }}{% else %}{{ profile.cv.url }}{% endif %}','_blank')">Curriculum Vitae</button>
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            <button class="gc" style="position:relative !important;" onclick="window.open('{% if application.NOC %}{{ application.NOC.url }}{% endif %}','_blank')">NOC</button>
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            <button class="gc" style="position:relative !important;" onclick="window.open('/ftp/dashboard_profiles/edit/{{profile.id}}/', '_blank')" value="Curriculum Vitae">Edit Profile</button>  
+                        </div> 
+                        <div class="col-sm-4" style="padding:2px">
+                            <button class="gc" style="position:relative !important;" onclick="window.open('{% if application.offer_letter %}{{ application.offer_letter.url }}{% endif %}','_blank')">Offer Letter</button>
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            <button class="gc" style="position:relative !important;" onclick="window.open('{% if application.Transcript %}{{ application.Transcript.url }}{% else %}{% endif %}','_blank')">Transcript</button>
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            {% if application.Awards %}<button class="gc" style="position:relative !important;" onclick="window.open('{% if application.Awards %}{{ application.Awards.url }}{% else %}{% endif %}','_blank')">Awards</button>{% else %}{% endif %}
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            {% if application.letter_of_endorsement %}<button class="gc" style="position:relative !important;" onclick="window.open('{% if application.letter_of_endorsement %}{{ application.letter_of_endorsement.url }}{% else %}{% endif %}','_blank')">Endorsement</button>{% else %}{% endif %}
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            {% if application.fuding_proof %}<button class="gc" style="position:relative !important;" onclick="window.open('{% if application.fuding_proof %}{{ application.fuding_proof.url }}{% else %}{% endif %}','_blank')">Fuding proof</button>{% else %}{% endif %}
+                        </div>
+                        <div class="col-sm-4" style="padding:2px">
+                            {% if application.work_publication %}<button class="gc" style="position:relative !important;" onclick="window.open('{% if application.work_publication %}{{ application.work_publication.url }}{% else %}{% endif %}','_blank')">Work Publication</button>{% else %}{% endif %}
+                        </div>
+                            <!-- <button class="gc" onclick="window.open('/ftp/dashboard_profiles/applicants_edit/{{application.id}}/', '_blank')" style="right:11.15vw;width:7.7vw" value="Curriculum Vitae">Edit SOP/CV</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    </body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,462 @@
+{% extends 'ftp/base.html'%}
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Profile{% endblock %}</title>
+    <!--Other head elements to include-->
+    {% block head %}
+    <!-- Font Icon -->
+    <link rel="stylesheet"
+        href="{% static 'ftp/profile/assets/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/boostrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/acc-wizard-master/release/acc-wizard.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+    <!--Avatar-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/reset/reset.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/css/view_profile.css' %}">
+    {% endblock %}
+
+    <style>
+        {
+            % block style %
+        }
+        
+        .sections:hover{
+            color: black !important;
+        }
+
+        #profile_pic {
+            display: flex !important;
+            justify-content: center !important;
+        }
+
+        .container {
+            border: 2px solid #38ba8a;
+        }
+
+        #vpcenter {
+            text-align: center !important;
+        }
+
+        .main {
+            margin-top: 5% !important;
+        }
+
+        iframe {
+            width: 300px !important;
+            height: 300px !important;
+        }
+
+        footer {
+            margin-top: auto !important;
+        }
+
+        #submit {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #tran_btn {
+            float: right;
+            font-size: 110%;
+            margin-right: 5vw;
+        }
+
+        #cv_btn {
+            float: left;
+            font-size: 120%;
+            margin-left: 5vw;
+        }
+
+        #gender_div {
+            display: inline !important;
+            width: fit-content !important;
+        }
+
+        #pass_div {
+            display: inline !important;
+            width: fit-content !important;
+        }
+
+        .dropdown-menu {
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 8px;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .dropdown-toggle::after {
+            content: none;
+        }
+
+        .dropup {
+            display: none !important;
+        }
+
+        @media screen and (max-width: 992px) {
+            .dropup {
+                display: block !important;
+            }
+
+            #gender {
+                margin-right: 80px;
+            }
+
+        }
+
+            {
+            % comment %
+        }
+
+        .form-row .form-group-flex,
+        .form-row .form-select,
+        .form-group {
+            width: auto !important;
+        }
+
+            {
+            % endcomment %
+        }
+
+        #vpcenter,
+        #profile_pic {
+            width: 100% !important;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            #gender,
+            #passport {
+                padding-left: 0;
+            }
+
+        }
+
+        @media screen and (max-width: 450px) {
+            iframe {
+                width: 200px !important;
+                height: 200px !important;
+            }
+
+            #cv_btn,
+            #tran_btn {
+                float: left;
+                margin-left: 10vw !important;
+                margin-right: 8vw !important;
+            }
+
+            #gender_div,
+            #pass_div {
+                float: left;
+                margin-left: 8vw !important;
+                margin-right: 8vw !important;
+            }
+
+            #trow {
+                margin-left: 9vw !important;
+            }
+        }
+
+            {
+            % endblock %
+        }
+    </style>
+</head>
+
+<body>
+    <!--   IRCell  -->
+    <!--<div class="logo-container">
+        <div class="sidebar-brand d-flex align-items-center justify-content-center">
+            <div class="sidebar-brand-text mx-3" style="font-family: sans-serif; font-size: 1.45rem;">
+                <a href="/">
+                    <img class="logo_irc" src="{% static 'ftp/profile/assets/images/logo.png' %}">
+                </a>
+                <span id="FTP" class="small" >Foreign Training Program</span>
+                <a href="{% url 'ftp:logout_user' %}" id="logbut">
+                    <button type="button" class="btn btn-warning">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>-->
+    {% block main %}
+    <div class="main">
+        <section style=" margin-top: -70px; margin-bottom: 70px">
+            <div class="container" style="margin-top: 70px;     border: 2px solid #00506B !important; ">
+                <div class="acc-wizard">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <!--About-->
+                            <div class="panel-heading" id="headingOne">
+                                <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                    <a id="one" href="#collapseOne" data-toggle="collapse"
+                                        data-parent="#accordion" class="sections">About</a>
+                                </h3>
+                            </div>
+
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <form name="form1">
+                                        <fieldset style="margin-bottom: 0;">
+                                            <div id="profileBasicInfo" style="display: flex;">
+                                                <div class="form-row profilePic" style="margin-right: 10px;">
+                                                    <div class="form-group" id="profile_pic" style="float: left;">
+                                                        <img style="border-radius: 50%;"
+                                                            src="{% if prof.photo %}{{ prof.photo.url }}{% else %}{% static 'ftp/ProjectsPage/img/avatar.svg' %}{% endif %}"
+                                                            width="150px" height="150px" alt="profile picture">
+                                                    </div>
+                                                </div>
+                                                <div style="display: flex;flex-direction: column;">
+                                                    <div class="form-row" style="display: flex;flex-direction: column">
+                                                        <label for="fullName" class="col-sm-3" id="fullName" style="white-space: nowrap;">Full
+                                                            name:</label>
+                                                        <div class="form-group" id="vpcenter">
+                                                            <input type="text" name="fullname" id="fullname" value="{{ prof.fullname}}" readonly />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row" id="trow" style="width:100% !important">
+                                                        <div class="form-group-flex" id="gender_div" class="col-sm-4">
+                                                            <div class="form-radio"
+                                                                style="display: flex;flex-direction: column;">
+                                                                <label for="gender" style="margin-top:12px"
+                                                                    id="gender">Gender:</label>
+                                                                <div class="form-flex" class="col-sm-1">
+                                                                    {% if prof.gender == "Male" %}
+                                                                    <input type="radio" name="gender" value="Male"
+                                                                        id="male" checked="checked" />
+                                                                    <label for=" male"
+                                                                        style="border: 2px solid #00506B !important;background-color: #f8f8f8;">Male</label>
+                                                                    {% elif prof.gender == "Female" %}
+                                                                    <input type="radio" name="gender" value="Female"
+                                                                        id="female" checked="checked" />
+                                                                    <label for="female"
+                                                                        style="border: 2px solid #00506B !important;background-color: #f8f8f8;">Female</label>
+                                                                    {% else %}
+                                                                    <input type="radio" name="gender" value="Other"
+                                                                        id="other" checked="checked" />
+                                                                    <label for="other"
+                                                                        style="border: 2px solid #00506B !important;background-color: #f8f8f8;">Other</label>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-flex" id="pass_div" class="col-sm-8">
+                                                            <div class="form-radio"
+                                                                style="display: flex;flex-direction: column;">
+                                                                <label for="passport"
+                                                                    style="margin-top:12px;margin-right: -25px;"
+                                                                    id="passport">Passport Status:</label>
+                                                                <div class="form-flex" class="col-sm-2">
+                                                                    {% if prof.passport == "yes" %}
+                                                                    <input type="radio" name="passport" value="yes"
+                                                                        id="yes" checked="checked" disabled/>
+                                                                    <label for="yes"
+                                                                        style="border: 2px solid #00506B !important; background-color: #f8f8f8;">Having</label>
+                                                                    <input type="radio" name="passport" value="no"
+                                                                        id="no" disabled/>
+                                                                    <label for="no"
+                                                                        style="border: none;background-color: #f8f8f8;">Not
+                                                                        having</label>
+                                                                    <input type="radio" name="passport" value="process"
+                                                                        id="process" disabled/>
+                                                                    <label for="process"
+                                                                        style="border: none;background-color: #f8f8f8;">In-process</label>
+                                                                    {% elif prof.passport == "no" %}
+                                                                    <input type="radio" name="passport" value="yes"
+                                                                        id="yes" disabled/>
+                                                                    <label for="yes"
+                                                                        style="border: none;background-color: #f8f8f8;">Having</label>
+                                                                    <input type="radio" name="passport" value="no"
+                                                                        id="no" checked="checked" disabled/>
+                                                                    <label for="no"
+                                                                        style="border: 2px solid #00506B !important; background-color: #f8f8f8;">Not
+                                                                        having</label>
+                                                                    <input type="radio" name="passport" value="process"
+                                                                        id="process" disabled/>
+                                                                    <label for="process"
+                                                                        style="border: none;background-color: #f8f8f8;">In-process</label>
+                                                                    {% else %}
+                                                                    <input type="radio" name="passport" value="yes"
+                                                                        id="yes" disabled/>
+                                                                    <label for="yes"
+                                                                        style="border: none;background-color: #f8f8f8;">Having</label>
+                                                                    <input type="radio" name="passport" value="no"
+                                                                        id="no" disabled/>
+                                                                    <label for="no"
+                                                                        style="border: none;background-color: #f8f8f8;">Not
+                                                                        having</label>
+                                                                    <input type="radio" name="passport" value="process"
+                                                                        id="process" checked="checked" disabled/>
+                                                                    <label for="process"
+                                                                        style="border: 2px solid #00506B !important; background-color: #f8f8f8;">In-process</label>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                    <!--<button class="button next" style="vertical-align:middle" id="next1"><span>Next </span></button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <!--Academic Details-->
+                            <div class="panel-heading" id="headingTwo">
+                                <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                    <a id="two" href="#collapseTwo" data-toggle="collapse"
+                                        data-parent="#accordion" class="sections">Academic
+                                        Details</a>
+                                </h3>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <!---->
+                                <div class="panel-body">
+                                    <form name="form2">
+                                        <fieldset>
+                                            <div class="form-row col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="rollno" class="form-label">Roll No.:</label>
+                                                    <input type="text" name="rollno" id="rollno"
+                                                        value="{{ prof.rollno }}" readonly
+                                                        style="font-family: 'Roboto';" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="dept"
+                                                        class="form-label">Department/Centre/School:</label>
+                                                    <input type="text" name="department" id="dept"
+                                                        value="{{ prof.department }}" readonly
+                                                        style="font-family: 'Roboto';" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="year" class="form-label">Year of study:</label>
+                                                    <input type="number" name="year" id="year" value="{{ prof.year }}"
+                                                        readonly style="font-family: 'Roboto';" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cgpa" class="form-label">CGPA:</label>
+                                                    <input type="number" name="cgpa" id="cgpa" value="{{ prof.cgpa }}"
+                                                        readonly style="font-family: 'Roboto';" />
+                                                </div>
+                                            </div>
+                                            {% comment %} <div class="form-row">
+                                                <div class="form-group">
+                                                    <a href="{% if prof.cv %}{{ prof.cv.url }}{% endif %}"
+                                                        target="_blank">CV:</a><br>
+                                                    <iframe src="{% if prof.cv %}{{ prof.cv.url }}{% endif %}"
+                                                        style="border: none;"></iframe>
+                                                </div>
+                                                <div class="form-group">
+                                                    <a href="{% if prof.transcript %}{{ prof.transcript.url }}{% endif %}"
+                                                        target="_blank">Transcript:</a><br>
+                                                    <iframe
+                                                        src="{% if prof.transcript %}{{ prof.transcript.url }}{% endif %}"
+                                                        style="border: none;"></iframe>
+                                                </div>
+                                            </div> {% endcomment %}
+                                        </fieldset>
+                                    </form>
+                                    <button class="button next" id="cv_btn"
+                                        onclick="window.open('{% if prof.cv %}{{ prof.cv.url }}{% endif %}', '_blank')"
+                                        style="vertical-align:middle; float: left; background: linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B);"><span>CV</span></button>
+                                    <button class="button next" id="tran_btn"
+                                        onclick="window.open('{% if prof.transcript %}{{ prof.transcript.url }}{% endif %}', '_blank')"
+                                        style="vertical-align:middle; background: linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B);"><span>Transcript</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingThree">
+                                <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                    <a id="three" href="#collapseThree" data-toggle="collapse"
+                                        data-parent="#accordion" class="sections">Contact Details</a>
+                                </h3>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <form name="form3">
+                                        <fieldset>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="contact" class="form-label">Phone Number(without
+                                                        +91):</label>
+                                                    <input type="number" name="contact" id="contact" placeholder=""
+                                                        value="{{ prof.contact }}" readonly
+                                                        style="font-family: 'Roboto';" />
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="alt_email" class="form-label">Alternate Email:</label>
+                                                    <input type="text" name="alt_email" id="alt_email" placeholder=""
+                                                        value="{{ prof.alt_email }}" readonly
+                                                        style="font-family: 'Roboto';" />
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                    <!--<button class="button previous" style="vertical-align:middle;float:left;" onclick="previous('two');">
+                                        <span>
+                                            Previous
+                                        </span>
+                                    </button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button" id="submit" style="vertical-align:middle; background: linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B);"
+                            onclick="window.location.href ='/ftp/profile/edit'">
+                            <span>
+                                Edit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% endblock %}
+    {% block js %}
+    <!-- JS -->
+    <script src="{% static 'ftp/profile/assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/boostrap/bootstrap.min.js' %}"></script>
+    <!--<script src="{% static 'ftp/profile/assets/vendor/acc-wizard-master/release/acc-wizard.min.js' %}"></script>-->
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-validation/dist/additional-methods.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-steps/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/minimalist-picker/dobpicker.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/js/main.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/js/view_profile.js' %}"></script>
+    <!-- <script>
+        $(document).bind("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        $(document).keydown(function (e) {
+            if (e.which === 123) {
+                return false;
+            }
+            else if (event.ctrlKey && event.shiftKey && ((event.keyCode == 73) || (event.keyCode == 74) || (event.keyCode == 67))) {
+                return false;
+            }
+        });
+    </script> -->
+    {% endblock %}
+</body>
+
+</html>

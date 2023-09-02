@@ -1,0 +1,508 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>{{ event.title }} | International Relations Cell</title>
+
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}" />
+    <link rel="stylesheet" href="{% static 'home/notice/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+
+    <script nonce="dc47ec1a-7b4b-4380-a9b5-5b0ba175fa0f">(function (w, d) { !function (cM, cN, cO, cP) { cM.zarazData = cM.zarazData || {}; cM.zarazData.executed = []; cM.zaraz = { deferred: [], listeners: [] }; cM.zaraz.q = []; cM.zaraz._f = function (cQ) { return function () { var cR = Array.prototype.slice.call(arguments); cM.zaraz.q.push({ m: cQ, a: cR }) } }; for (const cS of ["track", "set", "debug"]) cM.zaraz[cS] = cM.zaraz._f(cS); cM.zaraz.init = () => { var cT = cN.getElementsByTagName(cP)[0], cU = cN.createElement(cP), cV = cN.getElementsByTagName("title")[0]; cV && (cM.zarazData.t = cN.getElementsByTagName("title")[0].text); cM.zarazData.x = Math.random(); cM.zarazData.w = cM.screen.width; cM.zarazData.h = cM.screen.height; cM.zarazData.j = cM.innerHeight; cM.zarazData.e = cM.innerWidth; cM.zarazData.l = cM.location.href; cM.zarazData.r = cN.referrer; cM.zarazData.k = cM.screen.colorDepth; cM.zarazData.n = cN.characterSet; cM.zarazData.o = (new Date).getTimezoneOffset(); if (cM.dataLayer) for (const cZ of Object.entries(Object.entries(dataLayer).reduce(((c_, da) => ({ ...c_[1], ...da[1] }))))) zaraz.set(cZ[0], cZ[1], { scope: "page" }); cM.zarazData.q = []; for (; cM.zaraz.q.length;) { const db = cM.zaraz.q.shift(); cM.zarazData.q.push(db) } cU.defer = !0; for (const dc of [localStorage, sessionStorage]) Object.keys(dc || {}).filter((de => de.startsWith("_zaraz_"))).forEach((dd => { try { cM.zarazData["z_" + dd.slice(7)] = JSON.parse(dc.getItem(dd)) } catch { cM.zarazData["z_" + dd.slice(7)] = dc.getItem(dd) } })); cU.referrerPolicy = "origin"; cU.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(cM.zarazData))); cT.parentNode.insertBefore(cU, cT) };["complete", "interactive"].includes(cN.readyState) ? zaraz.init() : cM.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, 0, "script"); })(window, document);
+    </script>
+
+    <style>
+        #image-viewer {
+            display: none;
+            position: fixed;
+            z-index: 11;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+            z-index: 2;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        #image-viewer .close {
+            position: fixed;
+            top: 35px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 3;
+        }
+
+        #image-viewer .close:hover,
+        #image-viewer .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+
+        #scrollUp {
+            display: none !important;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+
+        nav {
+            background-color: white !important;
+        }
+
+        .gallery {
+            width: 100%;
+        }
+
+        .gallery * {
+            transition: all 0.4s;
+        }
+
+        .gallery .gallery_content {
+            column-gap: 5px;
+            width: 100%;
+        }
+
+        .gallery .gallery_content .picture_wrapper {
+            margin-bottom: 5px;
+        }
+
+        .gallery .gallery_content .picture_wrapper img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .gallery .gallery_content .picture_wrapper img:hover {
+            filter: brightness(80%);
+            transform: scale(1) !important;
+        }
+
+        /* responsive */
+        @media (min-width: 1200px) {
+            .gallery_content {
+                column-count: 4;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .gallery_content {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767px) {
+            .gallery_content {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .gallery_content {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+
+    <i class="fas fa-arrow-up floatingBtn scrollToTopBtn" onclick="window.scrollTo(0,0)" tabindex="0"
+        style="background: linear-gradient(135deg, #2C983C , #2C983C , #2C983C , #2C983C);"></i>
+
+    <nav class="my-navbar">
+        <style>
+            .my-navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                padding: 15px;
+                width: 100vw;
+                background-color: transparent;
+                transition: all 0.3s;
+            }
+
+            .my-navbar a {
+                display: flex;
+                align-items: center;
+            }
+
+            .my-navbar a>img {
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
+                margin-right: 10px;
+                transform: scale(1) !important;
+            }
+
+            .my-navbar a>span {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .carousel-item>img {
+                transform: scale(1) !important;
+            }
+        </style>
+        <div>
+            <a style="line-height: 1.2;margin-right: 0;color:#2C983C; text-decoration:none !important;"
+                href="{% url 'home' %}">
+                <img src="{% static 'ftp/images/logo.png' %}" alt="" />
+                <span>International Relations<br />Cell</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- <div class="hero-area">
+        <div class="hero-slides owl-carousel" style="height: 50vh !important;">
+            {% for eventImage in eventImages %}
+            <div class="single-hero-slide bg-img background-overlay"
+                style="background-image: url('{{ eventImage.image.url }}');"></div>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    <div class="gallery-content-wrapper" style="padding-top: 30px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+
+                        <!-- <div class="post-meta">
+                            <p><a href="https://www.facebook.com/IRCIITKGP/" class="post-author" style="text-decoration: none !important; color:#2C983C">International Relations
+                                    Cell</a> on <a class="post-date">{{ notice.date }}</a></p>
+                        </div> -->
+
+                        <div class="post-content" style="padding: 0;border-radius:5px;">
+                            <blockquote>
+                                <h3 style="font-family: 'Ubuntu', sans-serif;">{{ event.title }}</h3>
+                            </blockquote>
+                        </div>
+
+                        <div class="post-content" style="padding: 0;box-shadow: none;">
+                            <style>
+                                .eventDesc * {
+                                    font-size: 16px !important;
+                                }
+                            </style>
+                            <h6 style="margin-top: 40px;margin-bottom: 40px;" class="eventDesc">
+                                {% autoescape off %}
+                                {{ event.description|linebreaks|safe }}
+                                {% endautoescape %}
+                            </h6>
+                            <!-- <ul class="post-tags">
+                                <li><a href="#">Manual</a></li>
+                                <li><a href="#">Liberty</a></li>
+                                <li><a href="#">Recommendations</a></li>
+                                <li><a href="#">Interpritation</a></li>
+                            </ul> -->
+                            <!-- <div class="post-meta second-part">
+                                <p><a href="#" class="post-author" style="text-decoration: none !important; color:#2C983C">International Relations Cell</a> on <a
+                                        class="post-date">{{ notice.date }}</a></p>
+                            </div> -->
+                        </div>
+
+                        <div class="post-content" style="padding: 0;border-radius:5px;">
+                            <blockquote>
+                                <h3 style="font-family: 'Ubuntu', sans-serif;">Gallery</h3>
+                            </blockquote>
+                        </div>
+
+                        <div class="gallery">
+                        </div>
+
+                        <div class="gallery">
+
+                            <div class="gallery_content">
+                                {% for eventImage in eventImages %}
+                                <div class="picture_wrapper images">
+                                    <img src="{{ eventImage.image.url }}" alt="" style="border-radius: 5px;">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div id="image-viewer">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="full-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-4" style="z-index: 1;">
+                    <div class="post-sidebar-area mb-100">
+
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About Us</h5>
+                            <div class="widget-content">
+                                <p>The International Relations Cell (IRC) is a student body working along with the
+                                    Office of International Relations (OIR).
+                                    It works to promote the exchange of students, faculties, and ideas between IIT
+                                    Kharagpur and her international partners
+                                    and establishing the globalization of IIT Kharagpur..</p>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Other Events</h5>
+                            <div class="widget-content">
+                                {% for event in events %}
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post" style="border-radius: 5px;">
+                                    <div class="post-thumbnail">
+                                        <img onclick="window.open('{% url 'event' id=event.id %}','_self')"
+                                            src="{{ event.img.url }}" alt=""
+                                            style="transition: all 0.2s;cursor: pointer;object-fit: cover;height: 75px !important;object-fit: cover; border-radius:5px;">
+                                    </div>
+                                    <div class="post-content">
+                                        <a href="{% url 'event' id=event.id %}" class="headline"
+                                            style="text-decoration: none !important; color:#2C983C !important; font-family:'Ubuntu', sans-serif !important;">
+                                            <h6 class="mb-0">{{ event.title|truncatechars:25 }}</h6>
+                                            <h5 class="mb-0">{{ event.description|truncatechars:60 }}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><i
+                                            class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/irc.iitkgp" target="_blank"><i
+                                            class="fa fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA"
+                                        target="_blank"><i class="fa fa-youtube"></i></a>
+                                    <a href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                                        target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a href="mailto:irc@iitkgp.ac.in" target="_blank"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="ftco-footer ftco-section">
+        <div class="custom-shape-divider-top-1669620186">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill">
+                </path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">
+                            International
+                            Relations Cell</h2>
+                        <p>The International Relations Cell (IRC) is a student body working along with the
+                            Office of
+                            International Relations (OIR). It works to promote the exchange of students,
+                            faculties,
+                            and ideas between IIT Kharagpur and her international partners and establishing
+                            the
+                            globalization of IIT Kharagpur.</p>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#aboutus">About Us</a></li>
+                            <li><a href="#chapter-section">Events</a></li>
+                            <li><a href="#testimonial-section">Reviews</a></li>
+                            <li><a href="#contact-section">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Contact Us</h2>
+                        {% comment %} <ul class="list-unstyled">
+                            <li><a href="#">Experience</a></li>
+                            <li><a href="#">Marketing Goals</a></li>
+                            <li><a href="#">Targetting Vission</a></li>
+                        </ul> {% endcomment %}
+                        <p><a href="mailto:irc@iitkgp.ac.in"><span class="__cf_email__"
+                                    data-cfemail="cba2a5ada48bb2a4beb9b8a2bfaee5a8a4a6">irc@iitkgp.ac.in</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Subscribe to our NewsLetter</h2>
+                        <form name="newsletter">
+                            <i class="fa fa-envelope"></i>
+                            <input class="whitePlaceholder" type="email" placeholder="Enter your email"
+                                style="opacity:0.8;color:#fff" name="Email"><a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSeFse6f2KETaO7_YGUJvHnlHnqY7IkQZCgLFnkp0zhIPMcoHg/viewform"
+                                target="_blank"><i class="fas fa-arrow-right" style="color:#fff"></i></a>
+                        </form>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://www.youtube.com/channel/UChcAjlzcvvZvbBhg7AMAaJA"
+                                    target="_blank"><span class="fa fa-youtube"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/IRCIITKGP/" target="_blank"><span
+                                        class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/irc.iitkgp"
+                                    target="_blank"><span class="fa fa-instagram"></span></a></li>
+                            <li class="ftco-animate"><a
+                                    href="https://www.linkedin.com/company/international-relations-cell-iit-kharagpur/mycompany/"
+                                    target="_blank"><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% comment %} <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St.
+                                        Mountain
+                                        View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392
+                                            3929
+                                            210</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text"><span
+                                                class="__cf_email__"
+                                                data-cfemail="d3babdb5bc93aabca6a1b7bcbeb2babdfdb0bcbe">[email&#160;protected]</span></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        Copyright &copy;
+                        <script data-cfasync="false"
+                            src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                        International
+                        Relations Cell
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'home/notice/js/jquery/jquery-2.2.4.min.js' %}"></script>
+
+    <script src="{% static 'home/notice/js/popper.min.js' %}"></script>
+
+    <script src="{% static 'home/notice/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'home/notice/js/plugins.js' %}"></script>
+
+    <script src="{% static 'home/notice/js/active.js' %}"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+    <script>
+        $(".images img").click(function () {
+            $("#full-image").attr("src", $(this).attr("src"));
+            $('#image-viewer').show();
+        });
+
+        $("#image-viewer .close").click(function () {
+            $('#image-viewer').hide();
+        });
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
+        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
+        data-cf-beacon='{"rayId":"77315134ce9b94b8","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}'
+        crossorigin="anonymous"></script>
+
+    <script>
+        const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+        const navbar = document.querySelector(".my-navbar");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY >= 2) {
+                scrollToTopBtn.style.transform = "scale(1)";
+                navbar.style.backgroundColor = "white";
+            }
+            else {
+                scrollToTopBtn.style.transform = "scale(0)";
+                navbar.style.backgroundColor = "transparent";
+            }
+        });
+    </script>
+
+    <script>
+        const handleImage = e => window.open(e.target.src, "noopener");
+    </script>
+
+</body>
+
+</html>

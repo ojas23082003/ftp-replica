@@ -1,0 +1,471 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+<script>
+    function loadURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#photo')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(170);
+                };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            {#background-attachment: fixed;#}
+            {#background-repeat: no-repeat;#}
+            background-size: cover;
+        }
+        label {
+            margin-bottom: 20px;
+            padding-left: 1vw;
+        }
+        .row {
+            padding-left: 2vw;
+            padding-right: 2vw;
+        }
+        .formc {
+            width: 60%;
+            background-color: white;
+            margin-top: 120px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 1200px) {
+            .formc {
+                width: 70%;
+            }
+        }
+        @media (max-width: 960px) {
+            .formc {
+                width: 80%;
+            }
+        }
+        @media (max-width: 835px) {
+            .formc {
+                width: 90%;
+            }
+        }
+        @media (max-width: 576px) {
+            .formc {
+                width: 100%;
+                margin-top: 60px;
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: 991px) {
+            .sectionhead {
+                text-align: center;
+            }
+        }
+
+        .profilephoto {
+            width: 150px;
+            height: 170px;
+            margin: auto;
+            margin-top: 20px;
+            border: grey solid 1px;
+        }
+
+        .profilephoto img {
+            max-width: 148px;
+        }
+
+        .btn-primary.disabled, .btn-primary:disabled {
+            color: #fff;
+            background-color: grey;
+            border-color: lightgrey;
+        }
+        .termscond {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .termscond:hover {
+            text-decoration: none;
+        }
+    </style>
+    <title>International Relations Cell | IIT Kharagpur</title>
+
+    <form class="form-horizontal" role="form" action ="{% url 'ftp:save_profile' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container formc" style="border: lightgrey solid 1px;">
+    {% if form.errors %}
+                                        {% for field in form %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in form.non_field_errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+        <div class="row" style="margin-bottom: 30px; margin-top: 40px;">
+            <div class="col-lg-12" style="text-align: center">
+                <h2 style="font-family: FontinBold, sans-serif">MY PROFILE</h2>
+            </div>
+        </div>
+            <div class="row sectionhead">
+                <div class="col-lg-12">
+                    <h4 style="margin-bottom: 20px;">Personal Details</h4>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Full Name:</label>
+                        <div class="col-lg-12">
+                            <div style="padding:.375rem .75rem; height: calc(2.25rem + 2px); border-radius: .25rem; border: 1px solid #ced4da; background-color: #e9ecef; color: #495057;">{{ profile.fullname }}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Email</label>
+                        <div class="col-lg-12">
+                            <div style="padding:.375rem .75rem; height: calc(2.25rem + 2px); border-radius: .25rem; border: 1px solid #ced4da; background-color: #e9ecef; color: #495057;">{{ profile.email }}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Do you have a Passport:</label>
+                        <div class="col-lg-12">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="passport" value="yes" {% if profile.passport == "yes" %}checked{% endif %}>Yes
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="passport" value="no" {% if profile.passport == "no" %}checked{% endif %}>No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="text-align: center;">
+                    <label class="col-lg-12 control-label" style="margin-bottom: 10px;">Profile Photo</label>
+
+                    <input type="file" class="form-control-file border" name="photo" id="mydet" onchange="loadURL(this);">
+                    <div class="profilephoto">
+                        <img id="photo" src="{{ MEDIA_URL }}{{ profile.photo }}" border="2" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row sectionhead">
+                <div class="col-lg-12">
+                    <h4 style="margin-bottom: 20px;">Academic Details</h4>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Roll No.:</label>
+                        <div class="col-lg-12">
+                            <div style="padding:.375rem .75rem; height: calc(2.25rem + 2px); border-radius: .25rem; border: 1px solid #ced4da; background-color: #e9ecef; color: #495057;">{{ profile.username }}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Department: </label>
+                        <div class="col-lg-12">
+                            <div class="ui-select">
+                                <div style="padding:.375rem .75rem; height: calc(2.25rem + 2px); border-radius: .25rem; border: 1px solid #ced4da; background-color: #e9ecef; color: #495057;">{{ profile.department }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Upload your CV (in .pdf):</label>
+                        <div class="col-lg-12">
+                            <input type="file" class="form-control" name="cv">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Year of study:</label>
+                        <div class="col-lg-12" style="margin-bottom: 30px;">
+                            {% if profile.year == "one" %}
+                                <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="two" disabled {% if profile.year == "one" %}checked{% endif %}>2
+                                </label>
+                            </div>
+                            {% endif %}
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="two" disabled {% if profile.year == "two" %}checked{% endif %}>2
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="three" disabled {% if profile.year == "three" %}checked{% endif %}>3
+                                </label>
+                            </div>
+                            <div class="form-check-inline disabled">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="four" disabled {% if profile.year == "four" %}checked{% endif %}>4
+                                </label>
+                            </div>
+                            <div class="form-check-inline disabled">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="five" disabled {% if profile.year == "five" %}checked{% endif %}>5
+                                </label>
+                            </div>
+                            <div class="form-check-inline disabled">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="phd" disabled {% if profile.year == "phd" %}checked{% endif %}>PhD
+                                </label>
+                            </div>
+                            <div class="form-check-inline disabled">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="year" value="grad" disabled {% if profile.year == "grad" %}checked{% endif %}>Graduated
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">CGPA as per your latest Transcript:</label>
+                        <div class="col-lg-12">
+                            <input class="form-control" type="text" name="cgpa" value="{{ profile.cgpa }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Transcript (ERP Generated) or Degree Certificate (in .pdf):</label>
+                        <div class="col-lg-12">
+                            <input type="file" class="form-control" name="transcript">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row sectionhead">
+                <div class="col-lg-12">
+                    <h4 style="margin-bottom: 20px;">Contact Details</h4>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Phone Number(without +91):</label>
+                        <div class="col-lg-12">
+                            <input class="form-control" type="text" name="contact" value="{{ profile.contact }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label">Skype ID:</label>
+                        <div class="col-lg-12">
+                            <input class="form-control" type="text" name="skype" value="{{ profile.skype }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px; margin-bottom: 30px;">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="cid">&nbsp&nbsp&nbsp<b>I certify that all statements I have made on this application and documents submitted are true & correct. I will abide by the <a style="color: blue; text-decoration: none;" data-toggle="modal" class="termscond" data-target="#myModal"><u>Terms and Conditions</u></a> set by International Relations Cell, IIT Kharagpur.</b>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 40px; text-align: center">
+                <div class="col-lg-12" style="text-align: center">
+                    <input type="submit" class="btn btn-primary" value="Save Changes" name="button" id="bid" disabled="">
+                </div>
+            </div>
+    </div>
+    </form>
+
+    {% if error %}
+        <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="color: red;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Terms & Conditions</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>International Relations Cell respects the privacy of individuals and is committed to collect, use
+              and process personal data in a respectful, secure and lawful manner.</p>
+
+<p>With the following terms we inform you about our privacy practices, the choices you can make
+    about the ways your information is collected online and how information is processed and used.</p>
+
+<p>Therefore, - before you agree to this policy and provide your personal data -, please read the
+            following statements including your obligations carefully:</p>
+
+            <p>1.Purpose:</p>
+
+<p>The personal information collected and stored in this system will be used for talent sourcing and
+    Intern selection process worldwide.</p>
+
+<p>International Relations Cell publishes open vacancies on this portal and offers the opportunity to
+apply for a particular research intern. If you are interested in more than one open vacancy, you
+can apply for multiple intern. You may also simply register your personal data on our portla and
+maintain your profile for any potential opportunities. This allows all of those involved with the
+    recruiting process to review your background and determine if there is a potential match.</p>
+
+<p>Personal data you entered will be stored in your registration profile independently of the 2
+    options (described below) you are going to use.</p>
+
+<p>For purposes of our process, recruiter may be defined as any individual involved with the
+    recruiting process.For further clarification, please note that when you choose:</p>
+
+            <p>2. Provisions from International Relations Cell:</p>
+<p>International Relations Cell IIT Kharagpur only provides a platform shortlisting and interview by
+a professor. International Relations Cell is in no way responsible after the student has accepted
+    the intern offer.</p>
+            <p>3. Your obligations &amp; Information on storage and maintenance of the data:</p>
+
+            <p>Data entry:</p>
+<p>International Relations Cell does not intend to collect and process any personal data (e.g. your
+contact data, CV, job experiences and skills), unless you provide these voluntarily, or it is
+permitted under the respective laws governing the protection of such data. Please note not to
+upload personal data or file attachments containing information that are not required for our
+    selection process, especially data that are sensitive in their type of nature.</p>
+
+            <p>Data updates:</p>
+
+
+<p>Keeping your profile accurate and up to date is very important. If your profile information is
+incomplete, inaccurate or not current, please contact us on irc@iitkgp.ac.in to make the
+    necessary updates.</p>
+
+            <p>Data deletion:</p>
+
+<p>You do not have the possibility to withdraw single applications online in the system once
+applied.<br>
+You cannot delete your complete profile which includes the removal of your personal identifying
+    data on all of your applications and deletion of your individual account data and password.</p>
+
+            <p>Password and data confidentiality:</p>
+
+<p>You are responsible to keep your profile account data and your individual password confidential
+    and must not share them with anyone.</p>
+
+<p>In case you believe for any reason that your authorization or the confidentiality, security and
+integrity of your pass code, personal data or other information are compromised you will contact
+    immediately International Relations Cell</p>
+
+<p>International Relations Cell utmost concern in our talent sourcing and employee selection is to
+apply a very careful and fair decision making process. For traceability we will record certain
+personal data and data collected in the context with your application even if the selection
+process for a vacant position was already finalized, which can also mean that you will be
+    contacted if the same or a similar job position is vacant in the future.</p>
+
+            <p>4. Recipients of your personal data:</p>
+
+<p>Depending upon which location processes your application, the personal data will be initially
+controlled by or on behalf of International Relations Cell. According to our corporate global organizational structure your personal data may be disclosed
+to authorized personnel (such as our Recruiters) in International Relations Cell. The authorized
+    personnel may be employed by legal entities other than the one offering the vacant job position.</p>
+
+<p>Even in the case that your data are transferred to/ are accessible by personnel located in
+entities outside Indian Area, International Relations Cell are endeavored to ensure a sufficient
+    data privacy level, and to safeguard and protect your data.<br>
+Your personal data may be disclosed to other than International Relations Cell that are
+contracted for providing technical support or other relevant services for the respective. Please
+be assured that International Relations Cell took proper measures to ensure an adequate data
+privacy level, such as having contractual obligations with the respective companies in place and
+    limitation of the access purposes and rights.</p>
+
+            <p>5. Data security and technical information:</p>
+
+<p>With implementation of technical and organizational measures International Relations Cell
+endeavors to protect your personal data against accidental or unlawful destruction, alteration or
+    loss, unauthorized disclosure or access.</p>
+
+<p>Any visit to this website will be logged. The log file registers the Internet Protocol (IP) address of
+the computer, websites selected, the browser used, date and time, as well as technical
+information such as the computer&#39;s operating system. This data will be collected for data
+security reasons, for reporting and legitimated purposes as permitted by law (e.g. for reports
+used in an anonymous manner that enables International Relations Cell to identify preferred
+    intern offers and visited web-pages including the different job application options).</p>
+
+<p>The online application web-tool applies cookies (‘session cookies’/’http cookies’) which are
+necessary to maintain a session, to prevent that a logged user has to login several times while
+viewing different subpages, to ease the loading of user’s profile data and storage of data while
+the user is progressing in the data entry or maintenance. The user’s session will be closed by
+    default when the browser connection is terminated.</p>
+
+<p>By using links to websites of external companies and other third parties, International Relations
+Cell shall not be held responsible for compliance with data protection requirements, or the
+    content of such websites.</p>
+            <p>6. Policy change information:</p>
+
+<p>Changed legal requirements or ongoing technical and organizational developments may require
+updating this Privacy Policy. We therefore reserve the right to update or amend the current
+Privacy Policy from time to time. If we make changes to this Privacy Policy, we will revise the
+    revision date stated at the end of this policy.</p>
+
+<p>To print a copy of this policy, please use your browser print button. You can review the recent
+revision at any time using the link that is posted on the website. In case you have questions
+concerning the terms of the policy or you want to address a request, you may direct these to
+    irc@iitkgp.ac.in</p>
+
+            <p>6. Declaration of consent</p>
+
+            <p>By submitting your personal data and/or application you declare that</p>
+<p>(1) You have read, understood and accepted the terms stated in this policy,<br>
+(2) The personal data and information you will provide are complete and valid,<br>
+
+(3) You authorize International Relations Cell, in compliance with applicable laws, to verify or let
+verify on International Relations Cell behalf that the information and statements you have given
+are valid and to perform reference checks if necessary,<br>
+(4) You are consenting to the processing of the information, as described in this policy, within
+this Applicant Management System, but also in subsequent processes and data systems as far
+as required to fulfill the legitimate purposes of International Relations Cell.<br>
+(5) I certify that all statements I have made on this application and on my resume or other
+supplementary materials are true and correct. I acknowledge that any false statement, omission,
+or misrepresentation on this application, my resume, or other supplementary materials will be
+cause for refusal to hire or for immediate termination.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+    $("#cid").click(function() {
+  $("#bid").attr("disabled", !this.checked);
+});
+
+    {% if error %}
+        $(window).on('load',function(){
+            $('#error').modal('show');
+        });
+    {% endif %}
+
+</script>
+
+{% endblock %}

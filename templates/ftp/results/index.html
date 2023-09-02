@@ -1,0 +1,58 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Results | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        <h1>Results</i></h1>
+        <hr
+            style="border: none;outline: none;height: 2px;max-width: 1000px; width: calc(100vw - 20px);background-color: #d5d5d5; margin-top: 10px;margin-bottom: 20px" />
+        <div class="section__projects">
+            {% for foo in result %}
+            {% if foo.project %}
+            <div class="section__projectCard is-collapsed" id="{{foo.project.id}}">
+                <div class="section__projectCardInner" style="height: 650px !important; margin-bottom: 10px;">
+                    <img class="section__projectCardImg" src="../../../media/{{foo.project.project_image}}" alt="" />
+                    <div class="custom-shape-divider-bottom-1665510826">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+                                class="shape-fill"></path>
+                        </svg>
+                    </div>
+                    <div style="padding-left: 15px; padding-right: 15px;">
+                        <p class="section__projectCardTitle">{{foo.project.project_name}}</p>
+                        <p class="section__projectCardSecondaryText">{{foo.project.university}}</p>
+                        <p class="section__projectCardDetail">{{foo.project.project_detail|truncatewords:'50'|slice:'-1'}}...</p>
+                        <p class="section__projectCardMode"><b>Project Mode:</b> {{foo.project.project_mode}}</p>
+                        <!-- <hr /> -->
+                        <p class="section__projectCardSubtitle"><b>Deadline:</b> {{foo.project.deadline}}</p>
+                        <div class="section__tagsContainer">
+                            {% for tag in foo.project.tags.all %}
+                            <p class="section__tag">{{tag}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="section__projectCardAction js-expander">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close js-collapser"></i>
+                    <h1>Results</h1>
+                    <p><b><i class="fas fa-file-signature"></i>Name: </b>{{foo.project.project_name}}</p>
+                    <p><b><i class="fas fa-university"></i>University: </b>{{foo.project.university}}</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b><br><br> <span><b>Project Mode: </b>{{foo.project.project_mode}}</span>{{foo.project.project_detail|linebreaks}}</p>
+                    <p><b><i class="fas fa-users"></i>Selected Applicants: </b></p>
+                    {% for profile in foo.result.all %}
+                    <p><b>{{forloop.counter}}. {{profile.rollno}}</b> - {{profile.fullname}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}
+{% block js %}
+{% endblock %}
