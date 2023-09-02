@@ -1,2 +1,0 @@
-(function(Drupal){'use strict';Drupal.behaviors.addToAny={attach:function(context,settings){if(context!==document&&window.a2a){a2a.init_all();}}};})(Drupal);;(function(drupalSettings){'use strict';window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;if(!drupalSettings.ga){return;}
-for(var i=0;i<drupalSettings.ga.commands.length;i++){ga.apply(this,drupalSettings.ga.commands[i]);}})(drupalSettings);;
