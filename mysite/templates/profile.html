@@ -1,0 +1,623 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}"/>
+    <title>Create Profile</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/boostrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/acc-wizard-master/release/acc-wizard.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+    <!--Avatar-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/css/create_profile.css' %}">
+    <style>
+        .form-radio input:checked + label {
+            border-color: #2a4ba5 !important;
+            z-index: 1;
+            background-color: #fff;
+        }
+        input:focus, textarea:focus {
+            background: none;
+            border: 1px solid #2a4ba5;
+        }
+      
+    </style>
+</head>
+<body style="background: none;">
+    <!--   IRCell  -->   {% endcomment %}
+
+{% block head %}
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/icon" href="{% static 'ftp/login/logo.png' %}"/>
+    <title>Create Profile</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/boostrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/vendor/acc-wizard-master/release/acc-wizard.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+    <!--Avatar-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'ftp/profile/assets/css/create_profile.css' %}">
+    <style>
+        .form-radio input:checked + label {
+            border-color: #00506B !important;
+            z-index: 1;
+            background-color: #fff;
+        }
+        input:focus, textarea:focus {
+            background: none;
+            border: 1px solid #2a4ba5;
+        }
+       body{
+           background:none !important;
+       }
+    </style>{% endblock %}
+{% block main %}
+    <div class="main" style="min-h">
+ <!-- Modal -->
+                                <div class="modal fade" data-backdrop="static" data-keyboard="false" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding-bottom: 0;">
+                        <h3 class="modal-title" >Terms and Conditions
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </h3>
+                    </div>
+                    <div class="modal-body">
+                    <p>International Relations Cell respects the privacy of individuals and is
+                        committed to collect, use
+                        and process personal data in a respectful, secure and lawful manner.</p>
+
+                    <p>With the following terms we inform you about our privacy practices, the
+                        choices you can make
+                        about the ways your information is collected online and how information
+                        is processed and used.</p>
+
+                    <p>Therefore, - before you agree to this policy and provide your personal
+                        data -, please read the
+                        following statements including your obligations carefully:</p>
+
+                    <p><b>1.Purpose:</b></p>
+
+                    <p>The personal information collected and stored in this system will be used
+                        for talent sourcing and
+                        Intern selection process worldwide.</p>
+
+                    <p>International Relations Cell publishes open vacancies on this portal and
+                        offers the opportunity to
+                        apply for a particular research intern. If you are interested in more
+                        than one open vacancy, you
+                        can apply for multiple intern. You may also simply register your
+                        personal data on our portla and
+                        maintain your profile for any potential opportunities. This allows all
+                        of those involved with the
+                        recruiting process to review your background and determine if there is a
+                        potential match.</p>
+
+                    <p>Personal data you entered will be stored in your registration profile
+                        independently of the 2
+                        options (described below) you are going to use.</p>
+
+                    <p>For purposes of our process, recruiter may be defined as any individual
+                        involved with the
+                        recruiting process.For further clarification, please note that when you
+                        choose:</p>
+
+                    <p><b>2. Provisions from International Relations Cell:</b></p>
+                    <p>International Relations Cell IIT Kharagpur only provides a platform
+                        shortlisting and interview by
+                        a professor. International Relations Cell is in no way responsible after
+                        the student has accepted
+                        the intern offer.</p>
+                    <p><b>3. Your obligations &amp; Information on storage and maintenance of the
+                        data:</b></p>
+
+                    <p>Data entry:</p>
+                    <p>International Relations Cell does not intend to collect and process any
+                        personal data (e.g. your
+                        contact data, CV, job experiences and skills), unless you provide these
+                        voluntarily, or it is
+                        permitted under the respective laws governing the protection of such
+                        data. Please note not to
+                        upload personal data or file attachments containing information that are
+                        not required for our
+                        selection process, especially data that are sensitive in their type of
+                        nature.</p>
+
+                    <p>Data updates:</p>
+
+
+                    <p>Keeping your profile accurate and up to date is very important. If your
+                        profile information is
+                        incomplete, inaccurate or not current, please contact us on
+                        irc@iitkgp.ac.in to make the
+                        necessary updates.</p>
+
+                    <p>Data deletion:</p>
+
+                    <p>You do not have the possibility to withdraw single applications online in
+                        the system once
+                        applied.<br>
+                        You cannot delete your complete profile which includes the removal of
+                        your personal identifying
+                        data on all of your applications and deletion of your individual account
+                        data and password.</p>
+
+                    <p>Password and data confidentiality:</p>
+
+                    <p>You are responsible to keep your profile account data and your individual
+                        password confidential
+                        and must not share them with anyone.</p>
+
+                    <p>In case you believe for any reason that your authorization or the
+                        confidentiality, security and
+                        integrity of your pass code, personal data or other information are
+                        compromised you will contact
+                        immediately International Relations Cell</p>
+
+                    <p>International Relations Cell utmost concern in our talent sourcing and
+                        employee selection is to
+                        apply a very careful and fair decision making process. For traceability
+                        we will record certain
+                        personal data and data collected in the context with your application
+                        even if the selection
+                        process for a vacant position was already finalized, which can also mean
+                        that you will be
+                        contacted if the same or a similar job position is vacant in the
+                        future.</p>
+
+                    <p><b>4. Recipients of your personal data:</b></p>
+
+                    <p>Depending upon which location processes your application, the personal
+                        data will be initially
+                        controlled by or on behalf of International Relations Cell. According to
+                        our corporate global organizational structure your personal data may be
+                        disclosed
+                        to authorized personnel (such as our Recruiters) in International
+                        Relations Cell. The authorized
+                        personnel may be employed by legal entities other than the one offering
+                        the vacant job position.</p>
+
+                    <p>Even in the case that your data are transferred to/ are accessible by
+                        personnel located in
+                        entities outside Indian Area, International Relations Cell are
+                        endeavored to ensure a sufficient
+                        data privacy level, and to safeguard and protect your data.<br>
+                        Your personal data may be disclosed to other than International
+                        Relations Cell that are
+                        contracted for providing technical support or other relevant services
+                        for the respective. Please
+                        be assured that International Relations Cell took proper measures to
+                        ensure an adequate data
+                        privacy level, such as having contractual obligations with the
+                        respective companies in place and
+                        limitation of the access purposes and rights.</p>
+
+                    <p><b>5. Data security and technical information:</b></p>
+
+                    <p>With implementation of technical and organizational measures
+                        International Relations Cell
+                        endeavors to protect your personal data against accidental or unlawful
+                        destruction, alteration or
+                        loss, unauthorized disclosure or access.</p>
+
+                    <p>Any visit to this website will be logged. The log file registers the
+                        Internet Protocol (IP) address of
+                        the computer, websites selected, the browser used, date and time, as
+                        well as technical
+                        information such as the computer's operating system. This data will be
+                        collected for data
+                        security reasons, for reporting and legitimated purposes as permitted by
+                        law (e.g. for reports
+                        used in an anonymous manner that enables International Relations Cell to
+                        identify preferred
+                        intern offers and visited web-pages including the different job
+                        application options).</p>
+
+                    <p>The online application web-tool applies cookies (‘session cookies’/’http
+                        cookies’) which are
+                        necessary to maintain a session, to prevent that a logged user has to
+                        login several times while
+                        viewing different subpages, to ease the loading of user’s profile data
+                        and storage of data while
+                        the user is progressing in the data entry or maintenance. The user’s
+                        session will be closed by
+                        default when the browser connection is terminated.</p>
+
+                    <p>By using links to websites of external companies and other third parties,
+                        International Relations
+                        Cell shall not be held responsible for compliance with data protection
+                        requirements, or the
+                        content of such websites.</p>
+                    <p><b>6. Policy change information:</b></p>
+
+                    <p>Changed legal requirements or ongoing technical and organizational
+                        developments may require
+                        updating this Privacy Policy. We therefore reserve the right to update
+                        or amend the current
+                        Privacy Policy from time to time. If we make changes to this Privacy
+                        Policy, we will revise the
+                        revision date stated at the end of this policy.</p>
+
+                    <p>To print a copy of this policy, please use your browser print button. You
+                        can review the recent
+                        revision at any time using the link that is posted on the website. In
+                        case you have questions
+                        concerning the terms of the policy or you want to address a request, you
+                        may direct these to
+                        irc@iitkgp.ac.in</p>
+
+                    <p><b>7. Declaration of consent</b></p>
+
+                    <p>By submitting your personal data and/or application you declare that</p>
+                    <p>(1) You have read, understood and accepted the terms stated in this
+                        policy,<br>
+                        (2) The personal data and information you will provide are complete and
+                        valid,<br>
+
+                        (3) You authorize International Relations Cell, in compliance with
+                        applicable laws, to verify or let
+                        verify on International Relations Cell behalf that the information and
+                        statements you have given
+                        are valid and to perform reference checks if necessary,<br>
+                        (4) You are consenting to the processing of the information, as
+                        described in this policy, within
+                        this Applicant Management System, but also in subsequent processes and
+                        data systems as far
+                        as required to fulfill the legitimate purposes of International
+                        Relations Cell.<br>
+                        (5) I certify that all statements I have made on this application and on
+                        my resume or other
+                        supplementary materials are true and correct. I acknowledge that any
+                        false statement, omission,
+                        or misrepresentation on this application, my resume, or other
+                        supplementary materials will be
+                        cause for refusal to hire or for immediate termination.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;">I accept the above terms and conditions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                <!--Modal ends here-->
+        <div class="container" id="container" style="border:2px solid #2a4ba5 !important;">
+            <div class="acc-wizard">
+                <div class="panel-group" id="accordion">
+                    <div class="warn">
+                        Please note that you will not be allowed to edit any of the below information once your profile is created.<br>
+                        You can only edit your Profile picture, Passport-status, and Contact Details.
+                    </div>
+                    <div class="panel panel-default"> <!--About-->
+                        <div class="panel-heading" id="headingOne">
+                            <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                <a id="one" href="#collapseOne" data-toggle="collapse" data-parent="#accordion"></a>
+                                About
+                            </h3>
+                        </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form name="form1">
+                                    <fieldset>
+                                        <div class="form-row" id="image_div">
+                                            <div class="avatar-upload">
+                                            <span class="required" id="imageUpload_req"></span>
+                                                <div class="avatar-edit">
+                                                    <input type='file' id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" onchange="create_temp(this); validate_empty(this)"/>
+                                                    <label for="imageUpload"></label>
+                                                </div>
+                                                <div class="avatar-preview">
+                                                    <div id="imagePreview" style="background-image: url('{% static 'ftp/profile/assets/images/default-avatar.jpg' %}');">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="fullname" class="form-label">Full name <span class="required" id="fullname_req"></span></label>
+                                                <input type="text" name="fullname" id="fullname" placeholder="" onblur="validate_empty(this)" style="border-color: #00506B;"/>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-row">
+                                            <div class="form-group-flex">
+                                                <div class="form-radio">
+                                                    <label for="gender">Gender</label>
+                                                    <div class="form-flex">
+                                                        <input type="radio"  name="gender" value="Male" id="male" checked="checked"/>
+                                                        <label for="male" style="cursor: pointer;">Male</label>
+                        
+                                                        <input type="radio" name="gender" value="Female" id="female"/>
+                                                        <label for="female" style="cursor: pointer;">Female</label>
+
+                                                        <input type="radio" name="gender" value="Other" id="other"/>
+                                                        <label for="other" style="cursor: pointer;">Other</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-flex">
+                                                <div class="form-radio">
+                                                    <label for="passport">Do you have a passport?</label>
+                                                    <div class="form-flex">
+                                                        <input type="radio"  name="passport" value="yes" id="yes" checked="checked"/>
+                                                        <label for="yes" style="cursor: pointer;">Yes</label>
+                        
+                                                        <input type="radio" name="passport" value="no" id="no"/>
+                                                        <label for="no" style="cursor: pointer;">No</label>
+
+                                                        <input type="radio" name="passport" value="process" id="process"/>
+                                                        <label for="process" style="cursor: pointer;">In-process</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                    </fieldset>
+                                </form>
+                                <button class="button next" style="vertical-align:middle; background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;" onclick="validateForm('form1')"><span>Next </span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default"><!--Academic Details-->
+                        <div class="panel-heading" id="headingTwo">
+                            <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                <a id="two" href="#collapseTwo" data-toggle="collapse" data-parent="#accordion"></a>
+                                Academic Details
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse"><!---->
+                            <div class="panel-body">
+                                <form name="form2">
+                                    <fieldset>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="rollno" class="form-label">Roll No.:<span class="required" id="rollno_req"></span></label>
+                                                <input type="text" name="rollno" id="rollno" placeholder="20AE10001" autocapitalize="characters" onblur="validate_roll(this); autoupdate(this);" onkeyup="autoupdate(this);"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dept" class="form-label">Department/Centre/School:<span class="required" id="dept_req"></span></label>
+                                                <input type="text" name="department" id="dept" placeholder="" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cv" class="form-label" >
+                                                    Upload your CV (in .pdf):<span class="required" id="cv_req"></span>
+                                                </label>
+                                                <input type="file" id="cv" name="cv" accept=".pdf" onchange="validate_empty(this)"/>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="year" class="form-label">Year of study:</label>
+                                                <input type="number" name="year" id="year" placeholder="" readonly/>
+                                            </div>
+    
+                                            <div class="form-group">
+                                                <label for="cgpa" class="form-label">CGPA as per your latest Transcript:<span class="required" id="cgpa_req"></span></label>
+                                                <input type="number" name="cgpa" id="cgpa" onblur="validate_cgpa(this)"/>
+                                            </div>
+                                           <div class="form-group">
+                                                <label class="form-label" >
+                                                    Transcript (ERP Generated) or Degree Certificate (in .pdf):
+                                                    <div class="popup" onmouseenter="myFunction()" onmouseleave="myFunction()">
+                                                        <i class="im im-info" style="color: #808080"></i>
+                                                        <span class="popuptext" id="myPopup">Login to ERP and follow:<br/>Academic => Students => Your Academic Information => Performance => Curricula cum Performance => Print</span>
+                                                    </div>
+                                                    <span class="required" id="transcript_req"></span>
+                                                </label>
+                                                <input type="file" id="transcript" accept=".pdf" name="transcript" onchange="validate_empty(this)"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-row" style="margin-top:-25px">
+                                            <div class="form-group-flex">
+                                                <div class="form-radio" style="width:230px">
+                                                    <label for="degree_type">Degree:</label>
+                                                    <div class="form-flex">
+                                                        <input type="radio"  name="degree_type" value="UG" id="UG" checked="checked"/>
+                                                        <label for="UG" style="cursor: pointer;">UG</label>
+                        
+                                                        <input type="radio" name="degree_type" value="PG" id="PG"/>
+                                                        <label for="PG" style="cursor: pointer;">PG</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <button class="button previous" style="vertical-align:middle; float: left; background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;" onclick="previous('one')"><span>Previous</span></button>
+                                <button class="button next" id="mid_next" style="vertical-align:middle; background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;" onclick="validateForm('form2')"><span>Next </span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingThree">
+                            <h3 style="color: rgba(0, 0, 0, 0.5); cursor: default;">
+                                <a id="three" href="#collapseThree" data-toggle="collapse" data-parent="#accordion"></a>
+                                Contact Details
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form name="form3">
+                                    <fieldset>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="contact" class="form-label">Phone Number(without +91):<span class="required" id="contact_req"></span></label>
+                                                <input type="number" name="contact" id="contact" placeholder="" onblur="validate_contact(this)" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="alt_email" class="form-label">Alternate Email:<span class="required" id="alt_email_req"></span></label>
+                                                <input type="email" name="alt_email" id="alt_email" placeholder="" onblur="validate_email(this)" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <h5>
+                                        By clicking on submit, you certify that all statements you have made on this application and documents submitted are true & correct.
+                                        I will abide by the <a href="" data-toggle="modal" data-target="#exampleModalCenter">Terms and Conditions</a> set by International Relations Cell, IIT Kharagpur.
+                                    </h5>
+                                </form>
+
+                               
+                                <button class="button previous" style="vertical-align:middle;float:left; background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;" onclick="previous('two');">
+                                    <span>
+                                        Previous
+                                    </span>
+                                </button>
+                                <button class="button" id="submit" style="vertical-align:middle; background:linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B) !important;" onclick="validateForm('form3');">
+                                    <span>
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% comment %} <footer id="footer" class="footer-1">
+        <div class="main-footer typo-light">
+            <div class="container foobar">
+                <div class="row">
+    
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="widget subscribe no-box">
+                            <h5 class="widget-title">International Relations Cell<span></span></h5>
+                            <p>The International Relations Cell (IRC) is a student body working under the Office of International Relations (OIR). It works to promote the exchange of students, faculties, and ideas between IIT Kharagpur and her international partners and establishing the globalization of IIT Kharagpur.</p>
+                        </div>
+                    </div>
+    
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Quick Links<div class="hor_lines"><span></span></div></h5>
+                            <ul class="thumbnail-widget">
+                                <li>
+                                    <div class="thumb-content"><a href="/#faq">FAQ</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="/#contact">Contact Us</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="/#about">About</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="/notice">Notice Board</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+    
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Contact Us<span></span></h5>
+    
+                            <p><a href="mailto:info@domain.com" title="glorythemes">irc@iitkgp.ac.in</a></p>
+                            <ul class="social-footer2">
+                                <li class=""><a href="https://www.youtube.com/" target="_blank" title="Youtube"><i class="im im-youtube"></i></a></li>
+                                <li class=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="im im-facebook"></i></a></li>
+                                <li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><i class="im im-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        </footer>{% endcomment %}
+    <div id="hidden-form" style="display: none !important;" >
+        <form action="{% url 'ftp:create_profile' %}" method="POST" name="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- form-data1-->
+            <input type='file' name="photo"/>
+
+            <input type="text" name="fullname"/>
+
+            <input type="radio"  name="gender" value="Male"/>
+            <input type="radio" name="gender" value="Female"/>
+            <input type="radio" name="gender" value="Other"/>
+
+            <input type="radio"  name="passport" value="yes"/>
+            <input type="radio" name="passport" value="no"/>
+            <input type="radio" name="passport" value="process"/>
+            
+
+        <!--form-data2-->
+            <input type="text" name="rollno"/>
+            <input type="text" name="department"/>
+            <input type="file" name="cv"/>
+            <input type="number" name="year"/>
+            <input type="number" name="cgpa"/>
+            <input type="file" name="transcript"/>
+
+            <input type="radio"  name="degree_type" value="UG"/>
+            <input type="radio"  name="degree_type" value="PG"/>
+
+        <!--form-data3-->
+            <input type="number" name="contact"/>
+            <input type="text" name="alt_email"/>
+        <!-- viewed notifications -->
+            <input type="text" name="viewedNotifications" value=","/>
+        </form>
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'ftp/profile/assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/boostrap/bootstrap.min.js' %}"></script>
+    <!--<script src="{% static 'ftp/profile/assets/vendor/acc-wizard-master/release/acc-wizard.min.js' %}"></script>-->
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-validation/dist/additional-methods.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/jquery-steps/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/vendor/minimalist-picker/dobpicker.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/js/main.js' %}"></script>
+    <script src="{% static 'ftp/profile/assets/js/create_profile.js' %}"></script>
+	<script src="bootstrap.min.js"></script>
+    <script type="text/javascript">
+         $(document).ready(function(){
+             $('#exampleModalCenter').modal('show');
+          });
+    </script>
+    <script>
+        $(document).bind("contextmenu",function(e) {
+            e.preventDefault();
+        });
+        $(document).keydown(function(e){
+            if(e.which === 123){
+                return false;
+            }
+            else if (event.ctrlKey && event.shiftKey && ((event.keyCode == 73)||(event.keyCode == 74)||(event.keyCode == 67))) {
+                return false;
+            }
+        });
+    </script>
+
+    {% endblock %}
+{% comment %} </body>
+</html>  {% endcomment %}

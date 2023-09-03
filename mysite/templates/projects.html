@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% block main %}
+<script>
+
+	
+	function check(params) {
+		console.log(params);
+	}
+</script>
+<script>
+	$(document).ready(
+
+
+		function () {
+
+			setCheckboxSelectLabels();
+
+			$('.toggle-next').click(function () {
+				$(this).next('.checkboxes').slideToggle(400);
+			});
+
+			$('.ckkBox').change(function () {
+				if ($('.ckkBox:checked').length > 0)
+					$(".reqbtn").removeClass("disabled");
+				else
+					$(".reqbtn").addClass("disabled");
+				{% comment %} console.log($(".other:checked")); {% endcomment %}
+				if ($(".other:checked").length == 1) {
+					console.log("checkd");
+					$(".req-input").css("display", "block");
+					$(".req-input").prop('required', true);
+				}
+				else {
+					$(".req-input").css("display", "none");
+					$(".req-input").prop('required', false);
+				}
+
+				toggleCheckedAll(this);
+				setCheckboxSelectLabels();
+			});
+
+		});
+
+
+	function setCheckboxSelectLabels(elem) {
+		var wrappers = $('.wrapper');
+		$.each(wrappers, function (key, wrapper) {
+			var checkboxes = $(wrapper).find('.ckkBox');
+			var label = $(wrapper).find('.checkboxes').attr('id');
+			var prevText = '';
+			$.each(checkboxes, function (i, checkbox) {
+				var button = $(wrapper).find('button');
+				if ($(checkbox).prop('checked') == true) {
+					var text = $(checkbox).next().html();
+					var btnText = prevText + text;
+					var numberOfChecked = $(wrapper).find('input.val:checkbox:checked').length;
+					if (numberOfChecked >= 4) {
+						btnText = numberOfChecked + ' ' + label + ' selected';
+					}
+					$(button).text(btnText);
+					prevText = btnText + ', ';
+				}
+			});
+		});
+	}
+
+	function toggleCheckedAll(checkbox) {
+		var apply = $(checkbox).closest('.wrapper').find('.apply-selection');
+		apply.fadeIn('slow');
+
+		var val = $(checkbox).closest('.checkboxes').find('.val');
+		var all = $(checkbox).closest('.checkboxes').find('.all');
+		var ckkBox = $(checkbox).closest('.checkboxes').find('.ckkBox');
+
+		if (!$(ckkBox).is(':checked')) {
+			$(all).prop('checked', true);
+			return;
+		}
+
+		if ($(checkbox).hasClass('all')) {
+			$(val).prop('checked', false);
+		} else {
+			$(all).prop('checked', false);
+		}
+	}
+</script>
+<div>
+	<a href="{% url 'ftp:yourapplications' %}">
+		<button class="viewsApplicationsBtn" style="background: linear-gradient(135deg, #001A3B , #00506B , #007C96 , #00809B);--bs-link-hover-color: #fff;
+		text-decoration: none;border: 2px solid white;position:absolute;top:80px;right:10px;width:200px;height:50px;color:white;font-size:15px">Go to
+			applied Projects <i class="fas fa-arrow-right" style="padding-left: 5px"></i></button>
+	</a>
+	{% for p in allprojects %}
+	{% if p.display %}
+	<div class="projectFormContainer">
+		<form class="projectForm" id="project-{{p.id}}" action="{% url 'ftp:apply_project' project_id=p.id %}"
+			method="POST" enctype="multipart/form-data"
+			onsubmit="if(!confirm('Are you sure you want to submit? You cannot change the details later.')){return false;}">
+			{% csrf_token %}
+			<i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+			<h1>{{p.project_name}}</h1>
+			<h2>{{p.university}}</h2>
+			<div class="projectForm__editables">
+				{% if p.special %}
+				<p>Letter Of Interest:</p>
+				<textarea name="Loi" class="projectForm__ftpLOI"
+					placeholder="A brief essay indicating your interest in the research project and your relevant background (500 words)"
+					onkeyup="wordCountCheck(event)"></textarea>
+				{% endif %}
+				<p>Statement Of Purpose:</p>
+				<textarea class="projectForm__ftpSOP" type="text"
+					placeholder="Write a statement of importance of the proposed research to your future in 150 to 200 words."
+					onkeyup="wordCountCheck(event)" name="sop"></textarea>
+				{% if p.multi_domain %}
+				<div class="projectForm__domain">
+					Select Project Domain Pref. 1
+					<select name="proj_domain1" class="form-group">
+						{% for domain in proj_domains %}
+						{% if domain.project == p %}
+						<option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+						</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+				<div class="projectForm__domain">
+					Select Project Domain Pref. 2
+					<select name="proj_domain2" class="form-group">
+						{% for domain in proj_domains %}
+						{% if domain.project == p %}
+						<option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+						</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+				<div class="projectForm__domain">
+					Select Project Domain Pref. 3
+					<select name="proj_domain3" class="form-group">
+						{% for domain in proj_domains %}
+						{% if domain.project == p %}
+						<option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+						</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+				{% endif %}
+				<input type="file" class="section__uploadFileInput" accept="application/pdf"
+					onchange="changedFile(event)" name="ncv" />
+				<button class=" project__uploadFileBtn" style="background-color: #00506B;" onclick="uploadFile(event)">
+					Apply with a different CV
+				</button>
+				<p>(optional)</p>
+			</div>
+			<div class=" projectForm__wordCountAlert">
+				<p style="margin-bottom: 10px;">SOP word count: 0<br />LOI word count: 0</p>
+				<p>SOP limit: 150-200 words<br />{% if p.special %}LOI limit: 500 words{% endif %}</p>
+			</div>
+			<button class="projectForm__submitBtn projectForm__disabledBtn" onmouseenter="openWordCountAlert(event)"
+				onclick="submitProjectForm(event, '')" onmouseleave="closeWordCountAlert(event)"
+				onblur="closeWordCountAlert(event)">Submit</button>
+		</form>
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>
+<ul class="cards">
+	{% for project in allprojects %}
+	{% if project.display %}
+	<li>
+		<div class="card">
+			<img src="{{project.project_image.url}}" class="card__image" alt="" />
+			<div class="card__overlay">
+
+				<div class="card__header">
+					<svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path d="M 40 80 c 22 0 40 -22 40 -40 v 40 Z"	 ></path></svg>
+					<a href="{% url 'ftp:add_favorite' pk=project.id %}"><i class="{% if project in bookmarks %}fas{% else %}far{% endif %} fa-bookmark bookmark"
+						id="book{{ project.id }}"></i></a>
+					<div class="card__header-text">
+						<h3 class="card__title">{{project.university}}</h3>
+						<!-- <span class="card__status">1 hour ago</span> -->
+					</div>
+				</div>
+				<p class="card__description">{{project.project_detail|slice:'50'}}...</p>
+				<div style="display:grid;grid-template-columns:repeat(2,1fr);margin:auto;text-align:center">
+					<a href="#"><button style="margin-bottom:10px">READ MORE</button></a>
+					<button style="margin-bottom:10px" onclick="openForm('{{project.id}}')">APPLY NOW</button>
+				</div>
+			</div>
+		</div>
+	</li>
+	{% endif %}
+	{% endfor %}
+</ul>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+	integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+	crossorigin="anonymous"></script>
+{% endblock %}
