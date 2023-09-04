@@ -165,10 +165,12 @@
 	{% endif %}
 	{% endfor %}
 </div>
+<h1 style="text-align: center;margin-top:120px">Projects</h1>
 <ul class="cards">
+	
 	{% for project in allprojects %}
 	{% if project.display %}
-	<li>
+	<li class="project_cards">
 		<div class="card">
 			<img src="{{project.project_image.url}}" class="card__image" alt="" />
 			<div class="card__overlay">

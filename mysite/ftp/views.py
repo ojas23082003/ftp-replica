@@ -808,7 +808,7 @@ def view_scholarships(request):
 
     print(success)
 
-    return render(request, 'ftp/Scholarship/scholarships.html',
+    return render(request, 'scholarships.html',
                   {"success": success, 'allprojects': rem_scholarship, 'prof': profile, 'bookmarks': bookmarked, "pendingNotifications": pendingNotifications, "appliedGKF": appliedGKF})
 
 
@@ -1059,7 +1059,7 @@ def already_applied(request):
         current_time = datetime.datetime.now().date()
         # STatus=Status.objects.filter(profile=profile)
 
-        return render(request, 'ftp/ProjectsPage/yourapplications.html',
+        return render(request, 'yourapplications.html',
                       {'allprojects': applied_projects, 'prof': profile, "success": success, "bookmarks": bookmarked, 'date': current_time, 'ircstatus': applied_projects_app, "pendingNotifications": pendingNotifications})
 
 
@@ -1610,7 +1610,7 @@ def view_favorite(request):
             for app in applied_projects_app:
                 applied_projects.append(app.project)
             current_time = datetime.datetime.now().date()
-            return render(request, 'ftp/ProjectsPage/bookmarks.html',
+            return render(request, 'bookmarks.html',
                           {"success": success, 'allprojects': bookmarked, 'prof': profile, 'applieds': applied_projects, 'proj_domains': proj_domains, 'app': applied_projects_app, 'date': current_time, 'selected': profile.selected, 'pendingNotifications': pendingNotifications})
 
 
@@ -1631,7 +1631,7 @@ def add_favorite(request, pk):
                 project.bookmarks.remove(profile)
 
             data = {'fb': True}
-            return redirect('/ftp/projects')
+            return redirect('/projects')
         except IndexError:
             return JsonResponse(data)
 
@@ -1687,7 +1687,7 @@ def view_profile(request):
                     statusId + s[1] + ','
                 profile.save()
 
-        return render(request, 'ftp/profile/view_profile.html', {"prof": profile, "pendingNotifications": pendingNotifications})
+        return render(request, 'view_profile.html', {"prof": profile, "pendingNotifications": pendingNotifications})
 
 
 # def dyuti(request):

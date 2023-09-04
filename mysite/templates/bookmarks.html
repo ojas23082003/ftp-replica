@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bookmarks | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<script type="text/javascript" src="{% static 'ftp/ProjectsPage/js/modal.js' %}"></script>
+<main>
+    {% for p in allprojects %}
+    {% if p.display %}
+    <div class="projectFormContainer">
+        {% if p in applieds %}
+        {% for i in app %}
+        {% if i.project.id == p.id %}
+        <form class="projectForm" id="project-{{p.id}}">
+            <i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+            <h1>{{p.project_name}}</h1>
+            <h2>{{p.university}}</h2>
+            <div class="projectForm__editables">
+                {% if p.special %}
+                <p>Letter Of Interest:</p>
+                <textarea class="projectForm__ftpLOI" type="text" disabled>{{i.Loi}}</textarea>
+                {% endif %}
+                <p>Statement Of Purpose:</p>
+                <textarea class="projectForm__ftpSOP" type="text" disabled>{{i.sop}}</textarea>
+                {% if p.multi_domain %}
+                <div class="projectForm__domain">
+                    Project Domain Pref. 1:&nbsp;<b>{{ i.project_domain1 }}</b>
+                </div>
+                <div class="projectForm__domain">
+                    Project Domain Pref. 2:&nbsp;<b>{{ i.project_domain2 }}</b>
+                    </select>
+                </div>
+                <div class="projectForm__domain">
+                    Project Domain Pref. 3:&nbsp;<b>{{ i.project_domain3 }}</b>
+                </div>
+                {% endif %}
+            </div>
+            {% if i.ncv %}
+            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                onclick="window.open('{{ MEDIA_URL }}{{ i.ncv }}', '_blank')">Your CV for this project:
+                Different</button>
+            {% else %}
+            <button class="project__uploadFileBtn" style="background-color: #00506B;"
+                onclick="window.open('{{ MEDIA_URL }}{{ prof.cv }}', '_blank')">Your CV for this
+                project: Default</button>
+            {% endif %}
+        </form>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <form class="projectForm" id="project-{{p.id}}" action="{% url 'ftp:apply_project' project_id=p.id %}"
+            method="POST" enctype="multipart/form-data"
+            onsubmit="if(!confirm('Are you sure you want to submit? You cannot change the details later.')){return false;}">
+            {% csrf_token %}
+            <i class="fa fa-close" onclick="closeForm('{{p.id}}')"></i>
+            <h1>{{p.project_name}}</h1>
+            <h2>{{p.university}}</h2>
+            <div class="projectForm__editables">
+                {% if p.special %}
+                <p>Letter Of Interest:</p>
+                <textarea name="Loi" class="projectForm__ftpLOI"
+                    placeholder="A brief essay indicating your interest in the research project and your relevant background (500 words)"
+                    onkeyup="wordCountCheck(event)"></textarea>
+                {% endif %}
+                <p>Statement Of Purpose:</p>
+                <textarea class="projectForm__ftpSOP" type="text"
+                    placeholder="Write a statement of importance of the proposed research to your future in 250 words."
+                    onkeyup="wordCountCheck(event)" name="sop"></textarea>
+                {% if p.multi_domain %}
+                <div class="projectForm__domain">
+                    Select Project Domain Pref. 1
+                    <select name="proj_domain1" class="form-group">
+                        {% for domain in proj_domains %}
+                        {% if domain.project == p %}
+                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                        </option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="projectForm__domain">
+                    Select Project Domain Pref. 2
+                    <select name="proj_domain2" class="form-group">
+                        {% for domain in proj_domains %}
+                        {% if domain.project == p %}
+                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                        </option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="projectForm__domain">
+                    Select Project Domain Pref. 3
+                    <select name="proj_domain3" class="form-group">
+                        {% for domain in proj_domains %}
+                        {% if domain.project == p %}
+                        <option style="text-align: center" value="{{ domain.name }}">{{ domain.name }}
+                        </option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endif %}
+                <input type="file" class="section__uploadFileInput" accept="application/pdf"
+                    onchange="changedFile(event)" name="ncv" />
+                <button class=" project__uploadFileBtn" style="background-color: #00506B;" onclick="uploadFile(event)">
+                    Apply with a different CV
+                </button>
+                <p>(optional)</p>
+            </div>
+            <div class=" projectForm__wordCountAlert">
+                <p style="margin-bottom: 10px;">SOP word count: 0<br />LOI word count: 0</p>
+                <p>SOP limit: 150-1250 words<br />{% if p.special %}LOI limit: 500 words{% endif %}</p>
+            </div>
+            <button class="projectForm__submitBtn projectForm__disabledBtn" onmouseenter="openWordCountAlert(event)"
+                onclick="submitProjectForm(event, '')" onmouseleave="closeWordCountAlert(event)"
+                onblur="closeWordCountAlert(event)">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <section>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Bookmarks</h1>
+        <hr
+            style="border: none;outline: none;height: 2px;max-width: 1000px; width: calc(100vw - 20px);background-color: #d5d5d5; margin-top: 10px;margin-bottom: 20px" />
+        {% if success %}
+        <h2>No Bookmarked Projects</h2>
+        {% else %}
+        <div class="section__projects">
+            {% for project in allprojects %}
+            {% if project.display %}
+            <li>
+                <div class="card">
+                    <img src="{{project.project_image.url}}" class="card__image" alt="" />
+                    <div class="card__overlay">
+        
+                        <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path d="M 40 80 c 22 0 40 -22 40 -40 v 40 Z"	 ></path></svg>
+                            <a href="{% url 'ftp:add_favorite' pk=project.id %}"><i class="{% if project in bookmarks %}fas{% else %}far{% endif %} fa-bookmark bookmark"
+                                id="book{{ project.id }}"></i></a>
+                            <div class="card__header-text">
+                                <h3 class="card__title">{{project.university}}</h3>
+                                <!-- <span class="card__status">1 hour ago</span> -->
+                            </div>
+                        </div>
+                        <p class="card__description">{{project.project_detail|slice:'50'}}...</p>
+                        <div style="display:grid;grid-template-columns:repeat(2,1fr);margin:auto;text-align:center">
+                            <a href="#"><button style="margin-bottom:10px">READ MORE</button></a>
+                            <button style="margin-bottom:10px" onclick="openForm('{{project.id}}')">APPLY NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
+{% block js %}
+<script>
+    
+</script>
+{% endblock %}

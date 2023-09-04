@@ -125,7 +125,7 @@ class Project(models.Model):
     project_mode = models.CharField(
         max_length=30, choices=Proj_mode, default="Remote")
     project_time = models.CharField(max_length=100, null=True)
-    project_image = models.FileField(null=True, blank=True)
+    project_image = models.FileField(null=True, blank=True, upload_to='projects')
     display = models.BooleanField(default=False)
     special = models.BooleanField(default=False)
     deadline = models.DateField(null=True)
